@@ -1,0 +1,1130 @@
+{
+  "schema_version": 1,
+  "runs": {
+    "hm_data_snapshot_v1": {
+      "status": "complete",
+      "revision": "7abf5d46a48534d918704ca2af278861b932f4dc",
+      "files": 18,
+      "artifacts": "data/download_manifest.json",
+      "updated_at": "2026-10-14T17:23:38+03:00",
+      "last_message": "Локальный H&M скачан, размеры и SHA256 проверены; проверено чтение всех label-таблиц."
+    },
+    "hm_global_popularity_v1": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.0035739078014296673
+      },
+      "test_metrics": {
+        "map": 0.0030455769442783946
+      },
+      "artifacts": "baseline/results/simple_metrics.json",
+      "updated_at": "2026-10-14T17:23:38+03:00",
+      "last_message": "Завершён baseline global_popularity на полном validation/test"
+    },
+    "hm_past_visit_v1": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.007816613709866022
+      },
+      "test_metrics": {
+        "map": 0.007946612394759278
+      },
+      "artifacts": "baseline/results/simple_metrics.json",
+      "updated_at": "2026-10-14T17:23:38+03:00",
+      "last_message": "Завершён baseline past_visit на полном validation/test"
+    },
+    "hm_idgnn_last_seed_42_v1": {
+      "status": "complete",
+      "seed": 42,
+      "artifacts": "RelBenchGNN/results/seed_42",
+      "updated_at": "2026-10-14T18:38:23+03:00",
+      "last_message": "Полный прогон ID-GNN завершён; метрики прочитаны из итогового файла.",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 512,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "temporal_strategy": "last",
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/seed_42",
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": true
+      },
+      "current_epoch": 20,
+      "train_step": 2000,
+      "elapsed_note": "Эпоха считается завершённой только после записи validation метрики.",
+      "epoch": 20,
+      "train_loss": 0.037264465778146405,
+      "val_metrics": {
+        "map": 0.02634419239310869
+      },
+      "elapsed_seconds": 4557.071720600128,
+      "test_metrics": {
+        "map": 0.027843150477067403
+      }
+    },
+    "hm_idgnn_last_seed_43_v1": {
+      "status": "cancelled",
+      "seed": 43,
+      "artifacts": "RelBenchGNN/results/seed_43",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 512,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "temporal_strategy": "last",
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 43,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/seed_43",
+        "run_id": null,
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": true
+      },
+      "nodes": {
+        "transactions": 15187287,
+        "article": 105542,
+        "customer": 1371980
+      },
+      "epoch": 0,
+      "current_epoch": 1,
+      "train_step": 308,
+      "elapsed_note": "Эпоха считается завершённой только после записи validation метрики.",
+      "included_in_comparison": false
+    },
+    "hm_idgnn_last_seed_44_v1": {
+      "status": "cancelled",
+      "seed": 44,
+      "artifacts": "RelBenchGNN/results/seed_44",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_idgnn_last_seed_45_v1": {
+      "status": "cancelled",
+      "seed": 45,
+      "artifacts": "RelBenchGNN/results/seed_45",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_idgnn_last_seed_46_v1": {
+      "status": "cancelled",
+      "seed": 46,
+      "artifacts": "RelBenchGNN/results/seed_46",
+      "updated_at": "2026-10-14T18:45:03+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_idgnn_smoke_v1": {
+      "status": "smoke_complete",
+      "smoke": true,
+      "val_metrics": {
+        "map": 0.0
+      },
+      "test_metrics": {
+        "map": 0.03787878787878788
+      },
+      "artifacts": "RelBenchGNN/results/smoke",
+      "updated_at": "2026-10-14T17:23:38+03:00",
+      "last_message": "Короткая техническая проверка завершена; метрики не сравниваются со статьёй."
+    },
+    "hm_reproduction_pipeline_v1": {
+      "status": "complete",
+      "artifacts": "RelBenchGNN/logs",
+      "updated_at": "2026-10-14T19:47:18+03:00",
+      "last_message": "Конвейер завершился с кодом 0; статус подтверждён файлом завершения.",
+      "exit_code": "0"
+    },
+    "hm_visual_report_v1": {
+      "status": "complete",
+      "completed_runs": 1,
+      "verified_inference_runs": 1,
+      "artifacts": "reports/relbench_hm_v1/report.md",
+      "updated_at": "2026-10-14T19:47:18+03:00",
+      "last_message": "Обновлены таблицы и графики результатов"
+    },
+    "hm_postprocess_v1": {
+      "status": "complete",
+      "artifacts": "reports/relbench_hm_v1/report.md",
+      "inference_executed": false,
+      "inference_map_tolerance": 1e-06,
+      "updated_at": "2026-10-14T19:46:58+03:00",
+      "last_message": "Инференс и ручные baseline проверены, таблицы и графики сохранены",
+      "failed_seeds": []
+    },
+    "hm_manual_tree_pipeline_v1": {
+      "status": "complete",
+      "feature_count": 126,
+      "artifacts": "baseline/results/manual_v1",
+      "train_user_times": 50000,
+      "tuning_validation_users": 10000,
+      "evaluation": "full validation/test, exact respective GNN candidate pool",
+      "published_lightgbm_raw_map_percent": {
+        "val": 0.44,
+        "test": 0.38
+      },
+      "published_idgnn_map_percent": {
+        "val": 2.64,
+        "test": 2.81
+      },
+      "updated_at": "2026-10-14T19:46:54+03:00",
+      "last_message": "Дерево и LightGBM с ручными признаками завершены по выбранным seeds",
+      "config": {
+        "adapted_expert_features": true,
+        "feature_count": 126,
+        "train_user_times": 50000,
+        "train_pairs": 803377,
+        "tuning_validation_users": 10000,
+        "decision_tree_depth": 8,
+        "decision_tree_min_leaf": 100,
+        "lightgbm_num_leaves": 31,
+        "lightgbm_rounds": 150,
+        "lightgbm_parameters": {
+          "objective": "binary",
+          "verbosity": -1,
+          "num_threads": 2,
+          "learning_rate": 0.05,
+          "min_data_in_leaf": 100,
+          "max_bin": 127,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 42
+        },
+        "trials": [
+          {
+            "model": "DecisionTree",
+            "max_depth": 8,
+            "validation_tuning_map": 0.019550728080120934
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 12,
+            "validation_tuning_map": 0.019231839400888913
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 16,
+            "validation_tuning_map": 0.018045682761832924
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 15,
+            "validation_tuning_map": 0.0213171714926788
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 31,
+            "validation_tuning_map": 0.021343242168255425
+          }
+        ],
+        "shared_candidates": "each tree seed is evaluated on the exact respective ID-GNN inference pool; cached features use their union",
+        "candidate_stats": {
+          "val": {
+            "mean_candidate_count_union": 28.00647670130741,
+            "users_with_relevant_candidate_fraction_union": 0.0892122024807241,
+            "candidate_recall_union": 0.04479577709974014,
+            "oracle_map_upper_bound_union": 0.044987704737620926
+          },
+          "test": {
+            "mean_candidate_count_union": 28.184275586798524
+          }
+        },
+        "ties": "descending predicted score, ascending article_id; no target-dependent tie breaking"
+      },
+      "candidate_stats": {
+        "mean_candidate_count_union": 28.184275586798524
+      }
+    },
+    "hm_decision_tree_manual_seed_42_v1": {
+      "status": "complete",
+      "seed": 42,
+      "artifacts": "baseline/results/manual_v1/decision_tree/seed_42",
+      "updated_at": "2026-10-14T19:46:10+03:00",
+      "last_message": "Завершён decision_tree; полный validation/test оценён из сохранённой модели",
+      "config": {
+        "adapted_expert_features": true,
+        "feature_count": 126,
+        "train_user_times": 50000,
+        "train_pairs": 803377,
+        "tuning_validation_users": 10000,
+        "decision_tree_depth": 8,
+        "decision_tree_min_leaf": 100,
+        "lightgbm_num_leaves": 31,
+        "lightgbm_rounds": 150,
+        "lightgbm_parameters": {
+          "objective": "binary",
+          "verbosity": -1,
+          "num_threads": 2,
+          "learning_rate": 0.05,
+          "min_data_in_leaf": 100,
+          "max_bin": 127,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 42
+        },
+        "trials": [
+          {
+            "model": "DecisionTree",
+            "max_depth": 8,
+            "validation_tuning_map": 0.019550728080120934
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 12,
+            "validation_tuning_map": 0.019231839400888913
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 16,
+            "validation_tuning_map": 0.018045682761832924
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 15,
+            "validation_tuning_map": 0.0213171714926788
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 31,
+            "validation_tuning_map": 0.021343242168255425
+          }
+        ],
+        "shared_candidates": "each tree seed is evaluated on the exact respective ID-GNN inference pool; cached features use their union",
+        "candidate_stats": {
+          "val": {
+            "mean_candidate_count_union": 28.00647670130741,
+            "users_with_relevant_candidate_fraction_union": 0.0892122024807241,
+            "candidate_recall_union": 0.04479577709974014,
+            "oracle_map_upper_bound_union": 0.044987704737620926
+          },
+          "test": {
+            "mean_candidate_count_union": 28.184275586798524
+          }
+        },
+        "ties": "descending predicted score, ascending article_id; no target-dependent tie breaking"
+      },
+      "val_metrics": {
+        "map": 0.01876612409515324
+      },
+      "test_metrics": {
+        "map": 0.020407610836605028
+      }
+    },
+    "hm_decision_tree_manual_seed_43_v1": {
+      "status": "cancelled",
+      "seed": 43,
+      "artifacts": "baseline/results/manual_v1/decision_tree/seed_43",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_decision_tree_manual_seed_44_v1": {
+      "status": "cancelled",
+      "seed": 44,
+      "artifacts": "baseline/results/manual_v1/decision_tree/seed_44",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_decision_tree_manual_seed_45_v1": {
+      "status": "cancelled",
+      "seed": 45,
+      "artifacts": "baseline/results/manual_v1/decision_tree/seed_45",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_decision_tree_manual_seed_46_v1": {
+      "status": "cancelled",
+      "seed": 46,
+      "artifacts": "baseline/results/manual_v1/decision_tree/seed_46",
+      "updated_at": "2026-10-14T18:45:03+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_lightgbm_manual_seed_42_v1": {
+      "status": "complete",
+      "seed": 42,
+      "artifacts": "baseline/results/manual_v1/lightgbm/seed_42",
+      "updated_at": "2026-10-14T19:46:54+03:00",
+      "last_message": "Завершён lightgbm; полный validation/test оценён из сохранённой модели",
+      "config": {
+        "adapted_expert_features": true,
+        "feature_count": 126,
+        "train_user_times": 50000,
+        "train_pairs": 803377,
+        "tuning_validation_users": 10000,
+        "decision_tree_depth": 8,
+        "decision_tree_min_leaf": 100,
+        "lightgbm_num_leaves": 31,
+        "lightgbm_rounds": 150,
+        "lightgbm_parameters": {
+          "objective": "binary",
+          "verbosity": -1,
+          "num_threads": 2,
+          "learning_rate": 0.05,
+          "min_data_in_leaf": 100,
+          "max_bin": 127,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 42
+        },
+        "trials": [
+          {
+            "model": "DecisionTree",
+            "max_depth": 8,
+            "validation_tuning_map": 0.019550728080120934
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 12,
+            "validation_tuning_map": 0.019231839400888913
+          },
+          {
+            "model": "DecisionTree",
+            "max_depth": 16,
+            "validation_tuning_map": 0.018045682761832924
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 15,
+            "validation_tuning_map": 0.0213171714926788
+          },
+          {
+            "model": "LightGBM",
+            "num_leaves": 31,
+            "validation_tuning_map": 0.021343242168255425
+          }
+        ],
+        "shared_candidates": "each tree seed is evaluated on the exact respective ID-GNN inference pool; cached features use their union",
+        "candidate_stats": {
+          "val": {
+            "mean_candidate_count_union": 28.00647670130741,
+            "users_with_relevant_candidate_fraction_union": 0.0892122024807241,
+            "candidate_recall_union": 0.04479577709974014,
+            "oracle_map_upper_bound_union": 0.044987704737620926
+          },
+          "test": {
+            "mean_candidate_count_union": 28.184275586798524
+          }
+        },
+        "ties": "descending predicted score, ascending article_id; no target-dependent tie breaking"
+      },
+      "val_metrics": {
+        "map": 0.02093176718024488
+      },
+      "test_metrics": {
+        "map": 0.022660772508761556
+      }
+    },
+    "hm_lightgbm_manual_seed_43_v1": {
+      "status": "cancelled",
+      "seed": 43,
+      "artifacts": "baseline/results/manual_v1/lightgbm/seed_43",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_lightgbm_manual_seed_44_v1": {
+      "status": "cancelled",
+      "seed": 44,
+      "artifacts": "baseline/results/manual_v1/lightgbm/seed_44",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_lightgbm_manual_seed_45_v1": {
+      "status": "cancelled",
+      "seed": 45,
+      "artifacts": "baseline/results/manual_v1/lightgbm/seed_45",
+      "updated_at": "2026-10-14T18:45:02+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_lightgbm_manual_seed_46_v1": {
+      "status": "cancelled",
+      "seed": 46,
+      "artifacts": "baseline/results/manual_v1/lightgbm/seed_46",
+      "updated_at": "2026-10-14T18:45:03+03:00",
+      "last_message": "Дополнительный seed отменён пользователем; существующие артефакты сохранены и исключены из итогового сравнения.",
+      "included_in_comparison": false
+    },
+    "hm_idgnn_last_summary_v1": {
+      "status": "complete",
+      "completed_runs": 1,
+      "expected_runs": 1,
+      "val_metrics": {
+        "map": 0.02634419239310869
+      },
+      "test_metrics": {
+        "map": 0.027843150477067403
+      },
+      "artifacts": "RelBenchGNN/results/summary.json",
+      "updated_at": "2026-10-14T19:33:00+03:00",
+      "last_message": "Обновлена сводка завершённых прогонов ID-GNN"
+    },
+    "hm_idgnn_last_seed_42_inference_v1": {
+      "status": "verified",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 512,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "temporal_strategy": "last",
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/seed_42/inference",
+        "run_id": "hm_idgnn_last_seed_42_inference_v1",
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": false
+      },
+      "artifacts": "RelBenchGNN/results/seed_42/inference",
+      "updated_at": "2026-10-14T19:36:13+03:00",
+      "last_message": "Проверка инференса пройдена",
+      "nodes": {
+        "transactions": 15187287,
+        "article": 105542,
+        "customer": 1371980
+      },
+      "error_type": "NameError",
+      "error": "name 'pd' is not defined",
+      "val_metrics": {
+        "map": 0.02634419239310869
+      },
+      "test_metrics": {
+        "map": 0.027843150477067403
+      },
+      "checks": {
+        "val": {
+          "shape": [
+            74575,
+            12
+          ],
+          "shape_ok": true,
+          "ids_valid": true,
+          "unique_ids_per_user": true,
+          "predictions_identical": true,
+          "same_item_at_same_rank_fraction": 1.0,
+          "map_absolute_difference": 0.0,
+          "map_tolerance": 1e-06,
+          "passed": true
+        },
+        "test": {
+          "shape": [
+            67144,
+            12
+          ],
+          "shape_ok": true,
+          "ids_valid": true,
+          "unique_ids_per_user": true,
+          "predictions_identical": true,
+          "same_item_at_same_rank_fraction": 1.0,
+          "map_absolute_difference": 0.0,
+          "map_tolerance": 1e-06,
+          "passed": true
+        }
+      }
+    },
+    "hm_gnn_embedding_pipeline_v1": {
+      "status": "complete",
+      "updated_at": "2026-10-14T20:36:13+03:00",
+      "last_message": "Эксперимент GNN → LightGBM завершил работу с кодом 0"
+    },
+    "hm_idgnn_embeddings_seed_42_v1": {
+      "status": "complete",
+      "config": {
+        "features": [
+          "gnn_000",
+          "gnn_001",
+          "gnn_002",
+          "gnn_003",
+          "gnn_004",
+          "gnn_005",
+          "gnn_006",
+          "gnn_007",
+          "gnn_008",
+          "gnn_009",
+          "gnn_010",
+          "gnn_011",
+          "gnn_012",
+          "gnn_013",
+          "gnn_014",
+          "gnn_015",
+          "gnn_016",
+          "gnn_017",
+          "gnn_018",
+          "gnn_019",
+          "gnn_020",
+          "gnn_021",
+          "gnn_022",
+          "gnn_023",
+          "gnn_024",
+          "gnn_025",
+          "gnn_026",
+          "gnn_027",
+          "gnn_028",
+          "gnn_029",
+          "gnn_030",
+          "gnn_031",
+          "gnn_032",
+          "gnn_033",
+          "gnn_034",
+          "gnn_035",
+          "gnn_036",
+          "gnn_037",
+          "gnn_038",
+          "gnn_039",
+          "gnn_040",
+          "gnn_041",
+          "gnn_042",
+          "gnn_043",
+          "gnn_044",
+          "gnn_045",
+          "gnn_046",
+          "gnn_047",
+          "gnn_048",
+          "gnn_049",
+          "gnn_050",
+          "gnn_051",
+          "gnn_052",
+          "gnn_053",
+          "gnn_054",
+          "gnn_055",
+          "gnn_056",
+          "gnn_057",
+          "gnn_058",
+          "gnn_059",
+          "gnn_060",
+          "gnn_061",
+          "gnn_062",
+          "gnn_063",
+          "gnn_064",
+          "gnn_065",
+          "gnn_066",
+          "gnn_067",
+          "gnn_068",
+          "gnn_069",
+          "gnn_070",
+          "gnn_071",
+          "gnn_072",
+          "gnn_073",
+          "gnn_074",
+          "gnn_075",
+          "gnn_076",
+          "gnn_077",
+          "gnn_078",
+          "gnn_079",
+          "gnn_080",
+          "gnn_081",
+          "gnn_082",
+          "gnn_083",
+          "gnn_084",
+          "gnn_085",
+          "gnn_086",
+          "gnn_087",
+          "gnn_088",
+          "gnn_089",
+          "gnn_090",
+          "gnn_091",
+          "gnn_092",
+          "gnn_093",
+          "gnn_094",
+          "gnn_095",
+          "gnn_096",
+          "gnn_097",
+          "gnn_098",
+          "gnn_099",
+          "gnn_100",
+          "gnn_101",
+          "gnn_102",
+          "gnn_103",
+          "gnn_104",
+          "gnn_105",
+          "gnn_106",
+          "gnn_107",
+          "gnn_108",
+          "gnn_109",
+          "gnn_110",
+          "gnn_111",
+          "gnn_112",
+          "gnn_113",
+          "gnn_114",
+          "gnn_115",
+          "gnn_116",
+          "gnn_117",
+          "gnn_118",
+          "gnn_119",
+          "gnn_120",
+          "gnn_121",
+          "gnn_122",
+          "gnn_123",
+          "gnn_124",
+          "gnn_125",
+          "gnn_126",
+          "gnn_127",
+          "gnn_available"
+        ],
+        "checkpoint_sha256": "f5439416aeeb6f0f2dedab20aabb14ea541b4bd98b70f21334986dc03a05abc4",
+        "seed": 42,
+        "train_user_times": 50000,
+        "files": {
+          "train": [
+            "baseline/cache/gnn_embeddings_v1/train/part_0000.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0001.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0002.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0003.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0004.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0005.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0006.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0007.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0008.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0009.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0010.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0011.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0012.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0013.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0014.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0015.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0016.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0017.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0018.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0019.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0020.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0021.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0022.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0023.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0024.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0025.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0026.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0027.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0028.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0029.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0030.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0031.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0032.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0033.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0034.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0035.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0036.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0037.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0038.parquet",
+            "baseline/cache/gnn_embeddings_v1/train/part_0039.parquet"
+          ],
+          "val": [
+            "baseline/cache/gnn_embeddings_v1/val/part_0000.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0001.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0002.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0003.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0004.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0005.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0006.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0007.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0008.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0009.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0010.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0011.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0012.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0013.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0014.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0015.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0016.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0017.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0018.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0019.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0020.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0021.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0022.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0023.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0024.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0025.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0026.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0027.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0028.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0029.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0030.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0031.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0032.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0033.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0034.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0035.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0036.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0037.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0038.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0039.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0040.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0041.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0042.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0043.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0044.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0045.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0046.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0047.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0048.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0049.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0050.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0051.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0052.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0053.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0054.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0055.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0056.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0057.parquet",
+            "baseline/cache/gnn_embeddings_v1/val/part_0058.parquet"
+          ],
+          "test": [
+            "baseline/cache/gnn_embeddings_v1/test/part_0000.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0001.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0002.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0003.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0004.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0005.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0006.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0007.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0008.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0009.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0010.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0011.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0012.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0013.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0014.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0015.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0016.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0017.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0018.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0019.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0020.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0021.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0022.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0023.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0024.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0025.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0026.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0027.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0028.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0029.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0030.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0031.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0032.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0033.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0034.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0035.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0036.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0037.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0038.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0039.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0040.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0041.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0042.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0043.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0044.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0045.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0046.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0047.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0048.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0049.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0050.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0051.parquet",
+            "baseline/cache/gnn_embeddings_v1/test/part_0052.parquet"
+          ]
+        },
+        "counts": {
+          "train": {
+            "user_times": 50000,
+            "pairs": 803377,
+            "missing_embeddings": 565051
+          },
+          "val": {
+            "user_times": 74575,
+            "pairs": 2088583,
+            "missing_embeddings": 223414
+          },
+          "test": {
+            "user_times": 67144,
+            "pairs": 1892405,
+            "missing_embeddings": 201178
+          }
+        },
+        "missing_policy": "Zero vector plus gnn_available=0 for pairs outside sampled graph; no head logits in features"
+      },
+      "artifacts": "baseline/cache/gnn_embeddings_v1/manifest.json",
+      "updated_at": "2026-10-14T20:35:12+03:00",
+      "last_message": "128 представлений GNN экспортированы; пары обучения совпадают с ручным baseline, val/test сверены с предсказаниями GNN",
+      "nodes": {
+        "transactions": 15187287,
+        "article": 105542,
+        "customer": 1371980
+      },
+      "split": "test",
+      "users": 67144,
+      "pairs": 1892405,
+      "missing_embeddings": 201178
+    },
+    "hm_idgnn_lightgbm_embeddings_seed_42_v1": {
+      "status": "complete",
+      "config": {
+        "model": "ID-GNN embeddings + LightGBM",
+        "seed": 42,
+        "feature_count": 129,
+        "features": [
+          "gnn_000",
+          "gnn_001",
+          "gnn_002",
+          "gnn_003",
+          "gnn_004",
+          "gnn_005",
+          "gnn_006",
+          "gnn_007",
+          "gnn_008",
+          "gnn_009",
+          "gnn_010",
+          "gnn_011",
+          "gnn_012",
+          "gnn_013",
+          "gnn_014",
+          "gnn_015",
+          "gnn_016",
+          "gnn_017",
+          "gnn_018",
+          "gnn_019",
+          "gnn_020",
+          "gnn_021",
+          "gnn_022",
+          "gnn_023",
+          "gnn_024",
+          "gnn_025",
+          "gnn_026",
+          "gnn_027",
+          "gnn_028",
+          "gnn_029",
+          "gnn_030",
+          "gnn_031",
+          "gnn_032",
+          "gnn_033",
+          "gnn_034",
+          "gnn_035",
+          "gnn_036",
+          "gnn_037",
+          "gnn_038",
+          "gnn_039",
+          "gnn_040",
+          "gnn_041",
+          "gnn_042",
+          "gnn_043",
+          "gnn_044",
+          "gnn_045",
+          "gnn_046",
+          "gnn_047",
+          "gnn_048",
+          "gnn_049",
+          "gnn_050",
+          "gnn_051",
+          "gnn_052",
+          "gnn_053",
+          "gnn_054",
+          "gnn_055",
+          "gnn_056",
+          "gnn_057",
+          "gnn_058",
+          "gnn_059",
+          "gnn_060",
+          "gnn_061",
+          "gnn_062",
+          "gnn_063",
+          "gnn_064",
+          "gnn_065",
+          "gnn_066",
+          "gnn_067",
+          "gnn_068",
+          "gnn_069",
+          "gnn_070",
+          "gnn_071",
+          "gnn_072",
+          "gnn_073",
+          "gnn_074",
+          "gnn_075",
+          "gnn_076",
+          "gnn_077",
+          "gnn_078",
+          "gnn_079",
+          "gnn_080",
+          "gnn_081",
+          "gnn_082",
+          "gnn_083",
+          "gnn_084",
+          "gnn_085",
+          "gnn_086",
+          "gnn_087",
+          "gnn_088",
+          "gnn_089",
+          "gnn_090",
+          "gnn_091",
+          "gnn_092",
+          "gnn_093",
+          "gnn_094",
+          "gnn_095",
+          "gnn_096",
+          "gnn_097",
+          "gnn_098",
+          "gnn_099",
+          "gnn_100",
+          "gnn_101",
+          "gnn_102",
+          "gnn_103",
+          "gnn_104",
+          "gnn_105",
+          "gnn_106",
+          "gnn_107",
+          "gnn_108",
+          "gnn_109",
+          "gnn_110",
+          "gnn_111",
+          "gnn_112",
+          "gnn_113",
+          "gnn_114",
+          "gnn_115",
+          "gnn_116",
+          "gnn_117",
+          "gnn_118",
+          "gnn_119",
+          "gnn_120",
+          "gnn_121",
+          "gnn_122",
+          "gnn_123",
+          "gnn_124",
+          "gnn_125",
+          "gnn_126",
+          "gnn_127",
+          "gnn_available"
+        ],
+        "trials": [
+          {
+            "num_leaves": 15,
+            "val_tuning_map": 0.020222546754652272
+          },
+          {
+            "num_leaves": 31,
+            "val_tuning_map": 0.01985744579465548
+          }
+        ],
+        "best_num_leaves": 15,
+        "train_pairs": 803377,
+        "train_user_times": 50000,
+        "rounds": 150,
+        "checkpoint_sha256": "f5439416aeeb6f0f2dedab20aabb14ea541b4bd98b70f21334986dc03a05abc4",
+        "inference_from_saved_model": true,
+        "embedding_counts": {
+          "train": {
+            "user_times": 50000,
+            "pairs": 803377,
+            "missing_embeddings": 565051
+          },
+          "val": {
+            "user_times": 74575,
+            "pairs": 2088583,
+            "missing_embeddings": 223414
+          },
+          "test": {
+            "user_times": 67144,
+            "pairs": 1892405,
+            "missing_embeddings": 201178
+          }
+        },
+        "protocol": "Adaptation of RelBench Appendix C.2 to H&M ranking; 128 frozen embeddings plus availability flag; same pairs/budget as manual tree; in-sample GNN train representations",
+        "val_metrics": {
+          "map": 0.019711562867923985
+        },
+        "val_inference_seconds": 7.192994180004462,
+        "test_metrics": {
+          "map": 0.021245096686483916
+        },
+        "test_inference_seconds": 6.244760037996457
+      },
+      "updated_at": "2026-10-14T20:37:32+03:00",
+      "last_message": "Метрики независимо пересчитаны из сохранённых предсказаний; shape, уникальность и диапазон ID, имена признаков сохранённого LightGBM и SHA весов GNN проверены. График проверен визуально.",
+      "trial": {
+        "num_leaves": 31,
+        "val_tuning_map": 0.01985744579465548
+      },
+      "val_metrics": {
+        "map": 0.019711562867923985
+      },
+      "test_metrics": {
+        "map": 0.021245096686483916
+      },
+      "artifacts": "baseline/results/gnn_embeddings_v1",
+      "checks": {
+        "val": {
+          "shape": [
+            74575,
+            12
+          ],
+          "map": 0.019711562867923985,
+          "passed": true
+        },
+        "test": {
+          "shape": [
+            67144,
+            12
+          ],
+          "map": 0.021245096686483916,
+          "passed": true
+        }
+      }
+    },
+    "hm_gnn_embedding_report_v1": {
+      "status": "complete",
+      "artifacts": "reports/gnn_embeddings_v1",
+      "updated_at": "2026-10-14T20:36:12+03:00",
+      "last_message": "Отчёт GNN → LightGBM сохранён отдельно; предыдущие результаты не заменены"
+    }
+  },
+  "latest_event": {
+    "time": "2026-10-14T21:41:26+03:00",
+    "kind": "artifact_restore_documented",
+    "message": "Added root README with exact external snapshots, upstream commits, local checkpoint paths and SHA256, and explicit absence of a public trained-weight download. Preserved GloVe manifest in Git; added pinned restore_downloads.py. Verified sizes and SHA256 for all 18 dataset files and 8 GloVe files locally; no downloads or training performed.",
+    "run_id": null,
+    "data": {}
+  }
+}

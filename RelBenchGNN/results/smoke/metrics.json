@@ -1,0 +1,36 @@
+{
+  "model": "RelBench ID-GNN",
+  "dataset": "rel-hm",
+  "task": "user-item-purchase",
+  "seed": 42,
+  "smoke": true,
+  "val_metrics": {
+    "map": 0.0
+  },
+  "test_metrics": {
+    "map": 0.03787878787878788
+  },
+  "elapsed_seconds": 394.58005356788635,
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 1,
+    "eval_epochs_interval": 1,
+    "batch_size": 32,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "temporal_strategy": "last",
+    "max_steps_per_epoch": 1,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/RelBenchGNN/results/smoke",
+    "eval_batch_size": 32,
+    "smoke": true,
+    "resume": false
+  }
+}

@@ -1,0 +1,199 @@
+import importlib.util
+import json
+from pathlib import Path
+
+import pytest
+
+SCRIPT = (
+    Path(__file__).resolve().parents[1]
+    / ".github"
+    / "scripts"
+    / "leaderboard_submission.py"
+)
+
+
+@pytest.fixture(scope="module")
+def script():
+    spec = importlib.util.spec_from_file_location("leaderboard_submission", SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+BODY = """### Name
+
+My method
+
+### Note
+
+_No response_
+
+### In-context?
+
+Yes
+
+### URL
+
+https://example.org/paper
+
+### File(s)
+
+[preds-classification.zip](https://github.com/user-attachments/files/123/preds-classification.zip)
+"""
+
+
+def test_parse_form_and_metadata(script):
+    sections = script.parse_form(BODY)
+    assert sections["Name"] == "My method"
+    assert sections["In-context"] == "Yes"
+    assert sections["File(s)"].startswith("[preds-classification.zip]")
+    fields, errors = script.form_metadata(sections)
+    assert errors == []
+    assert fields == {
+        "name": "My method",
+        "url": "https://example.org/paper",
+        "in_context": True,
+    }
+    _, errors = script.form_metadata(script.parse_form("### Name\n\n\n"))
+    assert errors and "name" in errors[0]
+
+
+def test_attachment_regex(script):
+    urls = script.ATTACHMENT_RE.findall(BODY)
+    assert urls == [
+        "https://github.com/user-attachments/files/123/preds-classification.zip"
+    ]
+    assert script.ATTACHMENT_RE.findall("https://evil.example/files/1/x.zip") == []
+    sha = "0123456789abcdef0123456789abcdef01234567"
+    hf = f"https://huggingface.co/datasets/alice/relbench-submissions/resolve/{sha}/a/preds-regression.zip"
+    assert script.ATTACHMENT_RE.findall(f"[x]({hf})") == [hf]
+    assert script.ATTACHMENT_RE.findall(hf.replace(sha, "main")) == []
+
+
+def test_cli_issue_body_round_trip(script):
+    from relbench.submit import _issue_body
+
+    hf = (
+        "https://huggingface.co/datasets/alice/relbench-submissions/resolve/"
+        + "a" * 40
+        + "/20261004T000000Z/preds-classification.zip"
+    )
+    body = _issue_body("My method", "https://example.org", False, "", [hf])
+    fields, errors = script.form_metadata(script.parse_form(body))
+    assert errors == []
+    assert fields == {
+        "name": "My method",
+        "url": "https://example.org",
+        "in_context": False,
+    }
+    assert script.ATTACHMENT_RE.findall(body) == [hf]
+    body = _issue_body("M", "https://e.org", True, "", [hf], "https://e.org/repro")
+    fields, _ = script.form_metadata(script.parse_form(body))
+    assert fields["repro_link"] == "https://e.org/repro"
+
+
+def _result():
+    tasks = {
+        "rel-f1/driver-dnf": {"status": "ok", "metric": 0.7, "metric_name": "roc_auc"},
+        "rel-f1/driver-position": {
+            "status": "ok",
+            "metric": 0.5,
+            "metric_name": "nmae",
+        },
+    }
+    families = {
+        "classification": {
+            "num_valid": 1,
+            "num_total": 12,
+            "valid": ["rel-f1/driver-dnf"],
+            "complete": False,
+            "aggregate": 0.7,
+        },
+        "regression": {
+            "num_valid": 1,
+            "num_total": 1,
+            "valid": ["rel-f1/driver-position"],
+            "complete": True,
+            "aggregate": 0.5,
+        },
+        "recommendation": {
+            "num_valid": 0,
+            "num_total": 10,
+            "valid": [],
+            "complete": False,
+            "aggregate": None,
+        },
+    }
+    return {"tasks": tasks, "families": families, "validated": ["regression"]}
+
+
+def test_build_entry_and_aggregate(script, tmp_path):
+    fields = {"name": "M", "url": "u", "in_context": True}
+    entry = script.build_entry(
+        fields, _result(), issue=7, author="me", created_at="2026-01-01T00:00:00Z"
+    )
+    assert entry["name"] == "M" and entry["issue"] == 7 and entry["in_context"] is True
+    assert entry["date"] == "2026-01-01T00:00:00Z"
+    assert set(entry["boards"]) == {"binary_classification", "regression"}
+    assert entry["boards"]["binary_classification"]["mean"] is None
+    assert entry["boards"]["binary_classification"]["cov"] == pytest.approx(1 / 12)
+    assert entry["boards"]["regression"] == {
+        "results": {"rel-f1/driver-position": 0.5},
+        "mean": 0.5,
+        "cov": 1.0,
+    }
+    entries = tmp_path / "entries"
+    entries.mkdir()
+    (entries / "10.json").write_text(json.dumps({**entry, "issue": 10}))
+    (entries / "7.json").write_text(json.dumps(entry))
+    out = tmp_path / "leaderboard.json"
+    script.rebuild_aggregate(entries, out)
+    assert [e["issue"] for e in json.loads(out.read_text())] == [7, 10]
+
+
+def test_leaderboard_preview(script):
+    new = script.build_entry(
+        {"name": "M", "in_context": False}, _result(), issue=7, author="me"
+    )
+    old = {
+        "name": "Old",
+        "issue": 3,
+        "boards": {"regression": {"results": {}, "mean": 0.9, "cov": 1.0}},
+    }
+    stale = {**new, "name": "stale"}
+    md = script.leaderboard_preview([old, stale], new)
+    assert "stale" not in md
+    assert "Regression" in md and "Classification" in md
+    reg = md.split("Regression")[1]
+    assert reg.index("🆕 M") < reg.index("Old")
+
+
+def test_apply_edit(script, tmp_path):
+    from relbench.submit import _edit_issue_body
+
+    entries = tmp_path / "entries"
+    entries.mkdir()
+    entry = {"name": "M", "url": "u", "repro_link": None, "author": "alice", "issue": 7}
+    (entries / "7.json").write_text(json.dumps(entry))
+    body = _edit_issue_body(7, repro_link="https://e.org/repro")
+
+    status, report = script.apply_edit(body, entries, "bob", approved=False)
+    assert status == "pending" and "accept" in report
+    assert json.loads((entries / "7.json").read_text())["repro_link"] is None
+
+    status, _ = script.apply_edit(body, entries, "alice", approved=False)
+    assert status == "applied"
+    updated = json.loads((entries / "7.json").read_text())
+    assert updated == {**entry, "repro_link": "https://e.org/repro"}
+
+    status, _ = script.apply_edit(body, entries, "alice", approved=False)
+    assert status == "error"
+    status, _ = script.apply_edit(
+        _edit_issue_body(8, name="X"), entries, "alice", approved=True
+    )
+    assert status == "error"
+    status, _ = script.apply_edit(
+        _edit_issue_body(7, name="X"), entries, "bob", approved=True
+    )
+    assert status == "applied"
+    assert json.loads((entries / "7.json").read_text())["name"] == "X"

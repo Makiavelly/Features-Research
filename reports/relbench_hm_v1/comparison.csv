@@ -1,0 +1,6 @@
+method,validation_map_percent,test_map_percent,published_validation_percent,published_test_percent,test_difference_pp
+Global popularity,0.3573907801429667,0.3045576944278395,0.36,0.3,0.004557694427839487
+Past visit,0.7816613709866022,0.7946612394759278,1.07,0.89,-0.0953387605240722
+ID-GNN (1/1 completed),2.634419239310869,2.78431504770674,2.64,2.81,-0.025684952293259844
+DecisionTree + manual (1/1 completed),1.876612409515324,2.040761083660503,,,
+LightGBM + manual (1/1 completed),2.093176718024488,2.2660772508761555,,,

@@ -1,0 +1,2 @@
+seed,completed_epochs,best_validation_so_far_percent,final_validation_percent,final_test_percent,inference_verified,test_inference_seconds,test_users_per_second
+42,20,2.634419239310869,2.634419239310869,2.78431504770674,True,28.68207473000075,2340.9743064984423

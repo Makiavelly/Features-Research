@@ -1,0 +1,83 @@
+{
+  "tables": {
+    "article": {
+      "rows": 105542,
+      "bytes": 6344990,
+      "schema": "article_id: int64\nproduct_code: int64\nprod_name: string\nproduct_type_no: int64\nproduct_type_name: string\nproduct_group_name: string\ngraphical_appearance_no: int64\ngraphical_appearance_name: string\ncolour_group_code: int64\ncolour_group_name: string\nperceived_colour_value_id: int64\nperceived_colour_value_name: string\nperceived_colour_master_id: int64\nperceived_colour_master_name: string\ndepartment_no: int64\ndepartment_name: string\nindex_code: string\nindex_name: string\nindex_group_no: int64\nindex_group_name: string\nsection_no: int64\nsection_name: string\ngarment_group_no: int64\ngarment_group_name: string\ndetail_desc: string\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 3388"
+    },
+    "customer": {
+      "rows": 1371980,
+      "bytes": 89777474,
+      "schema": "customer_id: int64\nFN: double\nActive: double\nclub_member_status: string\nfashion_news_frequency: string\nage: double\npostal_code: string\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 939"
+    },
+    "transactions": {
+      "rows": 15453651,
+      "bytes": 91593833,
+      "schema": "t_dat: timestamp[ns]\ncustomer_id: int64\narticle_id: int64\nprice: double\nsales_channel_id: int64\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 688"
+    }
+  },
+  "tasks": {
+    "item-sales": {
+      "task_type": "regression",
+      "splits": {
+        "train": {
+          "rows": 5488184,
+          "min_timestamp": "2019-09-09 00:00:00",
+          "max_timestamp": "2020-08-31 00:00:00"
+        },
+        "val": {
+          "rows": 105542,
+          "min_timestamp": "2020-09-07 00:00:00",
+          "max_timestamp": "2020-09-07 00:00:00"
+        },
+        "test": {
+          "rows": 105542,
+          "min_timestamp": "2020-09-14 00:00:00",
+          "max_timestamp": "2020-09-14 00:00:00"
+        }
+      }
+    },
+    "user-churn": {
+      "task_type": "binary_classification",
+      "splits": {
+        "train": {
+          "rows": 3832692,
+          "min_timestamp": "2019-09-09 00:00:00",
+          "max_timestamp": "2020-08-31 00:00:00"
+        },
+        "val": {
+          "rows": 76556,
+          "min_timestamp": "2020-09-07 00:00:00",
+          "max_timestamp": "2020-09-07 00:00:00"
+        },
+        "test": {
+          "rows": 74575,
+          "min_timestamp": "2020-09-14 00:00:00",
+          "max_timestamp": "2020-09-14 00:00:00"
+        }
+      }
+    },
+    "user-item-purchase": {
+      "task_type": "recommendation",
+      "splits": {
+        "train": {
+          "rows": 3878451,
+          "min_timestamp": "2019-09-09 00:00:00",
+          "max_timestamp": "2020-08-31 00:00:00"
+        },
+        "val": {
+          "rows": 74575,
+          "min_timestamp": "2020-09-07 00:00:00",
+          "max_timestamp": "2020-09-07 00:00:00"
+        },
+        "test": {
+          "rows": 67144,
+          "min_timestamp": "2020-09-14 00:00:00",
+          "max_timestamp": "2020-09-14 00:00:00"
+        }
+      }
+    }
+  },
+  "val_timestamp": "2020-09-07 00:00:00",
+  "test_timestamp": "2020-09-14 00:00:00"
+}

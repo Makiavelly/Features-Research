@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "feature_count": 126,
+  "pair_rows": 2,
+  "cutoff": "2020-09-07",
+  "max_used_transaction_date": "2020-09-05 00:00:00",
+  "scope": "real-data SQL and memory check; not a trained baseline metric"
+}

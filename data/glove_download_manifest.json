@@ -1,0 +1,46 @@
+{
+  "repo": "sentence-transformers/average_word_embeddings_glove.6B.300d",
+  "revision": "e5e8fec6971be8960cfaa853a77a6ddc62a265d7",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 761,
+      "sha256": "3a3486b70c4ac30abd3301588977f6b763110baa4de1e61b0bff7eac5e545dca"
+    },
+    {
+      "path": "0_WordEmbeddings/pytorch_model.bin",
+      "size": 480002027,
+      "sha256": "d819348e583fca49cf3980e34505d52a3f842064ebd9dc255484125357771240"
+    },
+    {
+      "path": "0_WordEmbeddings/whitespacetokenizer_config.json",
+      "size": 4605941,
+      "sha256": "f00d3c04e20e878a5894ba707fd733edd524bbf816a314d36465e50b546cd9a7"
+    },
+    {
+      "path": "0_WordEmbeddings/wordembedding_config.json",
+      "size": 164,
+      "sha256": "cec5c7a31fd291fd570d4b7f108b327f4bf9e3b08af56ee57256c923ab842f18"
+    },
+    {
+      "path": "1_Pooling/config.json",
+      "size": 190,
+      "sha256": "6bcd59831fb58cc6ecc2fb04bd03ae6f693452ad2826716e59ec2361185687e6"
+    },
+    {
+      "path": "README.md",
+      "size": 1956,
+      "sha256": "ab285f83f10f27fadda6cff866bef7adffdc32153b2bccc73cbe2e406364e61e"
+    },
+    {
+      "path": "config_sentence_transformers.json",
+      "size": 122,
+      "sha256": "b8c64b5cece00d8424b4896ea75b512b6008576088497609dfeb6bd63e6d36b8"
+    },
+    {
+      "path": "modules.json",
+      "size": 248,
+      "sha256": "e9040e0e962f4ec335e8c3d014e9db082a465c8e2729b62226cb1e6eb3ec156b"
+    }
+  ]
+}
