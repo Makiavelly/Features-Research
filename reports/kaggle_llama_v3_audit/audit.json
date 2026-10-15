@@ -1,0 +1,392 @@
+{
+  "source_directory": "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3_3b338cf1f141_results",
+  "protocol": "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3",
+  "runtime_hashes_match_exported_notebook": true,
+  "calls": 20,
+  "valid": 0,
+  "categories": {
+    "missing_column": 10,
+    "other_pandas_runtime": 4,
+    "truncated": 2,
+    "interface_import": 1,
+    "row_index": 3
+  },
+  "total_candidate_seconds": 2383.443679552,
+  "models_created": 0,
+  "search_metrics_created": 0,
+  "selected_raw_control": true,
+  "llm_quality_measured": false,
+  "trials": [
+    {
+      "candidate": 1,
+      "island": 0,
+      "category": "missing_column",
+      "error": "KeyError: 'article_id'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 46, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 9210, in groupby\n    return DataFrameGroupBy(\n        obj=self,\n    ...<7 lines>...\n        dropna=dropna,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 1331, in __init__\n    grouper, exclusions, obj = get_grouper(\n                               ~~~~~~~~~~~^\n        obj,\n        ^^^^\n    ...<5 lines>...\n        dropna=self.dropna,\n        ^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/grouper.py\", line 1043, in get_grouper\n    raise KeyError(gpr)\nKeyError: 'article_id'\n",
+      "source_context": [
+        {
+          "line": 46,
+          "context": "44:     X['f_customer_average_age_when_co_purchasing'] = (\n45:         history.merge(X, on=['customer_id'], how='left').\n46:         groupby(['customer_id', 'article_id'])['raw_u_age'].mean().\n47:         reset_index(name='customer_average_age_when_co_purchasing', drop=False).\n48:         merge(X, on=['customer_id', 'article_id'], how='left')['customer_average_age_when_co_purchasing']"
+        }
+      ],
+      "generated_tokens": 1169,
+      "truncated": false,
+      "seconds": 108.579400776,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 2,
+      "island": 0,
+      "category": "missing_column",
+      "error": "KeyError: \"['past_purchases'] not in index\"",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 116, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4119, in __getitem__\n    indexer = self.columns._get_indexer_strict(key, \"columns\")[1]\n              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6212, in _get_indexer_strict\n    self._raise_if_missing(keyarr, indexer, axis_name)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6264, in _raise_if_missing\n    raise KeyError(f\"{not_found} not in index\")\nKeyError: \"['past_purchases'] not in index\"\n",
+      "source_context": [
+        {
+          "line": 116,
+          "context": "114: \n115:     # Calculate the purchase frequency for each customer and article\n116:     article_purchase_frequency = recent_transactions[['customer_id', 'article_id', 'past_purchases']].groupby(['customer_id', 'article_id']).mean().reset_index()\n117: \n118:     # Merge the article_purchase_frequency DataFrame with X"
+        }
+      ],
+      "generated_tokens": 1899,
+      "truncated": false,
+      "seconds": 194.82935214100002,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 3,
+      "island": 0,
+      "category": "other_pandas_runtime",
+      "error": "ValueError: Length mismatch: Expected axis has 3 elements, new values have 2 elements",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 28, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 6335, in __setattr__\n    return object.__setattr__(self, name, value)\n           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/properties.pyx\", line 69, in pandas._libs.properties.AxisProperty.__set__\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 817, in _set_axis\n    self._mgr.set_axis(axis, labels)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/internals/managers.py\", line 238, in set_axis\n    self._validate_set_axis(axis, new_labels)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/internals/base.py\", line 98, in _validate_set_axis\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: Length mismatch: Expected axis has 3 elements, new values have 2 elements\n",
+      "source_context": [
+        {
+          "line": 28,
+          "context": "26:     # Compute time-varying interactions (average price in last 7, 30, 180 days)\n27:     interactions = history.groupby('customer_id')['price'].rolling(window=7).mean().reset_index()\n28:     interactions.columns = ['customer_id', 'avg_price_7_days']\n29:     interactions = history.groupby('customer_id')['price'].rolling(window=30).mean().reset_index()\n30:     interactions.columns = ['customer_id', 'avg_price_30_days']"
+        }
+      ],
+      "generated_tokens": 686,
+      "truncated": false,
+      "seconds": 64.03745206899998,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 4,
+      "island": 1,
+      "category": "other_pandas_runtime",
+      "error": "ValueError: cannot insert customer_id, already exists",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 27, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 1782, in reset_index\n    return df.reset_index(\n           ~~~~~~~~~~~~~~^\n        level=level, drop=drop, allow_duplicates=allow_duplicates\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 6494, in reset_index\n    new_obj.insert(\n    ~~~~~~~~~~~~~~^\n        0,\n        ^^\n    ...<2 lines>...\n        allow_duplicates=allow_duplicates,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 5180, in insert\n    raise ValueError(f\"cannot insert {column}, already exists\")\nValueError: cannot insert customer_id, already exists\n",
+      "source_context": [
+        {
+          "line": 27,
+          "context": "25:     \n26:     # Calculate number of purchases made by each customer in the last 30 days\n27:     num_purchases_last_30 = history[history['days_ago'] <= 30].groupby('customer_id')['customer_id'].count().reset_index().rename(columns={'customer_id': 'num_purchases_last_30'})\n28:     \n29:     # Count the number of article types bought by each customer in the last 30 days"
+        }
+      ],
+      "generated_tokens": 939,
+      "truncated": false,
+      "seconds": 88.91293901300003,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 5,
+      "island": 1,
+      "category": "missing_column",
+      "error": "KeyError: 'Column not found: price_history'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 12, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 1951, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/base.py\", line 245, in __getitem__\n    raise KeyError(f\"Column not found: {key}\")\nKeyError: 'Column not found: price_history'\n",
+      "source_context": [
+        {
+          "line": 12,
+          "context": "10: \n11:     # Calculate the average price of past purchases by customer\n12:     merged['avg_price_history'] = merged.groupby('customer_id')['price_history'].transform('mean')\n13: \n14:     # Calculate the number of past purchases by customer"
+        }
+      ],
+      "generated_tokens": 795,
+      "truncated": false,
+      "seconds": 74.24676282000007,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 6,
+      "island": 1,
+      "category": "missing_column",
+      "error": "KeyError: \"['f_avg_price', 'f_prod_cat', 'f_dept_purchases', 'f_avg_time_between_purchases', 'f_sales_channels', 'f_prod_cat_ratio', 'f_avg_age', 'f_avg_articles_purchased', 'f_dept_proportion', 'f_avg_price_diff', 'f_sales_channels_diff'] not in index\"",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 58, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4119, in __getitem__\n    indexer = self.columns._get_indexer_strict(key, \"columns\")[1]\n              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6212, in _get_indexer_strict\n    self._raise_if_missing(keyarr, indexer, axis_name)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 6264, in _raise_if_missing\n    raise KeyError(f\"{not_found} not in index\")\nKeyError: \"['f_avg_price', 'f_prod_cat', 'f_dept_purchases', 'f_avg_time_between_purchases', 'f_sales_channels', 'f_prod_cat_ratio', 'f_avg_age', 'f_avg_articles_purchased', 'f_dept_proportion', 'f_avg_price_diff', 'f_sales_channels_diff'] not in index\"\n",
+      "source_context": [
+        {
+          "line": 58,
+          "context": "56:     \n57:     # Return the DataFrame with the generated features\n58:     X = X[f_features + list(X.columns)]\n59:     return X"
+        }
+      ],
+      "generated_tokens": 1606,
+      "truncated": false,
+      "seconds": 159.81651459800014,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 7,
+      "island": 2,
+      "category": "missing_column",
+      "error": "KeyError: 'days_ago'",
+      "full_error": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'days_ago'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 14, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'days_ago'\n",
+      "source_context": [
+        {
+          "line": 14,
+          "context": "12:     X_customer_id = X[\"customer_id\"]\n13:     X_article_id = X[\"article_id\"]\n14:     X_days_ago = X[\"days_ago\"]\n15:     \n16:     hist_customer_id = history[\"customer_id\"]"
+        }
+      ],
+      "generated_tokens": 1002,
+      "truncated": false,
+      "seconds": 94.671593626,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 8,
+      "island": 2,
+      "category": "truncated",
+      "error": "Program truncated at output token limit",
+      "full_error": "Program truncated at output token limit",
+      "source_context": [],
+      "generated_tokens": 2048,
+      "truncated": true,
+      "seconds": 210.660566345,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 9,
+      "island": 2,
+      "category": "missing_column",
+      "error": "KeyError: 'Column not found: raw_u_age'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 17, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 1951, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/base.py\", line 245, in __getitem__\n    raise KeyError(f\"Column not found: {key}\")\nKeyError: 'Column not found: raw_u_age'\n",
+      "source_context": [
+        {
+          "line": 17,
+          "context": "15:     \n16:     # Calculate the average age of customers who have purchased the article in the past 7 days\n17:     X['f_recent_article_age'] = history.groupby(['customer_id', 'article_id'])['raw_u_age'].transform('mean')\n18:     \n19:     # Calculate the average frequency of fashion news for customers who have purchased the article in the past 7 days"
+        }
+      ],
+      "generated_tokens": 871,
+      "truncated": false,
+      "seconds": 82.12883057699992,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 10,
+      "island": 2,
+      "category": "interface_import",
+      "error": "No imports/classes/global state/context managers: pd and np are already supplied",
+      "full_error": "No imports/classes/global state/context managers: pd and np are already supplied",
+      "source_context": [],
+      "generated_tokens": 1306,
+      "truncated": false,
+      "seconds": 125.05025758400006,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 11,
+      "island": 2,
+      "category": "row_index",
+      "error": "ValueError: Return a DataFrame with unchanged X.index and one row per pair",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 112, in matrix\n    raise ValueError('Return a DataFrame with unchanged X.index and one row per pair')\nValueError: Return a DataFrame with unchanged X.index and one row per pair\n",
+      "source_context": [],
+      "generated_tokens": 1750,
+      "truncated": false,
+      "seconds": 176.29703643900007,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 12,
+      "island": 2,
+      "category": "row_index",
+      "error": "ValueError: cannot reindex on an axis with duplicate labels",
+      "full_error": "/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4322, in __setitem__\n    self._set_item(key, value)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 4535, in _set_item\n    value, refs = self._sanitize_column(value)\n                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 5285, in _sanitize_column\n    return _reindex_for_setitem(value, self.index)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 12719, in _reindex_for_setitem\n    raise err\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 12714, in _reindex_for_setitem\n    reindexed_value = value.reindex(index)._values\n                      ~~~~~~~~~~~~~^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 5172, in reindex\n    return super().reindex(\n           ~~~~~~~~~~~~~~~^\n        index=index,\n        ^^^^^^^^^^^^\n    ...<5 lines>...\n        tolerance=tolerance,\n        ^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 5632, in reindex\n    return self._reindex_axes(\n           ~~~~~~~~~~~~~~~~~~^\n        axes, level, limit, tolerance, method, fill_value, copy\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ).__finalize__(self, method=\"reindex\")\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 5655, in _reindex_axes\n    new_index, indexer = ax.reindex(\n                         ~~~~~~~~~~^\n        labels, level=level, limit=limit, tolerance=tolerance, method=method\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 4436, in reindex\n    raise ValueError(\"cannot reindex on an axis with duplicate labels\")\nValueError: cannot reindex on an axis with duplicate labels\n",
+      "source_context": [],
+      "generated_tokens": 806,
+      "truncated": false,
+      "seconds": 75.34470963600006,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 13,
+      "island": 1,
+      "category": "missing_column",
+      "error": "KeyError: 'raw_i_product_type_no'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 35, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 9210, in groupby\n    return DataFrameGroupBy(\n        obj=self,\n    ...<7 lines>...\n        dropna=dropna,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 1331, in __init__\n    grouper, exclusions, obj = get_grouper(\n                               ~~~~~~~~~~~^\n        obj,\n        ^^^^\n    ...<5 lines>...\n        dropna=self.dropna,\n        ^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/grouper.py\", line 1043, in get_grouper\n    raise KeyError(gpr)\nKeyError: 'raw_i_product_type_no'\n",
+      "source_context": [
+        {
+          "line": 35,
+          "context": "33:     \n34:     # Calculate the number of past purchases in each clothing product family/type\n35:     num_past_purchases_family = history.groupby('raw_i_product_type_no')['article_id'].count().reset_index(name='num_past_purchases_family')\n36:     \n37:     # Merge the number of past purchases in each clothing product family/type into X"
+        }
+      ],
+      "generated_tokens": 955,
+      "truncated": false,
+      "seconds": 89.9482481089999,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 14,
+      "island": 1,
+      "category": "other_pandas_runtime",
+      "error": "ValueError: Buffer dtype mismatch, expected 'Python object' but got 'long'",
+      "full_error": "^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 52, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 5172, in reindex\n    return super().reindex(\n           ~~~~~~~~~~~~~~~^\n        index=index,\n        ^^^^^^^^^^^^\n    ...<5 lines>...\n        tolerance=tolerance,\n        ^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 5632, in reindex\n    return self._reindex_axes(\n           ~~~~~~~~~~~~~~~~~~^\n        axes, level, limit, tolerance, method, fill_value, copy\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ).__finalize__(self, method=\"reindex\")\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py\", line 5655, in _reindex_axes\n    new_index, indexer = ax.reindex(\n                         ~~~~~~~~~~^\n        labels, level=level, limit=limit, tolerance=tolerance, method=method\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 4440, in reindex\n    target = self._wrap_reindex_result(target, indexer, preserve_names)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/multi.py\", line 2736, in _wrap_reindex_result\n    target = MultiIndex.from_tuples(target)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/multi.py\", line 223, in new_meth\n    return meth(self_or_cls, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/multi.py\", line 618, in from_tuples\n    arrays = list(lib.tuples_to_object_array(tuples).T)\n                  ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"pandas/_libs/lib.pyx\", line 3056, in pandas._libs.lib.tuples_to_object_array\nValueError: Buffer dtype mismatch, expected 'Python object' but got 'long'\n",
+      "source_context": [
+        {
+          "line": 52,
+          "context": "50:     \n51:     # Calculate the count of purchases per day of the week for each customer\n52:     f_day_of_week = history.groupby(\"customer_id\")[\"days_ago\"].apply(lambda x: (x % 7).value_counts(normalize=True)).reindex(X.index)\n53:     \n54:     # Combine the original dataframe X with the new features"
+        }
+      ],
+      "generated_tokens": 923,
+      "truncated": false,
+      "seconds": 87.77824493999992,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 15,
+      "island": 1,
+      "category": "missing_column",
+      "error": "KeyError: 'Column not found: days_ago'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 16, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 1951, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/base.py\", line 245, in __getitem__\n    raise KeyError(f\"Column not found: {key}\")\nKeyError: 'Column not found: days_ago'\n",
+      "source_context": [
+        {
+          "line": 16,
+          "context": "14:     history = history.groupby(\"customer_id\").size().reset_index(name=\"total_purchases\")\n15:     history = history.merge(\n16:         history.groupby(\"customer_id\")[\"days_ago\"]\n17:        .apply(lambda x: (x <= 180).sum())\n18:        .reset_index(name=\"recent_purchases\"),"
+        }
+      ],
+      "generated_tokens": 1609,
+      "truncated": false,
+      "seconds": 159.3487233410001,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 16,
+      "island": 0,
+      "category": "missing_column",
+      "error": "KeyError: 'article_id'",
+      "full_error": "ine 230, in apply\n    return super().apply(func, *args, **kwargs)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 1826, in apply\n    result = self._python_apply_general(f, self._selected_obj)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 1887, in _python_apply_general\n    values, mutated = self._grouper.apply_groupwise(f, data, self.axis)\n                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/ops.py\", line 928, in apply_groupwise\n    res = f(group)\n  File \"<llm-features>\", line 24, in <lambda>\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 4719, in map\n    new_values = self._map_values(arg, na_action=na_action)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/base.py\", line 923, in _map_values\n    return arr.map(mapper, na_action=na_action)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py\", line 1357, in map\n    return map_array(self.to_numpy(), mapper, na_action=na_action)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/algorithms.py\", line 1743, in map_array\n    return lib.map_infer(values, mapper, convert=convert)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/lib.pyx\", line 2999, in pandas._libs.lib.map_infer\n  File \"<llm-features>\", line 24, in <lambda>\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 1133, in __getitem__\n    return self._get_value(key)\n           ~~~~~~~~~~~~~~~^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/series.py\", line 1249, in _get_value\n    loc = self.index.get_loc(label)\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'article_id'\n",
+      "source_context": [
+        {
+          "line": 24,
+          "context": "22:     \n23:     # Calculate the similarity between each article and the articles purchased by the customer in the past 7 days\n24:     article_similarity = history.groupby('customer_id')['article_id'].apply(lambda x: x.nlargest(7).map(lambda y: x.nlargest(7).isin(x['article_id']).sum()))\n25:     \n26:     # Merge the results into the original DataFrame"
+        },
+        {
+          "line": 24,
+          "context": "22:     \n23:     # Calculate the similarity between each article and the articles purchased by the customer in the past 7 days\n24:     article_similarity = history.groupby('customer_id')['article_id'].apply(lambda x: x.nlargest(7).map(lambda y: x.nlargest(7).isin(x['article_id']).sum()))\n25:     \n26:     # Merge the results into the original DataFrame"
+        }
+      ],
+      "generated_tokens": 690,
+      "truncated": false,
+      "seconds": 67.45093559499992,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 17,
+      "island": 0,
+      "category": "row_index",
+      "error": "ValueError: Return a DataFrame with unchanged X.index and one row per pair",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 112, in matrix\n    raise ValueError('Return a DataFrame with unchanged X.index and one row per pair')\nValueError: Return a DataFrame with unchanged X.index and one row per pair\n",
+      "source_context": [],
+      "generated_tokens": 1504,
+      "truncated": false,
+      "seconds": 147.69024860399986,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    },
+    {
+      "candidate": 18,
+      "island": 0,
+      "category": "other_pandas_runtime",
+      "error": "IndexError: single positional indexer is out-of-bounds",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 31, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 517, in transform\n    return self._transform(\n           ~~~~~~~~~~~~~~~^\n        func, *args, engine=engine, engine_kwargs=engine_kwargs, **kwargs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 2028, in _transform\n    return self._transform_general(func, engine, engine_kwargs, *args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 557, in _transform_general\n    res = func(group, *args, **kwargs)\n  File \"<llm-features>\", line 32, in <lambda>\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexing.py\", line 1192, in __getitem__\n    return self._getitem_axis(maybe_callable, axis=axis)\n           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexing.py\", line 1753, in _getitem_axis\n    self._validate_integer(key, axis)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/indexing.py\", line 1686, in _validate_integer\n    raise IndexError(\"single positional indexer is out-of-bounds\")\nIndexError: single positional indexer is out-of-bounds\n",
+      "source_context": [
+        {
+          "line": 31,
+          "context": "29: \n30:     # Compute product category similarity between the two articles in a pair\n31:     X['f_category_similarity'] = history.groupby('customer_id')['product_type_no'].transform(\n32:         lambda x: (x.iloc[:-1] == x.iloc[-2]).sum())\n33: "
+        },
+        {
+          "line": 32,
+          "context": "30:     # Compute product category similarity between the two articles in a pair\n31:     X['f_category_similarity'] = history.groupby('customer_id')['product_type_no'].transform(\n32:         lambda x: (x.iloc[:-1] == x.iloc[-2]).sum())\n33: \n34:     # Compute average article price per customer in the last 7 days"
+        }
+      ],
+      "generated_tokens": 1102,
+      "truncated": false,
+      "seconds": 107.90803571900005,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 19,
+      "island": 0,
+      "category": "missing_column",
+      "error": "KeyError: 'Column not found: raw_i_product_type_no'",
+      "full_error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 248, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 178, in main\n    values,names=matrix(data,pairs,func)\n                 ~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 108, in matrix\n    out=func(X.copy(deep=True),history.copy(deep=True))\n  File \"<llm-features>\", line 24, in modify_features\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/generic.py\", line 1951, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/base.py\", line 245, in __getitem__\n    raise KeyError(f\"Column not found: {key}\")\nKeyError: 'Column not found: raw_i_product_type_no'\n",
+      "source_context": [
+        {
+          "line": 24,
+          "context": "22:     # New features: vectorized groupby/merge/map\n23:     # Generate frequency of each article type per customer\n24:     X['f_article_type_freq'] = history.groupby(['customer_id'])['raw_i_product_type_no'].transform('mean')\n25:     # Generate frequency of each clothing color per customer\n26:     X['f_clothing_color_freq'] = history.groupby(['customer_id'])['raw_i_colour_group_code'].transform('mean')"
+        }
+      ],
+      "generated_tokens": 626,
+      "truncated": false,
+      "seconds": 58.41696974200022,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": true
+    },
+    {
+      "candidate": 20,
+      "island": 0,
+      "category": "truncated",
+      "error": "Program truncated at output token limit",
+      "full_error": "Program truncated at output token limit",
+      "source_context": [],
+      "generated_tokens": 2048,
+      "truncated": true,
+      "seconds": 210.32685787799983,
+      "model_created": false,
+      "has_search_metrics": false,
+      "returns_X": false
+    }
+  ],
+  "raw_control_verification": {
+    "val": {
+      "raw_control_map": 0.010268722027755231,
+      "users": 1024,
+      "predictions_recomputed": true
+    },
+    "test": {
+      "raw_control_map": 0.007131381963099318,
+      "users": 2048,
+      "predictions_recomputed": true
+    }
+  },
+  "data_bundle_manifest_matches": true
+}

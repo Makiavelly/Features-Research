@@ -1,0 +1,13 @@
+{
+  "notebook": "llmfe_llama31_hm_structured_kaggle_t4.ipynb",
+  "sha256": "91ab9b25b44d64e56bbb4c5bf67597d26f34dabaad75401518a6257e629eec41",
+  "modules": {
+    "worker.py": "ed49b6bd3ab20f008fc5d3672a72a465c17b0777fdc2c30a8b974fb3df922e02",
+    "runtime.py": "5f06ab3f7d9635ae31a1f2cb57f0dd7dda3fe397f35cd15becef80b842aef938",
+    "sql_features.py": "9fe295087405650f28b93b6d260163806a908f5283ee752c3c692274c1a57956",
+    "structured_features.py": "fe829e189a718fd38652dbe91246c390f746f5f5fc97b7d41c36a84afd5ff58f"
+  },
+  "protocol": "hm_llmfe_llama31_8b_lightgbm_structured_fulltrain_v1",
+  "dataset": "hm_llmfe_kaggle_fulltrain_v2.zip",
+  "gpu_or_llama_executed": false
+}

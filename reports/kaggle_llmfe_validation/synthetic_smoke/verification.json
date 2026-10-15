@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "scope": "synthetic generation, tiny data, four new trees +3 saved references, full replay, resume",
+  "is_llm_experiment": false,
+  "train_pairs": 2000,
+  "gpu_or_llama_executed": false
+}

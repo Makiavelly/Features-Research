@@ -1,0 +1,14 @@
+{
+  "call": 50,
+  "proposal": 19,
+  "island": 1,
+  "repair": 2,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_050",
+  "parent_call": 49,
+  "prompt_tokens": 1771,
+  "generated_tokens": 483,
+  "llm_seconds": 21.753310801,
+  "status": "rejected",
+  "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+  "elapsed_seconds": 21.808939900998666
+}

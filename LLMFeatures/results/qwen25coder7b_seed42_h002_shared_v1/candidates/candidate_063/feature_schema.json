@@ -1,0 +1,73 @@
+{
+  "features": [
+    "raw_u_age",
+    "raw_u_fn",
+    "raw_u_active",
+    "raw_u_club_member_status",
+    "raw_u_fashion_news_frequency",
+    "raw_i_product_code",
+    "raw_i_product_type_no",
+    "raw_i_graphical_appearance_no",
+    "raw_i_colour_group_code",
+    "raw_i_perceived_colour_value_id",
+    "raw_i_perceived_colour_master_id",
+    "raw_i_department_no",
+    "raw_i_index_group_no",
+    "raw_i_section_no",
+    "raw_i_garment_group_no",
+    "f_avg_price",
+    "f_unique_products",
+    "f_avg_sales_channel",
+    "f_max_days_ago",
+    "f_is_recent_buyer",
+    "f_avg_transaction_value"
+  ],
+  "categorical": [
+    "raw_u_club_member_status",
+    "raw_u_fashion_news_frequency",
+    "raw_i_product_code",
+    "raw_i_product_type_no",
+    "raw_i_graphical_appearance_no",
+    "raw_i_colour_group_code",
+    "raw_i_perceived_colour_value_id",
+    "raw_i_perceived_colour_master_id",
+    "raw_i_department_no",
+    "raw_i_index_group_no",
+    "raw_i_section_no",
+    "raw_i_garment_group_no"
+  ],
+  "category_maps": {
+    "club_member_status": [
+      "ACTIVE",
+      "LEFT CLUB",
+      "PRE-CREATE"
+    ],
+    "fashion_news_frequency": [
+      "Monthly",
+      "NONE",
+      "Regularly"
+    ]
+  },
+  "train_pairs": 803377,
+  "train_user_times": 50000,
+  "params": {
+    "objective": "binary",
+    "verbosity": -1,
+    "num_threads": 8,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_data_in_leaf": 100,
+    "max_bin": 127,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "deterministic": true,
+    "force_col_wise": true,
+    "seed": 42,
+    "feature_fraction_seed": 42,
+    "bagging_seed": 42,
+    "data_random_seed": 42
+  },
+  "rounds": 150,
+  "smoke": false
+}

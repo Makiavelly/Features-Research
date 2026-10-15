@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/run.py", line 215, in main
+    program = generate(directory, index, islands[island], data_examples, errors[island])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/run.py", line 114, in generate
+    program = validate_program(json.loads(response["response"]))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 77, in validate_program
+    raise ValueError("Invalid grouping keys")
+ValueError: Invalid grouping keys

@@ -1,0 +1,9 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "model_source": "hf",
+  "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "is_loaded_in_4bit": true,
+  "gpu": "Tesla T4",
+  "footprint_bytes": 5591539968,
+  "allocated_vram_bytes": 5705377280
+}

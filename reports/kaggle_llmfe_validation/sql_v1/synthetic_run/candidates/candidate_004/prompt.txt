@@ -1,0 +1,31 @@
+Design2-6 useful H&M recommendation features. Return ONE JSON object, no Python and no full SQL query.
+The host runs your SQL aggregate expressions on past history, groups by keys, LEFT joins to candidate pairs,
+preserves row order and appends15 raw static features. You only choose name, grouping keys and SQL expression.
+Target: rank clothing articles purchased in the next7days, maximize LightGBM validation MAP@12.
+History contains only transactions within180 days before each cutoff for the selected customer cohort.
+Columns: customer_id, article_id, price, days_ago, sales_channel_id, customer_age,
+product_code, product_type_no, graphical_appearance_no, colour_group_code, perceived_colour_value_id,
+perceived_colour_master_id, department_no, index_group_no, section_no, garment_group_no.
+price=normalized price; days_ago=integer days before cutoff; other clothing columns are category codes.
+Grouping keys: one customer_id, article_id or clothing category; or customer_id + article_id/clothing category.
+Each expression must be a scalar SQL aggregate. For time windows use CASE WHEN days_ago <= N THEN ... END
+or FILTER (WHERE days_ago <= N). Categories are encoded consistently for candidates and history.
+Allowed functions: count,sum,avg,min,max,stddev_pop,coalesce,nullif,abs,sqrt,ln,log,round,greatest,least,
+approx_count_distinct. Arithmetic, CASE, DISTINCT and numeric literals are supported.
+No SELECT/FROM/JOIN, subqueries, window functions, strings, comments, file access or timestamps.
+IDs are only grouping keys or count(DISTINCT id); never average IDs. Do not average category codes.
+No derived features in this simplified interface. Host handles missing groups as missing values.
+Names must be unique f_lowercase. Use2-6 features and keep the JSON short, under2048 output tokens.
+FORMAT example for ONE aggregate (submit2-6 of your own chosen features):
+{"aggregates":[{"name":"f_example","keys":["customer_id"],"sql":"COUNT(*)"}]}
+The example is an interface demonstration, not a scored feature set.
+Each proposal is a COMPLETE set. Evaluation: all803377 training pairs, LightGBM150 rounds/31 leaves,
+fixed256 search users and6594 candidates. Final test is unavailable during search.
+Previously measured sets from this population (empty aggregates means raw control):
+[{"search_map_fraction":0.0,"program":{"aggregates":[]}}]
+REPAIR the previous JSON. Fix ALL SQL/schema errors. Return the COMPLETE corrected JSON only.
+Previous response:
+{"aggregates": [{"name": "f_count", "keys": ["customer_id"], "sql": "COUNT(*)"}, {"name": "f_price", "keys": ["customer_id", "product_type_no"], "sql": "AVG(price)"}]}
+Exact rejection reason:
+Duplicate canonical SQL specification
+Use only name, keys, sql per aggregate. No Python, no full SQL statement. If duplicate, choose a different useful feature set. If truncated, shorten the JSON.

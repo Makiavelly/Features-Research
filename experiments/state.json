@@ -1403,13 +1403,559 @@
         "inference_seconds": 117.29978087999996,
         "verification_protocol": "numerical_ties_v2"
       }
+    },
+    "hm_llmfe_qwen25coder7b_seed42_v1": {
+      "status": "evaluating",
+      "updated_at": "2026-10-15T12:09:29+03:00",
+      "last_message": "LLM-FE search/val: 8/256 пользователей, полный каталог",
+      "model": {
+        "name": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "modified_at": "2026-10-15T11:57:18.3867895+03:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M"
+        }
+      },
+      "runtime": {
+        "models": [
+          {
+            "name": "qwen2.5-coder:7b-instruct-q4_K_M",
+            "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+            "size": 4924207104,
+            "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-15T12:29:31.992758199+03:00",
+            "size_vram": 4924207104,
+            "context_length": 4096
+          }
+        ]
+      },
+      "config": {
+        "schema_version": 1,
+        "run_id": "hm_llmfe_qwen25coder7b_seed42_v1",
+        "seed": 42,
+        "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "backend": "Ollama 0.21.0 (llama.cpp runner)",
+        "quantization": "Q4_K_M",
+        "context_tokens": 4096,
+        "generation_tokens": 1800,
+        "temperature": 0.8,
+        "islands": 3,
+        "llm_samples": 20,
+        "memory_programs_per_prompt": 1,
+        "train_user_times": 50000,
+        "negative_sampling": "same saved pairs as manual_v1; only IDs/time/labels reused",
+        "pair_selection_seed": 2026,
+        "search_validation_users": 256,
+        "confirmation_validation_users": 1024,
+        "confirmation_candidates": 3,
+        "search_objective": "full-catalog MAP@12",
+        "final": "all validation and test users; full catalog and saved ID-GNN pools",
+        "downstream": "LightGBM binary, 31 leaves, 150 rounds, same fixed settings for every program",
+        "inputs": "raw static fields plus LLM SQL aggregates/derived features; no manual/GNN features",
+        "feature_program": "restricted SQL expression AST-equivalent interface, not arbitrary Python",
+        "cutoff": "t_dat <= prediction timestamp",
+        "search_timeout_seconds": 21600,
+        "final_timeout_seconds": 604800,
+        "training_embeddings": false,
+        "paper_deviations": [
+          "temporal relational ranking, MAP@12, LightGBM",
+          "SQL expression programs and controlled host joins instead of Python",
+          "one prior program per prompt, 3 islands, 20 LLM proposals",
+          "256 search users, disjoint 1024 confirmation users; complete catalog",
+          "50k user-times, fixed seed42, no ensemble"
+        ]
+      },
+      "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v1",
+      "stage": "search",
+      "split": "val",
+      "scored_users": 8,
+      "total_users": 256,
+      "catalog_size": 105542,
+      "candidate": 5,
+      "raw_search_val_metrics": {
+        "map": 0.001095920138888889
+      },
+      "completed_proposals": 4,
+      "trial": {
+        "candidate": 4,
+        "island": 0,
+        "status": "rejected",
+        "error": "Identifiers/statement keywords outside the feature interface",
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_04"
+      }
+    },
+    "hm_llmfe_qwen25coder7b_seed42_v2": {
+      "status": "paused",
+      "config": {
+        "schema_version": 1,
+        "run_id": "hm_llmfe_qwen25coder7b_seed42_v2",
+        "seed": 42,
+        "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "backend": "Ollama 0.21.0 (llama.cpp runner)",
+        "quantization": "Q4_K_M",
+        "context_tokens": 4096,
+        "generation_tokens": 1800,
+        "temperature": 0.8,
+        "islands": 3,
+        "llm_samples": 20,
+        "memory_programs_per_prompt": 1,
+        "train_user_times": 50000,
+        "negative_sampling": "same saved pairs as manual_v1; only IDs/time/labels reused",
+        "pair_selection_seed": 2026,
+        "search_validation_users": 256,
+        "confirmation_validation_users": 1024,
+        "confirmation_candidates": 3,
+        "search_objective": "full-catalog MAP@12",
+        "final": "all validation and test users; full catalog and saved ID-GNN pools",
+        "downstream": "LightGBM binary, 31 leaves, 150 rounds, same fixed settings for every program",
+        "inputs": "raw static fields plus LLM SQL aggregates/derived features; no manual/GNN features",
+        "feature_program": "v2 SQL expressions; global item/category and user/category groups; ID counts allowed, ID values excluded",
+        "cutoff": "t_dat <= prediction timestamp",
+        "search_timeout_seconds": 21600,
+        "final_timeout_seconds": 604800,
+        "training_embeddings": false,
+        "paper_deviations": [
+          "temporal relational ranking, MAP@12, LightGBM",
+          "SQL expression programs and controlled host joins instead of Python",
+          "one prior program per prompt, 3 islands, 20 LLM proposals",
+          "256 search users, disjoint 1024 confirmation users; complete catalog",
+          "50k user-times, fixed seed42, no ensemble"
+        ]
+      },
+      "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+      "updated_at": "2026-10-15T14:11:31+03:00",
+      "last_message": "User explicitly requested pause full catalog and evaluate shared ID-GNN candidates. Supervisor and evaluator stopped, checkpoint/predictions retained at5840/74575 validation users. full_catalog_paused.json blocks automatic resume. New frozen-model shared evaluation has separate run_id hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1, complete val/test and independent full replay; no new feature selection or training.",
+      "raw_search_val_metrics": {
+        "map": 0.001095920138888889
+      },
+      "candidate": 20,
+      "completed_proposals": 20,
+      "trial": {
+        "candidate": 20,
+        "island": 1,
+        "status": "valid",
+        "score": 0.005149974446849447,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_20",
+        "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+          "val_metrics": {
+            "map": 0.005149974446849447
+          },
+          "val_users": 256,
+          "val_seconds": 180.72306248399946,
+          "elapsed_seconds": 285.97743342299964,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_product_frequency",
+            "f_customer_department_frequency",
+            "f_product_sales_count",
+            "f_product_days_since_last_purchase",
+            "f_customer_past_purchases",
+            "f_product_popularity_score",
+            "f_combined_frequency"
+          ]
+        }
+      },
+      "stage": "final",
+      "split": "val",
+      "scored_users": 5640,
+      "total_users": 74575,
+      "catalog_size": 105542,
+      "smoke": {
+        "stage": "smoke",
+        "smoke": true,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+        "val_metrics": {
+          "map": 0.0
+        },
+        "val_users": 8,
+        "val_seconds": 1.9085834739998973,
+        "elapsed_seconds": 9.129123668999455,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_product_frequency",
+          "f_customer_department_frequency",
+          "f_product_sales_count",
+          "f_product_days_since_last_purchase",
+          "f_customer_past_purchases",
+          "f_product_popularity_score",
+          "f_combined_frequency"
+        ]
+      },
+      "selection": {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+        "score": 0.002461205244408369,
+        "metrics": {
+          "stage": "confirm",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+          "val_metrics": {
+            "map": 0.002461205244408369
+          },
+          "val_users": 1024,
+          "val_seconds": 637.2611580519997,
+          "elapsed_seconds": 643.7302280969998,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_product_frequency",
+            "f_customer_department_frequency",
+            "f_product_sales_count",
+            "f_product_days_since_last_purchase",
+            "f_customer_past_purchases",
+            "f_product_popularity_score",
+            "f_combined_frequency"
+          ]
+        }
+      }
+    },
+    "hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1": {
+      "status": "complete",
+      "artifacts": "reports/llmfe_qwen25coder7b_v2/shared_idgnn",
+      "updated_at": "2026-10-15T14:13:38+03:00",
+      "last_message": "LLM-LightGBM оценён на общих кандидатах ID-GNN; полный повтор подтвердил предсказания",
+      "split": "test",
+      "split_result": {
+        "users": 67144,
+        "pairs": 1892405,
+        "candidate_file_sha256": "023cfbb8126cdaaa73083bcc9709b4af369d63e2c2f5717ea98b5388b4080d9b",
+        "metrics": {
+          "map": 0.008117509149461
+        },
+        "idgnn_metrics_recomputed": {
+          "map": 0.027843150477067403
+        },
+        "seconds": 34.29561228999955,
+        "predictions_identical": true
+      },
+      "val_metrics": {
+        "map": 0.008542810038877146
+      },
+      "test_metrics": {
+        "map": 0.008117509149461
+      }
+    },
+    "hm_llmfe_qwen25coder7b_seed42_h002_shared_v1": {
+      "status": "complete",
+      "config": {
+        "run_id": "hm_llmfe_qwen25coder7b_seed42_h002_shared_v1",
+        "hypothesis": "H002",
+        "seed": 42,
+        "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "target_successful_distinct": 20,
+        "max_llm_calls": 100,
+        "max_repairs_per_proposal": 2,
+        "islands": 3,
+        "memory_programs": 1,
+        "context_tokens": 4096,
+        "generation_tokens": 1800,
+        "temperature": 0.8,
+        "train_pairs": 803377,
+        "train_user_times": 50000,
+        "pair_selection_seed": 2026,
+        "training_threads": 8,
+        "prediction_threads": 8,
+        "rounds": 150,
+        "search_users": 256,
+        "confirmation_users": 1024,
+        "confirmation_candidates": 3,
+        "search_protocol": "fixed saved ID-GNN candidates; same user selections as v2",
+        "final_protocol": "all val/test users, exact saved ID-GNN candidate pools, independent full replay",
+        "full_catalog": false,
+        "validator": "h002: WITHIN GROUP syntax false rejection fixed",
+        "control": "v2 five measured sets; different search pool, increased calls, repair and prompt changes confound isolated attribution",
+        "downstream": "same binary LightGBM150/leaves31/seeds42 as v2, 8 threads",
+        "test_policy": "test only after selection frozen on disjoint validation confirmation"
+      },
+      "artifacts": "reports/llmfe_h002_shared_v1",
+      "updated_at": "2026-10-15T15:39:42+03:00",
+      "last_message": "H002 завершён: итоговые shared MAP, независимый полный повтор и графики сохранены",
+      "llm_calls": 83,
+      "evaluated_distinct": 20,
+      "trial": {
+        "call": 83,
+        "proposal": 37,
+        "island": 1,
+        "repair": 2,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_083",
+        "parent_call": 82,
+        "prompt_tokens": 1658,
+        "generated_tokens": 428,
+        "llm_seconds": 17.886252933,
+        "program_sha256": "743cc6b8cb1326a0bda2c0fe6dc908747729ac3bf3d45b5e9ba55a6350082b2a",
+        "status": "valid",
+        "score": 0.020224397997835496,
+        "metrics": {
+          "stage": "search",
+          "protocol": "saved ID-GNN candidate pools",
+          "smoke": false,
+          "model_sha256": "37f073d98535cb6a194bc3a910ee93c59423eb0f5dc19bd97e00554f5d8c872f",
+          "program_sha256": "5218aad198aa03829930a702291be810438fed76236c7822bc731e5ef4afd855",
+          "prediction_threads": 8,
+          "inference_from_saved_model": true,
+          "val_metrics": {
+            "map": 0.020224397997835496
+          },
+          "val_users": 256,
+          "val_pairs": 6594,
+          "val_seconds": 4.804498387002241,
+          "elapsed_seconds": 161.39359621300173,
+          "passed": true
+        },
+        "elapsed_seconds": 189.36316617300326
+      },
+      "first_score_seconds": 3.976385306999873,
+      "tests_passed": 6,
+      "training_threads_check": {
+        "checked_pairs": 2048,
+        "old_threads": 2,
+        "new_threads": 8,
+        "scores_bit_identical": true
+      },
+      "full_catalog_resumed": false,
+      "experiment_complete": false,
+      "first_evaluated_candidate": 10,
+      "search_pairs": 6594,
+      "first_search_map": 0.010144469246031747,
+      "graphs": "reports/llmfe_h002_shared_v1/progress.md",
+      "first_train_and_score_seconds": 120.65982826100117,
+      "selection": {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_060",
+        "score": 0.015164011568168934,
+        "metrics": {
+          "stage": "confirm",
+          "protocol": "saved ID-GNN candidate pools",
+          "smoke": false,
+          "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+          "program_sha256": "2b917a93c6e956a67c4fe7a5f67dca27a26409075888410926706a664d8bf2b9",
+          "prediction_threads": 8,
+          "inference_from_saved_model": true,
+          "val_metrics": {
+            "map": 0.015164011568168934
+          },
+          "val_users": 1024,
+          "val_pairs": 28587,
+          "val_seconds": 3.9803579920007905,
+          "elapsed_seconds": 5.461096573999384,
+          "passed": true
+        }
+      },
+      "val_metrics": {
+        "map": 0.017860457679790033
+      },
+      "test_metrics": {
+        "map": 0.019753961287228266
+      },
+      "target_met": true
+    },
+    "hm_llmfe_llama31_8b_kaggle_fulltrain_v2": {
+      "status": "notebook_ready",
+      "train_pairs": 803377,
+      "scope": "notebook_prepared_and_CPU_checked_only",
+      "local_validation_threads": 1,
+      "behavioral_tests_passed": 6,
+      "raw_xgboost_full_train_seconds": 71.95847935499842,
+      "synthetic_quality_result": false,
+      "llama_gpu_executed": false,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "artifacts": "LLMFeatures/kaggle",
+      "kaggle_t4_executed": false,
+      "train_user_times": 50000,
+      "raw_lightgbm_full_train_seconds": 35.21816100599972,
+      "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+      "bundle": "LLMFeatures/kaggle/hm_llmfe_kaggle_fulltrain_v2.zip",
+      "compare": "LLM-LightGBM/manual-LightGBM/GNN-LightGBM on exact same selected users and ID-GNN candidates; old tuning/seeds and graph pretraining differ",
+      "synthetic_integration_passed": true,
+      "paper_limit_deviation": "2GiB failed during full803377-pair XGBoost training; use4GiB and larger total timeout,30s per feature call",
+      "original_pair_file_bit_identical": true,
+      "cpu_evaluator_memory_gib": 4,
+      "updated_at": "2026-10-15T15:51:47+03:00",
+      "last_message": "В.ipynb добавлен MODEL_SOURCE unsloth/hf; defaultUnsloth анонимно, HF требуеттокен;7 тестов прошли. Данные и evaluator неизменны, GPUне запускался.",
+      "model_sources": {
+        "unsloth": "unsloth/Meta-Llama-3.1-8B-Instruct",
+        "hf": "meta-llama/Llama-3.1-8B-Instruct"
+      },
+      "default_source": "unsloth",
+      "tests_passed": 7,
+      "weights_downloaded": false
+    },
+    "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3": {
+      "status": "notebook_ready",
+      "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+      "tests_passed": 8,
+      "cpu_threads": 4,
+      "full_train_pairs": 803377,
+      "search_backend": "lightgbm",
+      "previous_xgboost_archived": "LLMFeatures/kaggle/archive/xgboost_v2",
+      "archive_data_unchanged": true,
+      "gpu_llama_tested": false,
+      "full_train_reload_search_seconds": 22.927927161003026,
+      "protocol": "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3",
+      "synthetic_end_to_end_passed": true,
+      "updated_at": "2026-10-15T16:14:09+03:00",
+      "last_message": "По прямому указанию весь Kaggle-поиск/confirmation переведён сXGBoost наLightGBM. Новый v3 notebook, v2 архивирован.8 тестов,803377-парный4-thread контроль и smoke прошли. Kaggle/GPUзапуск не выполнен."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4": {
+      "status": "notebook_ready",
+      "synthetic_distinct_sets": 2,
+      "tests_passed": 11,
+      "synthetic_calls": 6,
+      "target_successful_distinct": 20,
+      "synthetic_integration_passed": true,
+      "dataset_unchanged": true,
+      "max_llm_calls": 300,
+      "gpu_llama_executed": false,
+      "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+      "artifacts": "LLMFeatures/kaggle",
+      "max_repairs_per_proposal": 3,
+      "protocol": "hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4",
+      "updated_at": "2026-10-15T20:03:02+03:00",
+      "last_message": "Учтён Save Version: error,stage,tokens,truncated теперь печатаются в stdout;11 тестов прошли. Причина удалённых отказов пока неизвестна.",
+      "remote_reported_calls": 83,
+      "remote_reported_successes": 0,
+      "cause_verified": false,
+      "diagnostic": "LLMFeatures/kaggle/diagnose_failures.py",
+      "diagnostic_logging": true,
+      "remote_cause_verified": false
+    },
+    "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3_3b338cf1f141": {
+      "status": "audited_no_llm_result",
+      "artifacts": "reports/kaggle_llama_v3_audit",
+      "llm_calls": 20,
+      "evaluated_distinct": 0,
+      "source": "user exported notebook and artifacts",
+      "updated_at": "2026-10-15T20:28:19+03:00",
+      "last_message": "ПрисланныйKaggle v3 проверен:20/20 отказов,0 LLMмоделей,выбранrawcontrol; егоMAPнельзяназыватьLLMрезультатом. Отчёт/гистограмма/неизменённыйCPUreplay сохранены."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5": {
+      "status": "notebook_ready",
+      "artifacts": "LLMFeatures/kaggle",
+      "tests_passed": 13,
+      "target_successful_distinct": 20,
+      "max_llm_calls": 300,
+      "max_repairs_per_proposal": 3,
+      "real_llama_generation_tested": false,
+      "updated_at": "2026-10-15T20:28:19+03:00",
+      "last_message": "Подготовленv5:короткиепрограммы,historyexamples,preflightперед803377-парнымfit,адресныеошибки,rawfallbackбезLLMподписи.13тестов+syntheticreplayпрошли;успехнастоящейLLamaнеизмерен."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef": {
+      "status": "partial_export_received",
+      "updated_at": "2026-10-15T21:00:57+03:00",
+      "last_message": "Received tempRes partial export: call1 proposal1 island0 repair0 VALID, search MAP@12=1.0144412878787878% on256 users/6594 pairs; preflight passed,4 generated features,15 raw fields. Program SHA256 verified against trial. Generation36s, search38.66s, total79.47s. No model/predictions/raw-control metrics supplied: no independent metric replay or improvement claim. Remote current progress unknown beyond exported call1."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1": {
+      "status": "notebook_ready",
+      "updated_at": "2026-10-15T21:15:01+03:00",
+      "last_message": "Separate Llama SQL notebook ready: local Qwen-style JSON aggregates<=24 and derived<=12 after user explicitly requested derived formulas. Same803377 train pairs and256/512/1024/2048 evaluation users, LightGBM150/31 seed42,3islands,target20/max300/3repairs,hf-or-unsloth. Original pandas notebook preserved. Six interface tests passed; synthetic repair/duplicate/resume/final replay passed; SQL fixture full803377 training32.15s and independent heldout-val model replay passed. Initial test mistakenly requested unsupported replay_search; corrected to val/replay_val and passed without retraining. Artifacts: LLMFeatures/kaggle/llmfe_llama31_hm_sql_kaggle_t4.ipynb and reports/kaggle_llmfe_validation/sql_v1_derived. No real Llama generation or quality measured."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1_6eb8a9ef9ba7": {
+      "status": "stopped_by_user",
+      "updated_at": "2026-10-15T21:46:46+03:00",
+      "last_message": "User stopped SQL notebook after repeated failures. Supplied calls1-3 of proposal1 were rejected at parse_and_validate: raw_u_active, then raw_u_fn, then raw_u_active incorrectly used inside history aggregates. Other visible issues: invalid sales_channel_id grouping keys, nested AVG(COUNT), missing derived references, unsupported percentile syntax, MAX used for most-recent recency. No valid sets in supplied fragment; final total call count and full-run artifacts not provided. This does not establish Llama feature quality."
+    },
+    "hm_llmfe_llama31_8b_lightgbm_structured_fulltrain_v1": {
+      "status": "notebook_ready",
+      "updated_at": "2026-10-15T21:47:15+03:00",
+      "last_message": "Created separate llmfe_llama31_hm_structured_kaggle_t4.ipynb after user approved structured feature descriptions. Llama selects aggregate op/column/window/keys and bounded derived expression trees; host compiles SQL, no model-authored SQL/Python. Maximum24 aggregates/12 derived; prompt recommends compact sets. Validator collects multiple schema errors per repair. Ordinary JSON sampling, not grammar/token masking. Same803377 pairs,LightGBM150/31 seed42,3islands,20 measured/300calls/3repairs,unchanged256/512/1024/2048 shared candidate users,model source hf/unsloth. Seven tests passed; synthetic search/repair/duplicate/resume/final replay passed; full803377-pair test-fixture fit/search24.82s and independent val replay passed. Previous notebooks unchanged. Real Llama generation not run, no quality result. Verification reports/kaggle_llmfe_validation/structured_v1/verification.json."
+    },
+    "balance_scale_llama31_diagnostic_v1": {
+      "status": "notebook_ready",
+      "updated_at": "2026-10-15T22:49:57+03:00",
+      "last_message": "Received user structured run_config, first prompt, first response and repair. All4 runtime SHA256 match delivered modules. Confirmed model meta-llama/Llama-3.1-8B-Instruct hf revision0e9e39f249a16976918f6564b8830bc894c89659 onT4 NF4/FP16,temperature.8. No visible config mismatch; cannot infer intact weight execution or quantization effects from config alone. First response19aggregates:7 invalid keys,12 schema-valid;2 derived failures cascade from rejected aggregates. Repair retains invalid keys, removes valid revenue aggregates yet keeps references. Static age_diff/age_ratio are redundant0/1 when age nonmissing. Full-set rejection discards valid subset by design; subset salvage not implemented or evaluated. Diagnostic balance notebook defaults now match user hf/revision, unsloth choice retained;4 unit checks passed without retraining. Actual diagnostic run fingerprints include selected source/revision. No real Llama evaluation performed locally."
+    },
+    "balance_scale_llama31_diagnostic_v1_09de7191636d": {
+      "status": "failed_before_llm",
+      "updated_at": "2026-10-15T23:20:46+03:00",
+      "last_message": "User Save Version log confirms balance_scale_llama31_diagnostic_v1_09de7191636d stopped in raw control before any Llama request/model load. XGBClassifier device=cpu reached CUDA code during fit/eval and raised cudaErrorNoDevice in CUDA-hidden worker. GPU T4 was detected by parent. Package dependency/debugger warnings were not the stopping exception. Local prior checks used xgboost-cpu while notebook installed full xgboost distribution; mismatch identified. Remote data/program compliance cannot be assessed:0 LLM calls."
+    },
+    "balance_scale_llama31_diagnostic_v2_cpu": {
+      "status": "notebook_ready",
+      "updated_at": "2026-10-15T23:20:48+03:00",
+      "last_message": "Prepared balance_scale_llama31_diagnostic_v2_cpu in same .ipynb; archived v1 under balance_diagnostic/archive/v1. Installer uninstalls both conflicting distributions then pins xgboost-cpu3.0.5, worker asserts USE_CUDA=false, CPU build info stored in metrics. Llama remains hf/pinned revision/NF4/FP16 on T4,6 calls and task unchanged. Failure ZIP added around control evaluation and model load. Five unit tests passed including pre-generation failure archive; new synthetic6call integration with real CPU XGBoost/CV/report/resume passed; no real Llama/T4 run. Verification reports/kaggle_llmfe_validation/balance_diagnostic_v2_cpu_synthetic/verification.json. User needs updated .ipynb and a new Save Version."
+    },
+    "balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5": {
+      "status": "diagnostic_complete",
+      "updated_at": "2026-10-15T23:52:44+03:00",
+      "last_message": "Real Kaggle diagnostic ZIP received and audited: config fingerprint6b5c7786f4b5 and2runtime hashes match. Official Llama hf revision0e9e39f249a16976918f6564b8830bc894c89659,NF4/FP16,T4. Chat3/3 valid:train-only4fold CV accuracy81.4%,91.8%,96.8%; raw87%,authorsseed86.2%. Independent bounded CPU replay of all3 matched every fold exactly. Completion0/3accepted:all2048token truncated; first complete function prefixes parse but followed by additional versions/repetitions, not evaluated separately. Seed44 independently generated left/right weight*distance features.3draws cannot prove general reliability or rule out quantization effects; H&M used chat already. No heldout/H&M evaluation, no paper reproduction. Original ZIP unchanged. Artifacts reports/balance_scale_llama31_diagnostic_v2_audit/report.md and audit.json."
     }
   },
   "latest_event": {
-    "time": "2026-10-15T10:56:50+03:00",
-    "kind": "two_tower_final_audit",
-    "message": "Повторный запрос восстановления: проверено, что возобновлённый конвейер уже завершился в 10:49 МСК с exitcode=0; inference_check passed=true, report final=true, активных процессов нет. Повторный запуск не создавался. Итоговый test MAP@12 0.54301%; CONTEXT.md обновлён.",
-    "run_id": null,
-    "data": {}
+    "time": "2026-10-15T23:52:44+03:00",
+    "kind": "balance_diagnostic_real_run_audited",
+    "message": "Real Kaggle diagnostic ZIP received and audited: config fingerprint6b5c7786f4b5 and2runtime hashes match. Official Llama hf revision0e9e39f249a16976918f6564b8830bc894c89659,NF4/FP16,T4. Chat3/3 valid:train-only4fold CV accuracy81.4%,91.8%,96.8%; raw87%,authorsseed86.2%. Independent bounded CPU replay of all3 matched every fold exactly. Completion0/3accepted:all2048token truncated; first complete function prefixes parse but followed by additional versions/repetitions, not evaluated separately. Seed44 independently generated left/right weight*distance features.3draws cannot prove general reliability or rule out quantization effects; H&M used chat already. No heldout/H&M evaluation, no paper reproduction. Original ZIP unchanged. Artifacts reports/balance_scale_llama31_diagnostic_v2_audit/report.md and audit.json.",
+    "run_id": "balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5",
+    "data": {
+      "status": "diagnostic_complete"
+    }
   }
 }

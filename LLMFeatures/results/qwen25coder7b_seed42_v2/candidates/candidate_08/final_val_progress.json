@@ -1,0 +1,10 @@
+{
+  "user_order_sha256": "0a439b06cd72f1991d500068a7f4b0ff8e7efdb76da7b26afc0ce6f7e1589904",
+  "total_users": 74575,
+  "completed_users": 5840,
+  "catalog_size": 105542,
+  "elapsed_seconds_current_process": 796.2679961699996,
+  "elapsed_seconds_accumulated": 3024.1712629529993,
+  "starting_user_offset": 3680,
+  "predict_threads": 8
+}

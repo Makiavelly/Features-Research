@@ -1,0 +1,14 @@
+{
+  "call": 55,
+  "proposal": 21,
+  "island": 0,
+  "repair": 1,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_055",
+  "parent_call": 54,
+  "prompt_tokens": 1574,
+  "generated_tokens": 269,
+  "llm_seconds": 12.231707081,
+  "status": "rejected",
+  "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+  "elapsed_seconds": 12.294947716000024
+}

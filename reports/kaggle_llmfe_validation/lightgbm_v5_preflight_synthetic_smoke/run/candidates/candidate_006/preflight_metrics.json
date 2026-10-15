@@ -1,0 +1,43 @@
+{
+  "stage": "preflight",
+  "passed": true,
+  "smoke": true,
+  "backend": "lightgbm",
+  "program_sha256": "a53b1cc751d2795fed70956fea33403fc671f9ed0fc4d77fb5ad7e5b242a9404",
+  "checked": [
+    {
+      "kind": "train",
+      "cutoff": "2020-08-31 00:00:00",
+      "pairs": 256
+    },
+    {
+      "kind": "train",
+      "cutoff": "2020-08-31 00:00:00",
+      "pairs": 256
+    },
+    {
+      "kind": "search_validation",
+      "pairs": 125
+    }
+  ],
+  "features": [
+    "raw_u_age",
+    "raw_u_fn",
+    "raw_u_active",
+    "raw_u_club_member_status",
+    "raw_u_fashion_news_frequency",
+    "raw_i_product_code",
+    "raw_i_product_type_no",
+    "raw_i_graphical_appearance_no",
+    "raw_i_colour_group_code",
+    "raw_i_perceived_colour_value_id",
+    "raw_i_perceived_colour_master_id",
+    "raw_i_department_no",
+    "raw_i_index_group_no",
+    "raw_i_section_no",
+    "raw_i_garment_group_no",
+    "f_fixture"
+  ],
+  "seconds": 0.2107278640032746,
+  "counted_as_successful_set": false
+}

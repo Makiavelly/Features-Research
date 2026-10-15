@@ -42,6 +42,23 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_twotower_sage_seed_42_v1 | complete | 20 | 0.57431 | 0.54301 | RelBenchGNN/results/two_tower_seed_42 |
 | hm_twotower_sage_seed_42_v1_inference | failed | — | — | — | RelBenchGNN/results/two_tower_seed_42 |
 | hm_twotower_sage_seed_42_v1_inference_v2 | verified | — | — | — | RelBenchGNN/results/two_tower_seed_42 |
+| hm_llmfe_qwen25coder7b_seed42_v1 | evaluating | — | — | — | LLMFeatures/results/qwen25coder7b_seed42_v1 |
+| hm_llmfe_qwen25coder7b_seed42_v2 | paused | — | — | — | LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08 |
+| hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1 | complete | — | 0.85428 | 0.81175 | reports/llmfe_qwen25coder7b_v2/shared_idgnn |
+| hm_llmfe_qwen25coder7b_seed42_h002_shared_v1 | complete | — | 1.78605 | 1.97540 | reports/llmfe_h002_shared_v1 |
+| hm_llmfe_llama31_8b_kaggle_fulltrain_v2 | notebook_ready | — | — | — | LLMFeatures/kaggle |
+| hm_llmfe_llama31_8b_lightgbm_fulltrain_v3 | notebook_ready | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4 | notebook_ready | — | — | — | LLMFeatures/kaggle |
+| hm_llmfe_llama31_8b_lightgbm_fulltrain_v3_3b338cf1f141 | audited_no_llm_result | — | — | — | reports/kaggle_llama_v3_audit |
+| hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5 | notebook_ready | — | — | — | LLMFeatures/kaggle |
+| hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef | partial_export_received | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1 | notebook_ready | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1_6eb8a9ef9ba7 | stopped_by_user | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_structured_fulltrain_v1 | notebook_ready | — | — | — | — |
+| balance_scale_llama31_diagnostic_v1 | notebook_ready | — | — | — | — |
+| balance_scale_llama31_diagnostic_v1_09de7191636d | failed_before_llm | — | — | — | — |
+| balance_scale_llama31_diagnostic_v2_cpu | notebook_ready | — | — | — | — |
+| balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5 | diagnostic_complete | — | — | — | — |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

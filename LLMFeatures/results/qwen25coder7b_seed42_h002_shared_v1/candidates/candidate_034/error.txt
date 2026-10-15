@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 194, in main
+    engine.matrix(sample)
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 180, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 169, in frame
+    frame = self.con.sql(f"SELECT {ordered} FROM ({query}) ORDER BY rid").df()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: column "rid" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use "ANY_VALUE(rid)" if the exact value of "rid" is not important.

@@ -1,0 +1,69 @@
+{
+  "rationale": "Enhanced feature set to predict customer purchases in the next 7 days by focusing on product diversity, recent purchase frequency, average transaction value, and club membership status, using LightGBM validation MAP@12 on FIXED ID-GNN candidate pools.",
+  "aggregates": [
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "AVG(days_ago)"
+    },
+    {
+      "name": "f_total_transactions",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "COUNT(*)"
+    },
+    {
+      "name": "f_unique_products",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(product_code)"
+    },
+    {
+      "name": "f_avg_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "AVG(price)"
+    },
+    {
+      "name": "f_last_purchase_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "MIN(days_ago)"
+    },
+    {
+      "name": "f_first_purchase_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "MAX(days_ago)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_recent_transactions",
+      "sql": "CASE WHEN f_avg_days_ago < 7 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_high_frequency_customer",
+      "sql": "CASE WHEN f_total_transactions > 50 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_diversified_purchases",
+      "sql": "CASE WHEN f_unique_products > 20 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_expensive_customers",
+      "sql": "CASE WHEN f_avg_price > 50 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_club_member",
+      "sql": "CASE WHEN raw_u_club_member_status = 1 THEN 1 ELSE 0 END"
+    }
+  ]
+}

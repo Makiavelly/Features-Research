@@ -1,0 +1,15 @@
+{
+  "call": 82,
+  "proposal": 37,
+  "island": 1,
+  "repair": 1,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_082",
+  "parent_call": 81,
+  "prompt_tokens": 1658,
+  "generated_tokens": 419,
+  "llm_seconds": 17.465761025,
+  "program_sha256": "1c1c55948a1776217705cb439d5d486a44183fb2c90bb60831425d6770836221",
+  "status": "duplicate",
+  "error": "Duplicate of an already evaluated feature set; propose distinct formulas",
+  "elapsed_seconds": 17.51849773199865
+}

@@ -1,0 +1,7 @@
+{
+  "notebook": "llmfe_llama31_balance_scale_diagnostic_t4.ipynb",
+  "sha256": "27f0633128b73f74337409efd93aa7910b4b4fcdba81ea65341623f60fa25c8f",
+  "upstream_revision": "e9a58ca3416ae74dcc7549dffdf79b9289604091",
+  "max_llm_calls": 6,
+  "real_llama_executed": false
+}

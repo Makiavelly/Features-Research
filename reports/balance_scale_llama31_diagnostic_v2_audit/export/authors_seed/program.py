@@ -1,0 +1,8 @@
+def modify_features(df_input) -> pd.DataFrame:
+    """
+    Thought 1: The absolute difference between Left-Weight and Right-Weight can capture the imbalance in weight distribution.
+    New Feature 1: weight_difference | weight_difference = abs(Left-Weight - Right-Weight)
+    """
+    df_output = df_input.copy()
+    df_output['weight_difference'] = abs(df_output['Left-Weight'] - df_output['Right-Weight'])
+    return df_output

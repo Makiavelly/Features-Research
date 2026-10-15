@@ -1,0 +1,36 @@
+{
+  "stage": "confirm",
+  "smoke": false,
+  "seed": 42,
+  "inference_from_saved_model": true,
+  "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+  "val_metrics": {
+    "map": 0.0017129741189799781
+  },
+  "val_users": 1024,
+  "val_seconds": 880.9539658989997,
+  "elapsed_seconds": 883.4893149449999,
+  "features": [
+    "raw_u_age",
+    "raw_u_fn",
+    "raw_u_active",
+    "raw_u_club_member_status",
+    "raw_u_fashion_news_frequency",
+    "raw_i_product_code",
+    "raw_i_product_type_no",
+    "raw_i_graphical_appearance_no",
+    "raw_i_colour_group_code",
+    "raw_i_perceived_colour_value_id",
+    "raw_i_perceived_colour_master_id",
+    "raw_i_department_no",
+    "raw_i_index_group_no",
+    "raw_i_section_no",
+    "raw_i_garment_group_no",
+    "f_customer_purchase_count",
+    "f_article_diversity",
+    "f_last_purchase_age",
+    "f_avg_article_price",
+    "f_recent_purchase_ratio",
+    "f_purchase_diversity_per_article"
+  ]
+}

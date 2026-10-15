@@ -1,0 +1,28 @@
+{
+  "aggregates": [
+    {
+      "name": "f_recency",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "MIN(days_ago) FILTER (WHERE days_ago <= 180)"
+    },
+    {
+      "name": "f_recent",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "COUNT(*) FILTER (WHERE days_ago <= 30)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_rate",
+      "sql": "(f_recent) / NULLIF(((f_recency)+(1)), 0)"
+    },
+    {
+      "name": "f_log_rate",
+      "sql": "LN(1 + GREATEST((f_rate), 0))"
+    }
+  ]
+}

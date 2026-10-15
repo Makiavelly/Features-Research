@@ -1,0 +1,15 @@
+{
+  "call": 73,
+  "proposal": 32,
+  "island": 2,
+  "repair": 1,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_073",
+  "parent_call": 72,
+  "prompt_tokens": 1588,
+  "generated_tokens": 404,
+  "llm_seconds": 17.536535828,
+  "program_sha256": "efb91e6aa4df25cc6f4bf2eeb60562fc36b4c813d7d2aa554f8fe1da07dd1043",
+  "status": "rejected",
+  "error": "Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.f_product_avg_days_ago\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\"",
+  "elapsed_seconds": 22.832577503999346
+}

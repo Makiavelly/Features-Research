@@ -1,0 +1,43 @@
+{
+  "rationale": "Create features based on customer behavior, product attributes, and time decay to predict purchases in the next 7 days.",
+  "aggregates": [
+    {
+      "name": "f_customer_purchase_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_customer_unique_articles_purchased",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_product_purchase_count",
+      "keys": [
+        "product_code"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_customer_recent_purchases",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "sum(CASE WHEN days_ago BETWEEN 1 AND 7 THEN 1 ELSE 0 END)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_customer_article_diversity",
+      "sql": "f_customer_unique_articles_purchased / f_customer_purchase_count"
+    },
+    {
+      "name": "f_product_recent_sales",
+      "sql": "f_product_purchase_count - sum(CASE WHEN days_ago BETWEEN 7 AND 30 THEN 1 ELSE 0 END)"
+    }
+  ]
+}

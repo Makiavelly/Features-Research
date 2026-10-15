@@ -1,0 +1,36 @@
+{
+  "rationale": "Enhance recommendation performance by incorporating product attributes and customer interaction patterns.",
+  "aggregates": [
+    {
+      "name": "f_unique_customer_products",
+      "keys": [
+        "product_code"
+      ],
+      "sql": "approx_count_distinct(customer_id)"
+    },
+    {
+      "name": "f_avg_product_price",
+      "keys": [
+        "product_code"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_max_days_since_product_purchase",
+      "keys": [
+        "product_code"
+      ],
+      "sql": "max(days_ago)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_product_popularity",
+      "sql": "f_unique_customer_products / f_avg_days_since_product_purchase"
+    },
+    {
+      "name": "f_price_difference",
+      "sql": "raw_i_price - f_avg_product_price"
+    }
+  ]
+}

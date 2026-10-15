@@ -1,0 +1,13 @@
+{
+  "source_sha256": {
+    "LLMFeatures/bootstrap.py": "3c6eabe695821e13c6be894ff7fe30dd259ef8a6f88b7fa414ca7f8b39a51a33",
+    "LLMFeatures/evaluate.py": "ed334e95323deff68741f2bd9e584d5ca3c65a739b8b116b65d8986cddd65f5c",
+    "LLMFeatures/features.py": "72a527b40e40ed33b8fa84d6988ff03c298d712a3bd455b1986cc80ea4db2ca0",
+    "LLMFeatures/run.py": "d428043caf36f16db36d36a72dc428e520494d0c8e42d7e5ec87a79cf980a654",
+    "LLMFeatures/test_protocol.py": "94f2dc5dcf6321301823843603b397078d138377a5a14d86695aa0610dce5a31",
+    "LLMFeatures/verify.py": "58b650c0de8186a6eba1c4116c79166d9ecc448c6488c30112c52d64cfa0c66b"
+  },
+  "data_manifest_sha256": "32ac01052d19423e44e15af99f708a1421cb4a34c7dfeda31b16a037e68e339c",
+  "train_pairs_sha256": "b73fa9a1dca5bdfc4d94ed756a4f8117ce24e253efdf638c77244dda5838a2d6",
+  "model_manifest_sha256": "61c4828bc72224a7d1de9d26c6117caae060371237a50e512c98846e292488f0"
+}

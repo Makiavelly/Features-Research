@@ -1,0 +1,43 @@
+{
+  "rationale": "To improve the recommendation quality for H&M customers, we will use a combination of time-based features to capture recency and frequency of past purchases. We will also consider the diversity of purchased articles to ensure recommendations are varied and engaging.",
+  "aggregates": [
+    {
+      "name": "f_customer_purchase_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_article_diversity",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(article_id)"
+    },
+    {
+      "name": "f_last_purchase_age",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "min(days_ago)"
+    },
+    {
+      "name": "f_avg_article_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_recent_purchase_ratio",
+      "sql": "coalesce(f_customer_purchase_count / greatest(f_last_purchase_age, 1), -1.0)"
+    },
+    {
+      "name": "f_purchase_diversity_per_article",
+      "sql": "coalesce(f_article_diversity / f_customer_purchase_count, -1.0)"
+    }
+  ]
+}

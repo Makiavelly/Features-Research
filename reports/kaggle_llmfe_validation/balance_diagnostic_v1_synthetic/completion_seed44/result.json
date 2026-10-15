@@ -1,0 +1,24 @@
+{
+  "status": "valid",
+  "cv_accuracy": 1.0,
+  "cv_folds": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "columns": [
+    "Left-Weight",
+    "Left-Distance",
+    "Right-Weight",
+    "Right-Distance",
+    "torque_diff"
+  ],
+  "changed_or_added_columns": [
+    "torque_diff"
+  ],
+  "has_feature_change": true,
+  "train_rows": 500,
+  "heldout_rows_not_evaluated": 125,
+  "paper_reproduction": false
+}

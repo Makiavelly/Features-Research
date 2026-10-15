@@ -1,0 +1,17 @@
+{
+  "stage": "search",
+  "protocol": "saved ID-GNN candidate pools",
+  "smoke": false,
+  "model_sha256": "76d1e60e101434cf94b18ad360a31f8c4b4d3b5bb8caf5dececc9bb225d2ba23",
+  "program_sha256": "2bca28f78ef896ad9a2d6b154f3ebe5d133aa5d9f9233fa8134e328b8ffd035a",
+  "prediction_threads": 8,
+  "inference_from_saved_model": true,
+  "val_metrics": {
+    "map": 0.011039599867724867
+  },
+  "val_users": 256,
+  "val_pairs": 6594,
+  "val_seconds": 0.23116673600088689,
+  "elapsed_seconds": 17.377244608000183,
+  "passed": true
+}

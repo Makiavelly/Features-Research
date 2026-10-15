@@ -1,0 +1,36 @@
+{
+  "rationale": "Customer age, past purchase frequency, unique products bought, and average price per product are key indicators of future purchases.",
+  "aggregates": [
+    {
+      "name": "f_avg_price_per_customer",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_purchase_frequency_per_customer",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_unique_products_bought",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_age_normalized",
+      "sql": "(raw_u_age - min(raw_u_age)) / (max(raw_u_age) - min(raw_u_age))"
+    },
+    {
+      "name": "f_avg_price_per_product",
+      "sql": "f_avg_price_per_customer / f_purchase_frequency_per_customer"
+    }
+  ]
+}

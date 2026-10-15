@@ -1,0 +1,6 @@
+model,val_map,test_map
+Raw LightGBM,0.0,0.0625
+Search winner: raw control (NO LLM features),0.0,0.0625
+Manual features → LightGBM,0.0,0.03125
+GNN → LightGBM,0.0,0.03125
+ID-GNN (graph training budget),0.0,0.0625

@@ -1,0 +1,54 @@
+{
+  "status": "valid",
+  "cv_accuracy": 0.8140000000000001,
+  "cv_folds": [
+    0.824,
+    0.872,
+    0.8,
+    0.76
+  ],
+  "columns": [
+    "weight_distance_difference",
+    "weight_difference",
+    "left_distance_ratio",
+    "right_distance_ratio"
+  ],
+  "changed_or_added_columns": [
+    "weight_distance_difference",
+    "weight_difference",
+    "left_distance_ratio",
+    "right_distance_ratio"
+  ],
+  "removed_columns": [
+    "Left-Weight",
+    "Left-Distance",
+    "Right-Weight",
+    "Right-Distance"
+  ],
+  "has_feature_change": true,
+  "train_rows": 500,
+  "heldout_rows_not_evaluated": 125,
+  "paper_reproduction": false,
+  "xgboost_version": "3.0.5",
+  "xgboost_build_info": {
+    "BUILTIN_PREFETCH_PRESENT": true,
+    "DEBUG": false,
+    "GCC_VERSION": [
+      14,
+      2,
+      1
+    ],
+    "GLIBC_VERSION": [
+      2,
+      28
+    ],
+    "MM_PREFETCH_PRESENT": true,
+    "USE_CUDA": false,
+    "USE_DLOPEN_NCCL": false,
+    "USE_FEDERATED": false,
+    "USE_NCCL": false,
+    "USE_OPENMP": true,
+    "USE_RMM": false,
+    "libxgboost": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/LLMFeatures/kaggle/.check-deps/xgboost/lib/libxgboost.so"
+  }
+}

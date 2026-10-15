@@ -1,0 +1,5 @@
+{
+  "text": "{\"aggregates\": [{\"name\": \"f_recent\", \"keys\": [\"customer_id\"], \"op\": \"count\", \"column\": \"*\", \"window\": 30}, {\"name\": \"f_recency\", \"keys\": [\"customer_id\"], \"op\": \"min\", \"column\": \"days_ago\", \"window\": 180}], \"derived\": [{\"name\": \"f_rate\", \"expr\": {\"op\": \"divide\", \"args\": [{\"ref\": \"f_recent\"}, {\"op\": \"add\", \"args\": [{\"ref\": \"f_recency\"}, 1]}]}}, {\"name\": \"f_log_rate\", \"expr\": {\"op\": \"log1p\", \"args\": [{\"ref\": \"f_rate\"}]}}]}",
+  "synthetic_not_llm": true,
+  "truncated": false
+}

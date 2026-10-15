@@ -1,0 +1,38 @@
+Choose useful features for H&M clothing recommendations. Return ONE JSON object only.
+Do NOT write SQL or Python. The host compiles your feature descriptions, handles joins and preserves rows.
+Goal: predict purchases in the next7days, maximize validation MAP@12 through LightGBM.
+History contains only past180 days before each cutoff, for a fixed customer cohort (not full population).
+Interface: {"aggregates":[...],"derived":[...]}. Maximum24 aggregates and12 derived formulas.
+Start compact: about3-6 aggregates and1-3 derived formulas; limits remain24/12. Entire JSON <=2048 tokens.
+AGGREGATE fields: name, keys, op, column, window. Name: unique f_lowercase.
+keys: ["customer_id"], ["article_id"], [one clothing category], or ["customer_id", article/category].
+Clothing categories: product_code,product_type_no,graphical_appearance_no,colour_group_code,
+perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garment_group_no.
+Allowed op: count,count_distinct,sum,avg,min,max,stddev_pop,median.
+count MUST use column="*". count_distinct may use customer_id/article_id/sales_channel_id/clothing category
+or price/days_ago/customer_age. All OTHER operations may use ONLY price,days_ago,customer_age.
+window: integer1..180 days. Default180. price=normalized transaction price, days_ago=days before cutoff.
+History is purchases, not views. Time since MOST RECENT purchase uses min on days_ago, not max.
+No raw_* fields inside aggregates. sales_channel_id is not a candidate grouping key.
+DERIVED fields: name, expr. Expr is a number, {"ref":"existing_feature"}, or {"op":...,"args":[...]}.
+Unary op (one arg): abs,log1p,sqrt,negate. Binary op (two args): add,subtract,multiply,divide,min,max,coalesce.
+References: aggregate names, EARLIER derived names and raw static fields ONLY. No unknown/future names.
+Raw static fields: raw_u_age,raw_u_fn,raw_u_active,raw_u_club_member_status,raw_u_fashion_news_frequency,
+and raw_i_ + one clothing category name listed above. No raw_i_fashion_news_frequency exists.
+Constants finite +/-1000000; expression depth<=6, nodes<=64. Divide by0 returns missing.
+log1p/sqrt clip negative inputs to0. Missing aggregate groups remain missing; use coalesce if desired.
+FORMAT EXAMPLE ONLY (choose your own useful complete set):
+{"aggregates":[{"name":"f_example","keys":["customer_id"],"op":"count","column":"*","window":30}],
+ "derived":[{"name":"f_example_log","expr":{"op":"log1p","args":[{"ref":"f_example"}]}}]}
+The host appends the same15 raw fields; do not copy them as new features without a useful transformation.
+All803377 training pairs, LightGBM150 rounds/31 leaves; search fixed256 users/6594 candidates.
+Each proposal is a complete set, not a patch. Test is not available during selection.
+Previously measured sets in this population (empty aggregates is raw control):
+[{"search_map_fraction":0.0,"program":{"aggregates":[]}}]
+REPAIR: return the COMPLETE corrected JSON. Fix ALL errors listed below, not just the first.
+Previous full response:
+{"aggregates":[{"name":"f_bad","keys":["customer_id"],"op":"avg","column":"raw_u_active"}]}
+Errors:
+Fix ALL listed schema errors:
+aggregates[0]: count uses column="*"; count_distinct uses a history column; numeric aggregates use price/days_ago/customer_age only. No raw_* fields.
+No SQL/Python text. Use only the documented operations and namespaces. You may remove invalid features and dependent formulas. Keep the set compact. For duplicate rejection choose a different useful complete set.

@@ -1,0 +1,7 @@
+format,seed,status,cv_accuracy,has_feature_change,error
+chat,42,rejected,,,name 'python' is not defined
+chat,43,valid,0.862,True,
+chat,44,valid,1.0,True,
+completion,42,rejected,,,name 'python' is not defined
+completion,43,valid,0.862,True,
+completion,44,valid,1.0,True,

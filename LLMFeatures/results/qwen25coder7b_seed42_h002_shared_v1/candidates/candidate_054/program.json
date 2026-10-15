@@ -1,0 +1,44 @@
+{
+  "rationale": "Use customer age, purchase frequency, and recent purchases to predict future purchases.",
+  "aggregates": [
+    {
+      "name": "f_customer_purchase_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_customer_unique_articles_bought",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(raw_i_product_code)"
+    },
+    {
+      "name": "f_customer_average_price_per_purchase",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_recent_purchases_last_7_days",
+      "keys": [
+        "customer_id",
+        "product_code"
+      ],
+      "sql": "count(*) filter (where days_ago <= 7)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_purchase_frequency_last_30_days",
+      "sql": "f_customer_purchase_count / 30"
+    },
+    {
+      "name": "f_recent_purchase_ratio_last_7_to_30_days",
+      "sql": "coalesce(f_recent_purchases_last_7_days / f_customer_purchase_count, -1)"
+    }
+  ]
+}

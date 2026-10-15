@@ -1,0 +1,578 @@
+{
+  "completed_proposals": 20,
+  "islands": [
+    [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/raw_control",
+        "score": 0.001095920138888889
+      },
+      {
+        "candidate": 10,
+        "island": 0,
+        "status": "valid",
+        "score": 0.0014026284045815295,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_10",
+        "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+          "val_metrics": {
+            "map": 0.0014026284045815295
+          },
+          "val_users": 256,
+          "val_seconds": 242.33417243700023,
+          "elapsed_seconds": 296.50358244400013,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_purchase_count",
+            "f_article_diversity",
+            "f_last_purchase_age",
+            "f_avg_article_price",
+            "f_recent_purchase_ratio",
+            "f_purchase_diversity_per_article"
+          ]
+        }
+      },
+      {
+        "candidate": 13,
+        "island": 0,
+        "status": "valid",
+        "score": 0.0013601181081649833,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_13",
+        "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+          "val_metrics": {
+            "map": 0.0013601181081649833
+          },
+          "val_users": 256,
+          "val_seconds": 255.7989371599997,
+          "elapsed_seconds": 310.97695134100013,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_purchase_count",
+            "f_article_diversity",
+            "f_last_purchase_age",
+            "f_avg_article_price",
+            "f_total_spent",
+            "f_recent_purchase_ratio",
+            "f_purchase_diversity_per_article",
+            "f_avg_price_per_purchase"
+          ]
+        }
+      },
+      {
+        "candidate": 19,
+        "island": 0,
+        "status": "valid",
+        "score": 0.0014026284045815295,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_19",
+        "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+          "val_metrics": {
+            "map": 0.0014026284045815295
+          },
+          "val_users": 256,
+          "val_seconds": 242.81208010200044,
+          "elapsed_seconds": 299.82846100999996,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_purchase_count",
+            "f_article_diversity",
+            "f_last_purchase_age",
+            "f_avg_article_price",
+            "f_recent_purchase_ratio",
+            "f_purchase_diversity_per_article"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/raw_control",
+        "score": 0.001095920138888889
+      },
+      {
+        "candidate": 8,
+        "island": 1,
+        "status": "valid",
+        "score": 0.005149974446849447,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+        "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+          "val_metrics": {
+            "map": 0.005149974446849447
+          },
+          "val_users": 256,
+          "val_seconds": 183.41708184899926,
+          "elapsed_seconds": 297.7150652959999,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_product_frequency",
+            "f_customer_department_frequency",
+            "f_product_sales_count",
+            "f_product_days_since_last_purchase",
+            "f_customer_past_purchases",
+            "f_product_popularity_score",
+            "f_combined_frequency"
+          ]
+        }
+      },
+      {
+        "candidate": 20,
+        "island": 1,
+        "status": "valid",
+        "score": 0.005149974446849447,
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_20",
+        "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+        "metrics": {
+          "stage": "search",
+          "smoke": false,
+          "seed": 42,
+          "inference_from_saved_model": true,
+          "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+          "val_metrics": {
+            "map": 0.005149974446849447
+          },
+          "val_users": 256,
+          "val_seconds": 180.72306248399946,
+          "elapsed_seconds": 285.97743342299964,
+          "features": [
+            "raw_u_age",
+            "raw_u_fn",
+            "raw_u_active",
+            "raw_u_club_member_status",
+            "raw_u_fashion_news_frequency",
+            "raw_i_product_code",
+            "raw_i_product_type_no",
+            "raw_i_graphical_appearance_no",
+            "raw_i_colour_group_code",
+            "raw_i_perceived_colour_value_id",
+            "raw_i_perceived_colour_master_id",
+            "raw_i_department_no",
+            "raw_i_index_group_no",
+            "raw_i_section_no",
+            "raw_i_garment_group_no",
+            "f_customer_product_frequency",
+            "f_customer_department_frequency",
+            "f_product_sales_count",
+            "f_product_days_since_last_purchase",
+            "f_customer_past_purchases",
+            "f_product_popularity_score",
+            "f_combined_frequency"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/raw_control",
+        "score": 0.001095920138888889
+      }
+    ]
+  ],
+  "trials": [
+    {
+      "candidate": 1,
+      "island": 0,
+      "status": "rejected",
+      "error": "Function outside allowlist: GROUP",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_01"
+    },
+    {
+      "candidate": 2,
+      "island": 1,
+      "status": "rejected",
+      "error": "Evaluator exited 1: Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 210, in <module>\n    main()\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 177, in main\n    model = fit(engine, program, destination, smoke)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 61, in fit\n    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))\n                  ^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 175, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 164, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nduckdb.duckdb.BinderException: Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\", \"unnamed_subquery.raw_u_fashion_news_frequency\"\n",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_02"
+    },
+    {
+      "candidate": 3,
+      "island": 2,
+      "status": "rejected",
+      "error": "Invalid grouping keys",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_03"
+    },
+    {
+      "candidate": 4,
+      "island": 0,
+      "status": "rejected",
+      "error": "Forbidden token 'select': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_04"
+    },
+    {
+      "candidate": 5,
+      "island": 1,
+      "status": "rejected",
+      "error": "Unknown program keys",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_05"
+    },
+    {
+      "candidate": 6,
+      "island": 2,
+      "status": "rejected",
+      "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_06"
+    },
+    {
+      "candidate": 7,
+      "island": 0,
+      "status": "rejected",
+      "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_07"
+    },
+    {
+      "candidate": 8,
+      "island": 1,
+      "status": "valid",
+      "score": 0.005149974446849447,
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+      "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+      "metrics": {
+        "stage": "search",
+        "smoke": false,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+        "val_metrics": {
+          "map": 0.005149974446849447
+        },
+        "val_users": 256,
+        "val_seconds": 183.41708184899926,
+        "elapsed_seconds": 297.7150652959999,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_product_frequency",
+          "f_customer_department_frequency",
+          "f_product_sales_count",
+          "f_product_days_since_last_purchase",
+          "f_customer_past_purchases",
+          "f_product_popularity_score",
+          "f_combined_frequency"
+        ]
+      }
+    },
+    {
+      "candidate": 9,
+      "island": 2,
+      "status": "rejected",
+      "error": "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_09"
+    },
+    {
+      "candidate": 10,
+      "island": 0,
+      "status": "valid",
+      "score": 0.0014026284045815295,
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_10",
+      "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+      "metrics": {
+        "stage": "search",
+        "smoke": false,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+        "val_metrics": {
+          "map": 0.0014026284045815295
+        },
+        "val_users": 256,
+        "val_seconds": 242.33417243700023,
+        "elapsed_seconds": 296.50358244400013,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_purchase_count",
+          "f_article_diversity",
+          "f_last_purchase_age",
+          "f_avg_article_price",
+          "f_recent_purchase_ratio",
+          "f_purchase_diversity_per_article"
+        ]
+      }
+    },
+    {
+      "candidate": 11,
+      "island": 1,
+      "status": "rejected",
+      "error": "Evaluator exited 1: Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 210, in <module>\n    main()\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 177, in main\n    model = fit(engine, program, destination, smoke)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 61, in fit\n    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))\n                  ^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 175, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 164, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nduckdb.duckdb.BinderException: Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\", \"unnamed_subquery.raw_u_fashion_news_frequency\"\n",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_11"
+    },
+    {
+      "candidate": 12,
+      "island": 2,
+      "status": "rejected",
+      "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_12"
+    },
+    {
+      "candidate": 13,
+      "island": 0,
+      "status": "valid",
+      "score": 0.0013601181081649833,
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_13",
+      "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+      "metrics": {
+        "stage": "search",
+        "smoke": false,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+        "val_metrics": {
+          "map": 0.0013601181081649833
+        },
+        "val_users": 256,
+        "val_seconds": 255.7989371599997,
+        "elapsed_seconds": 310.97695134100013,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_purchase_count",
+          "f_article_diversity",
+          "f_last_purchase_age",
+          "f_avg_article_price",
+          "f_total_spent",
+          "f_recent_purchase_ratio",
+          "f_purchase_diversity_per_article",
+          "f_avg_price_per_purchase"
+        ]
+      }
+    },
+    {
+      "candidate": 14,
+      "island": 1,
+      "status": "rejected",
+      "error": "Invalid grouping keys",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_14"
+    },
+    {
+      "candidate": 15,
+      "island": 2,
+      "status": "rejected",
+      "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_15"
+    },
+    {
+      "candidate": 16,
+      "island": 0,
+      "status": "rejected",
+      "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_16"
+    },
+    {
+      "candidate": 17,
+      "island": 1,
+      "status": "rejected",
+      "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_17"
+    },
+    {
+      "candidate": 18,
+      "island": 2,
+      "status": "rejected",
+      "error": "Unknown feature keys",
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_18"
+    },
+    {
+      "candidate": 19,
+      "island": 0,
+      "status": "valid",
+      "score": 0.0014026284045815295,
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_19",
+      "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+      "metrics": {
+        "stage": "search",
+        "smoke": false,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+        "val_metrics": {
+          "map": 0.0014026284045815295
+        },
+        "val_users": 256,
+        "val_seconds": 242.81208010200044,
+        "elapsed_seconds": 299.82846100999996,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_purchase_count",
+          "f_article_diversity",
+          "f_last_purchase_age",
+          "f_avg_article_price",
+          "f_recent_purchase_ratio",
+          "f_purchase_diversity_per_article"
+        ]
+      }
+    },
+    {
+      "candidate": 20,
+      "island": 1,
+      "status": "valid",
+      "score": 0.005149974446849447,
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_20",
+      "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+      "metrics": {
+        "stage": "search",
+        "smoke": false,
+        "seed": 42,
+        "inference_from_saved_model": true,
+        "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+        "val_metrics": {
+          "map": 0.005149974446849447
+        },
+        "val_users": 256,
+        "val_seconds": 180.72306248399946,
+        "elapsed_seconds": 285.97743342299964,
+        "features": [
+          "raw_u_age",
+          "raw_u_fn",
+          "raw_u_active",
+          "raw_u_club_member_status",
+          "raw_u_fashion_news_frequency",
+          "raw_i_product_code",
+          "raw_i_product_type_no",
+          "raw_i_graphical_appearance_no",
+          "raw_i_colour_group_code",
+          "raw_i_perceived_colour_value_id",
+          "raw_i_perceived_colour_master_id",
+          "raw_i_department_no",
+          "raw_i_index_group_no",
+          "raw_i_section_no",
+          "raw_i_garment_group_no",
+          "f_customer_product_frequency",
+          "f_customer_department_frequency",
+          "f_product_sales_count",
+          "f_product_days_since_last_purchase",
+          "f_customer_past_purchases",
+          "f_product_popularity_score",
+          "f_combined_frequency"
+        ]
+      }
+    }
+  ]
+}

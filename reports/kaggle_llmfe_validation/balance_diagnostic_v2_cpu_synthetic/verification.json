@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "unit_tests": 5,
+  "synthetic_calls": 6,
+  "heldout_evaluated": false,
+  "real_llama_executed": false,
+  "quality_result": false,
+  "cpu_xgboost_cv_checked": true
+}

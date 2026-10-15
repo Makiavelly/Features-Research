@@ -1,0 +1,8 @@
+model,val_map,test_map
+Raw XGBoost,0.0,0.0625
+LLM-FE XGBoost,0.0,0.0625
+Raw LightGBM,0.0,0.0625
+LLM-FE LightGBM,0.0,0.0625
+Manual features → LightGBM,0.0,0.03125
+GNN → LightGBM,0.0,0.03125
+ID-GNN (graph training budget),0.0,0.0625

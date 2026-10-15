@@ -1,0 +1,14 @@
+{
+  "call": 23,
+  "proposal": 9,
+  "island": 0,
+  "repair": 1,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_023",
+  "parent_call": 22,
+  "prompt_tokens": 1508,
+  "generated_tokens": 254,
+  "llm_seconds": 10.566564509,
+  "status": "rejected",
+  "error": "Invalid grouping keys",
+  "elapsed_seconds": 10.625161283000125
+}

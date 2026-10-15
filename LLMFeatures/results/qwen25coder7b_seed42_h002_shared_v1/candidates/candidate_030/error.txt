@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 181, in main
+    program = validate_program(json.loads(response['response']))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 77, in validate_program
+    validate_expression(entry["sql"], aggregate=entry in aggs)
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 52, in validate_expression
+    raise ValueError(f"Forbidden token {forbidden.group(0)!r}: IDs only in grouping keys/counts; no SQL statements, window functions, or labels")
+ValueError: Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels

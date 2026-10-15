@@ -1,0 +1,72 @@
+{
+  "rationale": "Enhance the original features by incorporating additional customer and product characteristics to improve the prediction model's performance.",
+  "aggregates": [
+    {
+      "name": "f_total_transactions",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "COUNT(*)"
+    },
+    {
+      "name": "f_unique_products",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(product_code)"
+    },
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "AVG(days_ago)"
+    },
+    {
+      "name": "f_last_purchase_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "MIN(days_ago)"
+    },
+    {
+      "name": "f_first_purchase_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "MAX(days_ago)"
+    },
+    {
+      "name": "f_avg_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "AVG(price)"
+    },
+    {
+      "name": "f_recent_transactions_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "COUNT(CASE WHEN days_ago BETWEEN 0 AND 7 THEN 1 ELSE NULL END)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_recent_transactions_ratio",
+      "sql": "f_recent_transactions_count / f_total_transactions"
+    },
+    {
+      "name": "f_high_transaction_rate",
+      "sql": "CASE WHEN f_recent_transactions_ratio > 0.1 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_diversified_purchases",
+      "sql": "CASE WHEN f_unique_products > 20 THEN 1 ELSE 0 END"
+    },
+    {
+      "name": "f_expensive_customers",
+      "sql": "CASE WHEN f_avg_price > 50 THEN 1 ELSE 0 END"
+    }
+  ]
+}

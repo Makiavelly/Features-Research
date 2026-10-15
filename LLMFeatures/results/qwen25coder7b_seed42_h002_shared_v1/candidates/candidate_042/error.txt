@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 193, in main
+    engine.prepare(sample.timestamp.iloc[0], sample.customer_id.values, program)
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 139, in prepare
+    self.con.execute(f"CREATE OR REPLACE TEMP TABLE {table} AS SELECT {columns},{feature_sql} FROM {source} GROUP BY {columns}")
+duckdb.duckdb.ParserException: Parser Error: syntax error at or near "AS"

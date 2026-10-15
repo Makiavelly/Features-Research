@@ -1,0 +1,59 @@
+{
+  "rationale": "Capture customer activity patterns, article popularity, and interaction frequencies within the last 7 days to improve recommendation ranking.",
+  "aggregates": [
+    {
+      "name": "f_avg_days_ago_last_week",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(days_ago) FILTER (WHERE days_ago BETWEEN 1 AND 7)"
+    },
+    {
+      "name": "f_count_articles_last_week",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(DISTINCT product_code) FILTER (WHERE days_ago BETWEEN 1 AND 7)"
+    },
+    {
+      "name": "f_avg_price_last_week",
+      "keys": [
+        "article_id"
+      ],
+      "sql": "avg(price) FILTER (WHERE days_ago BETWEEN 1 AND 7)"
+    },
+    {
+      "name": "f_count_sales_channel_last_week",
+      "keys": [
+        "product_type_no"
+      ],
+      "sql": "count(DISTINCT sales_channel_id) FILTER (WHERE days_ago BETWEEN 1 AND 7)"
+    },
+    {
+      "name": "f_avg_days_since_purch_last_30d",
+      "keys": [
+        "customer_id",
+        "article_id"
+      ],
+      "sql": "avg(days_ago) FILTER (WHERE days_ago BETWEEN 1 AND 30)"
+    },
+    {
+      "name": "f_count_articles_purchased_last_30d",
+      "keys": [
+        "customer_id",
+        "article_id"
+      ],
+      "sql": "count(*) FILTER (WHERE days_ago BETWEEN 1 AND 30)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_avg_days_since_purch_ratio",
+      "sql": "coalesce(f_avg_days_since_purch_last_30d / f_avg_days_ago_last_week, -1)"
+    },
+    {
+      "name": "f_article_popularity",
+      "sql": "coalesce(f_count_sales_channel_last_week * f_avg_price_last_week, -1)"
+    }
+  ]
+}

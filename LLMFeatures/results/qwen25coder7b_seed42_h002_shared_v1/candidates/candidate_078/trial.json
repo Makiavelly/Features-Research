@@ -1,0 +1,14 @@
+{
+  "call": 78,
+  "proposal": 35,
+  "island": 2,
+  "repair": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_078",
+  "parent_call": null,
+  "prompt_tokens": 1717,
+  "generated_tokens": 543,
+  "llm_seconds": 21.564696819,
+  "status": "rejected",
+  "error": "Feature names must be unique f_lowercase_names",
+  "elapsed_seconds": 21.62290798200047
+}

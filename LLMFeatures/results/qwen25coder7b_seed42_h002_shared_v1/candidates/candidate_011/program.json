@@ -1,0 +1,41 @@
+{
+  "rationale": "Feature set combining customer age, purchase frequency, and product category diversity to predict future purchases.",
+  "aggregates": [
+    {
+      "name": "f_customer_age",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(customer_age)"
+    },
+    {
+      "name": "f_purchase_frequency",
+      "keys": [
+        "customer_id",
+        "product_type_no"
+      ],
+      "sql": "approx_count_distinct(product_code) / 7"
+    },
+    {
+      "name": "f_product_category_diversity",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_type_no)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_age_scaled",
+      "sql": "raw_u_age / f_customer_age"
+    },
+    {
+      "name": "f_purchase_freq_scaled",
+      "sql": "f_purchase_frequency * 7"
+    },
+    {
+      "name": "f_category_diversity_scaled",
+      "sql": "f_product_category_diversity / 10"
+    }
+  ]
+}

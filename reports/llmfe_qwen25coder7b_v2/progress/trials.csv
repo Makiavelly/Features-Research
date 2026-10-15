@@ -1,0 +1,55 @@
+candidate,island,status,score,error
+1,0,rejected,,Function outside allowlist: GROUP
+2,1,rejected,,"Evaluator exited 1: Traceback (most recent call last):
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 210, in <module>
+    main()
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 177, in main
+    model = fit(engine, program, destination, smoke)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 61, in fit
+    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))
+                  ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py"", line 175, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py"", line 164, in frame
+    frame = self.con.sql(f""SELECT {ordered} FROM ({query}) ORDER BY rid"").df()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: Referenced column ""days_ago"" not found in FROM clause!
+Candidate bindings: ""unnamed_subquery.raw_u_age"", ""unnamed_subquery.raw_i_index_group_no"", ""unnamed_subquery.raw_i_garment_group_no"", ""unnamed_subquery.raw_u_active"", ""unnamed_subquery.raw_u_fashion_news_frequency""
+"
+3,2,rejected,,Invalid grouping keys
+4,0,rejected,,"Forbidden token 'select': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+5,1,rejected,,Unknown program keys
+6,2,rejected,,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+7,0,rejected,,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+8,1,valid,0.005149974446849447,
+9,2,rejected,,"Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+10,0,valid,0.0014026284045815295,
+11,1,rejected,,"Evaluator exited 1: Traceback (most recent call last):
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 210, in <module>
+    main()
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 177, in main
+    model = fit(engine, program, destination, smoke)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py"", line 61, in fit
+    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))
+                  ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py"", line 175, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py"", line 164, in frame
+    frame = self.con.sql(f""SELECT {ordered} FROM ({query}) ORDER BY rid"").df()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: Referenced column ""days_ago"" not found in FROM clause!
+Candidate bindings: ""unnamed_subquery.raw_u_age"", ""unnamed_subquery.raw_i_index_group_no"", ""unnamed_subquery.raw_i_garment_group_no"", ""unnamed_subquery.raw_u_active"", ""unnamed_subquery.raw_u_fashion_news_frequency""
+"
+12,2,rejected,,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+13,0,valid,0.0013601181081649833,
+14,1,rejected,,Invalid grouping keys
+15,2,rejected,,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+16,0,rejected,,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels"
+17,1,rejected,,"Only numeric SQL expressions, no statements/strings/qualified names"
+18,2,rejected,,Unknown feature keys
+19,0,valid,0.0014026284045815295,
+20,1,valid,0.005149974446849447,

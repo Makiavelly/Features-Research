@@ -16241,3 +16241,6744 @@ Added root README with exact external snapshots, upstream commits, local checkpo
 ## 2026-10-15T10:56:50+03:00 — two_tower_final_audit
 
 Повторный запрос восстановления: проверено, что возобновлённый конвейер уже завершился в 10:49 МСК с exitcode=0; inference_check passed=true, report final=true, активных процессов нет. Повторный запуск не создавался. Итоговый test MAP@12 0.54301%; CONTEXT.md обновлён.
+
+## 2026-10-15T11:05:13+03:00 — project_review
+
+Reviewed project context, experiment history, model and tree code, saved reports and inference checks before discussing the next experiment. WSL process audit found no active experiment processes. No training started. Open questions: research priority, next hypothesis, candidate protocol, compute budget, and success criteria.
+
+## 2026-10-15T11:12:28+03:00 — research_direction
+
+User selected a new direction: feature construction by a local LLM, evaluated separately from manual and GNN features. Evaluate recommendations over the full catalog, seed 42, no time budget limit; primary success criterion is higher MAP@12. Detailed idea will follow in the next user message. No implementation or training started. Independent-tower hypothesis deferred; previous results preserved.
+
+## 2026-10-15T11:23:14+03:00 — llmfe_literature_review
+
+Reviewed arXiv 2503.14434v3 and official nikhilsab/LLMFE source: main, sampler, evaluator, buffer, config, and balance-scale specification. Method searches feature-transformation programs using downstream validation and multi-island memory; local HTTP LLM supported. H&M temporal ranking/full-catalog MAP requires adaptation, not direct use of random CV. Noted differences between paper and code defaults and unenforced sandbox timeout in examined implementation. Context updated; no dependencies installed or experiment launched.
+
+## 2026-10-15T11:39:02+03:00 — scoring_protocol_clarification
+
+User requires valid scoring comparison against ID-GNN. Source audit: ID-GNN constructs full-catalog zero scores and fills sigmoid scores for sampled items; saved pool contains sampled items plus top-k zero-score fillers. Keep full-catalog end-to-end evaluation with identical users, targets, cutoffs, and MAP@12 evaluator; additionally use identical saved ID-GNN pools for both models to isolate reranking. Report protocols separately, preserve native ID-GNN behavior and old results. No experiment launched.
+
+## 2026-10-15T11:43:32+03:00 — llm_model_options
+
+User prefers local hardware first and permits a later Kaggle experiment using the study model if local results are poor. GPU confirmed RTX 3060 Laptop 6144 MiB, driver 528.02. Recommended, not selected or tested: Qwen2.5-Coder-7B-Instruct GGUF Q4_K_M (4.68 GB file), llama.cpp, 4096-token initial context, sequential generations, optional CPU layer offload. Compact alternative Qwen3-4B-Instruct-2507 Q4_K_M; study comparison Llama-3.1-8B-Instruct on Kaggle subject to available GPU. No downloads, installs, or experiment launches.
+
+## 2026-10-15T11:48:43+03:00 — llmfe_model_setup
+
+Загрузка Qwen2.5-Coder-7B-Instruct Q4_K_M в отдельное хранилище проекта
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "setup"
+}
+```
+
+## 2026-10-15T11:58:46+03:00 — llmfe_protocol_ready
+
+LLM-FE implementation and background pipeline prepared. Three tests passed: temporal cutoff/future invariance, label/ID isolation, exact full-catalog top-k including ties. Reused exactly 803377 supervised pairs / 50000 user-times (selection seed2026); no old feature columns read. Qwen GGUF downloaded and verified; initial loading underway. Search/confirmation/test protocols documented in LLMFeatures/README.md; no final metrics yet.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "setup"
+}
+```
+
+## 2026-10-15T11:59:32+03:00 — llmfe_model_ready
+
+Локальная Qwen загрузилась и выполнила тестовую генерацию
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "preparing",
+  "model": {
+    "name": "qwen2.5-coder:7b-instruct-q4_K_M",
+    "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+    "modified_at": "2026-10-15T11:57:18.3867895+03:00",
+    "size": 4683087561,
+    "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "size": 4924207104,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-15T12:29:31.992758199+03:00",
+        "size_vram": 4924207104,
+        "context_length": 4096
+      }
+    ]
+  }
+}
+```
+
+## 2026-10-15T11:59:52+03:00 — llmfe_start
+
+Начат поиск LLM-признаков Qwen2.5-Coder-7B с полным каталогом
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "schema_version": 1,
+    "run_id": "hm_llmfe_qwen25coder7b_seed42_v1",
+    "seed": 42,
+    "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+    "backend": "Ollama 0.21.0 (llama.cpp runner)",
+    "quantization": "Q4_K_M",
+    "context_tokens": 4096,
+    "generation_tokens": 1800,
+    "temperature": 0.8,
+    "islands": 3,
+    "llm_samples": 20,
+    "memory_programs_per_prompt": 1,
+    "train_user_times": 50000,
+    "negative_sampling": "same saved pairs as manual_v1; only IDs/time/labels reused",
+    "pair_selection_seed": 2026,
+    "search_validation_users": 256,
+    "confirmation_validation_users": 1024,
+    "confirmation_candidates": 3,
+    "search_objective": "full-catalog MAP@12",
+    "final": "all validation and test users; full catalog and saved ID-GNN pools",
+    "downstream": "LightGBM binary, 31 leaves, 150 rounds, same fixed settings for every program",
+    "inputs": "raw static fields plus LLM SQL aggregates/derived features; no manual/GNN features",
+    "feature_program": "restricted SQL expression AST-equivalent interface, not arbitrary Python",
+    "cutoff": "t_dat <= prediction timestamp",
+    "search_timeout_seconds": 21600,
+    "final_timeout_seconds": 604800,
+    "training_embeddings": false,
+    "paper_deviations": [
+      "temporal relational ranking, MAP@12, LightGBM",
+      "SQL expression programs and controlled host joins instead of Python",
+      "one prior program per prompt, 3 islands, 20 LLM proposals",
+      "256 search users, disjoint 1024 confirmation users; complete catalog",
+      "50k user-times, fixed seed42, no ensemble"
+    ]
+  },
+  "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v1"
+}
+```
+
+## 2026-10-15T12:00:32+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:00:57+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 1/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 1
+}
+```
+
+## 2026-10-15T12:05:12+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:05:12+03:00 — llmfe_control
+
+Контроль сырых признаков оценён на search validation по всему каталогу
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "searching",
+  "raw_search_val_metrics": {
+    "map": 0.001095920138888889
+  }
+}
+```
+
+## 2026-10-15T12:05:12+03:00 — llmfe_trial
+
+LLM-FE программа 1/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 1,
+  "trial": {
+    "candidate": 1,
+    "island": 0,
+    "status": "rejected",
+    "error": "Identifiers/statement keywords outside the feature interface",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_01"
+  }
+}
+```
+
+## 2026-10-15T12:05:12+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 2
+}
+```
+
+## 2026-10-15T12:05:27+03:00 — llmfe_trial
+
+LLM-FE программа 2/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 2,
+  "trial": {
+    "candidate": 2,
+    "island": 1,
+    "status": "rejected",
+    "error": "Identifiers/statement keywords outside the feature interface",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_02"
+  }
+}
+```
+
+## 2026-10-15T12:05:27+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 3
+}
+```
+
+## 2026-10-15T12:05:37+03:00 — llmfe_trial
+
+LLM-FE программа 3/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 3,
+  "trial": {
+    "candidate": 3,
+    "island": 2,
+    "status": "rejected",
+    "error": "Identifiers/statement keywords outside the feature interface",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_03"
+  }
+}
+```
+
+## 2026-10-15T12:05:37+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 4
+}
+```
+
+## 2026-10-15T12:05:46+03:00 — llmfe_trial
+
+LLM-FE программа 4/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 4,
+  "trial": {
+    "candidate": 4,
+    "island": 0,
+    "status": "rejected",
+    "error": "Identifiers/statement keywords outside the feature interface",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_04"
+  }
+}
+```
+
+## 2026-10-15T12:05:46+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 5
+}
+```
+
+## 2026-10-15T12:08:32+03:00 — llmfe_interface_superseded
+
+v1 stopped and preserved: initial host interface incorrectly rejected valid unique-ID counts and global article-category aggregation. No valid LLM feature quality result obtained. Raw control full-catalog search MAP=0.001095920138888889 on 256 validation users; unchanged control may be reused in v2. Source/proposals saved under v1; new interface/prompt gets a new run_id v2.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "superseded"
+}
+```
+
+## 2026-10-15T12:08:44+03:00 — llmfe_start
+
+Начат поиск LLM-признаков Qwen2.5-Coder-7B с полным каталогом
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "schema_version": 1,
+    "run_id": "hm_llmfe_qwen25coder7b_seed42_v2",
+    "seed": 42,
+    "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+    "backend": "Ollama 0.21.0 (llama.cpp runner)",
+    "quantization": "Q4_K_M",
+    "context_tokens": 4096,
+    "generation_tokens": 1800,
+    "temperature": 0.8,
+    "islands": 3,
+    "llm_samples": 20,
+    "memory_programs_per_prompt": 1,
+    "train_user_times": 50000,
+    "negative_sampling": "same saved pairs as manual_v1; only IDs/time/labels reused",
+    "pair_selection_seed": 2026,
+    "search_validation_users": 256,
+    "confirmation_validation_users": 1024,
+    "confirmation_candidates": 3,
+    "search_objective": "full-catalog MAP@12",
+    "final": "all validation and test users; full catalog and saved ID-GNN pools",
+    "downstream": "LightGBM binary, 31 leaves, 150 rounds, same fixed settings for every program",
+    "inputs": "raw static fields plus LLM SQL aggregates/derived features; no manual/GNN features",
+    "feature_program": "v2 SQL expressions; global item/category and user/category groups; ID counts allowed, ID values excluded",
+    "cutoff": "t_dat <= prediction timestamp",
+    "search_timeout_seconds": 21600,
+    "final_timeout_seconds": 604800,
+    "training_embeddings": false,
+    "paper_deviations": [
+      "temporal relational ranking, MAP@12, LightGBM",
+      "SQL expression programs and controlled host joins instead of Python",
+      "one prior program per prompt, 3 islands, 20 LLM proposals",
+      "256 search users, disjoint 1024 confirmation users; complete catalog",
+      "50k user-times, fixed seed42, no ensemble"
+    ]
+  },
+  "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v2"
+}
+```
+
+## 2026-10-15T12:08:45+03:00 — llmfe_control
+
+Контроль сырых признаков оценён на search validation по всему каталогу
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "raw_search_val_metrics": {
+    "map": 0.001095920138888889
+  }
+}
+```
+
+## 2026-10-15T12:08:45+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 1/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 1
+}
+```
+
+## 2026-10-15T12:09:03+03:00 — llmfe_trial
+
+LLM-FE программа 1/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 1,
+  "trial": {
+    "candidate": 1,
+    "island": 0,
+    "status": "rejected",
+    "error": "Function outside allowlist: GROUP",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_01"
+  }
+}
+```
+
+## 2026-10-15T12:09:03+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 2
+}
+```
+
+## 2026-10-15T12:09:26+03:00 — llmfe_trial
+
+LLM-FE программа 2/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 2,
+  "trial": {
+    "candidate": 2,
+    "island": 1,
+    "status": "rejected",
+    "error": "Evaluator exited 1: Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 210, in <module>\n    main()\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 177, in main\n    model = fit(engine, program, destination, smoke)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 61, in fit\n    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))\n                  ^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 175, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 164, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nduckdb.duckdb.BinderException: Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\", \"unnamed_subquery.raw_u_fashion_news_frequency\"\n",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_02"
+  }
+}
+```
+
+## 2026-10-15T12:09:26+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 3
+}
+```
+
+## 2026-10-15T12:09:29+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:09:39+03:00 — llmfe_trial
+
+LLM-FE программа 3/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 3,
+  "trial": {
+    "candidate": 3,
+    "island": 2,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_03"
+  }
+}
+```
+
+## 2026-10-15T12:09:39+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 4
+}
+```
+
+## 2026-10-15T12:09:45+03:00 — llmfe_trial
+
+LLM-FE программа 4/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 4,
+  "trial": {
+    "candidate": 4,
+    "island": 0,
+    "status": "rejected",
+    "error": "Forbidden token 'select': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_04"
+  }
+}
+```
+
+## 2026-10-15T12:09:45+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 5
+}
+```
+
+## 2026-10-15T12:09:55+03:00 — llmfe_trial
+
+LLM-FE программа 5/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 5,
+  "trial": {
+    "candidate": 5,
+    "island": 1,
+    "status": "rejected",
+    "error": "Unknown program keys",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_05"
+  }
+}
+```
+
+## 2026-10-15T12:09:55+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 6/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 6
+}
+```
+
+## 2026-10-15T12:10:08+03:00 — llmfe_trial
+
+LLM-FE программа 6/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 6,
+  "trial": {
+    "candidate": 6,
+    "island": 2,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_06"
+  }
+}
+```
+
+## 2026-10-15T12:10:09+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 7/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 7
+}
+```
+
+## 2026-10-15T12:10:18+03:00 — llmfe_trial
+
+LLM-FE программа 7/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 7,
+  "trial": {
+    "candidate": 7,
+    "island": 0,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_07"
+  }
+}
+```
+
+## 2026-10-15T12:10:18+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 8/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 8
+}
+```
+
+## 2026-10-15T12:10:44+03:00 — llmfe_scoring
+
+LLM-FE smoke/val: 8/8 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "smoke",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 8,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:10:44+03:00 — llmfe_smoke
+
+LLM-программа прошла SQL/train/full-catalog smoke; это не итоговые метрики
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "smoke": {
+    "stage": "smoke",
+    "smoke": true,
+    "seed": 42,
+    "inference_from_saved_model": true,
+    "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+    "val_metrics": {
+      "map": 0.0
+    },
+    "val_users": 8,
+    "val_seconds": 1.9085834739998973,
+    "elapsed_seconds": 9.129123668999455,
+    "features": [
+      "raw_u_age",
+      "raw_u_fn",
+      "raw_u_active",
+      "raw_u_club_member_status",
+      "raw_u_fashion_news_frequency",
+      "raw_i_product_code",
+      "raw_i_product_type_no",
+      "raw_i_graphical_appearance_no",
+      "raw_i_colour_group_code",
+      "raw_i_perceived_colour_value_id",
+      "raw_i_perceived_colour_master_id",
+      "raw_i_department_no",
+      "raw_i_index_group_no",
+      "raw_i_section_no",
+      "raw_i_garment_group_no",
+      "f_customer_product_frequency",
+      "f_customer_department_frequency",
+      "f_product_sales_count",
+      "f_product_days_since_last_purchase",
+      "f_customer_past_purchases",
+      "f_product_popularity_score",
+      "f_combined_frequency"
+    ]
+  }
+}
+```
+
+## 2026-10-15T12:11:37+03:00 — llmfe_verified_start
+
+v2 verified running. Four protocol tests passed. Candidate08 generated entirely by local Qwen passed real SQL feature computation, LightGBM train/reload and complete-catalog smoke on 8 validation users (2000 train pairs, 10 rounds; not a full result). Its full 803377-pair / 150-round search evaluation is underway. First seven rejected proposals/errors preserved, no hand-edited feature formulas. v1 orphan evaluator stopped; only v2 remains active. GPU model size_vram=4924207104 bytes. No final metrics yet.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching"
+}
+```
+
+## 2026-10-15T12:12:49+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:15:47+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:15:47+03:00 — llmfe_trial
+
+LLM-FE программа 8/20: valid
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 8,
+  "trial": {
+    "candidate": 8,
+    "island": 1,
+    "status": "valid",
+    "score": 0.005149974446849447,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+    "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+    "metrics": {
+      "stage": "search",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+      "val_metrics": {
+        "map": 0.005149974446849447
+      },
+      "val_users": 256,
+      "val_seconds": 183.41708184899926,
+      "elapsed_seconds": 297.7150652959999,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_product_frequency",
+        "f_customer_department_frequency",
+        "f_product_sales_count",
+        "f_product_days_since_last_purchase",
+        "f_customer_past_purchases",
+        "f_product_popularity_score",
+        "f_combined_frequency"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T12:15:47+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 9/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 9
+}
+```
+
+## 2026-10-15T12:15:54+03:00 — llmfe_trial
+
+LLM-FE программа 9/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 9,
+  "trial": {
+    "candidate": 9,
+    "island": 2,
+    "status": "rejected",
+    "error": "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_09"
+  }
+}
+```
+
+## 2026-10-15T12:15:54+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 10/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 10
+}
+```
+
+## 2026-10-15T12:17:09+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:21:04+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:21:05+03:00 — llmfe_trial
+
+LLM-FE программа 10/20: valid
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 10,
+  "trial": {
+    "candidate": 10,
+    "island": 0,
+    "status": "valid",
+    "score": 0.0014026284045815295,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_10",
+    "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+    "metrics": {
+      "stage": "search",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "c51423ce95929bbae6c31fe27d779d55928241f0aeb8644a42c01e8fac8f1601",
+      "val_metrics": {
+        "map": 0.0014026284045815295
+      },
+      "val_users": 256,
+      "val_seconds": 242.33417243700023,
+      "elapsed_seconds": 296.50358244400013,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_purchase_count",
+        "f_article_diversity",
+        "f_last_purchase_age",
+        "f_avg_article_price",
+        "f_recent_purchase_ratio",
+        "f_purchase_diversity_per_article"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T12:21:05+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 11/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 11
+}
+```
+
+## 2026-10-15T12:21:18+03:00 — llmfe_trial
+
+LLM-FE программа 11/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 11,
+  "trial": {
+    "candidate": 11,
+    "island": 1,
+    "status": "rejected",
+    "error": "Evaluator exited 1: Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 210, in <module>\n    main()\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 177, in main\n    model = fit(engine, program, destination, smoke)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py\", line 61, in fit\n    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))\n                  ^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 175, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py\", line 164, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nduckdb.duckdb.BinderException: Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\", \"unnamed_subquery.raw_u_fashion_news_frequency\"\n",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_11"
+  }
+}
+```
+
+## 2026-10-15T12:21:18+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 12/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 12
+}
+```
+
+## 2026-10-15T12:21:29+03:00 — llmfe_trial
+
+LLM-FE программа 12/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 12,
+  "trial": {
+    "candidate": 12,
+    "island": 2,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_12"
+  }
+}
+```
+
+## 2026-10-15T12:21:29+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 13/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 13
+}
+```
+
+## 2026-10-15T12:22:48+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:26:56+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:26:56+03:00 — llmfe_trial
+
+LLM-FE программа 13/20: valid
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 13,
+  "trial": {
+    "candidate": 13,
+    "island": 0,
+    "status": "valid",
+    "score": 0.0013601181081649833,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_13",
+    "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+    "metrics": {
+      "stage": "search",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "2d6be1557488d0d3988b075fdfd455f3c3e3663ff3f25fcaec578c2c3a36287b",
+      "val_metrics": {
+        "map": 0.0013601181081649833
+      },
+      "val_users": 256,
+      "val_seconds": 255.7989371599997,
+      "elapsed_seconds": 310.97695134100013,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_purchase_count",
+        "f_article_diversity",
+        "f_last_purchase_age",
+        "f_avg_article_price",
+        "f_total_spent",
+        "f_recent_purchase_ratio",
+        "f_purchase_diversity_per_article",
+        "f_avg_price_per_purchase"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T12:26:56+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 14/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 14
+}
+```
+
+## 2026-10-15T12:27:11+03:00 — llmfe_trial
+
+LLM-FE программа 14/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 14,
+  "trial": {
+    "candidate": 14,
+    "island": 1,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_14"
+  }
+}
+```
+
+## 2026-10-15T12:27:11+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 15/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 15
+}
+```
+
+## 2026-10-15T12:27:21+03:00 — llmfe_trial
+
+LLM-FE программа 15/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 15,
+  "trial": {
+    "candidate": 15,
+    "island": 2,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_15"
+  }
+}
+```
+
+## 2026-10-15T12:27:21+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 16/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 16
+}
+```
+
+## 2026-10-15T12:27:35+03:00 — llmfe_trial
+
+LLM-FE программа 16/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 16,
+  "trial": {
+    "candidate": 16,
+    "island": 0,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_16"
+  }
+}
+```
+
+## 2026-10-15T12:27:35+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 17/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 17
+}
+```
+
+## 2026-10-15T12:27:50+03:00 — llmfe_trial
+
+LLM-FE программа 17/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 17,
+  "trial": {
+    "candidate": 17,
+    "island": 1,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_17"
+  }
+}
+```
+
+## 2026-10-15T12:27:50+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 18/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 18
+}
+```
+
+## 2026-10-15T12:27:56+03:00 — llmfe_trial
+
+LLM-FE программа 18/20: rejected
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 18,
+  "trial": {
+    "candidate": 18,
+    "island": 2,
+    "status": "rejected",
+    "error": "Unknown feature keys",
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_18"
+  }
+}
+```
+
+## 2026-10-15T12:27:56+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 19/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 19
+}
+```
+
+## 2026-10-15T12:29:13+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:33:08+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:33:08+03:00 — llmfe_trial
+
+LLM-FE программа 19/20: valid
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 19,
+  "trial": {
+    "candidate": 19,
+    "island": 0,
+    "status": "valid",
+    "score": 0.0014026284045815295,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_19",
+    "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+    "metrics": {
+      "stage": "search",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "f31eba31a7b9e709289137295b1afeec154a21a5a8590c4d46b629e790a114b0",
+      "val_metrics": {
+        "map": 0.0014026284045815295
+      },
+      "val_users": 256,
+      "val_seconds": 242.81208010200044,
+      "elapsed_seconds": 299.82846100999996,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_purchase_count",
+        "f_article_diversity",
+        "f_last_purchase_age",
+        "f_avg_article_price",
+        "f_recent_purchase_ratio",
+        "f_purchase_diversity_per_article"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T12:33:09+03:00 — llmfe_generating
+
+Локальная LLM предлагает программу 20/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "generating",
+  "candidate": 20
+}
+```
+
+## 2026-10-15T12:35:15+03:00 — llmfe_scoring
+
+LLM-FE search/val: 8/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:38:10+03:00 — llmfe_scoring
+
+LLM-FE search/val: 256/256 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "search",
+  "split": "val",
+  "scored_users": 256,
+  "total_users": 256,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:38:10+03:00 — llmfe_trial
+
+LLM-FE программа 20/20: valid
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "searching",
+  "completed_proposals": 20,
+  "trial": {
+    "candidate": 20,
+    "island": 1,
+    "status": "valid",
+    "score": 0.005149974446849447,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_20",
+    "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+    "metrics": {
+      "stage": "search",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "cc87ddf376849522746c08cf5966cd4202f07f078e9805cd206cbc74a575591c",
+      "val_metrics": {
+        "map": 0.005149974446849447
+      },
+      "val_users": 256,
+      "val_seconds": 180.72306248399946,
+      "elapsed_seconds": 285.97743342299964,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_product_frequency",
+        "f_customer_department_frequency",
+        "f_product_sales_count",
+        "f_product_days_since_last_purchase",
+        "f_customer_past_purchases",
+        "f_product_popularity_score",
+        "f_combined_frequency"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T12:38:27+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 8/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:41:04+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 264/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 264,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:43:42+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 520/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 520,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:46:26+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 776/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 776,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:48:59+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 1024/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 1024,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:49:12+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 8/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:51:48+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 264/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 264,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:54:23+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 520/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 520,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:56:59+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 776/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 776,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:59:30+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 1024/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 1024,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T12:59:43+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 8/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:03:20+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 264/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 264,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:07:04+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 520/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 520,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:10:46+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 776/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 776,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:14:18+03:00 — llmfe_scoring
+
+LLM-FE confirm/val: 1024/1024 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "confirm",
+  "split": "val",
+  "scored_users": 1024,
+  "total_users": 1024,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:14:18+03:00 — llmfe_selected
+
+Программа выбрана по отдельной confirmation validation; начата полная оценка
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "selection": {
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08",
+    "score": 0.002461205244408369,
+    "metrics": {
+      "stage": "confirm",
+      "smoke": false,
+      "seed": 42,
+      "inference_from_saved_model": true,
+      "program_sha256": "5684fa7984e884db2033084bad96fc55aec2199124c8c35f5dc86efaa65f591f",
+      "val_metrics": {
+        "map": 0.002461205244408369
+      },
+      "val_users": 1024,
+      "val_seconds": 637.2611580519997,
+      "elapsed_seconds": 643.7302280969998,
+      "features": [
+        "raw_u_age",
+        "raw_u_fn",
+        "raw_u_active",
+        "raw_u_club_member_status",
+        "raw_u_fashion_news_frequency",
+        "raw_i_product_code",
+        "raw_i_product_type_no",
+        "raw_i_graphical_appearance_no",
+        "raw_i_colour_group_code",
+        "raw_i_perceived_colour_value_id",
+        "raw_i_perceived_colour_master_id",
+        "raw_i_department_no",
+        "raw_i_index_group_no",
+        "raw_i_section_no",
+        "raw_i_garment_group_no",
+        "f_customer_product_frequency",
+        "f_customer_department_frequency",
+        "f_product_sales_count",
+        "f_product_days_since_last_purchase",
+        "f_customer_past_purchases",
+        "f_product_popularity_score",
+        "f_combined_frequency"
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-15T13:14:31+03:00 — llmfe_scoring
+
+LLM-FE final/val: 8/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 8,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:17:07+03:00 — llmfe_scoring
+
+LLM-FE final/val: 264/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 264,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:18:00+03:00 — llmfe_progress_plots
+
+Built read-only progress plots from saved v2 artifacts: search/confirmation MAP, valid/rejected proposal histogram, feature gain and confirmation per-user AP histogram. All 20 proposals processed: 5 valid, 15 rejected. Selected candidate08; confirmation MAP=0.002461205244408369 on 1024 users, not full validation/test. Per-user AP mean matches saved MAP exactly. Full evaluator still active; no training/protocol change. Training loss by boosting round was not recorded.
+
+## 2026-10-15T13:19:47+03:00 — llmfe_scoring
+
+LLM-FE final/val: 520/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 520,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:22:18+03:00 — llmfe_scoring
+
+LLM-FE final/val: 776/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 776,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:24:48+03:00 — llmfe_scoring
+
+LLM-FE final/val: 1032/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 1032,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:27:17+03:00 — llmfe_scoring
+
+LLM-FE final/val: 1288/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 1288,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:29:46+03:00 — llmfe_scoring
+
+LLM-FE final/val: 1544/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 1544,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:32:15+03:00 — llmfe_scoring
+
+LLM-FE final/val: 1800/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 1800,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:34:47+03:00 — llmfe_scoring
+
+LLM-FE final/val: 2056/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 2056,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:35:57+03:00 — llmfe_rejection_audit
+
+Audited all 15 v2 rejections (first recorded reasons): unsupported OVER 6; days_ago out of derived-feature scope 2; unsupported grouping keys 2; malformed program/feature structure 2; SELECT subquery 1; string-valued feature 1; validator misclassifying WITHIN GROUP SQL syntax as a function 1. Candidate01 also contains other invalid references/strings; fixing that parser issue alone would not validate it. These are execution/interface failures, not low-MAP results. Only 5/20 programs were evaluated, limiting conclusions about LLM feature quality. Audit saved; current experiment unchanged.
+
+## 2026-10-15T13:37:24+03:00 — llmfe_scoring
+
+LLM-FE final/val: 2312/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 2312,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:39:57+03:00 — llmfe_scoring
+
+LLM-FE final/val: 2568/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 2568,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:41:49+03:00 — hypothesis_added
+
+Added H002 at user request: maximize distinct successfully evaluated LLM feature sets by separating successful-set target from total generation/repair-call budget and adding LLM program repair. Discussion reference 20 evaluated sets / up to 100 calls; final limits to be fixed before a new run. Track failures, duplicates, repairs, cost and MAP curves; keep temporal validation/confirmation and untouched test. Current v2 unchanged; H002 not launched.
+
+## 2026-10-15T13:42:37+03:00 — llmfe_scoring
+
+LLM-FE final/val: 2824/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 2824,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:45:22+03:00 — llmfe_scoring
+
+LLM-FE final/val: 3080/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 3080,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:46:03+03:00 — llmfe_scoring_profile
+
+Profiled saved candidate08 on 8 already-scored validation users/full catalog while live evaluator continues: features 0.852s, prediction 2 threads 5.364s / 6 threads 3.219s / 12 threads 2.704s, top-k 0.016s; all prediction arrays bit-identical across thread counts and top12 identical to live saved outputs. Main bottleneck is CPU tree inference; 12 logical CPUs available. Measurements under concurrent load, not a production speed guarantee. GPU LightGBM inference via separate forest runtime is an option requiring compatibility/equivalence validation. Benchmark saved; active evaluator not changed.
+
+## 2026-10-15T13:48:01+03:00 — llmfe_scoring
+
+LLM-FE final/val: 3336/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 3336,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:50:34+03:00 — llmfe_scoring
+
+LLM-FE final/val: 3592/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 3592,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:55:10+03:00 — llmfe_resume
+
+Продолжена финальная оценка сохранённой модели; поиск и обучение не повторяются
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_08"
+}
+```
+
+## 2026-10-15T13:56:23+03:00 — llmfe_scoring
+
+LLM-FE final/val: 3848/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 3848,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:56:31+03:00 — llmfe_cpu_acceleration_applied
+
+Verified and applied CPU inference acceleration. Isolated benchmark: 32 validation users, complete catalog, 3377344 pairs per pass, 8 timing repeats per setting. All scores bit-identical for 2/6/8/12 threads; all top12 identical to saved predictions. Chose 8 threads: median prediction 2.162s vs 4.440s, expected end-to-end 1.65x. Resumed from 3680 completed users; already 3776 after 35.84s, preserved prefix checksum verified. Model/program hashes unchanged, no training/search repeated. Execution ID hm_llmfe_qwen25coder7b_seed42_v2_cpu8_inference_v1, proof/settings/source hashes saved separately. Active final evaluator uses 8 threads.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating"
+}
+```
+
+## 2026-10-15T13:57:57+03:00 — llmfe_scoring
+
+LLM-FE final/val: 4104/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 4104,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T13:59:29+03:00 — llmfe_scoring
+
+LLM-FE final/val: 4360/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 4360,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:01:02+03:00 — llmfe_scoring
+
+LLM-FE final/val: 4616/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 4616,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:02:39+03:00 — llmfe_scoring
+
+LLM-FE final/val: 4872/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 4872,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:04:15+03:00 — llmfe_scoring
+
+LLM-FE final/val: 5128/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 5128,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:04:56+03:00 — llmfe_training_comparability_audit
+
+Compared saved training code/configs: manual LightGBM and LLM LightGBM use identical 803377 pairs / 50000 user-times, binary objective, 150 rounds, winning 31 leaves, lr0.05 and main sampling/leaf/bin settings. Exact controls differ: manual tuned 15/31 leaves on 10000 validation users/ID-GNN pools; LLM fixed31 leaves and selected feature programs on256 full-catalog users then1024 confirmation. LLM explicitly sets feature_fraction_seed/bagging_seed/data_random_seed=42; manual supplies global seed42 only. Prior wording identical parameters was too broad. Final evaluation pools also differ unless using shared-candidate results. No current experiment changes.
+
+## 2026-10-15T14:05:49+03:00 — llmfe_scoring
+
+LLM-FE final/val: 5384/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 5384,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:07:23+03:00 — llmfe_scoring
+
+LLM-FE final/val: 5640/74575 пользователей, полный каталог
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "evaluating",
+  "stage": "final",
+  "split": "val",
+  "scored_users": 5640,
+  "total_users": 74575,
+  "catalog_size": 105542
+}
+```
+
+## 2026-10-15T14:11:00+03:00 — llmfe_shared_start
+
+Начата отдельная оценка выбранного LLM-LightGBM на общих кандидатах ID-GNN
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_v2/shared_idgnn"
+}
+```
+
+## 2026-10-15T14:11:31+03:00 — llmfe_full_catalog_paused
+
+User explicitly requested pause full catalog and evaluate shared ID-GNN candidates. Supervisor and evaluator stopped, checkpoint/predictions retained at5840/74575 validation users. full_catalog_paused.json blocks automatic resume. New frozen-model shared evaluation has separate run_id hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1, complete val/test and independent full replay; no new feature selection or training.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2`.
+
+```json
+{
+  "status": "paused"
+}
+```
+
+## 2026-10-15T14:11:36+03:00 — candidate_pool_audit
+
+По запросу пользователя проверены фактические candidate pools: пары val/test ручных признаков точно совпадают с экспортом ID-GNN seed42; все top12 ID-GNN/LightGBM manual/DecisionTree manual внутри того же pool. Важное уточнение: ID-GNN вычисляет sigmoid для sampled товаров и ноль остальному каталогу; экспорт добавляет zero-score fallback top12.
+
+```json
+{
+  "checks": {
+    "val": {
+      "users": 74575,
+      "candidate_pairs": 2088583,
+      "mean_candidates": 28.00647670130741,
+      "feature_pairs_exactly_match_pool": true,
+      "candidate_file_sha256": "f36065a102faed41465a7aae93d7f5f994452ebb18b1045938b7db5019cda9c1",
+      "methods": {
+        "idgnn": {
+          "recommendations": 894900,
+          "outside_pool": 0
+        },
+        "lightgbm_manual": {
+          "recommendations": 894900,
+          "outside_pool": 0
+        },
+        "decision_tree_manual": {
+          "recommendations": 894900,
+          "outside_pool": 0
+        }
+      }
+    },
+    "test": {
+      "users": 67144,
+      "candidate_pairs": 1892405,
+      "mean_candidates": 28.184275586798524,
+      "feature_pairs_exactly_match_pool": true,
+      "candidate_file_sha256": "023cfbb8126cdaaa73083bcc9709b4af369d63e2c2f5717ea98b5388b4080d9b",
+      "methods": {
+        "idgnn": {
+          "recommendations": 805728,
+          "outside_pool": 0
+        },
+        "lightgbm_manual": {
+          "recommendations": 805728,
+          "outside_pool": 0
+        },
+        "decision_tree_manual": {
+          "recommendations": 805728,
+          "outside_pool": 0
+        }
+      }
+    }
+  },
+  "artifacts": "reports/relbench_hm_v1/candidate_audit.json"
+}
+```
+
+## 2026-10-15T14:11:37+03:00 — llmfe_shared_split
+
+LLM-FE общие кандидаты: val оценён
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "split": "val",
+  "split_result": {
+    "users": 74575,
+    "pairs": 2088583,
+    "candidate_file_sha256": "f36065a102faed41465a7aae93d7f5f994452ebb18b1045938b7db5019cda9c1",
+    "metrics": {
+      "map": 0.008542810038877146
+    },
+    "idgnn_metrics_recomputed": {
+      "map": 0.02634419239310869
+    },
+    "seconds": 28.584748388000662
+  }
+}
+```
+
+## 2026-10-15T14:12:09+03:00 — llmfe_shared_split
+
+LLM-FE общие кандидаты: test оценён
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "split": "test",
+  "split_result": {
+    "users": 67144,
+    "pairs": 1892405,
+    "candidate_file_sha256": "023cfbb8126cdaaa73083bcc9709b4af369d63e2c2f5717ea98b5388b4080d9b",
+    "metrics": {
+      "map": 0.008117509149461
+    },
+    "idgnn_metrics_recomputed": {
+      "map": 0.027843150477067403
+    },
+    "seconds": 27.029122043000825
+  }
+}
+```
+
+## 2026-10-15T14:12:58+03:00 — llmfe_shared_split
+
+LLM-FE общие кандидаты: val перепроверен
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "verifying",
+  "split": "val",
+  "split_result": {
+    "users": 74575,
+    "pairs": 2088583,
+    "candidate_file_sha256": "f36065a102faed41465a7aae93d7f5f994452ebb18b1045938b7db5019cda9c1",
+    "metrics": {
+      "map": 0.008542810038877146
+    },
+    "idgnn_metrics_recomputed": {
+      "map": 0.02634419239310869
+    },
+    "seconds": 38.21661010899879,
+    "predictions_identical": true
+  }
+}
+```
+
+## 2026-10-15T14:13:37+03:00 — llmfe_shared_split
+
+LLM-FE общие кандидаты: test перепроверен
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "verifying",
+  "split": "test",
+  "split_result": {
+    "users": 67144,
+    "pairs": 1892405,
+    "candidate_file_sha256": "023cfbb8126cdaaa73083bcc9709b4af369d63e2c2f5717ea98b5388b4080d9b",
+    "metrics": {
+      "map": 0.008117509149461
+    },
+    "idgnn_metrics_recomputed": {
+      "map": 0.027843150477067403
+    },
+    "seconds": 34.29561228999955,
+    "predictions_identical": true
+  }
+}
+```
+
+## 2026-10-15T14:13:38+03:00 — llmfe_shared_complete
+
+LLM-LightGBM оценён на общих кандидатах ID-GNN; полный повтор подтвердил предсказания
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_v2_shared_idgnn_inference_v1`.
+
+```json
+{
+  "status": "complete",
+  "val_metrics": {
+    "map": 0.008542810038877146
+  },
+  "test_metrics": {
+    "map": 0.008117509149461
+  },
+  "artifacts": "reports/llmfe_qwen25coder7b_v2/shared_idgnn"
+}
+```
+
+## 2026-10-15T14:16:38+03:00 — llmfe_shared_report_verified
+
+Shared ID-GNN-pool evaluation completed exitcode0, independent full val/test replay identical. LLM-LightGBM val/test MAP=0.008542810038877146 /0.008117509149461 on2088583/1892405 pairs. ID-GNN metrics recomputed exactly; manual LightGBM previous metrics use same pools. Comparison chart plus per-user AP histograms, first-hit rank and paired LLM/manual comparison saved under reports/llmfe_qwen25coder7b_v2/shared_idgnn. AP means for all four models match saved MAP; source hashes and per-user CSV retained. LLM beats manual for821 test users, ties61741, loses4582. Full catalog remains user-paused at5840 validation users; no retraining or test-driven selection.
+
+## 2026-10-15T14:33:21+03:00 — h002_start
+
+H002: 20 различных оценённых наборов, до100 запросов, до2 исправлений; поиск на общих кандидатах, LightGBM8 потоков
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "run_id": "hm_llmfe_qwen25coder7b_seed42_h002_shared_v1",
+    "hypothesis": "H002",
+    "seed": 42,
+    "llm": "qwen2.5-coder:7b-instruct-q4_K_M",
+    "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "target_successful_distinct": 20,
+    "max_llm_calls": 100,
+    "max_repairs_per_proposal": 2,
+    "islands": 3,
+    "memory_programs": 1,
+    "context_tokens": 4096,
+    "generation_tokens": 1800,
+    "temperature": 0.8,
+    "train_pairs": 803377,
+    "train_user_times": 50000,
+    "pair_selection_seed": 2026,
+    "training_threads": 8,
+    "prediction_threads": 8,
+    "rounds": 150,
+    "search_users": 256,
+    "confirmation_users": 1024,
+    "confirmation_candidates": 3,
+    "search_protocol": "fixed saved ID-GNN candidates; same user selections as v2",
+    "final_protocol": "all val/test users, exact saved ID-GNN candidate pools, independent full replay",
+    "full_catalog": false,
+    "validator": "h002: WITHIN GROUP syntax false rejection fixed",
+    "control": "v2 five measured sets; different search pool, increased calls, repair and prompt changes confound isolated attribution",
+    "downstream": "same binary LightGBM150/leaves31/seeds42 as v2, 8 threads",
+    "test_policy": "test only after selection frozen on disjoint validation confirmation"
+  },
+  "artifacts": "LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1"
+}
+```
+
+## 2026-10-15T14:33:43+03:00 — h002_generating
+
+H002 запрос1/100, оценено0/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 1,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:36:21+03:00 — h002_trial
+
+H002 запрос1: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 1,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 1,
+    "proposal": 0,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_001",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 406,
+    "llm_seconds": 155.767390629,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 155.83275660599975
+  }
+}
+```
+
+## 2026-10-15T14:36:21+03:00 — h002_generating
+
+H002 запрос2/100, оценено0/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 2,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:36:36+03:00 — h002_trial
+
+H002 запрос2: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 2,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 2,
+    "proposal": 0,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_002",
+    "parent_call": 1,
+    "prompt_tokens": 1656,
+    "generated_tokens": 357,
+    "llm_seconds": 14.490521363,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 14.543034296999394
+  }
+}
+```
+
+## 2026-10-15T14:36:36+03:00 — h002_generating
+
+H002 запрос3/100, оценено0/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 3,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:36:52+03:00 — h002_trial
+
+H002 запрос3: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 3,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 3,
+    "proposal": 0,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_003",
+    "parent_call": 2,
+    "prompt_tokens": 1597,
+    "generated_tokens": 357,
+    "llm_seconds": 14.666633251,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 14.713737014999424
+  }
+}
+```
+
+## 2026-10-15T14:36:52+03:00 — h002_generating
+
+H002 запрос4/100, оценено0/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 4,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:37:02+03:00 — h002_trial
+
+H002 запрос4: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 4,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 4,
+    "proposal": 1,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_004",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 214,
+    "llm_seconds": 9.319630334,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 9.3735292270012
+  }
+}
+```
+
+## 2026-10-15T14:37:02+03:00 — h002_generating
+
+H002 запрос5/100, оценено0/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 5,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:37:13+03:00 — h002_trial
+
+H002 запрос5: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 5,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 5,
+    "proposal": 1,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_005",
+    "parent_call": 4,
+    "prompt_tokens": 1464,
+    "generated_tokens": 221,
+    "llm_seconds": 9.477230243,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 9.537248406999424
+  }
+}
+```
+
+## 2026-10-15T14:37:13+03:00 — h002_generating
+
+H002 запрос6/100, оценено0/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 6,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:37:25+03:00 — h002_trial
+
+H002 запрос6: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 6,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 6,
+    "proposal": 1,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_006",
+    "parent_call": 5,
+    "prompt_tokens": 1471,
+    "generated_tokens": 217,
+    "llm_seconds": 9.38651196,
+    "program_sha256": "086d56601b75586942afc63011e98c63af5a0b0aaf0f131d6a1b5c229462ae0e",
+    "status": "rejected",
+    "error": "Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.",
+    "elapsed_seconds": 11.786141193999356
+  }
+}
+```
+
+## 2026-10-15T14:37:25+03:00 — h002_generating
+
+H002 запрос7/100, оценено0/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 7,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:37:39+03:00 — h002_trial
+
+H002 запрос7: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 7,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 7,
+    "proposal": 2,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_007",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 282,
+    "llm_seconds": 12.491845254,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 12.548587232999125
+  }
+}
+```
+
+## 2026-10-15T14:37:39+03:00 — h002_generating
+
+H002 запрос8/100, оценено0/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 8,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:37:52+03:00 — h002_trial
+
+H002 запрос8: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 8,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 8,
+    "proposal": 2,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_008",
+    "parent_call": 7,
+    "prompt_tokens": 1532,
+    "generated_tokens": 282,
+    "llm_seconds": 11.977134299,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 12.045711405000475
+  }
+}
+```
+
+## 2026-10-15T14:37:52+03:00 — h002_generating
+
+H002 запрос9/100, оценено0/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 9,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:38:05+03:00 — h002_trial
+
+H002 запрос9: rejected; различных оценённых0/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 9,
+  "evaluated_distinct": 0,
+  "trial": {
+    "call": 9,
+    "proposal": 2,
+    "island": 2,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_009",
+    "parent_call": 8,
+    "prompt_tokens": 1532,
+    "generated_tokens": 282,
+    "llm_seconds": 12.231773261,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 12.306921006000266
+  }
+}
+```
+
+## 2026-10-15T14:38:05+03:00 — h002_generating
+
+H002 запрос10/100, оценено0/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 10,
+  "evaluated_distinct": 0
+}
+```
+
+## 2026-10-15T14:40:36+03:00 — h002_trial
+
+H002 запрос10: valid; различных оценённых1/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 10,
+  "evaluated_distinct": 1,
+  "trial": {
+    "call": 10,
+    "proposal": 3,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_010",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 385,
+    "llm_seconds": 16.979883295,
+    "program_sha256": "01f1762e124c835462c85fa1865ca92c17a0b2c9d7d2f9338145f634e14f5b06",
+    "status": "valid",
+    "score": 0.010144469246031747,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "bffbf9ad3b35d7b0352dacbe8d09f31cc4bbdd2fd2b5ad11677e4fd8579bfff6",
+      "program_sha256": "bbd26fc091c32c90ce76b5055fda42f398882a689ff38718e16867ea69c06f11",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.010144469246031747
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 3.976385306999873,
+      "elapsed_seconds": 120.65982826100117,
+      "passed": true
+    },
+    "elapsed_seconds": 149.41507942799944
+  }
+}
+```
+
+## 2026-10-15T14:40:36+03:00 — h002_generating
+
+H002 запрос11/100, оценено1/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 11,
+  "evaluated_distinct": 1
+}
+```
+
+## 2026-10-15T14:41:11+03:00 — h002_launch_verified
+
+H002 выполняется: первый набор полностью обучен и оценён; CPU8 проверен, живые графики созданы. Итоговых метрик пока нет.
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "first_score_seconds": 3.976385306999873,
+  "tests_passed": 6,
+  "training_threads_check": {
+    "checked_pairs": 2048,
+    "old_threads": 2,
+    "new_threads": 8,
+    "scores_bit_identical": true
+  },
+  "full_catalog_resumed": false,
+  "experiment_complete": false,
+  "first_evaluated_candidate": 10,
+  "search_pairs": 6594,
+  "first_search_map": 0.010144469246031747,
+  "graphs": "reports/llmfe_h002_shared_v1/progress.md",
+  "first_train_and_score_seconds": 120.65982826100117
+}
+```
+
+## 2026-10-15T14:42:14+03:00 — h002_trial
+
+H002 запрос11: valid; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 11,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 11,
+    "proposal": 4,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_011",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 236,
+    "llm_seconds": 9.874659547,
+    "program_sha256": "2edba69d0d40b1b78ee7aa7cbaf181c22d92caed46b17154d93f0c5f29becfec",
+    "status": "valid",
+    "score": 0.008225213913690476,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "b3d97aa52e3a0bea3bea9b0825da617651c3d781ad008eeaebc04873c92feb84",
+      "program_sha256": "dd836a5d24c9db7b5118aa2bded361d8b54c4775a74e27a3a97be4e70ecce190",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.008225213913690476
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 2.2115401359988027,
+      "elapsed_seconds": 79.83291100399947,
+      "passed": true
+    },
+    "elapsed_seconds": 97.00829434799925
+  }
+}
+```
+
+## 2026-10-15T14:42:14+03:00 — h002_generating
+
+H002 запрос12/100, оценено2/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 12,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:42:27+03:00 — h002_trial
+
+H002 запрос12: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 12,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 12,
+    "proposal": 5,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_012",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 284,
+    "llm_seconds": 11.374309155,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 11.433930460001648
+  }
+}
+```
+
+## 2026-10-15T14:42:27+03:00 — h002_generating
+
+H002 запрос13/100, оценено2/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 13,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:42:37+03:00 — h002_trial
+
+H002 запрос13: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 13,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 13,
+    "proposal": 5,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_013",
+    "parent_call": 12,
+    "prompt_tokens": 1534,
+    "generated_tokens": 230,
+    "llm_seconds": 9.266519088,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 9.324338119000458
+  }
+}
+```
+
+## 2026-10-15T14:42:37+03:00 — h002_generating
+
+H002 запрос14/100, оценено2/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 14,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:42:48+03:00 — h002_trial
+
+H002 запрос14: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 14,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 14,
+    "proposal": 5,
+    "island": 2,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_014",
+    "parent_call": 13,
+    "prompt_tokens": 1480,
+    "generated_tokens": 234,
+    "llm_seconds": 9.763807785,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 9.831693531999917
+  }
+}
+```
+
+## 2026-10-15T14:42:48+03:00 — h002_generating
+
+H002 запрос15/100, оценено2/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 15,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:43:00+03:00 — h002_trial
+
+H002 запрос15: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 15,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 15,
+    "proposal": 6,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_015",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 269,
+    "llm_seconds": 10.980338993,
+    "status": "rejected",
+    "error": "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 11.034838135999962
+  }
+}
+```
+
+## 2026-10-15T14:43:00+03:00 — h002_generating
+
+H002 запрос16/100, оценено2/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 16,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:43:12+03:00 — h002_trial
+
+H002 запрос16: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 16,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 16,
+    "proposal": 6,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_016",
+    "parent_call": 15,
+    "prompt_tokens": 1520,
+    "generated_tokens": 269,
+    "llm_seconds": 10.786486608,
+    "status": "rejected",
+    "error": "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.838368501999867
+  }
+}
+```
+
+## 2026-10-15T14:43:12+03:00 — h002_generating
+
+H002 запрос17/100, оценено2/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 17,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:43:25+03:00 — h002_trial
+
+H002 запрос17: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 17,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 17,
+    "proposal": 6,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_017",
+    "parent_call": 16,
+    "prompt_tokens": 1520,
+    "generated_tokens": 269,
+    "llm_seconds": 10.829752033,
+    "status": "rejected",
+    "error": "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.88201111700073
+  }
+}
+```
+
+## 2026-10-15T14:43:25+03:00 — h002_generating
+
+H002 запрос18/100, оценено2/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 18,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:43:36+03:00 — h002_trial
+
+H002 запрос18: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 18,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 18,
+    "proposal": 7,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_018",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 258,
+    "llm_seconds": 10.439437453,
+    "status": "rejected",
+    "error": "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.49631864299954
+  }
+}
+```
+
+## 2026-10-15T14:43:36+03:00 — h002_generating
+
+H002 запрос19/100, оценено2/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 19,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:43:49+03:00 — h002_trial
+
+H002 запрос19: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 19,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 19,
+    "proposal": 7,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_019",
+    "parent_call": 18,
+    "prompt_tokens": 1508,
+    "generated_tokens": 273,
+    "llm_seconds": 11.366825294,
+    "status": "rejected",
+    "error": "Forbidden token 'select': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 11.430184884999107
+  }
+}
+```
+
+## 2026-10-15T14:43:49+03:00 — h002_generating
+
+H002 запрос20/100, оценено2/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 20,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:44:01+03:00 — h002_trial
+
+H002 запрос20: rejected; различных оценённых2/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 20,
+  "evaluated_distinct": 2,
+  "trial": {
+    "call": 20,
+    "proposal": 7,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_020",
+    "parent_call": 19,
+    "prompt_tokens": 1523,
+    "generated_tokens": 238,
+    "llm_seconds": 10.286174775,
+    "status": "rejected",
+    "error": "Forbidden token 'select': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.343985827999859
+  }
+}
+```
+
+## 2026-10-15T14:44:01+03:00 — h002_generating
+
+H002 запрос21/100, оценено2/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 21,
+  "evaluated_distinct": 2
+}
+```
+
+## 2026-10-15T14:45:27+03:00 — h002_trial
+
+H002 запрос21: valid; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 21,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 21,
+    "proposal": 8,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_021",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 394,
+    "llm_seconds": 16.265797549,
+    "program_sha256": "12bbc7f3055039a81ecfe78f2d42d90971bfe629001cc5eb3931d7daa92c78d3",
+    "status": "valid",
+    "score": 0.011892722800925924,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "f161b42affd55c783735f775c7d46a811ceaecbdcbf174255e5ee33683250659",
+      "program_sha256": "266618136da8f17ae918f5027b0db8d07433ea830c7ad31ee838f86fe15f5503",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.011892722800925924
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.5458278890000656,
+      "elapsed_seconds": 60.68760718199883,
+      "passed": true
+    },
+    "elapsed_seconds": 84.62969901699944
+  }
+}
+```
+
+## 2026-10-15T14:45:27+03:00 — h002_generating
+
+H002 запрос22/100, оценено3/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 22,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:45:39+03:00 — h002_trial
+
+H002 запрос22: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 22,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 22,
+    "proposal": 9,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_022",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 258,
+    "llm_seconds": 10.65246111,
+    "status": "rejected",
+    "error": "Forbidden token 'FROM': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.699750110999958
+  }
+}
+```
+
+## 2026-10-15T14:45:39+03:00 — h002_generating
+
+H002 запрос23/100, оценено3/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 23,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:45:51+03:00 — h002_trial
+
+H002 запрос23: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 23,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 23,
+    "proposal": 9,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_023",
+    "parent_call": 22,
+    "prompt_tokens": 1508,
+    "generated_tokens": 254,
+    "llm_seconds": 10.566564509,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "elapsed_seconds": 10.625161283000125
+  }
+}
+```
+
+## 2026-10-15T14:45:51+03:00 — h002_generating
+
+H002 запрос24/100, оценено3/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 24,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:46:03+03:00 — h002_trial
+
+H002 запрос24: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 24,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 24,
+    "proposal": 9,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_024",
+    "parent_call": 23,
+    "prompt_tokens": 1485,
+    "generated_tokens": 254,
+    "llm_seconds": 10.463120549,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "elapsed_seconds": 10.5215167009992
+  }
+}
+```
+
+## 2026-10-15T14:46:03+03:00 — h002_generating
+
+H002 запрос25/100, оценено3/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 25,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:46:19+03:00 — h002_trial
+
+H002 запрос25: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 25,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 25,
+    "proposal": 10,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_025",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 365,
+    "llm_seconds": 14.898098018,
+    "status": "rejected",
+    "error": "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 14.956065180000223
+  }
+}
+```
+
+## 2026-10-15T14:46:19+03:00 — h002_generating
+
+H002 запрос26/100, оценено3/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 26,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:46:36+03:00 — h002_trial
+
+H002 запрос26: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 26,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 26,
+    "proposal": 10,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_026",
+    "parent_call": 25,
+    "prompt_tokens": 1615,
+    "generated_tokens": 370,
+    "llm_seconds": 15.550052016,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 15.604626846999963
+  }
+}
+```
+
+## 2026-10-15T14:46:36+03:00 — h002_generating
+
+H002 запрос27/100, оценено3/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 27,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:46:53+03:00 — h002_trial
+
+H002 запрос27: rejected; различных оценённых3/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 27,
+  "evaluated_distinct": 3,
+  "trial": {
+    "call": 27,
+    "proposal": 10,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_027",
+    "parent_call": 26,
+    "prompt_tokens": 1610,
+    "generated_tokens": 370,
+    "llm_seconds": 15.864490005,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 15.928403313999297
+  }
+}
+```
+
+## 2026-10-15T14:46:54+03:00 — h002_generating
+
+H002 запрос28/100, оценено3/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 28,
+  "evaluated_distinct": 3
+}
+```
+
+## 2026-10-15T14:48:23+03:00 — h002_trial
+
+H002 запрос28: valid; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 28,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 28,
+    "proposal": 11,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_028",
+    "parent_call": null,
+    "prompt_tokens": 1512,
+    "generated_tokens": 325,
+    "llm_seconds": 15.012155684,
+    "program_sha256": "ecd6e7ed240794fff8466f1b4ad46d7aa4bbc650bb3f8fd4554ae84ea969d892",
+    "status": "valid",
+    "score": 0.01142588458994709,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "adfa901654f8bf663160bee5e0505c55ce1598394376754edc5a3195f8d57bd5",
+      "program_sha256": "a5ffde247c6d80aa82ce0e3cc3d2a8031a99beff1a89171c58b8a188c5e9d00d",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.01142588458994709
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.6548595449985442,
+      "elapsed_seconds": 65.45012916799897,
+      "passed": true
+    },
+    "elapsed_seconds": 88.58125004199974
+  }
+}
+```
+
+## 2026-10-15T14:48:23+03:00 — h002_generating
+
+H002 запрос29/100, оценено4/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 29,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:48:40+03:00 — h002_trial
+
+H002 запрос29: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 29,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 29,
+    "proposal": 12,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_029",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 381,
+    "llm_seconds": 15.71060135,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 15.774429115999737
+  }
+}
+```
+
+## 2026-10-15T14:48:40+03:00 — h002_generating
+
+H002 запрос30/100, оценено4/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 30,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:48:57+03:00 — h002_trial
+
+H002 запрос30: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 30,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 30,
+    "proposal": 12,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_030",
+    "parent_call": 29,
+    "prompt_tokens": 1631,
+    "generated_tokens": 381,
+    "llm_seconds": 15.485629753,
+    "status": "rejected",
+    "error": "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 15.55581468499986
+  }
+}
+```
+
+## 2026-10-15T14:48:57+03:00 — h002_generating
+
+H002 запрос31/100, оценено4/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 31,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:49:09+03:00 — h002_trial
+
+H002 запрос31: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 31,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 31,
+    "proposal": 12,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_031",
+    "parent_call": 30,
+    "prompt_tokens": 1632,
+    "generated_tokens": 249,
+    "llm_seconds": 10.107022438,
+    "status": "rejected",
+    "error": "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 10.161265599001126
+  }
+}
+```
+
+## 2026-10-15T14:49:09+03:00 — h002_generating
+
+H002 запрос32/100, оценено4/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 32,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:49:28+03:00 — h002_trial
+
+H002 запрос32: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 32,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 32,
+    "proposal": 13,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_032",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 370,
+    "llm_seconds": 15.192960652,
+    "program_sha256": "09df8f350ecd1a7eb122075242a7ccca3791045f9f69192f7a971d97cb66af50",
+    "status": "rejected",
+    "error": "Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.",
+    "elapsed_seconds": 18.27060540000093
+  }
+}
+```
+
+## 2026-10-15T14:49:28+03:00 — h002_generating
+
+H002 запрос33/100, оценено4/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 33,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:49:48+03:00 — h002_trial
+
+H002 запрос33: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 33,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 33,
+    "proposal": 13,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_033",
+    "parent_call": 32,
+    "prompt_tokens": 1650,
+    "generated_tokens": 373,
+    "llm_seconds": 15.676219331,
+    "program_sha256": "09df8f350ecd1a7eb122075242a7ccca3791045f9f69192f7a971d97cb66af50",
+    "status": "rejected",
+    "error": "Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.",
+    "elapsed_seconds": 18.659464397998818
+  }
+}
+```
+
+## 2026-10-15T14:49:48+03:00 — h002_generating
+
+H002 запрос34/100, оценено4/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 34,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:50:09+03:00 — h002_trial
+
+H002 запрос34: rejected; различных оценённых4/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 34,
+  "evaluated_distinct": 4,
+  "trial": {
+    "call": 34,
+    "proposal": 13,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_034",
+    "parent_call": 33,
+    "prompt_tokens": 1653,
+    "generated_tokens": 373,
+    "llm_seconds": 15.753047938,
+    "program_sha256": "09df8f350ecd1a7eb122075242a7ccca3791045f9f69192f7a971d97cb66af50",
+    "status": "rejected",
+    "error": "Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.",
+    "elapsed_seconds": 18.9262218519998
+  }
+}
+```
+
+## 2026-10-15T14:50:09+03:00 — h002_generating
+
+H002 запрос35/100, оценено4/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 35,
+  "evaluated_distinct": 4
+}
+```
+
+## 2026-10-15T14:51:33+03:00 — h002_trial
+
+H002 запрос35: valid; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 35,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 35,
+    "proposal": 14,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_035",
+    "parent_call": null,
+    "prompt_tokens": 1512,
+    "generated_tokens": 321,
+    "llm_seconds": 13.534074223,
+    "program_sha256": "c73c9d733d44c07292a8f4a51ff742ad0fca788257352f4c2523c6d4325d7cfb",
+    "status": "valid",
+    "score": 0.010669224800084174,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "abc6de31f8a506094fb78c1c5bd0f8ad8f8efea8d81db952ce3d4d6d3c1a1c1a",
+      "program_sha256": "ed68bad216fa982916f4257087d9358e18bf4457d88673c7ca7218759010416b",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.010669224800084174
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.6155201789988496,
+      "elapsed_seconds": 62.19711509700028,
+      "passed": true
+    },
+    "elapsed_seconds": 83.00535299999865
+  }
+}
+```
+
+## 2026-10-15T14:51:33+03:00 — h002_generating
+
+H002 запрос36/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 36,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:51:49+03:00 — h002_trial
+
+H002 запрос36: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 36,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 36,
+    "proposal": 15,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_036",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 374,
+    "llm_seconds": 15.498338132,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "elapsed_seconds": 15.550237174000358
+  }
+}
+```
+
+## 2026-10-15T14:51:50+03:00 — h002_generating
+
+H002 запрос37/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 37,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:52:06+03:00 — h002_trial
+
+H002 запрос37: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 37,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 37,
+    "proposal": 15,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_037",
+    "parent_call": 36,
+    "prompt_tokens": 1605,
+    "generated_tokens": 374,
+    "llm_seconds": 15.329918427,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "elapsed_seconds": 15.393024156001047
+  }
+}
+```
+
+## 2026-10-15T14:52:06+03:00 — h002_generating
+
+H002 запрос38/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 38,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:52:23+03:00 — h002_trial
+
+H002 запрос38: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 38,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 38,
+    "proposal": 15,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_038",
+    "parent_call": 37,
+    "prompt_tokens": 1605,
+    "generated_tokens": 374,
+    "llm_seconds": 15.033861804,
+    "status": "rejected",
+    "error": "Invalid grouping keys",
+    "elapsed_seconds": 15.091258722999555
+  }
+}
+```
+
+## 2026-10-15T14:52:23+03:00 — h002_generating
+
+H002 запрос39/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 39,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:52:44+03:00 — h002_trial
+
+H002 запрос39: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 39,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 39,
+    "proposal": 16,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_039",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 415,
+    "llm_seconds": 17.478129477,
+    "program_sha256": "a31ab50ea24c4281021f24dba74c536ab05764519761181fb8882fd54662b0dc",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.f_avg_days_ago\", \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\"",
+    "elapsed_seconds": 19.821644376999757
+  }
+}
+```
+
+## 2026-10-15T14:52:44+03:00 — h002_generating
+
+H002 запрос40/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 40,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:53:04+03:00 — h002_trial
+
+H002 запрос40: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 40,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 40,
+    "proposal": 16,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_040",
+    "parent_call": 39,
+    "prompt_tokens": 1716,
+    "generated_tokens": 420,
+    "llm_seconds": 18.536547617,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 18.60408442699918
+  }
+}
+```
+
+## 2026-10-15T14:53:04+03:00 — h002_generating
+
+H002 запрос41/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 41,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:53:24+03:00 — h002_trial
+
+H002 запрос41: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 41,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 41,
+    "proposal": 16,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_041",
+    "parent_call": 40,
+    "prompt_tokens": 1660,
+    "generated_tokens": 424,
+    "llm_seconds": 17.874212533,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 17.940174714000023
+  }
+}
+```
+
+## 2026-10-15T14:53:24+03:00 — h002_generating
+
+H002 запрос42/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 42,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:53:41+03:00 — h002_trial
+
+H002 запрос42: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 42,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 42,
+    "proposal": 17,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_042",
+    "parent_call": null,
+    "prompt_tokens": 1512,
+    "generated_tokens": 346,
+    "llm_seconds": 15.37441443,
+    "program_sha256": "946aa6b3230fede0fdecfdab2945998f1bd835f374e06c755d0d92ce20b787ce",
+    "status": "rejected",
+    "error": "Parser Error: syntax error at or near \"AS\"",
+    "elapsed_seconds": 16.028668697001194
+  }
+}
+```
+
+## 2026-10-15T14:53:42+03:00 — h002_generating
+
+H002 запрос43/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 43,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:53:59+03:00 — h002_trial
+
+H002 запрос43: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 43,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 43,
+    "proposal": 17,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_043",
+    "parent_call": 42,
+    "prompt_tokens": 1585,
+    "generated_tokens": 346,
+    "llm_seconds": 15.451263014,
+    "program_sha256": "946aa6b3230fede0fdecfdab2945998f1bd835f374e06c755d0d92ce20b787ce",
+    "status": "rejected",
+    "error": "Parser Error: syntax error at or near \"AS\"",
+    "elapsed_seconds": 16.139252783999837
+  }
+}
+```
+
+## 2026-10-15T14:53:59+03:00 — h002_generating
+
+H002 запрос44/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 44,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:54:17+03:00 — h002_trial
+
+H002 запрос44: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 44,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 44,
+    "proposal": 17,
+    "island": 2,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_044",
+    "parent_call": 43,
+    "prompt_tokens": 1585,
+    "generated_tokens": 346,
+    "llm_seconds": 15.681787191,
+    "program_sha256": "946aa6b3230fede0fdecfdab2945998f1bd835f374e06c755d0d92ce20b787ce",
+    "status": "rejected",
+    "error": "Parser Error: syntax error at or near \"AS\"",
+    "elapsed_seconds": 16.272215668999706
+  }
+}
+```
+
+## 2026-10-15T14:54:17+03:00 — h002_generating
+
+H002 запрос45/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 45,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:54:26+03:00 — h002_trial
+
+H002 запрос45: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 45,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 45,
+    "proposal": 18,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_045",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 91,
+    "llm_seconds": 4.265986405,
+    "program_sha256": "e72a833cdf5a8a5d3c0a9b3451f745ec781913363af41b1a9a93953351109bf6",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"price\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.rid\", \"unnamed_subquery.f_article_sales_count\", \"unnamed_subquery.raw_i_section_no\", \"unnamed_subquery.raw_i_product_code\", \"unnamed_subquery.raw_i_perceived_colour_value_id\"",
+    "elapsed_seconds": 7.4119564140000875
+  }
+}
+```
+
+## 2026-10-15T14:54:26+03:00 — h002_generating
+
+H002 запрос46/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 46,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:54:36+03:00 — h002_trial
+
+H002 запрос46: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 46,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 46,
+    "proposal": 18,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_046",
+    "parent_call": 45,
+    "prompt_tokens": 1388,
+    "generated_tokens": 194,
+    "llm_seconds": 8.503862438,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 8.567035076999673
+  }
+}
+```
+
+## 2026-10-15T14:54:36+03:00 — h002_generating
+
+H002 запрос47/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 47,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:54:47+03:00 — h002_trial
+
+H002 запрос47: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 47,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 47,
+    "proposal": 18,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_047",
+    "parent_call": 46,
+    "prompt_tokens": 1434,
+    "generated_tokens": 226,
+    "llm_seconds": 9.560043745,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 9.621956513999976
+  }
+}
+```
+
+## 2026-10-15T14:54:47+03:00 — h002_generating
+
+H002 запрос48/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 48,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:55:11+03:00 — h002_trial
+
+H002 запрос48: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 48,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 48,
+    "proposal": 19,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_048",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 521,
+    "llm_seconds": 22.066199798,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 22.128172792999976
+  }
+}
+```
+
+## 2026-10-15T14:55:11+03:00 — h002_generating
+
+H002 запрос49/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 49,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:55:36+03:00 — h002_trial
+
+H002 запрос49: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 49,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 49,
+    "proposal": 19,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_049",
+    "parent_call": 48,
+    "prompt_tokens": 1771,
+    "generated_tokens": 521,
+    "llm_seconds": 23.132223551,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 23.19392733099994
+  }
+}
+```
+
+## 2026-10-15T14:55:36+03:00 — h002_generating
+
+H002 запрос50/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 50,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:55:59+03:00 — h002_trial
+
+H002 запрос50: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 50,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 50,
+    "proposal": 19,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_050",
+    "parent_call": 49,
+    "prompt_tokens": 1771,
+    "generated_tokens": 483,
+    "llm_seconds": 21.753310801,
+    "status": "rejected",
+    "error": "Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 21.808939900998666
+  }
+}
+```
+
+## 2026-10-15T14:55:59+03:00 — h002_generating
+
+H002 запрос51/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 51,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:56:13+03:00 — h002_trial
+
+H002 запрос51: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 51,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 51,
+    "proposal": 20,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_051",
+    "parent_call": null,
+    "prompt_tokens": 1512,
+    "generated_tokens": 194,
+    "llm_seconds": 9.31237282,
+    "program_sha256": "3a22226371300cfd52c28cabad7598b1206d3fe3802b9b47f7602c4e9fea1170",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"f_avg_days_since_product_purchase\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.f_max_days_since_product_purchase\", \"unnamed_subquery.f_avg_product_price\", \"unnamed_subquery.raw_i_perceived_colour_value_id\", \"unnamed_subquery.raw_i_perceived_colour_master_id\", \"unnamed_subquery.f_unique_customer_products\"",
+    "elapsed_seconds": 12.097269783000229
+  }
+}
+```
+
+## 2026-10-15T14:56:13+03:00 — h002_generating
+
+H002 запрос52/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 52,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:56:26+03:00 — h002_trial
+
+H002 запрос52: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 52,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 52,
+    "proposal": 20,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_052",
+    "parent_call": 51,
+    "prompt_tokens": 1503,
+    "generated_tokens": 198,
+    "llm_seconds": 9.223979001,
+    "program_sha256": "eebf20b9e1204f66422991a076a27637066f6a505c994d76e8d4bf52922dfbd4",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"raw_i_price\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_i_product_code\", \"unnamed_subquery.raw_i_product_type_no\", \"unnamed_subquery.raw_i_graphical_appearance_no\", \"unnamed_subquery.raw_i_section_no\", \"unnamed_subquery.raw_u_active\"",
+    "elapsed_seconds": 11.778472960000727
+  }
+}
+```
+
+## 2026-10-15T14:56:26+03:00 — h002_generating
+
+H002 запрос53/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 53,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:56:39+03:00 — h002_trial
+
+H002 запрос53: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 53,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 53,
+    "proposal": 20,
+    "island": 2,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_053",
+    "parent_call": 52,
+    "prompt_tokens": 1499,
+    "generated_tokens": 204,
+    "llm_seconds": 9.001558235,
+    "program_sha256": "2e3b045b97ff4ac4d65d57c3fcbf83a6eee2728e4eb175d547cad2614d4cc149",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"raw_i_price\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_i_product_code\", \"unnamed_subquery.raw_i_product_type_no\", \"unnamed_subquery.raw_i_graphical_appearance_no\", \"unnamed_subquery.raw_i_section_no\", \"unnamed_subquery.raw_u_active\"",
+    "elapsed_seconds": 11.505222879999565
+  }
+}
+```
+
+## 2026-10-15T14:56:39+03:00 — h002_generating
+
+H002 запрос54/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 54,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:56:53+03:00 — h002_trial
+
+H002 запрос54: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 54,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 54,
+    "proposal": 21,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_054",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 265,
+    "llm_seconds": 11.776868875,
+    "program_sha256": "7ae1d02723443e1febde882d274b645efccacdeace0d37dae60ade03234325e3",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"raw_i_product_code\" not found in FROM clause!\nCandidate bindings: \"history.product_code\", \"history.perceived_colour_master_id\", \"history.colour_group_code\", \"history.perceived_colour_value_id\", \"history.product_type_no\"\nLINE 1: ...r_purchase_count,approx_count_distinct(raw_i_product_code) AS f_customer_uniqu...\n                                                  ^",
+    "elapsed_seconds": 12.395580950000294
+  }
+}
+```
+
+## 2026-10-15T14:56:53+03:00 — h002_generating
+
+H002 запрос55/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 55,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:57:07+03:00 — h002_trial
+
+H002 запрос55: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 55,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 55,
+    "proposal": 21,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_055",
+    "parent_call": 54,
+    "prompt_tokens": 1574,
+    "generated_tokens": 269,
+    "llm_seconds": 12.231707081,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 12.294947716000024
+  }
+}
+```
+
+## 2026-10-15T14:57:07+03:00 — h002_generating
+
+H002 запрос56/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 56,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:57:23+03:00 — h002_trial
+
+H002 запрос56: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 56,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 56,
+    "proposal": 21,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_056",
+    "parent_call": 55,
+    "prompt_tokens": 1509,
+    "generated_tokens": 269,
+    "llm_seconds": 13.579258783,
+    "status": "rejected",
+    "error": "Only numeric SQL expressions, no statements/strings/qualified names",
+    "elapsed_seconds": 13.653895290000946
+  }
+}
+```
+
+## 2026-10-15T14:57:23+03:00 — h002_generating
+
+H002 запрос57/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 57,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:57:40+03:00 — h002_trial
+
+H002 запрос57: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 57,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 57,
+    "proposal": 22,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_057",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 317,
+    "llm_seconds": 15.993506496,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 16.07310933000008
+  }
+}
+```
+
+## 2026-10-15T14:57:40+03:00 — h002_generating
+
+H002 запрос58/100, оценено5/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 58,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:57:56+03:00 — h002_trial
+
+H002 запрос58: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 58,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 58,
+    "proposal": 22,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_058",
+    "parent_call": 57,
+    "prompt_tokens": 1567,
+    "generated_tokens": 311,
+    "llm_seconds": 13.901284297,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 13.964141484999345
+  }
+}
+```
+
+## 2026-10-15T14:57:56+03:00 — h002_generating
+
+H002 запрос59/100, оценено5/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 59,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T14:58:11+03:00 — h002_trial
+
+H002 запрос59: rejected; различных оценённых5/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 59,
+  "evaluated_distinct": 5,
+  "trial": {
+    "call": 59,
+    "proposal": 22,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_059",
+    "parent_call": 58,
+    "prompt_tokens": 1561,
+    "generated_tokens": 311,
+    "llm_seconds": 13.577262757,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 13.663568644000406
+  }
+}
+```
+
+## 2026-10-15T14:58:11+03:00 — h002_generating
+
+H002 запрос60/100, оценено5/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 60,
+  "evaluated_distinct": 5
+}
+```
+
+## 2026-10-15T15:01:07+03:00 — h002_trial
+
+H002 запрос60: valid; различных оценённых6/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 60,
+  "evaluated_distinct": 6,
+  "trial": {
+    "call": 60,
+    "proposal": 23,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_060",
+    "parent_call": null,
+    "prompt_tokens": 1512,
+    "generated_tokens": 463,
+    "llm_seconds": 20.706764215,
+    "program_sha256": "6696a37051416488214c56da16dfa905a42035a541489b0695239f6b378481be",
+    "status": "valid",
+    "score": 0.020499733195045694,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+      "program_sha256": "2b917a93c6e956a67c4fe7a5f67dca27a26409075888410926706a664d8bf2b9",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.020499733195045694
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.512057342999469,
+      "elapsed_seconds": 142.91864698599966,
+      "passed": true
+    },
+    "elapsed_seconds": 174.78177606200006
+  }
+}
+```
+
+## 2026-10-15T15:01:07+03:00 — h002_generating
+
+H002 запрос61/100, оценено6/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 61,
+  "evaluated_distinct": 6
+}
+```
+
+## 2026-10-15T15:02:26+03:00 — h002_trial
+
+H002 запрос61: valid; различных оценённых7/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 61,
+  "evaluated_distinct": 7,
+  "trial": {
+    "call": 61,
+    "proposal": 24,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_061",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 320,
+    "llm_seconds": 13.096811912,
+    "program_sha256": "e3eac4c180b1b142fdfe1fb9bd99cd42c0623b8cb9a63a62c2b786202f3d0ded",
+    "status": "valid",
+    "score": 0.011451005591630592,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "d001e2b24127eb323e11b0d22895b5a859d97bd6afbc74aabedf3570e2ef456c",
+      "program_sha256": "601b713d933b3f8e2eb062ca9b2b8d0b4a54f63b3ac168338bd6205822847c4e",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.011451005591630592
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.590960104998885,
+      "elapsed_seconds": 58.21717655900102,
+      "passed": true
+    },
+    "elapsed_seconds": 77.84490290299982
+  }
+}
+```
+
+## 2026-10-15T15:02:26+03:00 — h002_generating
+
+H002 запрос62/100, оценено7/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 62,
+  "evaluated_distinct": 7
+}
+```
+
+## 2026-10-15T15:02:40+03:00 — h002_trial
+
+H002 запрос62: rejected; различных оценённых7/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 62,
+  "evaluated_distinct": 7,
+  "trial": {
+    "call": 62,
+    "proposal": 25,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_062",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 288,
+    "llm_seconds": 12.15656123,
+    "status": "rejected",
+    "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    "elapsed_seconds": 12.203417090000585
+  }
+}
+```
+
+## 2026-10-15T15:02:40+03:00 — h002_generating
+
+H002 запрос63/100, оценено7/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 63,
+  "evaluated_distinct": 7
+}
+```
+
+## 2026-10-15T15:05:13+03:00 — h002_trial
+
+H002 запрос63: valid; различных оценённых8/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 63,
+  "evaluated_distinct": 8,
+  "trial": {
+    "call": 63,
+    "proposal": 25,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_063",
+    "parent_call": 62,
+    "prompt_tokens": 1538,
+    "generated_tokens": 289,
+    "llm_seconds": 12.740038794,
+    "program_sha256": "28e2c886944ad4d211ca8fa9c54f2fc37e7abf17053930361aeb5c61cef234c5",
+    "status": "valid",
+    "score": 0.009929935515873015,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "0e48c3604667583a0979511dfcd08133d01afa17fd181b5a45486fdc775012aa",
+      "program_sha256": "96e4c085a2065c9bcdaf9088c4e14ab6d46ecadaa9db304023e8dd256e046d00",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.009929935515873015
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.137843512000472,
+      "elapsed_seconds": 127.07905445000142,
+      "passed": true
+    },
+    "elapsed_seconds": 152.3509967250011
+  }
+}
+```
+
+## 2026-10-15T15:05:13+03:00 — h002_generating
+
+H002 запрос64/100, оценено8/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 64,
+  "evaluated_distinct": 8
+}
+```
+
+## 2026-10-15T15:08:09+03:00 — h002_trial
+
+H002 запрос64: valid; различных оценённых9/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 64,
+  "evaluated_distinct": 9,
+  "trial": {
+    "call": 64,
+    "proposal": 26,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_064",
+    "parent_call": null,
+    "prompt_tokens": 1717,
+    "generated_tokens": 575,
+    "llm_seconds": 23.627108578,
+    "program_sha256": "a2f992c1fb8df01b1464effc051b1dd296d839d05078af626ba73f8cb8ca6bd8",
+    "status": "valid",
+    "score": 0.019582849514490137,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "071bef85681fab0da3220785bac9f83f0c2cb5872080dc2ec27efd78e7723f11",
+      "program_sha256": "32e8b25a67cf14dbea01cf1d7ad1c818b5636c56d7a27fd8fd2ffe3b2ad3368f",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.019582849514490137
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.461819740999999,
+      "elapsed_seconds": 140.6071476470006,
+      "passed": true
+    },
+    "elapsed_seconds": 174.60711071399965
+  }
+}
+```
+
+## 2026-10-15T15:08:09+03:00 — h002_generating
+
+H002 запрос65/100, оценено9/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 65,
+  "evaluated_distinct": 9
+}
+```
+
+## 2026-10-15T15:09:26+03:00 — h002_trial
+
+H002 запрос65: valid; различных оценённых10/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 65,
+  "evaluated_distinct": 10,
+  "trial": {
+    "call": 65,
+    "proposal": 27,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_065",
+    "parent_call": null,
+    "prompt_tokens": 1473,
+    "generated_tokens": 333,
+    "llm_seconds": 13.795806915,
+    "program_sha256": "bcbc54124f5309036e4592068430594c0da8ad8cb6920c68d54fc037750cbcd3",
+    "status": "valid",
+    "score": 0.012889591600529101,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "4a0db2e0826b9d7b18f8d8578602ed65a144d1633a9b23000f8e3df3bf95b9aa",
+      "program_sha256": "55a37e113f7be6cf81541a6ec395b7903676ffe8c04efd7d880d69cc7bf275c7",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.012889591600529101
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.7845175700003892,
+      "elapsed_seconds": 55.160935276999226,
+      "passed": true
+    },
+    "elapsed_seconds": 75.37625546299932
+  }
+}
+```
+
+## 2026-10-15T15:09:26+03:00 — h002_generating
+
+H002 запрос66/100, оценено10/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 66,
+  "evaluated_distinct": 10
+}
+```
+
+## 2026-10-15T15:12:27+03:00 — h002_trial
+
+H002 запрос66: valid; различных оценённых11/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 66,
+  "evaluated_distinct": 11,
+  "trial": {
+    "call": 66,
+    "proposal": 28,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_066",
+    "parent_call": null,
+    "prompt_tokens": 1270,
+    "generated_tokens": 308,
+    "llm_seconds": 12.829103264,
+    "program_sha256": "1c1c55948a1776217705cb439d5d486a44183fb2c90bb60831425d6770836221",
+    "status": "valid",
+    "score": 0.021201580537518035,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "de01460435985159abbfe55e190469f0d5caa8c96a3de3939fc4be4c634813d1",
+      "program_sha256": "9abf392d5d63a9f22aca1790bdf8689083c83baef86cb2d716662fbbb474ad47",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.021201580537518035
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 5.250537501999133,
+      "elapsed_seconds": 156.87035719599953,
+      "passed": true
+    },
+    "elapsed_seconds": 180.59655597500023
+  }
+}
+```
+
+## 2026-10-15T15:12:27+03:00 — h002_generating
+
+H002 запрос67/100, оценено11/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 67,
+  "evaluated_distinct": 11
+}
+```
+
+## 2026-10-15T15:15:12+03:00 — h002_trial
+
+H002 запрос67: valid; различных оценённых12/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 67,
+  "evaluated_distinct": 12,
+  "trial": {
+    "call": 67,
+    "proposal": 29,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_067",
+    "parent_call": null,
+    "prompt_tokens": 1717,
+    "generated_tokens": 629,
+    "llm_seconds": 26.597388724,
+    "program_sha256": "d1785bdb6e9cc87be02fd925443bcd710d27c0ae664fd27a154482945080f076",
+    "status": "valid",
+    "score": 0.020499733195045694,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+      "program_sha256": "6c5a806084ea588c9e69b0330ddb9c1a04183299382a9c7b8c0405550640cfa4",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.020499733195045694
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 3.870906088999618,
+      "elapsed_seconds": 126.82770727800016,
+      "passed": true
+    },
+    "elapsed_seconds": 163.26281161699808
+  }
+}
+```
+
+## 2026-10-15T15:15:12+03:00 — h002_generating
+
+H002 запрос68/100, оценено12/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 68,
+  "evaluated_distinct": 12
+}
+```
+
+## 2026-10-15T15:15:29+03:00 — h002_trial
+
+H002 запрос68: duplicate; различных оценённых12/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 68,
+  "evaluated_distinct": 12,
+  "trial": {
+    "call": 68,
+    "proposal": 30,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_068",
+    "parent_call": null,
+    "prompt_tokens": 1517,
+    "generated_tokens": 388,
+    "llm_seconds": 15.676634704,
+    "program_sha256": "bcbc54124f5309036e4592068430594c0da8ad8cb6920c68d54fc037750cbcd3",
+    "status": "duplicate",
+    "error": "Duplicate of an already evaluated feature set; propose distinct formulas",
+    "elapsed_seconds": 15.731109706001007
+  }
+}
+```
+
+## 2026-10-15T15:15:29+03:00 — h002_generating
+
+H002 запрос69/100, оценено12/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 69,
+  "evaluated_distinct": 12
+}
+```
+
+## 2026-10-15T15:15:50+03:00 — h002_trial
+
+H002 запрос69: rejected; различных оценённых12/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 69,
+  "evaluated_distinct": 12,
+  "trial": {
+    "call": 69,
+    "proposal": 30,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_069",
+    "parent_call": 68,
+    "prompt_tokens": 1627,
+    "generated_tokens": 467,
+    "llm_seconds": 19.762173292,
+    "program_sha256": "f880af40d07fc1b7a1c33ee5df04311b3a43e135d853e297d4e4154e0c17c3ce",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"raw_u_fashion_news_frequency\" not found in FROM clause!\nCandidate bindings: \"history.sales_channel_id\", \"history.graphical_appearance_no\", \"history.price\", \"history.index_group_no\", \"history.days_ago\"\nLINE 1: ...ND) AS f_recent_transactions_count,AVG(raw_u_fashion_news_frequency) AS f_fash...\n                                                  ^",
+    "elapsed_seconds": 20.297343817001092
+  }
+}
+```
+
+## 2026-10-15T15:15:50+03:00 — h002_generating
+
+H002 запрос70/100, оценено12/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 70,
+  "evaluated_distinct": 12
+}
+```
+
+## 2026-10-15T15:17:21+03:00 — h002_trial
+
+H002 запрос70: valid; различных оценённых13/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 70,
+  "evaluated_distinct": 13,
+  "trial": {
+    "call": 70,
+    "proposal": 30,
+    "island": 0,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_070",
+    "parent_call": 69,
+    "prompt_tokens": 1777,
+    "generated_tokens": 429,
+    "llm_seconds": 19.641339267,
+    "program_sha256": "b06c331ca4fe751d9074eeb53731123c452b1fdc4a1bbbd3617bda254b38c07c",
+    "status": "valid",
+    "score": 0.01220216957521645,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "fcf8afafb17fa127ade06fca31462ac1aae8d4e2ed16f575253b34af27afd990",
+      "program_sha256": "290550cbd56d92c6243330f1abb5222406e9c441114f243acc08856c64455fb2",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.01220216957521645
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.7265553799988993,
+      "elapsed_seconds": 62.104935415998625,
+      "passed": true
+    },
+    "elapsed_seconds": 88.972810776002
+  }
+}
+```
+
+## 2026-10-15T15:17:21+03:00 — h002_generating
+
+H002 запрос71/100, оценено13/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 71,
+  "evaluated_distinct": 13
+}
+```
+
+## 2026-10-15T15:20:49+03:00 — h002_trial
+
+H002 запрос71: valid; различных оценённых14/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 71,
+  "evaluated_distinct": 14,
+  "trial": {
+    "call": 71,
+    "proposal": 31,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_071",
+    "parent_call": null,
+    "prompt_tokens": 1562,
+    "generated_tokens": 432,
+    "llm_seconds": 19.074608102,
+    "program_sha256": "2044182ad35da3f36b8ddb55e0d834c6590eb8a273b16aa5cd3d7c3ddc0543d4",
+    "status": "valid",
+    "score": 0.021201580537518035,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "de01460435985159abbfe55e190469f0d5caa8c96a3de3939fc4be4c634813d1",
+      "program_sha256": "e32e27d26babeb4181cbceb4fc65aefdc7c9ffbb0913771da258910e558f4a9e",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.021201580537518035
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 6.924717279998731,
+      "elapsed_seconds": 176.2416501080006,
+      "passed": true
+    },
+    "elapsed_seconds": 206.2108263020018
+  }
+}
+```
+
+## 2026-10-15T15:20:49+03:00 — h002_generating
+
+H002 запрос72/100, оценено14/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 72,
+  "evaluated_distinct": 14
+}
+```
+
+## 2026-10-15T15:21:07+03:00 — h002_trial
+
+H002 запрос72: rejected; различных оценённых14/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 72,
+  "evaluated_distinct": 14,
+  "trial": {
+    "call": 72,
+    "proposal": 32,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_072",
+    "parent_call": null,
+    "prompt_tokens": 1717,
+    "generated_tokens": 357,
+    "llm_seconds": 16.062834964,
+    "status": "rejected",
+    "error": "Unknown feature keys",
+    "elapsed_seconds": 16.13831977299924
+  }
+}
+```
+
+## 2026-10-15T15:21:07+03:00 — h002_generating
+
+H002 запрос73/100, оценено14/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 73,
+  "evaluated_distinct": 14
+}
+```
+
+## 2026-10-15T15:21:31+03:00 — h002_trial
+
+H002 запрос73: rejected; различных оценённых14/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 73,
+  "evaluated_distinct": 14,
+  "trial": {
+    "call": 73,
+    "proposal": 32,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_073",
+    "parent_call": 72,
+    "prompt_tokens": 1588,
+    "generated_tokens": 404,
+    "llm_seconds": 17.536535828,
+    "program_sha256": "efb91e6aa4df25cc6f4bf2eeb60562fc36b4c813d7d2aa554f8fe1da07dd1043",
+    "status": "rejected",
+    "error": "Binder Error: Referenced column \"days_ago\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.raw_u_age\", \"unnamed_subquery.f_product_avg_days_ago\", \"unnamed_subquery.raw_i_index_group_no\", \"unnamed_subquery.raw_i_garment_group_no\", \"unnamed_subquery.raw_u_active\"",
+    "elapsed_seconds": 22.832577503999346
+  }
+}
+```
+
+## 2026-10-15T15:21:31+03:00 — h002_generating
+
+H002 запрос74/100, оценено14/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 74,
+  "evaluated_distinct": 14
+}
+```
+
+## 2026-10-15T15:24:13+03:00 — h002_trial
+
+H002 запрос74: valid; различных оценённых15/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 74,
+  "evaluated_distinct": 15,
+  "trial": {
+    "call": 74,
+    "proposal": 32,
+    "island": 2,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_074",
+    "parent_call": 73,
+    "prompt_tokens": 1706,
+    "generated_tokens": 407,
+    "llm_seconds": 17.120685724,
+    "program_sha256": "7de98ac337d1e679ee35e4121aef190f3cd55507687f270eb714e36aca232065",
+    "status": "valid",
+    "score": 0.020468167538480037,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "8904567f52a3dc46b9a98a982cb95a9157f9f35bfffb4bffd330b05486526381",
+      "program_sha256": "e6e2df5837e6f3c316399019f3a9028183828a3a944cbc989d71443b9e8859a6",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.020468167538480037
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 3.9251409200005583,
+      "elapsed_seconds": 131.78049844699854,
+      "passed": true
+    },
+    "elapsed_seconds": 160.05521551100173
+  }
+}
+```
+
+## 2026-10-15T15:24:13+03:00 — h002_generating
+
+H002 запрос75/100, оценено15/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 75,
+  "evaluated_distinct": 15
+}
+```
+
+## 2026-10-15T15:24:26+03:00 — h002_trial
+
+H002 запрос75: duplicate; различных оценённых15/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 75,
+  "evaluated_distinct": 15,
+  "trial": {
+    "call": 75,
+    "proposal": 33,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_075",
+    "parent_call": null,
+    "prompt_tokens": 1517,
+    "generated_tokens": 282,
+    "llm_seconds": 11.591245535,
+    "program_sha256": "bcbc54124f5309036e4592068430594c0da8ad8cb6920c68d54fc037750cbcd3",
+    "status": "duplicate",
+    "error": "Duplicate of an already evaluated feature set; propose distinct formulas",
+    "elapsed_seconds": 11.638691018000827
+  }
+}
+```
+
+## 2026-10-15T15:24:26+03:00 — h002_generating
+
+H002 запрос76/100, оценено15/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 76,
+  "evaluated_distinct": 15
+}
+```
+
+## 2026-10-15T15:24:53+03:00 — kaggle_notebook_prepared
+
+Подготовлен.ipynb Llama3.1-8B дляT4, все803377 train пар, общий subset pool для трёх способов, CPU-проверки и smoke прошли. Llama/Kaggle не запускались.
+
+Запуск: `hm_llmfe_llama31_8b_kaggle_fulltrain_v2`.
+
+```json
+{
+  "status": "notebook_ready",
+  "train_pairs": 803377,
+  "scope": "notebook_prepared_and_CPU_checked_only",
+  "local_validation_threads": 1,
+  "behavioral_tests_passed": 6,
+  "raw_xgboost_full_train_seconds": 71.95847935499842,
+  "synthetic_quality_result": false,
+  "llama_gpu_executed": false,
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "artifacts": "LLMFeatures/kaggle",
+  "kaggle_t4_executed": false,
+  "train_user_times": 50000,
+  "raw_lightgbm_full_train_seconds": 35.21816100599972,
+  "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+  "bundle": "LLMFeatures/kaggle/hm_llmfe_kaggle_fulltrain_v2.zip",
+  "compare": "LLM-LightGBM/manual-LightGBM/GNN-LightGBM on exact same selected users and ID-GNN candidates; old tuning/seeds and graph pretraining differ",
+  "synthetic_integration_passed": true,
+  "paper_limit_deviation": "2GiB failed during full803377-pair XGBoost training; use4GiB and larger total timeout,30s per feature call",
+  "original_pair_file_bit_identical": true,
+  "cpu_evaluator_memory_gib": 4
+}
+```
+
+## 2026-10-15T15:25:49+03:00 — h002_trial
+
+H002 запрос76: valid; различных оценённых16/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 76,
+  "evaluated_distinct": 16,
+  "trial": {
+    "call": 76,
+    "proposal": 33,
+    "island": 0,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_076",
+    "parent_call": 75,
+    "prompt_tokens": 1521,
+    "generated_tokens": 321,
+    "llm_seconds": 12.980922694,
+    "program_sha256": "ae07c10f73412c66359bd55c544ef117033a954eacf5a1ad9381990c8f2b1c8c",
+    "status": "valid",
+    "score": 0.013090329447751323,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "e27ad1552d0d9a661c6f930860622fc496714be26d97cc235ba4037418945b40",
+      "program_sha256": "3dbfc47c2527d4bf7fe4257c932cb72e3f9b750cca92e0aa4f74932b225153d4",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.013090329447751323
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 2.208388859999104,
+      "elapsed_seconds": 62.05733383799816,
+      "passed": true
+    },
+    "elapsed_seconds": 82.00331113900029
+  }
+}
+```
+
+## 2026-10-15T15:25:49+03:00 — h002_generating
+
+H002 запрос77/100, оценено16/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 77,
+  "evaluated_distinct": 16
+}
+```
+
+## 2026-10-15T15:28:53+03:00 — h002_trial
+
+H002 запрос77: valid; различных оценённых17/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 77,
+  "evaluated_distinct": 17,
+  "trial": {
+    "call": 77,
+    "proposal": 34,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_077",
+    "parent_call": null,
+    "prompt_tokens": 1562,
+    "generated_tokens": 384,
+    "llm_seconds": 16.513590703,
+    "program_sha256": "813fc0aef1583e6eb95ccf3863546374456f24fcf143fc206798be19f971fda4",
+    "status": "valid",
+    "score": 0.020357495152417027,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "cb0b3e471fcf111e993d6bb71cd3a7811891831676eceaef9e2fcbab050331cb",
+      "program_sha256": "1cd56f77e0647e281ba090b1b40c5a565ccbced805dc6bf4781bed3397fb0139",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.020357495152417027
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.799441893999756,
+      "elapsed_seconds": 155.0480968209995,
+      "passed": true
+    },
+    "elapsed_seconds": 182.67233746099737
+  }
+}
+```
+
+## 2026-10-15T15:28:53+03:00 — h002_generating
+
+H002 запрос78/100, оценено17/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 78,
+  "evaluated_distinct": 17
+}
+```
+
+## 2026-10-15T15:29:16+03:00 — h002_trial
+
+H002 запрос78: rejected; различных оценённых17/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 78,
+  "evaluated_distinct": 17,
+  "trial": {
+    "call": 78,
+    "proposal": 35,
+    "island": 2,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_078",
+    "parent_call": null,
+    "prompt_tokens": 1717,
+    "generated_tokens": 543,
+    "llm_seconds": 21.564696819,
+    "status": "rejected",
+    "error": "Feature names must be unique f_lowercase_names",
+    "elapsed_seconds": 21.62290798200047
+  }
+}
+```
+
+## 2026-10-15T15:29:16+03:00 — h002_generating
+
+H002 запрос79/100, оценено17/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 79,
+  "evaluated_distinct": 17
+}
+```
+
+## 2026-10-15T15:31:52+03:00 — h002_trial
+
+H002 запрос79: valid; различных оценённых18/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 79,
+  "evaluated_distinct": 18,
+  "trial": {
+    "call": 79,
+    "proposal": 35,
+    "island": 2,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_079",
+    "parent_call": 78,
+    "prompt_tokens": 1779,
+    "generated_tokens": 494,
+    "llm_seconds": 19.847663031,
+    "program_sha256": "7b91cb2ab5a3d5f7e2b3f9822cb1f4d86e299df162c53043772dc3fbb46878fc",
+    "status": "valid",
+    "score": 0.02017421236171236,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "9fe6343734c5e6ef7804596119ddee5dfb1397f043d975ca402739fbe0fb6216",
+      "program_sha256": "90d69f1906f790460931f9176df1da93ab837a99c6974bed73be5618f8f21413",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.02017421236171236
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.3203956079996715,
+      "elapsed_seconds": 124.25914229500268,
+      "passed": true
+    },
+    "elapsed_seconds": 154.04495300000053
+  }
+}
+```
+
+## 2026-10-15T15:31:52+03:00 — h002_generating
+
+H002 запрос80/100, оценено18/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 80,
+  "evaluated_distinct": 18
+}
+```
+
+## 2026-10-15T15:33:17+03:00 — h002_trial
+
+H002 запрос80: valid; различных оценённых19/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 80,
+  "evaluated_distinct": 19,
+  "trial": {
+    "call": 80,
+    "proposal": 36,
+    "island": 0,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_080",
+    "parent_call": null,
+    "prompt_tokens": 1575,
+    "generated_tokens": 477,
+    "llm_seconds": 19.907564424,
+    "program_sha256": "6cfe3665ad7158647ada5b9e8d67aedfb46ab4506814ab5778ec78f7f97fb322",
+    "status": "valid",
+    "score": 0.013090329447751323,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "e27ad1552d0d9a661c6f930860622fc496714be26d97cc235ba4037418945b40",
+      "program_sha256": "2ac354f1af97b0b29511d042334eba2838306bc011203d2e0334a1901656c1bf",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.013090329447751323
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 1.6502088950001053,
+      "elapsed_seconds": 56.886731421996956,
+      "passed": true
+    },
+    "elapsed_seconds": 83.65084179599944
+  }
+}
+```
+
+## 2026-10-15T15:33:17+03:00 — h002_generating
+
+H002 запрос81/100, оценено19/20, исправление0
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 81,
+  "evaluated_distinct": 19
+}
+```
+
+## 2026-10-15T15:33:35+03:00 — h002_trial
+
+H002 запрос81: duplicate; различных оценённых19/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 81,
+  "evaluated_distinct": 19,
+  "trial": {
+    "call": 81,
+    "proposal": 37,
+    "island": 1,
+    "repair": 0,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_081",
+    "parent_call": null,
+    "prompt_tokens": 1562,
+    "generated_tokens": 419,
+    "llm_seconds": 17.153951095,
+    "program_sha256": "1c1c55948a1776217705cb439d5d486a44183fb2c90bb60831425d6770836221",
+    "status": "duplicate",
+    "error": "Duplicate of an already evaluated feature set; propose distinct formulas",
+    "elapsed_seconds": 17.208226250000735
+  }
+}
+```
+
+## 2026-10-15T15:33:35+03:00 — h002_generating
+
+H002 запрос82/100, оценено19/20, исправление1
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 82,
+  "evaluated_distinct": 19
+}
+```
+
+## 2026-10-15T15:33:54+03:00 — h002_trial
+
+H002 запрос82: duplicate; различных оценённых19/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 82,
+  "evaluated_distinct": 19,
+  "trial": {
+    "call": 82,
+    "proposal": 37,
+    "island": 1,
+    "repair": 1,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_082",
+    "parent_call": 81,
+    "prompt_tokens": 1658,
+    "generated_tokens": 419,
+    "llm_seconds": 17.465761025,
+    "program_sha256": "1c1c55948a1776217705cb439d5d486a44183fb2c90bb60831425d6770836221",
+    "status": "duplicate",
+    "error": "Duplicate of an already evaluated feature set; propose distinct formulas",
+    "elapsed_seconds": 17.51849773199865
+  }
+}
+```
+
+## 2026-10-15T15:33:54+03:00 — h002_generating
+
+H002 запрос83/100, оценено19/20, исправление2
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "generating",
+  "llm_calls": 83,
+  "evaluated_distinct": 19
+}
+```
+
+## 2026-10-15T15:37:05+03:00 — h002_trial
+
+H002 запрос83: valid; различных оценённых20/20
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "searching",
+  "llm_calls": 83,
+  "evaluated_distinct": 20,
+  "trial": {
+    "call": 83,
+    "proposal": 37,
+    "island": 1,
+    "repair": 2,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_083",
+    "parent_call": 82,
+    "prompt_tokens": 1658,
+    "generated_tokens": 428,
+    "llm_seconds": 17.886252933,
+    "program_sha256": "743cc6b8cb1326a0bda2c0fe6dc908747729ac3bf3d45b5e9ba55a6350082b2a",
+    "status": "valid",
+    "score": 0.020224397997835496,
+    "metrics": {
+      "stage": "search",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "37f073d98535cb6a194bc3a910ee93c59423eb0f5dc19bd97e00554f5d8c872f",
+      "program_sha256": "5218aad198aa03829930a702291be810438fed76236c7822bc731e5ef4afd855",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.020224397997835496
+      },
+      "val_users": 256,
+      "val_pairs": 6594,
+      "val_seconds": 4.804498387002241,
+      "elapsed_seconds": 161.39359621300173,
+      "passed": true
+    },
+    "elapsed_seconds": 189.36316617300326
+  }
+}
+```
+
+## 2026-10-15T15:37:40+03:00 — h002_selected
+
+H002: признаки выбраны по confirmation; начата итоговая оценка на общих кандидатах
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "evaluating",
+  "selection": {
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_060",
+    "score": 0.015164011568168934,
+    "metrics": {
+      "stage": "confirm",
+      "protocol": "saved ID-GNN candidate pools",
+      "smoke": false,
+      "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+      "program_sha256": "2b917a93c6e956a67c4fe7a5f67dca27a26409075888410926706a664d8bf2b9",
+      "prediction_threads": 8,
+      "inference_from_saved_model": true,
+      "val_metrics": {
+        "map": 0.015164011568168934
+      },
+      "val_users": 1024,
+      "val_pairs": 28587,
+      "val_seconds": 3.9803579920007905,
+      "elapsed_seconds": 5.461096573999384,
+      "passed": true
+    }
+  }
+}
+```
+
+## 2026-10-15T15:39:42+03:00 — h002_complete
+
+H002 завершён: итоговые shared MAP, независимый полный повтор и графики сохранены
+
+Запуск: `hm_llmfe_qwen25coder7b_seed42_h002_shared_v1`.
+
+```json
+{
+  "status": "complete",
+  "val_metrics": {
+    "map": 0.017860457679790033
+  },
+  "test_metrics": {
+    "map": 0.019753961287228266
+  },
+  "llm_calls": 83,
+  "evaluated_distinct": 20,
+  "target_met": true,
+  "artifacts": "reports/llmfe_h002_shared_v1"
+}
+```
+
+## 2026-10-15T15:51:47+03:00 — kaggle_model_source_config
+
+В.ipynb добавлен MODEL_SOURCE unsloth/hf; defaultUnsloth анонимно, HF требуеттокен;7 тестов прошли. Данные и evaluator неизменны, GPUне запускался.
+
+Запуск: `hm_llmfe_llama31_8b_kaggle_fulltrain_v2`.
+
+```json
+{
+  "status": "notebook_ready",
+  "model_sources": {
+    "unsloth": "unsloth/Meta-Llama-3.1-8B-Instruct",
+    "hf": "meta-llama/Llama-3.1-8B-Instruct"
+  },
+  "default_source": "unsloth",
+  "tests_passed": 7,
+  "weights_downloaded": false,
+  "artifacts": "LLMFeatures/kaggle"
+}
+```
+
+## 2026-10-15T16:14:09+03:00 — kaggle_lightgbm_search_v3
+
+По прямому указанию весь Kaggle-поиск/confirmation переведён сXGBoost наLightGBM. Новый v3 notebook, v2 архивирован.8 тестов,803377-парный4-thread контроль и smoke прошли. Kaggle/GPUзапуск не выполнен.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_fulltrain_v3`.
+
+```json
+{
+  "status": "notebook_ready",
+  "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+  "tests_passed": 8,
+  "cpu_threads": 4,
+  "full_train_pairs": 803377,
+  "search_backend": "lightgbm",
+  "previous_xgboost_archived": "LLMFeatures/kaggle/archive/xgboost_v2",
+  "archive_data_unchanged": true,
+  "gpu_llama_tested": false,
+  "full_train_reload_search_seconds": 22.927927161003026,
+  "protocol": "hm_llmfe_llama31_8b_lightgbm_fulltrain_v3",
+  "synthetic_end_to_end_passed": true
+}
+```
+
+## 2026-10-15T16:46:20+03:00 — kaggle_repair_budget_v4
+
+По указанию пользователя Kaggle v4: цель20 оценённых различных наборов, максимум300LLMобращений включая до3 исправлений.11 тестов и синтетический циклLightGBM прошли;LLama здесьне запускалась.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4`.
+
+```json
+{
+  "status": "notebook_ready",
+  "synthetic_distinct_sets": 2,
+  "tests_passed": 11,
+  "synthetic_calls": 6,
+  "target_successful_distinct": 20,
+  "synthetic_integration_passed": true,
+  "dataset_unchanged": true,
+  "max_llm_calls": 300,
+  "gpu_llama_executed": false,
+  "notebook": "LLMFeatures/kaggle/llmfe_llama31_hm_kaggle_t4.ipynb",
+  "artifacts": "LLMFeatures/kaggle",
+  "max_repairs_per_proposal": 3,
+  "protocol": "hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4"
+}
+```
+
+## 2026-10-15T20:00:33+03:00 — kaggle_zero_success_report
+
+Пользователь сообщает0 успешных после83LLMвызовов Kaggle v4; error не предоставлен. Запрошены trial.error и response.tokens/truncated. Подготовлена read-only диагностика, параметры не менялись.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4`.
+
+```json
+{
+  "remote_reported_calls": 83,
+  "remote_reported_successes": 0,
+  "cause_verified": false,
+  "diagnostic": "LLMFeatures/kaggle/diagnose_failures.py"
+}
+```
+
+## 2026-10-15T20:03:02+03:00 — kaggle_background_rejection_logging
+
+Учтён Save Version: error,stage,tokens,truncated теперь печатаются в stdout;11 тестов прошли. Причина удалённых отказов пока неизвестна.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4`.
+
+```json
+{
+  "diagnostic_logging": true,
+  "tests_passed": 11,
+  "remote_cause_verified": false,
+  "artifacts": "LLMFeatures/kaggle"
+}
+```
+
+## 2026-10-15T20:28:19+03:00 — kaggle_v3_real_run_audited
+
+ПрисланныйKaggle v3 проверен:20/20 отказов,0 LLMмоделей,выбранrawcontrol; егоMAPнельзяназыватьLLMрезультатом. Отчёт/гистограмма/неизменённыйCPUreplay сохранены.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_fulltrain_v3_3b338cf1f141`.
+
+```json
+{
+  "status": "audited_no_llm_result",
+  "artifacts": "reports/kaggle_llama_v3_audit",
+  "llm_calls": 20,
+  "evaluated_distinct": 0,
+  "source": "user exported notebook and artifacts"
+}
+```
+
+## 2026-10-15T20:28:19+03:00 — kaggle_pandas_contract_v5
+
+Подготовленv5:короткиепрограммы,historyexamples,preflightперед803377-парнымfit,адресныеошибки,rawfallbackбезLLMподписи.13тестов+syntheticreplayпрошли;успехнастоящейLLamaнеизмерен.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5`.
+
+```json
+{
+  "status": "notebook_ready",
+  "artifacts": "LLMFeatures/kaggle",
+  "tests_passed": 13,
+  "target_successful_distinct": 20,
+  "max_llm_calls": 300,
+  "max_repairs_per_proposal": 3,
+  "real_llama_generation_tested": false
+}
+```
+
+## 2026-10-15T21:00:57+03:00 — kaggle_v5_first_candidate_received
+
+Received tempRes partial export: call1 proposal1 island0 repair0 VALID, search MAP@12=1.0144412878787878% on256 users/6594 pairs; preflight passed,4 generated features,15 raw fields. Program SHA256 verified against trial. Generation36s, search38.66s, total79.47s. No model/predictions/raw-control metrics supplied: no independent metric replay or improvement claim. Remote current progress unknown beyond exported call1.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef`.
+
+```json
+{
+  "status": "partial_export_received"
+}
+```
+
+## 2026-10-15T21:15:01+03:00 — kaggle_sql_notebook_ready
+
+Separate Llama SQL notebook ready: local Qwen-style JSON aggregates<=24 and derived<=12 after user explicitly requested derived formulas. Same803377 train pairs and256/512/1024/2048 evaluation users, LightGBM150/31 seed42,3islands,target20/max300/3repairs,hf-or-unsloth. Original pandas notebook preserved. Six interface tests passed; synthetic repair/duplicate/resume/final replay passed; SQL fixture full803377 training32.15s and independent heldout-val model replay passed. Initial test mistakenly requested unsupported replay_search; corrected to val/replay_val and passed without retraining. Artifacts: LLMFeatures/kaggle/llmfe_llama31_hm_sql_kaggle_t4.ipynb and reports/kaggle_llmfe_validation/sql_v1_derived. No real Llama generation or quality measured.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-15T21:46:46+03:00 — kaggle_sql_stopped_by_user
+
+User stopped SQL notebook after repeated failures. Supplied calls1-3 of proposal1 were rejected at parse_and_validate: raw_u_active, then raw_u_fn, then raw_u_active incorrectly used inside history aggregates. Other visible issues: invalid sales_channel_id grouping keys, nested AVG(COUNT), missing derived references, unsupported percentile syntax, MAX used for most-recent recency. No valid sets in supplied fragment; final total call count and full-run artifacts not provided. This does not establish Llama feature quality.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1_6eb8a9ef9ba7`.
+
+```json
+{
+  "status": "stopped_by_user"
+}
+```
+
+## 2026-10-15T21:47:15+03:00 — kaggle_structured_notebook_ready
+
+Created separate llmfe_llama31_hm_structured_kaggle_t4.ipynb after user approved structured feature descriptions. Llama selects aggregate op/column/window/keys and bounded derived expression trees; host compiles SQL, no model-authored SQL/Python. Maximum24 aggregates/12 derived; prompt recommends compact sets. Validator collects multiple schema errors per repair. Ordinary JSON sampling, not grammar/token masking. Same803377 pairs,LightGBM150/31 seed42,3islands,20 measured/300calls/3repairs,unchanged256/512/1024/2048 shared candidate users,model source hf/unsloth. Seven tests passed; synthetic search/repair/duplicate/resume/final replay passed; full803377-pair test-fixture fit/search24.82s and independent val replay passed. Previous notebooks unchanged. Real Llama generation not run, no quality result. Verification reports/kaggle_llmfe_validation/structured_v1/verification.json.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_structured_fulltrain_v1`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-15T22:34:09+03:00 — kaggle_structured_remote_failures
+
+User supplied structured notebook log:7 completed calls rejected at parse_and_validate,0 measured sets,call8 started. Invalid grouping keys, invalid aggregate columns, unknown derived references, duplicate/invalid names and operation arity; all visible truncated=false. Full response.json/prompt.txt/run_config absent, so exact bad key values and actual source/revision cannot be independently checked. Re-read paper appendixB.1 and official specs/specification_balance-scale.txt: authors seed evolution with real nonempty transformation (weight_difference), while our memory starts raw-only; paper uses Python on flat supervised tables, custom structured DSL is our adaptation. Seven software tests/synthetic pipeline never established real Llama compliance. No further model training or notebook change made in this diagnostic turn.
+
+## 2026-10-15T22:48:30+03:00 — balance_scale_diagnostic_ready
+
+Prepared standalone llmfe_llama31_balance_scale_diagnostic_t4.ipynb after user approved diagnostic on authors original task. Embedded625-row dataset, exact initial weight_difference function, domain prompt files and MIT license pinned to upstream e9a58ca3416ae74dcc7549dffdf79b9289604091. Reconstructed prompt and fixed10 train examples, not exact original-server reproduction. Same configurable hf/unsloth NF4/FP16 load; user must choose matching model/revision. Six calls:3chat/3completion,seeds42/43/44,no repairs/evolution. XGBoost3.0.5 CPU4fold CV on500 train of outerfold1,125 heldout never evaluated. Four tests plus synthetic six-response pipeline/rejections/source extraction/CV/report/resume passed. Test fixture rawCV=.870,authors-seedCV=.862,known hand-coded torque fixtureCV=1.0; these are NOT Llama results. Real GPU/Llama not run here, notebook_ready only. Verification reports/kaggle_llmfe_validation/balance_diagnostic_v1_synthetic/verification.json. H&M notebook/results unchanged.
+
+Запуск: `balance_scale_llama31_diagnostic_v1`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-15T22:49:57+03:00 — structured_chain_config_audited
+
+Received user structured run_config, first prompt, first response and repair. All4 runtime SHA256 match delivered modules. Confirmed model meta-llama/Llama-3.1-8B-Instruct hf revision0e9e39f249a16976918f6564b8830bc894c89659 onT4 NF4/FP16,temperature.8. No visible config mismatch; cannot infer intact weight execution or quantization effects from config alone. First response19aggregates:7 invalid keys,12 schema-valid;2 derived failures cascade from rejected aggregates. Repair retains invalid keys, removes valid revenue aggregates yet keeps references. Static age_diff/age_ratio are redundant0/1 when age nonmissing. Full-set rejection discards valid subset by design; subset salvage not implemented or evaluated. Diagnostic balance notebook defaults now match user hf/revision, unsloth choice retained;4 unit checks passed without retraining. Actual diagnostic run fingerprints include selected source/revision. No real Llama evaluation performed locally.
+
+Запуск: `balance_scale_llama31_diagnostic_v1`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-15T23:20:46+03:00 — balance_diagnostic_remote_control_failed
+
+User Save Version log confirms balance_scale_llama31_diagnostic_v1_09de7191636d stopped in raw control before any Llama request/model load. XGBClassifier device=cpu reached CUDA code during fit/eval and raised cudaErrorNoDevice in CUDA-hidden worker. GPU T4 was detected by parent. Package dependency/debugger warnings were not the stopping exception. Local prior checks used xgboost-cpu while notebook installed full xgboost distribution; mismatch identified. Remote data/program compliance cannot be assessed:0 LLM calls.
+
+Запуск: `balance_scale_llama31_diagnostic_v1_09de7191636d`.
+
+```json
+{
+  "status": "failed_before_llm"
+}
+```
+
+## 2026-10-15T23:20:48+03:00 — balance_diagnostic_cpu_fix_ready
+
+Prepared balance_scale_llama31_diagnostic_v2_cpu in same .ipynb; archived v1 under balance_diagnostic/archive/v1. Installer uninstalls both conflicting distributions then pins xgboost-cpu3.0.5, worker asserts USE_CUDA=false, CPU build info stored in metrics. Llama remains hf/pinned revision/NF4/FP16 on T4,6 calls and task unchanged. Failure ZIP added around control evaluation and model load. Five unit tests passed including pre-generation failure archive; new synthetic6call integration with real CPU XGBoost/CV/report/resume passed; no real Llama/T4 run. Verification reports/kaggle_llmfe_validation/balance_diagnostic_v2_cpu_synthetic/verification.json. User needs updated .ipynb and a new Save Version.
+
+Запуск: `balance_scale_llama31_diagnostic_v2_cpu`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-15T23:52:44+03:00 — balance_diagnostic_real_run_audited
+
+Real Kaggle diagnostic ZIP received and audited: config fingerprint6b5c7786f4b5 and2runtime hashes match. Official Llama hf revision0e9e39f249a16976918f6564b8830bc894c89659,NF4/FP16,T4. Chat3/3 valid:train-only4fold CV accuracy81.4%,91.8%,96.8%; raw87%,authorsseed86.2%. Independent bounded CPU replay of all3 matched every fold exactly. Completion0/3accepted:all2048token truncated; first complete function prefixes parse but followed by additional versions/repetitions, not evaluated separately. Seed44 independently generated left/right weight*distance features.3draws cannot prove general reliability or rule out quantization effects; H&M used chat already. No heldout/H&M evaluation, no paper reproduction. Original ZIP unchanged. Artifacts reports/balance_scale_llama31_diagnostic_v2_audit/report.md and audit.json.
+
+Запуск: `balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5`.
+
+```json
+{
+  "status": "diagnostic_complete"
+}
+```

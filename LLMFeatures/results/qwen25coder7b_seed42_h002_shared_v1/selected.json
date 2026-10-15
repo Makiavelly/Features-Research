@@ -1,0 +1,22 @@
+{
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_060",
+  "score": 0.015164011568168934,
+  "metrics": {
+    "stage": "confirm",
+    "protocol": "saved ID-GNN candidate pools",
+    "smoke": false,
+    "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+    "program_sha256": "2b917a93c6e956a67c4fe7a5f67dca27a26409075888410926706a664d8bf2b9",
+    "prediction_threads": 8,
+    "inference_from_saved_model": true,
+    "val_metrics": {
+      "map": 0.015164011568168934
+    },
+    "val_users": 1024,
+    "val_pairs": 28587,
+    "val_seconds": 3.9803579920007905,
+    "elapsed_seconds": 5.461096573999384,
+    "passed": true
+  },
+  "selection": "disjoint validation confirmation only; frozen before test"
+}

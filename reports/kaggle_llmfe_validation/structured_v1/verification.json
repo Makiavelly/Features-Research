@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "interface_tests": 7,
+  "synthetic_pipeline": true,
+  "fulltrain_fixture_pairs": 803377,
+  "fulltrain_fixture_seconds": 24.815134743003,
+  "independent_model_replay": true,
+  "gpu_or_llama_executed": false,
+  "quality_result": false
+}

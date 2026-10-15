@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 194, in main
+    engine.matrix(sample)
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 180, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 169, in frame
+    frame = self.con.sql(f"SELECT {ordered} FROM ({query}) ORDER BY rid").df()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: Referenced column "f_avg_days_since_product_purchase" not found in FROM clause!
+Candidate bindings: "unnamed_subquery.f_max_days_since_product_purchase", "unnamed_subquery.f_avg_product_price", "unnamed_subquery.raw_i_perceived_colour_value_id", "unnamed_subquery.raw_i_perceived_colour_master_id", "unnamed_subquery.f_unique_customer_products"

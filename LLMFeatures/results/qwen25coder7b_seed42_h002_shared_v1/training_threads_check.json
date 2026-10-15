@@ -1,0 +1,7 @@
+{
+  "old_threads": 2,
+  "new_threads": 8,
+  "checked_pairs": 2048,
+  "scores_bit_identical": true,
+  "max_absolute_error": 0.0
+}

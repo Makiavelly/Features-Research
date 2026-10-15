@@ -1,0 +1,72 @@
+{
+  "rationale": "Incorporate customer interaction patterns, product attributes, and temporal information to improve recommendation performance for the next 7 days.",
+  "aggregates": [
+    {
+      "name": "f_unique_articles_purchased",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_total_transactions_7d",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*) WHERE days_ago <= 7"
+    },
+    {
+      "name": "f_avg_days_since_last_purchase_7d",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(days_ago) WHERE days_ago <= 7"
+    },
+    {
+      "name": "f_max_days_since_first_purchase",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "max(days_ago)"
+    },
+    {
+      "name": "f_unique_sales_channels_7d",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(sales_channel_id) WHERE days_ago <= 7"
+    },
+    {
+      "name": "f_avg_price_per_transaction_7d",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price) WHERE days_ago <= 7"
+    },
+    {
+      "name": "f_avg_product_type_diversity",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "1.0 / (1 + exp(-avg(product_type_no)))"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_purchase_frequency_7d",
+      "sql": "f_total_transactions_7d / f_unique_articles_purchased"
+    },
+    {
+      "name": "f_days_since_last_purchase_to_max",
+      "sql": "f_max_days_since_first_purchase - f_avg_days_since_last_purchase_7d"
+    },
+    {
+      "name": "f_sales_channel_diversity_7d",
+      "sql": "f_unique_sales_channels_7d / 2.0"
+    },
+    {
+      "name": "f_price_per_transaction_diversity",
+      "sql": "1.0 / (1 + exp(-f_avg_price_per_transaction_7d))"
+    }
+  ]
+}

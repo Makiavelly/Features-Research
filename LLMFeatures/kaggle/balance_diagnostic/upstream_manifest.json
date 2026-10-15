@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/nikhilsab/LLMFE",
+  "revision": "e9a58ca3416ae74dcc7549dffdf79b9289604091",
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/LICENSE",
+      "sha256": "b72e12daf86bcd663836cf05646cf18a89f22dbccee3fc0a862cd14edde4db08"
+    },
+    "specs/specification_balance-scale.txt": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/specs/specification_balance-scale.txt",
+      "sha256": "f7ef8c5a554c5792d607e0d3eb9da8e5df1aad7d9c8057082bde032220e66ac9"
+    },
+    "data/balance-scale.csv": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/data/balance-scale.csv",
+      "sha256": "5b72a5574a7ae36fa2f4343bf656f9f4a3e99af3f936940d9fa4b5dfbf1848a4"
+    },
+    "llmfe/buffer.py": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/llmfe/buffer.py",
+      "sha256": "1034e9896ab926695c005b2e24b4639d80590cb6e79df3f35524d5fa5ae06b8b"
+    },
+    "llmfe/sampler.py": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/llmfe/sampler.py",
+      "sha256": "b454acdd61de71c65bd4cff72853ffc44a2ef519d7b46a281d0f26f7c287887b"
+    },
+    "utils.py": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/utils.py",
+      "sha256": "64328cc283d77a73aea423352024bb9068e97dc904449ce71b566986cce3e1cc"
+    },
+    "preprocessing.py": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/preprocessing.py",
+      "sha256": "d4e33caf2f264bc858328c4ba383816390920616bd3bbb63e13b6ccd7a5681da"
+    },
+    "prompts/domain_head.txt": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/prompts/domain_head.txt",
+      "sha256": "35afd562d53d48c14cda7d592533f9c6b8ae2b6d5a83232ae068839a8a7ceacf"
+    },
+    "prompts/domain_tail.txt": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/prompts/domain_tail.txt",
+      "sha256": "4bededf4edb06539c82fcf649b2cc6a77360a8a708c3eafa1ee77b41f65c20ce"
+    },
+    "prompts/operations_head.txt": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/prompts/operations_head.txt",
+      "sha256": "1cb75eba68eb103b068c061b93d3e8e634ca9ab8a9db50cfc40ef15656c5c72d"
+    },
+    "prompts/operations_tail.txt": {
+      "url": "https://raw.githubusercontent.com/nikhilsab/LLMFE/e9a58ca3416ae74dcc7549dffdf79b9289604091/prompts/operations_tail.txt",
+      "sha256": "e6eaf3af08b3ba27e0bbb782bdb6bfeda4a26aa7e8a2fe8b64153051534274c3"
+    }
+  }
+}

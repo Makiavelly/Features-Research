@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/run.py", line 220, in main
+    metrics = evaluate(directory, "search")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/run.py", line 73, in evaluate
+    raise RuntimeError(f"Evaluator exited {code}: {tail}")
+RuntimeError: Evaluator exited 1: Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py", line 210, in <module>
+    main()
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py", line 177, in main
+    model = fit(engine, program, destination, smoke)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/evaluate.py", line 61, in fit
+    parts.append((engine.matrix(frame), frame.label.to_numpy(dtype=np.int8)))
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 175, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 164, in frame
+    frame = self.con.sql(f"SELECT {ordered} FROM ({query}) ORDER BY rid").df()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+duckdb.duckdb.BinderException: Binder Error: Referenced column "days_ago" not found in FROM clause!
+Candidate bindings: "unnamed_subquery.raw_u_age", "unnamed_subquery.raw_i_index_group_no", "unnamed_subquery.raw_i_garment_group_no", "unnamed_subquery.raw_u_active", "unnamed_subquery.raw_u_fashion_news_frequency"
+

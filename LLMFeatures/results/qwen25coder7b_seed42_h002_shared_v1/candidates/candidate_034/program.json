@@ -1,0 +1,62 @@
+{
+  "rationale": "Use customer age, product type, color information, and transaction history to predict future purchases.",
+  "aggregates": [
+    {
+      "name": "f_avg_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_total_purchases",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(days_ago)"
+    },
+    {
+      "name": "f_min_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "min(days_ago)"
+    },
+    {
+      "name": "f_max_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "max(days_ago)"
+    },
+    {
+      "name": "f_avg_product_type_no",
+      "keys": [
+        "customer_id",
+        "product_type_no"
+      ],
+      "sql": "avg(product_type_no)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_age_based_prediction",
+      "sql": "coalesce(raw_u_age / f_avg_price, -1)"
+    },
+    {
+      "name": "f_product_type_diversity",
+      "sql": "approx_count_distinct(f_avg_product_type_no) / 10"
+    },
+    {
+      "name": "f_days_ago_pattern",
+      "sql": "CASE WHEN f_min_days_ago <= 7 THEN 1 ELSE 0 END + CASE WHEN f_max_days_ago > 7 AND f_max_days_ago <= 30 THEN 1 ELSE 0 END"
+    }
+  ]
+}

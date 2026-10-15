@@ -1,0 +1,72 @@
+{
+  "rationale": "To improve the recommendation performance, we will calculate features based on customer interaction patterns and product attributes. These features include frequency of transactions, diversity of products purchased, average price, and diversity of sales channels and product types. We will also consider the time since the last purchase to capture recency effects. The goal is to predict which articles a customer might purchase in the next 7 days based on these features.",
+  "aggregates": [
+    {
+      "name": "f_total_transactions",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_unique_products",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_avg_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_max_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "max(days_ago)"
+    },
+    {
+      "name": "f_unique_sales_channels",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(sales_channel_id)"
+    },
+    {
+      "name": "f_avg_product_type_no",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(product_type_no)"
+    },
+    {
+      "name": "f_min_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "min(days_ago)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_transaction_frequency",
+      "sql": "f_total_transactions / f_unique_products"
+    },
+    {
+      "name": "f_avg_days_since_last_purchase",
+      "sql": "f_max_days_ago - f_min_days_ago"
+    },
+    {
+      "name": "f_avg_sales_channel_diversity",
+      "sql": "f_unique_sales_channels / 2.0"
+    },
+    {
+      "name": "f_avg_product_type_diversity",
+      "sql": "1.0 / (1 + exp(-f_avg_product_type_no))"
+    }
+  ]
+}

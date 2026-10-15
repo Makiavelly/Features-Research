@@ -1,0 +1,5 @@
+{
+  "rationale": "Raw static feature control; no LLM features",
+  "aggregates": [],
+  "derived": []
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "tests": 6,
+  "synthetic_pipeline": true,
+  "fulltrain_fixture_pairs": 803377,
+  "fulltrain_fixture_search_seconds": 32.14832419800223,
+  "fulltrain_fixture_replay": true,
+  "gpu_or_llama_executed": false,
+  "quality_result": false,
+  "note": "SQL programs are test fixtures, not Llama-generated features"
+}

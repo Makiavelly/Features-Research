@@ -1,0 +1,13 @@
+{
+  "final": false,
+  "completed_proposals": 20,
+  "valid": 5,
+  "rejected": 15,
+  "search_users": 256,
+  "confirmation_users": 1024,
+  "note": "Only saved validation results; no full-test metrics or training-loss history",
+  "full_catalog_paused": true,
+  "selected": "candidate_08",
+  "confirmation_map": 0.002461205244408369,
+  "zero_ap_users": 999
+}

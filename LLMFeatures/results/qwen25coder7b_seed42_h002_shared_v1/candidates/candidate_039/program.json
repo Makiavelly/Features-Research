@@ -1,0 +1,65 @@
+{
+  "rationale": "To improve recommendation accuracy, we'll create features that capture customer preferences and purchase patterns over time. We'll use the history data to compute aggregate features for each customer and article category, and then derive new features based on these aggregates.",
+  "aggregates": [
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(days_ago)"
+    },
+    {
+      "name": "f_total_transactions",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_unique_articles",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_avg_price",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_total_sales_channel_1",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "sum(case when sales_channel_id = 1 then 1 else 0 end)"
+    },
+    {
+      "name": "f_total_sales_channel_2",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "sum(case when sales_channel_id = 2 then 1 else 0 end)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_recency",
+      "sql": "max(f_avg_days_ago) - min(days_ago)"
+    },
+    {
+      "name": "f_frequency",
+      "sql": "raw_u_active * (1 + f_total_transactions / max(f_unique_articles))"
+    },
+    {
+      "name": "f_value",
+      "sql": "raw_u_age * avg(price) / f_avg_days_ago"
+    },
+    {
+      "name": "f_channel_balance",
+      "sql": "abs(f_total_sales_channel_1 - f_total_sales_channel_2)"
+    }
+  ]
+}

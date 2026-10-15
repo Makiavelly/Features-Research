@@ -1,0 +1,1 @@
+﻿{"source":"LLMFeatures/results/qwen25coder7b_seed42_v1","reused":["model_manifest.json","llm_runtime.json","llm_smoke.json","raw_control"],"reason":"same model/data/raw-control parameters; only SQL feature interface and prompt changed"}

@@ -1,0 +1,37 @@
+{
+  "ID-GNN": {
+    "prediction_file": "RelBenchGNN/results/seed_42/test_predictions.npy",
+    "sha256": "200e0cda583f92f0fb177b63f73443748fec03cdbe49db0b54c100a69128cb01",
+    "test_map": 0.027843150477067403,
+    "users_with_hit": 5558,
+    "zero_ap_users": 61586
+  },
+  "LightGBM ручные": {
+    "prediction_file": "baseline/results/manual_v1/lightgbm/seed_42/test_predictions.npy",
+    "sha256": "2f957ed9e7e84afdcfabdc6ad264e6b384ba7c49b9f25eb101977ce6f40b2282",
+    "test_map": 0.022660772508761556,
+    "users_with_hit": 5650,
+    "zero_ap_users": 61494
+  },
+  "LightGBM LLM": {
+    "prediction_file": "LLMFeatures/results/qwen25coder7b_seed42_v2/shared_idgnn/shared_test_predictions.npy",
+    "sha256": "0686394d2add85342bd5abb5b4e44dcad86b4141d97e8cc617c43fc8e7b9d0fa",
+    "test_map": 0.008117509149461,
+    "users_with_hit": 3962,
+    "zero_ap_users": 63182
+  },
+  "DecisionTree ручные": {
+    "prediction_file": "baseline/results/manual_v1/decision_tree/seed_42/test_predictions.npy",
+    "sha256": "c29f5fb099af59f0f4b9ebb286c72aca2b1141ae403e52b8b3e25c5be318abdf",
+    "test_map": 0.020407610836605028,
+    "users_with_hit": 5519,
+    "zero_ap_users": 61625
+  },
+  "test_users": 67144,
+  "paired": {
+    "llm_better": 821,
+    "equal": 61741,
+    "manual_better": 4582
+  },
+  "protocol": "identical ID-GNN candidate pools; post-selection test analysis; no model changes"
+}

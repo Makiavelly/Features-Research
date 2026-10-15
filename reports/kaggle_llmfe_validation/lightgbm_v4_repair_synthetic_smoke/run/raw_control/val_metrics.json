@@ -1,0 +1,29 @@
+{
+  "map": 0.0,
+  "users": 8,
+  "pairs": 151,
+  "seconds": 3.770327823000116,
+  "program_sha256": "0ec634e4303d36fb05dce320554ab7f66c8ee6e284ca5eb5585dd10b474beada",
+  "model_sha256": "b395e70a90ea8762697c91e56e0bd0c0a1757c6b6dca3aab623693c9904c9aa8",
+  "backend": "lightgbm",
+  "stage": "val",
+  "threads": 1,
+  "passed": true,
+  "features": [
+    "raw_u_age",
+    "raw_u_fn",
+    "raw_u_active",
+    "raw_u_club_member_status",
+    "raw_u_fashion_news_frequency",
+    "raw_i_product_code",
+    "raw_i_product_type_no",
+    "raw_i_graphical_appearance_no",
+    "raw_i_colour_group_code",
+    "raw_i_perceived_colour_value_id",
+    "raw_i_perceived_colour_master_id",
+    "raw_i_department_no",
+    "raw_i_index_group_no",
+    "raw_i_section_no",
+    "raw_i_garment_group_no"
+  ]
+}

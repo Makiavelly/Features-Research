@@ -1,0 +1,15 @@
+{
+  "call": 45,
+  "proposal": 18,
+  "island": 0,
+  "repair": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_045",
+  "parent_call": null,
+  "prompt_tokens": 1270,
+  "generated_tokens": 91,
+  "llm_seconds": 4.265986405,
+  "program_sha256": "e72a833cdf5a8a5d3c0a9b3451f745ec781913363af41b1a9a93953351109bf6",
+  "status": "rejected",
+  "error": "Binder Error: Referenced column \"price\" not found in FROM clause!\nCandidate bindings: \"unnamed_subquery.rid\", \"unnamed_subquery.f_article_sales_count\", \"unnamed_subquery.raw_i_section_no\", \"unnamed_subquery.raw_i_product_code\", \"unnamed_subquery.raw_i_perceived_colour_value_id\"",
+  "elapsed_seconds": 7.4119564140000875
+}

@@ -1,0 +1,17 @@
+{
+  "sample": 5,
+  "call": 5,
+  "proposal": 2,
+  "repair": 0,
+  "parent_call": null,
+  "island": 0,
+  "batch": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/lightgbm_v4_repair_synthetic_smoke/run/candidates/candidate_005",
+  "prompt_tokens": 0,
+  "generated_tokens": 0,
+  "llm_seconds": 0,
+  "program_key": "a9af7ce09b74388da5e9ac9fae7d5f77cf1cc7c7dab67aaf460e602f40d8a2b1",
+  "status": "duplicate",
+  "error": "Duplicate Python AST",
+  "elapsed_seconds": 0.027617131996521493
+}

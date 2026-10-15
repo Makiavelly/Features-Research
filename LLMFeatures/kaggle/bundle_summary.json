@@ -1,0 +1,132 @@
+{
+  "archive": "hm_llmfe_kaggle_fulltrain_v2.zip",
+  "archive_sha256": "bda73729dba1eb4e4472814ae536717961749051ef369688f63b0a1d996af455",
+  "archive_bytes": 12629458,
+  "bundle_id": "hm_llmfe_kaggle_fulltrain_v2",
+  "seed": 42,
+  "purpose": "bounded H&M ranking adaptation, NOT a reproduction of paper datasets",
+  "train_user_times": 50000,
+  "train_pairs": 803377,
+  "train_snapshots": [
+    "2019-09-09 00:00:00",
+    "2019-09-16 00:00:00",
+    "2019-09-23 00:00:00",
+    "2019-09-30 00:00:00",
+    "2019-10-07 00:00:00",
+    "2019-10-14 00:00:00",
+    "2019-10-21 00:00:00",
+    "2019-10-28 00:00:00",
+    "2019-11-04 00:00:00",
+    "2019-11-11 00:00:00",
+    "2019-11-18 00:00:00",
+    "2019-11-25 00:00:00",
+    "2019-12-02 00:00:00",
+    "2019-12-09 00:00:00",
+    "2019-12-16 00:00:00",
+    "2019-12-23 00:00:00",
+    "2019-12-30 00:00:00",
+    "2020-01-06 00:00:00",
+    "2020-01-13 00:00:00",
+    "2020-01-20 00:00:00",
+    "2020-01-27 00:00:00",
+    "2020-02-03 00:00:00",
+    "2020-02-10 00:00:00",
+    "2020-02-17 00:00:00",
+    "2020-02-24 00:00:00",
+    "2020-03-02 00:00:00",
+    "2020-03-09 00:00:00",
+    "2020-03-16 00:00:00",
+    "2020-03-23 00:00:00",
+    "2020-03-30 00:00:00",
+    "2020-04-06 00:00:00",
+    "2020-04-13 00:00:00",
+    "2020-04-20 00:00:00",
+    "2020-04-27 00:00:00",
+    "2020-05-04 00:00:00",
+    "2020-05-11 00:00:00",
+    "2020-05-18 00:00:00",
+    "2020-05-25 00:00:00",
+    "2020-06-01 00:00:00",
+    "2020-06-08 00:00:00",
+    "2020-06-15 00:00:00",
+    "2020-06-22 00:00:00",
+    "2020-06-29 00:00:00",
+    "2020-07-06 00:00:00",
+    "2020-07-13 00:00:00",
+    "2020-07-20 00:00:00",
+    "2020-07-27 00:00:00",
+    "2020-08-03 00:00:00",
+    "2020-08-10 00:00:00",
+    "2020-08-17 00:00:00",
+    "2020-08-24 00:00:00",
+    "2020-08-31 00:00:00"
+  ],
+  "train_source_sha256": "b73fa9a1dca5bdfc4d94ed756a4f8117ce24e253efdf638c77244dda5838a2d6",
+  "history_rows": 1688050,
+  "history_cohort_users": 51188,
+  "history_lookback_days": 180,
+  "history_scope": "only selected train/evaluation customer cohort; no population-wide sales statistics",
+  "history_first_date": "2019-03-13 00:00:00",
+  "history_last_cutoff": "2020-09-14 00:00:00",
+  "categories": {
+    "club_member_status": [
+      "ACTIVE",
+      "LEFT CLUB",
+      "PRE-CREATE"
+    ],
+    "fashion_news_frequency": [
+      "Monthly",
+      "NONE",
+      "Regularly"
+    ]
+  },
+  "item_columns": [
+    "product_code",
+    "product_type_no",
+    "graphical_appearance_no",
+    "colour_group_code",
+    "perceived_colour_value_id",
+    "perceived_colour_master_id",
+    "department_no",
+    "index_group_no",
+    "section_no",
+    "garment_group_no"
+  ],
+  "user_columns": [
+    "age",
+    "FN",
+    "Active",
+    "club_member_status",
+    "fashion_news_frequency"
+  ],
+  "candidate_protocol": "exact saved ID-GNN seed42 candidates on selected rows, no injected targets",
+  "idgnn_reference": "GNN backbone trained on larger original graph budget; context only",
+  "tree_reference_protocol": "manual and GNN\u2192LightGBM reuse original803377 supervised pairs; selected same val/test candidate rows; tuning/seeds differ",
+  "source_download_manifest_sha256": "32ac01052d19423e44e15af99f708a1421cb4a34c7dfeda31b16a037e68e339c",
+  "splits": {
+    "search": {
+      "users": 256,
+      "pairs": 6594,
+      "cutoff": "2020-09-07 00:00:00",
+      "source_split": "val"
+    },
+    "confirm": {
+      "users": 512,
+      "pairs": 14687,
+      "cutoff": "2020-09-07 00:00:00",
+      "source_split": "val"
+    },
+    "val": {
+      "users": 1024,
+      "pairs": 28040,
+      "cutoff": "2020-09-07 00:00:00",
+      "source_split": "val"
+    },
+    "test": {
+      "users": 2048,
+      "pairs": 57296,
+      "cutoff": "2020-09-14 00:00:00",
+      "source_split": "test"
+    }
+  }
+}

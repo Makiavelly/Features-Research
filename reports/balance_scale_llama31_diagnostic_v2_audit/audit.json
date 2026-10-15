@@ -1,0 +1,57 @@
+{
+  "archive_sha256": "7cac15e95f3515c519fce4fdef3a995b20a1b1968b7ac79a7a4feaaf0272a58b",
+  "config_fingerprint_matches": true,
+  "runtime_hash_matches": {
+    "host.py": true,
+    "worker.py": true
+  },
+  "real_llama_output": true,
+  "chat_valid": 3,
+  "chat_calls": 3,
+  "completion_truncated": 3,
+  "completion_calls": 3,
+  "chat_improved_vs_raw": 2,
+  "independent_replays": [
+    {
+      "sample": "chat_seed42",
+      "cv_accuracy": 0.8140000000000001,
+      "exact_fold_scores_match": true
+    },
+    {
+      "sample": "chat_seed43",
+      "cv_accuracy": 0.9179999999999999,
+      "exact_fold_scores_match": true
+    },
+    {
+      "sample": "chat_seed44",
+      "cv_accuracy": 0.968,
+      "exact_fold_scores_match": true
+    }
+  ],
+  "completion_static_checks": [
+    {
+      "sample": "completion_seed42",
+      "first_function_prefix_parses_and_has_return": true,
+      "not_evaluated": true,
+      "original_status": "rejected",
+      "original_truncated": true
+    },
+    {
+      "sample": "completion_seed43",
+      "first_function_prefix_parses_and_has_return": true,
+      "not_evaluated": true,
+      "original_status": "rejected",
+      "original_truncated": true
+    },
+    {
+      "sample": "completion_seed44",
+      "first_function_prefix_parses_and_has_return": true,
+      "not_evaluated": true,
+      "original_status": "rejected",
+      "original_truncated": true
+    }
+  ],
+  "heldout_evaluated": false,
+  "h_and_m_evaluated": false,
+  "paper_reproduction": false
+}

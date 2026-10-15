@@ -1,0 +1,23 @@
+{
+  "LLMFeatures/benchmark_scoring.py": "9a16f0f42b81041ab1f2a14bf0391bb75b0f084b07f8814ee3517e32d6c2044b",
+  "LLMFeatures/bootstrap.py": "3c6eabe695821e13c6be894ff7fe30dd259ef8a6f88b7fa414ca7f8b39a51a33",
+  "LLMFeatures/check_cpu_acceleration.py": "012fc969fcca25486b8497daa14200a3ad51914b17b04ebeae5e8c671d9c5ccd",
+  "LLMFeatures/evaluate.py": "271db55ce92d88bdc87f062e5f6a2f4838523a5fc63ac68163a35c87ec34294e",
+  "LLMFeatures/features.py": "9dc214afddf7f3c73455f7f412a63b1bb3f4292f3d6ac99c30147d37ce9d5a87",
+  "LLMFeatures/h002_common.py": "65edc5364904a44aea8a22c943f319d00548897b13a6dfa3c0d0c417237ea62c",
+  "LLMFeatures/h002_evaluate.py": "1c416df972942774bff56245e1d6886b39ff0f51408c0d775019d277dfc53a9b",
+  "LLMFeatures/h002_plot.py": "beb46c0dd061fb1e3371c12f62f58cc032696b190be868bfb2fb49b1889bb1cb",
+  "LLMFeatures/h002_run.py": "e413707c35c18018c399d769f5a3dc0d7929c8b2608ff6fc3e2735328df6e688",
+  "LLMFeatures/plot_progress.py": "e4a40f6e6efa9cb3e36ec4a81dd3576c8f6ce7d079d91fa0742e0bb20d924b44",
+  "LLMFeatures/plot_shared_comparison.py": "6b777587ac315209e1008ce639934625ddd7ab4582123885cc863e4e12506aa9",
+  "LLMFeatures/run.py": "349e5b89baa3ec8a79387a73cef2898d8771729d0035651ffd5414d06fb39052",
+  "LLMFeatures/run_shared_evaluation.py": "a755a591117c6c6c06e167a064d951f4981f34575184c1223a6c5c0087f7753d",
+  "LLMFeatures/test_h002.py": "db28a40e358ddeab3edfa348804c87662119434c4a66edcad5031b4fbe79b94d",
+  "LLMFeatures/test_protocol.py": "ff41e0f09d64c1517563ebdcfa41c9e7a066a18700aae6475d38eadb20d9ffe3",
+  "LLMFeatures/verify.py": "58b650c0de8186a6eba1c4116c79166d9ecc448c6488c30112c52d64cfa0c66b",
+  "baseline/cache/llmfe_h002_shared_v1/train_pairs.parquet": "b73fa9a1dca5bdfc4d94ed756a4f8117ce24e253efdf638c77244dda5838a2d6",
+  "LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/validation_selection.npz": "a9155390736818d79c88542355e5523dd530f4207c32c4b717f53a1773173c83",
+  "data/download_manifest.json": "32ac01052d19423e44e15af99f708a1421cb4a34c7dfeda31b16a037e68e339c",
+  "RelBenchGNN/results/seed_42/inference/test_candidates.parquet": "023cfbb8126cdaaa73083bcc9709b4af369d63e2c2f5717ea98b5388b4080d9b",
+  "RelBenchGNN/results/seed_42/inference/val_candidates.parquet": "f36065a102faed41465a7aae93d7f5f994452ebb18b1045938b7db5019cda9c1"
+}

@@ -1,0 +1,160 @@
+{
+  "scope": "actual v3 programs, unchanged formulas, local CPU preflight only",
+  "programs": 17,
+  "preflight_passed": 0,
+  "results": [
+    {
+      "candidate": "candidate_001",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 5.183453460995224,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_001/preflight.log"
+    },
+    {
+      "candidate": "candidate_002",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 5.0316838860017015,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_002/preflight.log"
+    },
+    {
+      "candidate": "candidate_003",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.577589387001353,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_003/preflight.log"
+    },
+    {
+      "candidate": "candidate_004",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 2.97560356699978,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_004/preflight.log"
+    },
+    {
+      "candidate": "candidate_005",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 3.8270811529946513,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_005/preflight.log"
+    },
+    {
+      "candidate": "candidate_006",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.479513054997369,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_006/preflight.log"
+    },
+    {
+      "candidate": "candidate_007",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 3.8771951890012133,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_007/preflight.log"
+    },
+    {
+      "candidate": "candidate_009",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.078287448006449,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_009/preflight.log"
+    },
+    {
+      "candidate": "candidate_011",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.027736676995119,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_011/preflight.log"
+    },
+    {
+      "candidate": "candidate_012",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.483876516002056,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_012/preflight.log"
+    },
+    {
+      "candidate": "candidate_013",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.128512736999255,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_013/preflight.log"
+    },
+    {
+      "candidate": "candidate_014",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.277840611001011,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_014/preflight.log"
+    },
+    {
+      "candidate": "candidate_015",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 2.122359567001695,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_015/preflight.log"
+    },
+    {
+      "candidate": "candidate_016",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.679379961999075,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_016/preflight.log"
+    },
+    {
+      "candidate": "candidate_017",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 2.974141355000029,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_017/preflight.log"
+    },
+    {
+      "candidate": "candidate_018",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 4.728303067000525,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_018/preflight.log"
+    },
+    {
+      "candidate": "candidate_019",
+      "exit_code": 1,
+      "preflight_passed": false,
+      "seconds": 2.623553835997882,
+      "formulas_edited": false,
+      "full_training_performed": false,
+      "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_019/preflight.log"
+    }
+  ]
+}

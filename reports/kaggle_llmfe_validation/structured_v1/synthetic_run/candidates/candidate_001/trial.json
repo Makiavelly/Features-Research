@@ -1,0 +1,18 @@
+{
+  "sample": 1,
+  "call": 1,
+  "proposal": 1,
+  "repair": 0,
+  "parent_call": null,
+  "island": 0,
+  "batch": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/structured_v1/synthetic_run/candidates/candidate_001",
+  "prompt_tokens": 0,
+  "generated_tokens": 0,
+  "llm_seconds": 0,
+  "truncated": false,
+  "status": "rejected",
+  "error": "Fix ALL listed schema errors:\naggregates[0]: count uses column=\"*\"; count_distinct uses a history column; numeric aggregates use price/days_ago/customer_age only. No raw_* fields.",
+  "failure_stage": "parse_and_validate",
+  "elapsed_seconds": 0.02347829100472154
+}

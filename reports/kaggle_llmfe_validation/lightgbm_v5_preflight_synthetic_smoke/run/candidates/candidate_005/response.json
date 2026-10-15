@@ -1,0 +1,5 @@
+{
+  "text": "def modify_features(X, history):\n    return pd.DataFrame({'f_fixture': X.raw_u_age.fillna(0) * 2}, index=X.index)\n",
+  "truncated": false,
+  "synthetic_fixture_not_llm": true
+}

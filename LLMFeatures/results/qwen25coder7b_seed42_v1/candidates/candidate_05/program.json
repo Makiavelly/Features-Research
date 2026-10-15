@@ -1,0 +1,73 @@
+{
+  "rationale": "Integrating customer purchasing history and product attributes to predict future purchases.",
+  "aggregates": [
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "AVG(days_ago)"
+    },
+    {
+      "name": "f_purchases_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "COUNT(*)"
+    },
+    {
+      "name": "f_product_type_no_diversity",
+      "keys": [
+        "customer_id",
+        "product_type_no"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(product_type_no)"
+    },
+    {
+      "name": "f_department_no_diversity",
+      "keys": [
+        "customer_id",
+        "department_no"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(department_no)"
+    },
+    {
+      "name": "f_section_no_diversity",
+      "keys": [
+        "customer_id",
+        "section_no"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(section_no)"
+    },
+    {
+      "name": "f_garment_group_no_diversity",
+      "keys": [
+        "customer_id",
+        "garment_group_no"
+      ],
+      "sql": "APPROX_COUNT_DISTINCT(garment_group_no)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_recent_purchases_ratio",
+      "sql": "f_avg_days_ago / 7"
+    },
+    {
+      "name": "f_product_type_no_diversity_score",
+      "sql": "1.0 - f_product_type_no_diversity / f_purchases_count"
+    },
+    {
+      "name": "f_department_no_diversity_score",
+      "sql": "1.0 - f_department_no_diversity / f_purchases_count"
+    },
+    {
+      "name": "f_section_no_diversity_score",
+      "sql": "1.0 - f_section_no_diversity / f_purchases_count"
+    },
+    {
+      "name": "f_garment_group_no_diversity_score",
+      "sql": "1.0 - f_garment_group_no_diversity / f_purchases_count"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "call": 60,
+  "proposal": 23,
+  "island": 2,
+  "repair": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_060",
+  "parent_call": null,
+  "prompt_tokens": 1512,
+  "generated_tokens": 463,
+  "llm_seconds": 20.706764215,
+  "program_sha256": "6696a37051416488214c56da16dfa905a42035a541489b0695239f6b378481be",
+  "status": "valid",
+  "score": 0.020499733195045694,
+  "metrics": {
+    "stage": "search",
+    "protocol": "saved ID-GNN candidate pools",
+    "smoke": false,
+    "model_sha256": "1c0a66276fe457a5ef1eb2730cc59fcc329f222593481efa75c3dadc4e633471",
+    "program_sha256": "2b917a93c6e956a67c4fe7a5f67dca27a26409075888410926706a664d8bf2b9",
+    "prediction_threads": 8,
+    "inference_from_saved_model": true,
+    "val_metrics": {
+      "map": 0.020499733195045694
+    },
+    "val_users": 256,
+    "val_pairs": 6594,
+    "val_seconds": 4.512057342999469,
+    "elapsed_seconds": 142.91864698599966,
+    "passed": true
+  },
+  "elapsed_seconds": 174.78177606200006
+}

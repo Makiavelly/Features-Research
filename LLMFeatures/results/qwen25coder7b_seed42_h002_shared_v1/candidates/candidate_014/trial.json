@@ -1,0 +1,14 @@
+{
+  "call": 14,
+  "proposal": 5,
+  "island": 2,
+  "repair": 2,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_h002_shared_v1/candidates/candidate_014",
+  "parent_call": 13,
+  "prompt_tokens": 1480,
+  "generated_tokens": 234,
+  "llm_seconds": 9.763807785,
+  "status": "rejected",
+  "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+  "elapsed_seconds": 9.831693531999917
+}

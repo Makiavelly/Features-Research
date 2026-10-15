@@ -1,0 +1,14 @@
+{
+  "llmfe_llama31_hm_kaggle_t4.ipynb": {
+    "bytes": 75171,
+    "sha256": "d56d634f669867890addacc301da2e6d9f82c18359883368ec9dacff28782d81"
+  },
+  "hm_llmfe_kaggle_fulltrain_v2.zip": {
+    "bytes": 12629458,
+    "sha256": "bda73729dba1eb4e4472814ae536717961749051ef369688f63b0a1d996af455"
+  },
+  "README.md": {
+    "bytes": 17481,
+    "sha256": "b7740e99d66c11f3811a4e349d3f3db304416c79418394e48697d0e84eed8c49"
+  }
+}

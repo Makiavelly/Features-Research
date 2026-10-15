@@ -1,0 +1,7 @@
+format,seed,status,cv_accuracy,has_feature_change,error
+chat,42,valid,0.8140000000000001,True,
+chat,43,valid,0.9179999999999999,True,
+chat,44,valid,0.968,True,
+completion,42,rejected,,,Truncated at output token limit
+completion,43,rejected,,,Truncated at output token limit
+completion,44,rejected,,,Truncated at output token limit

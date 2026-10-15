@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 193, in main
+    engine.prepare(sample.timestamp.iloc[0], sample.customer_id.values, program)
+  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 139, in prepare
+    self.con.execute(f"CREATE OR REPLACE TEMP TABLE {table} AS SELECT {columns},{feature_sql} FROM {source} GROUP BY {columns}")
+duckdb.duckdb.BinderException: Binder Error: Referenced column "raw_i_product_code" not found in FROM clause!
+Candidate bindings: "history.product_code", "history.perceived_colour_master_id", "history.colour_group_code", "history.perceived_colour_value_id", "history.product_type_no"
+LINE 1: ...r_purchase_count,approx_count_distinct(raw_i_product_code) AS f_customer_uniqu...
+                                                  ^

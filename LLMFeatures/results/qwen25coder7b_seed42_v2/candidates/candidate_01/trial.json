@@ -1,0 +1,7 @@
+{
+  "candidate": 1,
+  "island": 0,
+  "status": "rejected",
+  "error": "Function outside allowlist: GROUP",
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_01"
+}

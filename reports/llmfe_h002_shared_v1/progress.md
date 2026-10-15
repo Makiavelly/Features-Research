@@ -1,0 +1,93 @@
+# H002: ход поиска
+
+Общие кандидаты ID-GNN; это search, не итоговые метрики.
+Обращения: 83/100. Различные оценённые наборы: 20/20.
+
+| Запрос | Исправление | Статус | Search MAP, % |
+|---|---:|---|---:|
+| 1 | 0 | rejected | — |
+| 2 | 1 | rejected | — |
+| 3 | 2 | rejected | — |
+| 4 | 0 | rejected | — |
+| 5 | 1 | rejected | — |
+| 6 | 2 | rejected | — |
+| 7 | 0 | rejected | — |
+| 8 | 1 | rejected | — |
+| 9 | 2 | rejected | — |
+| 10 | 0 | valid | 1.01445 |
+| 11 | 0 | valid | 0.82252 |
+| 12 | 0 | rejected | — |
+| 13 | 1 | rejected | — |
+| 14 | 2 | rejected | — |
+| 15 | 0 | rejected | — |
+| 16 | 1 | rejected | — |
+| 17 | 2 | rejected | — |
+| 18 | 0 | rejected | — |
+| 19 | 1 | rejected | — |
+| 20 | 2 | rejected | — |
+| 21 | 0 | valid | 1.18927 |
+| 22 | 0 | rejected | — |
+| 23 | 1 | rejected | — |
+| 24 | 2 | rejected | — |
+| 25 | 0 | rejected | — |
+| 26 | 1 | rejected | — |
+| 27 | 2 | rejected | — |
+| 28 | 0 | valid | 1.14259 |
+| 29 | 0 | rejected | — |
+| 30 | 1 | rejected | — |
+| 31 | 2 | rejected | — |
+| 32 | 0 | rejected | — |
+| 33 | 1 | rejected | — |
+| 34 | 2 | rejected | — |
+| 35 | 0 | valid | 1.06692 |
+| 36 | 0 | rejected | — |
+| 37 | 1 | rejected | — |
+| 38 | 2 | rejected | — |
+| 39 | 0 | rejected | — |
+| 40 | 1 | rejected | — |
+| 41 | 2 | rejected | — |
+| 42 | 0 | rejected | — |
+| 43 | 1 | rejected | — |
+| 44 | 2 | rejected | — |
+| 45 | 0 | rejected | — |
+| 46 | 1 | rejected | — |
+| 47 | 2 | rejected | — |
+| 48 | 0 | rejected | — |
+| 49 | 1 | rejected | — |
+| 50 | 2 | rejected | — |
+| 51 | 0 | rejected | — |
+| 52 | 1 | rejected | — |
+| 53 | 2 | rejected | — |
+| 54 | 0 | rejected | — |
+| 55 | 1 | rejected | — |
+| 56 | 2 | rejected | — |
+| 57 | 0 | rejected | — |
+| 58 | 1 | rejected | — |
+| 59 | 2 | rejected | — |
+| 60 | 0 | valid | 2.04997 |
+| 61 | 0 | valid | 1.14510 |
+| 62 | 0 | rejected | — |
+| 63 | 1 | valid | 0.99299 |
+| 64 | 0 | valid | 1.95828 |
+| 65 | 0 | valid | 1.28896 |
+| 66 | 0 | valid | 2.12016 |
+| 67 | 0 | valid | 2.04997 |
+| 68 | 0 | duplicate | — |
+| 69 | 1 | rejected | — |
+| 70 | 2 | valid | 1.22022 |
+| 71 | 0 | valid | 2.12016 |
+| 72 | 0 | rejected | — |
+| 73 | 1 | rejected | — |
+| 74 | 2 | valid | 2.04682 |
+| 75 | 0 | duplicate | — |
+| 76 | 1 | valid | 1.30903 |
+| 77 | 0 | valid | 2.03575 |
+| 78 | 0 | rejected | — |
+| 79 | 1 | valid | 2.01742 |
+| 80 | 0 | valid | 1.30903 |
+| 81 | 0 | duplicate | — |
+| 82 | 1 | duplicate | — |
+| 83 | 2 | valid | 2.02244 |
+![Search](search_progress.png)
+![Histograms](search_histograms.png)
+![Training](lightgbm_learning_curves.png)

@@ -1,0 +1,11 @@
+{
+  "sample": 5,
+  "call": 5,
+  "proposal": 2,
+  "repair": 0,
+  "parent_call": null,
+  "island": 0,
+  "batch": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/lightgbm_v5_preflight_synthetic_smoke/run/candidates/candidate_005",
+  "seed": 46
+}

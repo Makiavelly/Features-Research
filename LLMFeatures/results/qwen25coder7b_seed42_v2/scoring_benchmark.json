@@ -1,0 +1,21 @@
+{
+  "users": 8,
+  "catalog_size": 105542,
+  "prepare_once_seconds": 2.8288095949992567,
+  "pair_construction_seconds": 0.005914097999266232,
+  "features_seconds": 0.8522252839993598,
+  "prediction_seconds_by_threads": {
+    "2": 5.364091629000541,
+    "6": 3.218542848000652,
+    "12": 2.70426019900151
+  },
+  "scores_identical_by_threads": {
+    "2": true,
+    "6": true,
+    "12": true
+  },
+  "topk_seconds": 0.01627053700030956,
+  "predictions_match_live_saved": true,
+  "concurrent_live_evaluator": true,
+  "feature_matrix_megabytes": 74.301568
+}
