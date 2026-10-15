@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-14T21:41:26+03:00 (Москва).
+Обновлено: 2026-10-15T10:56:50+03:00 (Москва).
 
-Последнее событие: **Added root README with exact external snapshots, upstream commits, local checkpoint paths and SHA256, and explicit absence of a public trained-weight download. Preserved GloVe manifest in Git; added pinned restore_downloads.py. Verified sizes and SHA256 for all 18 dataset files and 8 GloVe files locally; no downloads or training performed.**
+Последнее событие: **Повторный запрос восстановления: проверено, что возобновлённый конвейер уже завершился в 10:49 МСК с exitcode=0; inference_check passed=true, report final=true, активных процессов нет. Повторный запуск не создавался. Итоговый test MAP@12 0.54301%; CONTEXT.md обновлён.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -37,5 +37,12 @@
 | hm_idgnn_embeddings_seed_42_v1 | complete | — | — | 2026-10-14T20:35:12+03:00 |
 | hm_idgnn_lightgbm_embeddings_seed_42_v1 | complete | — | — | 2026-10-14T20:37:32+03:00 |
 | hm_gnn_embedding_report_v1 | complete | — | — | 2026-10-14T20:36:12+03:00 |
+| hm_twotower_sage_smoke_v1 | smoke_complete | 1 | — | 2026-10-14T21:51:33+03:00 |
+| hm_twotower_pipeline_v1 | complete | — | — | 2026-10-15T10:49:10+03:00 |
+| hm_twotower_report_v1 | complete | — | — | 2026-10-15T10:49:09+03:00 |
+| hm_twotower_sage_smoke_v1_inference | verified | — | — | 2026-10-14T21:53:47+03:00 |
+| hm_twotower_sage_seed_42_v1 | complete | 20 | — | 2026-10-15T00:33:29+03:00 |
+| hm_twotower_sage_seed_42_v1_inference | failed | — | — | 2026-10-15T00:38:41+03:00 |
+| hm_twotower_sage_seed_42_v1_inference_v2 | verified | — | — | 2026-10-15T10:49:01+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

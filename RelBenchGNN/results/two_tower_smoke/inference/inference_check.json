@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "val": {
+      "predictions_identical": true,
+      "map_absolute_difference": 0.0,
+      "passed": true
+    },
+    "test": {
+      "predictions_identical": true,
+      "map_absolute_difference": 0.0,
+      "passed": true
+    }
+  },
+  "checkpoint_sha256": "34fb5398ceecea2314cb29e7c2f7e36c6babcf400bcffe35137b531c5cdaae4d"
+}

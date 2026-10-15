@@ -35,6 +35,13 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_idgnn_embeddings_seed_42_v1 | complete | — | — | — | baseline/cache/gnn_embeddings_v1/manifest.json |
 | hm_idgnn_lightgbm_embeddings_seed_42_v1 | complete | — | 1.97116 | 2.12451 | baseline/results/gnn_embeddings_v1 |
 | hm_gnn_embedding_report_v1 | complete | — | — | — | reports/gnn_embeddings_v1 |
+| hm_twotower_sage_smoke_v1 | smoke_complete | 1 | 0.00000 | 0.00000 | RelBenchGNN/results/two_tower_smoke |
+| hm_twotower_pipeline_v1 | complete | — | — | — | — |
+| hm_twotower_report_v1 | complete | — | — | — | reports/two_tower_v1 |
+| hm_twotower_sage_smoke_v1_inference | verified | — | — | — | RelBenchGNN/results/two_tower_smoke |
+| hm_twotower_sage_seed_42_v1 | complete | 20 | 0.57431 | 0.54301 | RelBenchGNN/results/two_tower_seed_42 |
+| hm_twotower_sage_seed_42_v1_inference | failed | — | — | — | RelBenchGNN/results/two_tower_seed_42 |
+| hm_twotower_sage_seed_42_v1_inference_v2 | verified | — | — | — | RelBenchGNN/results/two_tower_seed_42 |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

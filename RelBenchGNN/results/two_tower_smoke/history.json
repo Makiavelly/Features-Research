@@ -1,0 +1,10 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.5412867069244385,
+    "val_metrics": {
+      "map": 0.0
+    },
+    "elapsed_seconds": 83.8145649433136
+  }
+]

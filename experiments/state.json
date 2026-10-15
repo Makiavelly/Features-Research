@@ -1118,12 +1118,297 @@
       "artifacts": "reports/gnn_embeddings_v1",
       "updated_at": "2026-10-14T20:36:12+03:00",
       "last_message": "Отчёт GNN → LightGBM сохранён отдельно; предыдущие результаты не заменены"
+    },
+    "hm_twotower_sage_smoke_v1": {
+      "status": "smoke_complete",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 1,
+        "eval_epochs_interval": 1,
+        "batch_size": 32,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "gnn": "sage",
+        "gat_heads": 4,
+        "gat_dropout": 0.0,
+        "temporal_strategy": "uniform",
+        "share_same_time": true,
+        "use_shallow": true,
+        "max_steps_per_epoch": 1,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "RelBenchGNN/results/two_tower_smoke",
+        "eval_batch_size": 32,
+        "smoke": true,
+        "resume": false,
+        "inference_only": false
+      },
+      "artifacts": "RelBenchGNN/results/two_tower_smoke",
+      "updated_at": "2026-10-14T21:51:33+03:00",
+      "last_message": "Двухбашенная GNN: smoke forward/backward/eval пройден, метрики не сопоставимы с полным тестом",
+      "current_epoch": 1,
+      "epoch": 1,
+      "train_loss": 1.5412867069244385,
+      "val_metrics": {
+        "map": 0.0
+      },
+      "elapsed_seconds": 83.8145649433136,
+      "test_metrics": {
+        "map": 0.0
+      }
+    },
+    "hm_twotower_pipeline_v1": {
+      "status": "complete",
+      "updated_at": "2026-10-15T10:49:10+03:00",
+      "last_message": "Двухбашенный конвейер завершён с кодом 0"
+    },
+    "hm_twotower_report_v1": {
+      "status": "complete",
+      "artifacts": "reports/two_tower_v1",
+      "updated_at": "2026-10-15T10:49:09+03:00",
+      "last_message": "Обновлён отдельный отчёт двухбашенной модели"
+    },
+    "hm_twotower_sage_smoke_v1_inference": {
+      "status": "verified",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 1,
+        "eval_epochs_interval": 1,
+        "batch_size": 32,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "gnn": "sage",
+        "gat_heads": 4,
+        "gat_dropout": 0.0,
+        "temporal_strategy": "uniform",
+        "share_same_time": true,
+        "use_shallow": true,
+        "max_steps_per_epoch": 1,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "RelBenchGNN/results/two_tower_smoke",
+        "eval_batch_size": 32,
+        "smoke": true,
+        "resume": false,
+        "inference_only": true
+      },
+      "artifacts": "RelBenchGNN/results/two_tower_smoke",
+      "updated_at": "2026-10-14T21:53:47+03:00",
+      "last_message": "Независимый инференс двухбашенной GNN проверен",
+      "checks": {
+        "passed": true,
+        "checks": {
+          "val": {
+            "predictions_identical": true,
+            "map_absolute_difference": 0.0,
+            "passed": true
+          },
+          "test": {
+            "predictions_identical": true,
+            "map_absolute_difference": 0.0,
+            "passed": true
+          }
+        },
+        "checkpoint_sha256": "34fb5398ceecea2314cb29e7c2f7e36c6babcf400bcffe35137b531c5cdaae4d"
+      }
+    },
+    "hm_twotower_sage_seed_42_v1": {
+      "status": "complete",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 256,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "gnn": "sage",
+        "gat_heads": 4,
+        "gat_dropout": 0.0,
+        "temporal_strategy": "uniform",
+        "share_same_time": true,
+        "use_shallow": true,
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": true,
+        "inference_only": false
+      },
+      "artifacts": "RelBenchGNN/results/two_tower_seed_42",
+      "updated_at": "2026-10-15T00:33:29+03:00",
+      "last_message": "Двухбашенная GNN завершила обучение и полную оценку",
+      "current_epoch": 20,
+      "train_step": 2000,
+      "epoch": 20,
+      "train_loss": 0.0027485086652086466,
+      "val_metrics": {
+        "map": 0.005743128425088755
+      },
+      "elapsed_seconds": 9422.936126470566,
+      "test_metrics": {
+        "map": 0.005430130288149388
+      }
+    },
+    "hm_twotower_sage_seed_42_v1_inference": {
+      "status": "failed",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 256,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "gnn": "sage",
+        "gat_heads": 4,
+        "gat_dropout": 0.0,
+        "temporal_strategy": "uniform",
+        "share_same_time": true,
+        "use_shallow": true,
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": true,
+        "inference_only": true
+      },
+      "artifacts": "RelBenchGNN/results/two_tower_seed_42",
+      "updated_at": "2026-10-15T00:38:41+03:00",
+      "last_message": "Ошибка двухбашенного запуска",
+      "checks": {
+        "passed": false,
+        "checks": {
+          "val": {
+            "predictions_identical": false,
+            "map_absolute_difference": 0.0,
+            "passed": false
+          },
+          "test": {
+            "predictions_identical": false,
+            "map_absolute_difference": 0.0,
+            "passed": false
+          }
+        },
+        "checkpoint_sha256": "8541fc534edb0ed2d930789a8075b200474f344df38b161e2d1759be762c53c5"
+      },
+      "error": "Two-tower inference mismatch"
+    },
+    "hm_twotower_sage_seed_42_v1_inference_v2": {
+      "status": "verified",
+      "config": {
+        "dataset": "rel-hm",
+        "task": "user-item-purchase",
+        "lr": 0.001,
+        "epochs": 20,
+        "eval_epochs_interval": 1,
+        "batch_size": 256,
+        "channels": 128,
+        "aggr": "sum",
+        "num_layers": 2,
+        "num_neighbors": 128,
+        "gnn": "sage",
+        "gat_heads": 4,
+        "gat_dropout": 0.0,
+        "temporal_strategy": "uniform",
+        "share_same_time": true,
+        "use_shallow": true,
+        "max_steps_per_epoch": 2000,
+        "num_workers": 0,
+        "seed": 42,
+        "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+        "pred_dir": "/tmp/relbench_preds",
+        "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+        "eval_batch_size": 128,
+        "smoke": false,
+        "resume": true,
+        "inference_only": true
+      },
+      "artifacts": "RelBenchGNN/results/two_tower_seed_42",
+      "updated_at": "2026-10-15T10:49:01+03:00",
+      "last_message": "Независимый инференс двухбашенной GNN проверен; сравниваются векторы, оценки по рангам и MAP с допуском для численных ties",
+      "split": "test",
+      "node_type": "customer",
+      "batches": 500,
+      "total_batches": 525,
+      "checks": {
+        "passed": true,
+        "checks": {
+          "val": {
+            "verification_protocol": "numerical_ties_v2",
+            "shape_ok": true,
+            "unique_ids": true,
+            "ids_valid": true,
+            "predictions_identical": false,
+            "same_item_at_same_rank_fraction": 0.9999687115878869,
+            "embeddings_close": true,
+            "embedding_atol": 1e-06,
+            "embedding_rtol": 1e-06,
+            "max_embedding_absolute_difference": 4.76837158203125e-07,
+            "ranked_scores_close": true,
+            "score_atol": 1e-05,
+            "score_rtol": 1e-06,
+            "max_ranked_score_absolute_difference": 9.613452567336367e-06,
+            "map_absolute_difference": 0.0,
+            "map_tolerance": 1e-06,
+            "passed": true
+          },
+          "test": {
+            "verification_protocol": "numerical_ties_v2",
+            "shape_ok": true,
+            "unique_ids": true,
+            "ids_valid": true,
+            "predictions_identical": false,
+            "same_item_at_same_rank_fraction": 0.9999677310457127,
+            "embeddings_close": true,
+            "embedding_atol": 1e-06,
+            "embedding_rtol": 1e-06,
+            "max_embedding_absolute_difference": 4.76837158203125e-07,
+            "ranked_scores_close": true,
+            "score_atol": 1e-05,
+            "score_rtol": 1e-06,
+            "max_ranked_score_absolute_difference": 4.566560530605557e-06,
+            "map_absolute_difference": 0.0,
+            "map_tolerance": 1e-06,
+            "passed": true
+          }
+        },
+        "checkpoint_sha256": "8541fc534edb0ed2d930789a8075b200474f344df38b161e2d1759be762c53c5",
+        "inference_seconds": 117.29978087999996,
+        "verification_protocol": "numerical_ties_v2"
+      }
     }
   },
   "latest_event": {
-    "time": "2026-10-14T21:41:26+03:00",
-    "kind": "artifact_restore_documented",
-    "message": "Added root README with exact external snapshots, upstream commits, local checkpoint paths and SHA256, and explicit absence of a public trained-weight download. Preserved GloVe manifest in Git; added pinned restore_downloads.py. Verified sizes and SHA256 for all 18 dataset files and 8 GloVe files locally; no downloads or training performed.",
+    "time": "2026-10-15T10:56:50+03:00",
+    "kind": "two_tower_final_audit",
+    "message": "Повторный запрос восстановления: проверено, что возобновлённый конвейер уже завершился в 10:49 МСК с exitcode=0; inference_check passed=true, report final=true, активных процессов нет. Повторный запуск не создавался. Итоговый test MAP@12 0.54301%; CONTEXT.md обновлён.",
     "run_id": null,
     "data": {}
   }

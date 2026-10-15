@@ -9240,3 +9240,7004 @@ Updated .gitignore: local environments, datasets, caches, upstream clones, runti
 ## 2026-10-14T21:41:26+03:00 — artifact_restore_documented
 
 Added root README with exact external snapshots, upstream commits, local checkpoint paths and SHA256, and explicit absence of a public trained-weight download. Preserved GloVe manifest in Git; added pinned restore_downloads.py. Verified sizes and SHA256 for all 18 dataset files and 8 GloVe files locally; no downloads or training performed.
+
+## 2026-10-14T21:50:05+03:00 — two_tower_start
+
+Начат двухбашенный GraphSAGE: отдельные forward пользователя и товара, общие веса, BPR loss
+
+Запуск: `hm_twotower_sage_smoke_v1`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 1,
+    "eval_epochs_interval": 1,
+    "batch_size": 32,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "gnn": "sage",
+    "gat_heads": 4,
+    "gat_dropout": 0.0,
+    "temporal_strategy": "uniform",
+    "share_same_time": true,
+    "use_shallow": true,
+    "max_steps_per_epoch": 1,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "RelBenchGNN/results/two_tower_smoke",
+    "eval_batch_size": 32,
+    "smoke": true,
+    "resume": false,
+    "inference_only": false
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_smoke"
+}
+```
+
+## 2026-10-14T21:50:47+03:00 — two_tower_protocol
+
+Пользователь поручил двухбашенную модель: официальный shared-backbone GraphSAGE, отдельные forward пользователя/товара, dot product, BPR, shallow товары, full-catalog retrieval. Новый seed42 эксперимент: batch256, 20epochs, uniform, точно2000steps. Добавлены best/last checkpoint, независимый инференс, все user/item вектора, отдельные отчёты и прогресс100шагов. В smoke подготовке исправлены UTF-8 генератора и относительный путь output. Полный запуск пока ожидает smoke.
+
+Запуск: `hm_twotower_pipeline_v1`.
+
+```json
+{
+  "status": "smoke"
+}
+```
+
+## 2026-10-14T21:51:10+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 1/1
+
+Запуск: `hm_twotower_sage_smoke_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 1
+}
+```
+
+## 2026-10-14T21:51:31+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_smoke_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 1,
+  "train_loss": 1.5412867069244385,
+  "val_metrics": {
+    "map": 0.0
+  },
+  "elapsed_seconds": 83.8145649433136
+}
+```
+
+## 2026-10-14T21:51:33+03:00 — two_tower_complete
+
+Двухбашенная GNN: smoke forward/backward/eval пройден, метрики не сопоставимы с полным тестом
+
+Запуск: `hm_twotower_sage_smoke_v1`.
+
+```json
+{
+  "status": "smoke_complete",
+  "epoch": 1,
+  "val_metrics": {
+    "map": 0.0
+  },
+  "test_metrics": {
+    "map": 0.0
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_smoke"
+}
+```
+
+## 2026-10-14T21:52:13+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T21:52:38+03:00 — two_tower_start
+
+Начат двухбашенный GraphSAGE: отдельные forward пользователя и товара, общие веса, BPR loss
+
+Запуск: `hm_twotower_sage_smoke_v1_inference`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 1,
+    "eval_epochs_interval": 1,
+    "batch_size": 32,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "gnn": "sage",
+    "gat_heads": 4,
+    "gat_dropout": 0.0,
+    "temporal_strategy": "uniform",
+    "share_same_time": true,
+    "use_shallow": true,
+    "max_steps_per_epoch": 1,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "RelBenchGNN/results/two_tower_smoke",
+    "eval_batch_size": 32,
+    "smoke": true,
+    "resume": false,
+    "inference_only": true
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_smoke"
+}
+```
+
+## 2026-10-14T21:53:47+03:00 — two_tower_inference
+
+Независимый инференс двухбашенной GNN проверен
+
+Запуск: `hm_twotower_sage_smoke_v1_inference`.
+
+```json
+{
+  "status": "verified",
+  "checks": {
+    "passed": true,
+    "checks": {
+      "val": {
+        "predictions_identical": true,
+        "map_absolute_difference": 0.0,
+        "passed": true
+      },
+      "test": {
+        "predictions_identical": true,
+        "map_absolute_difference": 0.0,
+        "passed": true
+      }
+    },
+    "checkpoint_sha256": "34fb5398ceecea2314cb29e7c2f7e36c6babcf400bcffe35137b531c5cdaae4d"
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_smoke"
+}
+```
+
+## 2026-10-14T21:54:44+03:00 — two_tower_start
+
+Начат двухбашенный GraphSAGE: отдельные forward пользователя и товара, общие веса, BPR loss
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 20,
+    "eval_epochs_interval": 1,
+    "batch_size": 256,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "gnn": "sage",
+    "gat_heads": 4,
+    "gat_dropout": 0.0,
+    "temporal_strategy": "uniform",
+    "share_same_time": true,
+    "use_shallow": true,
+    "max_steps_per_epoch": 2000,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+    "eval_batch_size": 128,
+    "smoke": false,
+    "resume": true,
+    "inference_only": false
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-14T21:54:44+03:00 — two_tower_launch
+
+Двухбашенная модель создана; smoke BPR forward/backward/eval и независимая загрузка best.pt пройдены, предсказания val/test совпали полностью. Полный seed42 запуск 20эпох стартовал hidden WSL launcher PID1608, отдельный конвейер продолжит полный инференс и отчёт. Итоговых full метрик пока нет.
+
+Запуск: `hm_twotower_pipeline_v1`.
+
+```json
+{
+  "status": "preparing"
+}
+```
+
+## 2026-10-14T21:55:38+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 1/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 1
+}
+```
+
+## 2026-10-14T21:56:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T21:56:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T21:57:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T21:57:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T21:58:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T21:58:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T21:58:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T21:59:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T21:59:28+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T21:59:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:00:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:00:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:00:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:01:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:01:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:02:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:02:11+03:00 — hypothesis_added
+
+По просьбе пользователя создан HYPOTHESES.md: H001, двухбашенная GNN с независимыми весами пользовательского и товарного энкодеров. Зафиксированы гипотеза, контроль shared-backbone, будущий уникальный run_id, протокол MAP@12, сохранение артефактов и ограничения числа параметров/одного seed. Эксперимент не запущен; текущий запуск не изменён.
+
+## 2026-10-14T22:02:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:02:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:03:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:03:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:04:40+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 1,
+  "train_loss": 0.11198035415634514,
+  "val_metrics": {
+    "map": 0.0057429049364308045
+  },
+  "elapsed_seconds": 594.8764209747314
+}
+```
+
+## 2026-10-14T22:04:43+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:04:43+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 2/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 2
+}
+```
+
+## 2026-10-14T22:05:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:05:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:05:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:06:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:06:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:06:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:07:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:07:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:08:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:08:25+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:08:47+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:09:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:09:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:09:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:10:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:10:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:10:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:11:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:11:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:12:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:12:55+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 2,
+  "train_loss": 0.09265107665024698,
+  "val_metrics": {
+    "map": 0.0047890965412890505
+  },
+  "elapsed_seconds": 1089.5350096225739
+}
+```
+
+## 2026-10-14T22:12:57+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:12:57+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 3/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 3
+}
+```
+
+## 2026-10-14T22:13:21+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:13:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:14:03+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:14:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:14:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:15:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:15:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:15:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:16:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:16:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:16:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:17:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:17:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:18:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:18:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:18:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:19:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:19:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:19:53+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:20:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:21:24+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 3,
+  "train_loss": 0.07268015710450709,
+  "val_metrics": {
+    "map": 0.0038984466117935644
+  },
+  "elapsed_seconds": 1598.6979293823242
+}
+```
+
+## 2026-10-14T22:21:27+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:21:27+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 4/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 4
+}
+```
+
+## 2026-10-14T22:21:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:22:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:22:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:23:12+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:23:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:24:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:24:21+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:24:43+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:25:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:25:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:25:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:26:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:26:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:26:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:27:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:27:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:27:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:28:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:28:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:28:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:29:29+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 4,
+  "train_loss": 0.0543516638786532,
+  "val_metrics": {
+    "map": 0.0024878573952055645
+  },
+  "elapsed_seconds": 2083.9084668159485
+}
+```
+
+## 2026-10-14T22:29:31+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:29:31+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 5/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 5
+}
+```
+
+## 2026-10-14T22:29:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:30:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:30:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:30:48+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:31:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:31:25+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:31:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:32:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:32:22+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:32:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:33:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:33:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:33:38+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:33:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:34:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:34:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:34:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:35:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:35:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:35:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:36:43+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 5,
+  "train_loss": 0.03622457931935787,
+  "val_metrics": {
+    "map": 0.0019701034929627908
+  },
+  "elapsed_seconds": 2518.2518815994263
+}
+```
+
+## 2026-10-14T22:36:45+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:36:45+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 6/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 6
+}
+```
+
+## 2026-10-14T22:37:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:37:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:37:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:38:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:38:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:38:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:38:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:39:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:39:36+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:39:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:40:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:40:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:40:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:41:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:41:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:41:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:42:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:42:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:42:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:43:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:43:50+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 6,
+  "train_loss": 0.02299862293736078,
+  "val_metrics": {
+    "map": 0.0015408236748669475
+  },
+  "elapsed_seconds": 2945.203561067581
+}
+```
+
+## 2026-10-14T22:43:52+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:43:52+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 7/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 7
+}
+```
+
+## 2026-10-14T22:44:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:44:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:44:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:45:10+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:45:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:45:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:46:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:46:31+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:46:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:47:12+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:47:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:47:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:48:15+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:48:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:48:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:49:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:49:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:50:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:50:25+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:50:47+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T22:51:45+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 7,
+  "train_loss": 0.01606847740197554,
+  "val_metrics": {
+    "map": 0.0010109718962401841
+  },
+  "elapsed_seconds": 3419.8694157600403
+}
+```
+
+## 2026-10-14T22:51:47+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T22:51:47+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 8/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 8
+}
+```
+
+## 2026-10-14T22:52:06+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T22:52:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T22:52:48+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T22:53:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T22:53:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T22:53:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T22:54:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T22:54:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T22:55:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T22:55:22+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T22:55:44+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T22:56:06+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T22:56:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T22:56:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T22:57:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T22:57:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T22:57:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T22:58:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T22:58:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T22:59:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:00:00+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 8,
+  "train_loss": 0.012174643606180325,
+  "val_metrics": {
+    "map": 0.0009382148177132164
+  },
+  "elapsed_seconds": 3914.6995565891266
+}
+```
+
+## 2026-10-14T23:00:02+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:00:02+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 9/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 9
+}
+```
+
+## 2026-10-14T23:00:22+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:00:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:01:03+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:01:22+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:01:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:02:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:02:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:02:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:02:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:03:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:03:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:03:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:04:16+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:04:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:04:54+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:05:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:05:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:05:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:06:10+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:06:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:07:19+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 9,
+  "train_loss": 0.010294270628248342,
+  "val_metrics": {
+    "map": 0.0009771209003905323
+  },
+  "elapsed_seconds": 4354.4426918029785
+}
+```
+
+## 2026-10-14T23:07:21+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:07:21+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 10/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 10
+}
+```
+
+## 2026-10-14T23:07:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:07:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:08:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:08:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:09:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:09:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:09:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:09:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:10:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:10:36+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:10:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:11:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:11:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:11:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:12:12+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:12:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:12:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:13:12+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:13:31+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:13:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:14:46+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 10,
+  "train_loss": 0.009191992744861637,
+  "val_metrics": {
+    "map": 0.0009025397228235678
+  },
+  "elapsed_seconds": 4801.507330417633
+}
+```
+
+## 2026-10-14T23:14:48+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:14:48+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 11/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 11
+}
+```
+
+## 2026-10-14T23:15:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:15:28+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:15:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:16:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:16:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:16:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:17:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:17:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:17:53+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:18:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:18:36+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:18:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:19:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:19:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:20:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:20:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:20:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:21:06+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:21:28+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:21:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:22:47+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 11,
+  "train_loss": 0.007495485727093182,
+  "val_metrics": {
+    "map": 0.001086409799752254
+  },
+  "elapsed_seconds": 5281.9778525829315
+}
+```
+
+## 2026-10-14T23:22:50+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:22:50+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 12/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 12
+}
+```
+
+## 2026-10-14T23:23:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:23:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:23:54+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:24:16+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:24:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:24:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:25:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:25:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:26:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:26:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:26:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:27:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:27:28+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:27:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:28:12+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:28:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:28:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:29:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:29:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:30:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:30:54+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 12,
+  "train_loss": 0.00609492240997497,
+  "val_metrics": {
+    "map": 0.0012828753988669195
+  },
+  "elapsed_seconds": 5769.1190140247345
+}
+```
+
+## 2026-10-14T23:30:56+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:30:56+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 13/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 13
+}
+```
+
+## 2026-10-14T23:31:15+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:31:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:31:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:32:15+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:32:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:32:54+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:33:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:33:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:33:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:34:10+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:34:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:34:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:35:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:35:26+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:35:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:36:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:36:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:36:43+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:37:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:37:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:38:12+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 13,
+  "train_loss": 0.00543211716474616,
+  "val_metrics": {
+    "map": 0.0017266225355550432
+  },
+  "elapsed_seconds": 6206.97042298317
+}
+```
+
+## 2026-10-14T23:38:13+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:38:13+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 14/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 14
+}
+```
+
+## 2026-10-14T23:38:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:38:54+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:39:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:39:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:39:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:40:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:40:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:40:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:41:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:41:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:41:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:42:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:42:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:42:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:43:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:43:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:43:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:43:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:44:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:44:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:45:25+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 14,
+  "train_loss": 0.005087600154598477,
+  "val_metrics": {
+    "map": 0.0009725269851546385
+  },
+  "elapsed_seconds": 6640.748001813889
+}
+```
+
+## 2026-10-14T23:45:27+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:45:27+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 15/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 15
+}
+```
+
+## 2026-10-14T23:45:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:46:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:46:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:46:42+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:47:01+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:47:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:47:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:47:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:48:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:48:38+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:48:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:49:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:49:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:49:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:50:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:50:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:50:59+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:51:21+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:51:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-14T23:52:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-14T23:52:58+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 15,
+  "train_loss": 0.004692768007866107,
+  "val_metrics": {
+    "map": 0.0017061930475183497
+  },
+  "elapsed_seconds": 7093.362394332886
+}
+```
+
+## 2026-10-14T23:53:00+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-14T23:53:00+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 16/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 16
+}
+```
+
+## 2026-10-14T23:53:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-14T23:53:40+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-14T23:54:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-14T23:54:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-14T23:54:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-14T23:55:06+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-14T23:55:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-14T23:55:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-14T23:56:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-14T23:56:31+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-14T23:56:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-14T23:57:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-14T23:57:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-14T23:57:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-14T23:58:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-14T23:58:39+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-14T23:59:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-14T23:59:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-14T23:59:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-15T00:00:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-15T00:01:04+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 16,
+  "train_loss": 0.00424751581120654,
+  "val_metrics": {
+    "map": 0.002262501987712379
+  },
+  "elapsed_seconds": 7579.551252365112
+}
+```
+
+## 2026-10-15T00:01:06+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:01:07+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 17/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 17
+}
+```
+
+## 2026-10-15T00:01:27+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-15T00:01:47+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-15T00:02:07+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-15T00:02:28+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-15T00:02:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-15T00:03:10+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-15T00:03:32+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-15T00:03:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-15T00:04:15+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-15T00:04:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-15T00:04:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-15T00:05:20+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-15T00:05:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-15T00:06:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-15T00:06:24+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-15T00:06:46+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-15T00:07:08+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-15T00:07:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-15T00:07:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-15T00:08:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-15T00:09:11+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 17,
+  "train_loss": 0.003934520246064494,
+  "val_metrics": {
+    "map": 0.0011031379828122698
+  },
+  "elapsed_seconds": 8066.598598003387
+}
+```
+
+## 2026-10-15T00:09:13+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:09:13+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 18/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 18
+}
+```
+
+## 2026-10-15T00:09:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-15T00:09:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-15T00:10:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-15T00:10:33+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-15T00:10:53+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-15T00:11:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-15T00:11:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-15T00:11:47+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:11:48+03:00 — learning_curves_added
+
+По просьбе пользователя добавлены PNG/SVG и CSV кривых обучения двухбашенной GNN: средний BPR loss и полный validation MAP@12 по завершённым эпохам. График встроен в reports/two_tower_v1/report.md и автоматически обновляется после каждой эпохи. Генерация отчёта защищена flock от конкурентных запусков.
+
+## 2026-10-15T00:11:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-15T00:12:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-15T00:12:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-15T00:12:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-15T00:13:17+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-15T00:13:36+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-15T00:13:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-15T00:14:16+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-15T00:14:37+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-15T00:14:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-15T00:15:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-15T00:15:38+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-15T00:15:57+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-15T00:16:49+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 18,
+  "train_loss": 0.003412049475889944,
+  "val_metrics": {
+    "map": 0.0013787295704988751
+  },
+  "elapsed_seconds": 8523.813731908798
+}
+```
+
+## 2026-10-15T00:16:51+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:16:51+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 19/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 19
+}
+```
+
+## 2026-10-15T00:17:11+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-15T00:17:31+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-15T00:17:51+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-15T00:18:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-15T00:18:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-15T00:18:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-15T00:19:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-15T00:19:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-15T00:19:50+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-15T00:20:09+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-15T00:20:29+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-15T00:20:49+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-15T00:21:10+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-15T00:21:30+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-15T00:21:52+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-15T00:22:13+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-15T00:22:35+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-15T00:22:55+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-15T00:23:14+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-15T00:23:34+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-15T00:24:25+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 19,
+  "train_loss": 0.0029281466680113224,
+  "val_metrics": {
+    "map": 0.0021894386571767272
+  },
+  "elapsed_seconds": 8980.677268743515
+}
+```
+
+## 2026-10-15T00:24:28+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:24:28+03:00 — two_tower_epoch_start
+
+Обучение двухбашенной GNN: эпоха 20/20
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "current_epoch": 20
+}
+```
+
+## 2026-10-15T00:24:47+03:00 — two_tower_progress
+
+Двухбашенная GNN: 100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 100
+}
+```
+
+## 2026-10-15T00:25:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 200
+}
+```
+
+## 2026-10-15T00:25:26+03:00 — two_tower_progress
+
+Двухбашенная GNN: 300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 300
+}
+```
+
+## 2026-10-15T00:25:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 400
+}
+```
+
+## 2026-10-15T00:26:05+03:00 — two_tower_progress
+
+Двухбашенная GNN: 500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 500
+}
+```
+
+## 2026-10-15T00:26:25+03:00 — two_tower_progress
+
+Двухбашенная GNN: 600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 600
+}
+```
+
+## 2026-10-15T00:26:45+03:00 — two_tower_progress
+
+Двухбашенная GNN: 700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 700
+}
+```
+
+## 2026-10-15T00:27:04+03:00 — two_tower_progress
+
+Двухбашенная GNN: 800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 800
+}
+```
+
+## 2026-10-15T00:27:23+03:00 — two_tower_progress
+
+Двухбашенная GNN: 900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 900
+}
+```
+
+## 2026-10-15T00:27:43+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1000
+}
+```
+
+## 2026-10-15T00:28:02+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1100/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1100
+}
+```
+
+## 2026-10-15T00:28:22+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1200/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1200
+}
+```
+
+## 2026-10-15T00:28:41+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1300/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1300
+}
+```
+
+## 2026-10-15T00:29:00+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1400/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1400
+}
+```
+
+## 2026-10-15T00:29:19+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1500/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1500
+}
+```
+
+## 2026-10-15T00:29:38+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1600/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1600
+}
+```
+
+## 2026-10-15T00:29:58+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1700/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1700
+}
+```
+
+## 2026-10-15T00:30:18+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1800/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1800
+}
+```
+
+## 2026-10-15T00:30:36+03:00 — two_tower_progress
+
+Двухбашенная GNN: 1900/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 1900
+}
+```
+
+## 2026-10-15T00:30:56+03:00 — two_tower_progress
+
+Двухбашенная GNN: 2000/2000 шагов текущей эпохи
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "train_step": 2000
+}
+```
+
+## 2026-10-15T00:31:48+03:00 — two_tower_epoch
+
+Завершена эпоха двухбашенной GNN
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 20,
+  "train_loss": 0.0027485086652086466,
+  "val_metrics": {
+    "map": 0.0009148587620313039
+  },
+  "elapsed_seconds": 9422.936126470566
+}
+```
+
+## 2026-10-15T00:31:51+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "partial",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T00:33:29+03:00 — two_tower_complete
+
+Двухбашенная GNN завершила обучение и полную оценку
+
+Запуск: `hm_twotower_sage_seed_42_v1`.
+
+```json
+{
+  "status": "complete",
+  "epoch": 20,
+  "val_metrics": {
+    "map": 0.005743128425088755
+  },
+  "test_metrics": {
+    "map": 0.005430130288149388
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-15T00:34:32+03:00 — two_tower_start
+
+Начат двухбашенный GraphSAGE: отдельные forward пользователя и товара, общие веса, BPR loss
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 20,
+    "eval_epochs_interval": 1,
+    "batch_size": 256,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "gnn": "sage",
+    "gat_heads": 4,
+    "gat_dropout": 0.0,
+    "temporal_strategy": "uniform",
+    "share_same_time": true,
+    "use_shallow": true,
+    "max_steps_per_epoch": 2000,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+    "eval_batch_size": 128,
+    "smoke": false,
+    "resume": true,
+    "inference_only": true
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-15T00:38:41+03:00 — two_tower_inference
+
+Независимый инференс двухбашенной GNN проверен
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference`.
+
+```json
+{
+  "status": "failed",
+  "checks": {
+    "passed": false,
+    "checks": {
+      "val": {
+        "predictions_identical": false,
+        "map_absolute_difference": 0.0,
+        "passed": false
+      },
+      "test": {
+        "predictions_identical": false,
+        "map_absolute_difference": 0.0,
+        "passed": false
+      }
+    },
+    "checkpoint_sha256": "8541fc534edb0ed2d930789a8075b200474f344df38b161e2d1759be762c53c5"
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-15T00:38:41+03:00 — two_tower_error
+
+Ошибка двухбашенного запуска
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference`.
+
+```json
+{
+  "status": "failed",
+  "error": "Two-tower inference mismatch"
+}
+```
+
+## 2026-10-15T10:45:00+03:00 — two_tower_resume
+
+После остановки пользователем активных процессов нет. Обнаружен завершённый независимый инференс с точным совпадением MAP, но strict проверка отклонила разные ID. Векторы отличаются максимум на 4.77e-7. Добавлена отдельная проверка numerical_ties_v2: близость всех векторов, оценок рекомендаций по рангам, shape/ID/уникальности и MAP; точное совпадение ID фиксируется отдельно. Старые strict-check и лог сохранены. Возобновляется только инференс, обучение не повторяется.
+
+Запуск: `hm_twotower_pipeline_v1`.
+
+```json
+{
+  "status": "resuming"
+}
+```
+
+## 2026-10-15T10:45:58+03:00 — two_tower_start
+
+Начат двухбашенный GraphSAGE: отдельные forward пользователя и товара, общие веса, BPR loss
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "preparing",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "lr": 0.001,
+    "epochs": 20,
+    "eval_epochs_interval": 1,
+    "batch_size": 256,
+    "channels": 128,
+    "aggr": "sum",
+    "num_layers": 2,
+    "num_neighbors": 128,
+    "gnn": "sage",
+    "gat_heads": 4,
+    "gat_dropout": 0.0,
+    "temporal_strategy": "uniform",
+    "share_same_time": true,
+    "use_shallow": true,
+    "max_steps_per_epoch": 2000,
+    "num_workers": 0,
+    "seed": 42,
+    "cache_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/cache",
+    "pred_dir": "/tmp/relbench_preds",
+    "output_dir": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/results/two_tower_seed_42",
+    "eval_batch_size": 128,
+    "smoke": false,
+    "resume": true,
+    "inference_only": true
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-15T10:47:17+03:00 — two_tower_encoding
+
+Кодирование val/article: 100/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 100,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:20+03:00 — two_tower_encoding
+
+Кодирование val/article: 200/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 200,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:23+03:00 — two_tower_encoding
+
+Кодирование val/article: 300/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 300,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:26+03:00 — two_tower_encoding
+
+Кодирование val/article: 400/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 400,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:31+03:00 — two_tower_encoding
+
+Кодирование val/article: 500/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 500,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:35+03:00 — two_tower_encoding
+
+Кодирование val/article: 600/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 600,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:39+03:00 — two_tower_encoding
+
+Кодирование val/article: 700/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 700,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:43+03:00 — two_tower_encoding
+
+Кодирование val/article: 800/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "article",
+  "batches": 800,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:47:49+03:00 — two_tower_encoding
+
+Кодирование val/customer: 100/583 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "customer",
+  "batches": 100,
+  "total_batches": 583
+}
+```
+
+## 2026-10-15T10:47:53+03:00 — two_tower_encoding
+
+Кодирование val/customer: 200/583 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "customer",
+  "batches": 200,
+  "total_batches": 583
+}
+```
+
+## 2026-10-15T10:47:57+03:00 — two_tower_encoding
+
+Кодирование val/customer: 300/583 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "customer",
+  "batches": 300,
+  "total_batches": 583
+}
+```
+
+## 2026-10-15T10:48:04+03:00 — two_tower_encoding
+
+Кодирование val/customer: 400/583 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "customer",
+  "batches": 400,
+  "total_batches": 583
+}
+```
+
+## 2026-10-15T10:48:08+03:00 — two_tower_encoding
+
+Кодирование val/customer: 500/583 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "val",
+  "node_type": "customer",
+  "batches": 500,
+  "total_batches": 583
+}
+```
+
+## 2026-10-15T10:48:21+03:00 — two_tower_encoding
+
+Кодирование test/article: 100/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 100,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:23+03:00 — two_tower_encoding
+
+Кодирование test/article: 200/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 200,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:24+03:00 — two_tower_encoding
+
+Кодирование test/article: 300/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 300,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:26+03:00 — two_tower_encoding
+
+Кодирование test/article: 400/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 400,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:28+03:00 — two_tower_encoding
+
+Кодирование test/article: 500/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 500,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:30+03:00 — two_tower_encoding
+
+Кодирование test/article: 600/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 600,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:33+03:00 — two_tower_encoding
+
+Кодирование test/article: 700/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 700,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:39+03:00 — two_tower_encoding
+
+Кодирование test/article: 800/825 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "article",
+  "batches": 800,
+  "total_batches": 825
+}
+```
+
+## 2026-10-15T10:48:42+03:00 — two_tower_encoding
+
+Кодирование test/customer: 100/525 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "customer",
+  "batches": 100,
+  "total_batches": 525
+}
+```
+
+## 2026-10-15T10:48:45+03:00 — two_tower_encoding
+
+Кодирование test/customer: 200/525 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "customer",
+  "batches": 200,
+  "total_batches": 525
+}
+```
+
+## 2026-10-15T10:48:49+03:00 — two_tower_encoding
+
+Кодирование test/customer: 300/525 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "customer",
+  "batches": 300,
+  "total_batches": 525
+}
+```
+
+## 2026-10-15T10:48:52+03:00 — two_tower_encoding
+
+Кодирование test/customer: 400/525 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "customer",
+  "batches": 400,
+  "total_batches": 525
+}
+```
+
+## 2026-10-15T10:48:55+03:00 — two_tower_encoding
+
+Кодирование test/customer: 500/525 batches
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "inference",
+  "split": "test",
+  "node_type": "customer",
+  "batches": 500,
+  "total_batches": 525
+}
+```
+
+## 2026-10-15T10:49:01+03:00 — two_tower_inference
+
+Независимый инференс двухбашенной GNN проверен; сравниваются векторы, оценки по рангам и MAP с допуском для численных ties
+
+Запуск: `hm_twotower_sage_seed_42_v1_inference_v2`.
+
+```json
+{
+  "status": "verified",
+  "checks": {
+    "passed": true,
+    "checks": {
+      "val": {
+        "verification_protocol": "numerical_ties_v2",
+        "shape_ok": true,
+        "unique_ids": true,
+        "ids_valid": true,
+        "predictions_identical": false,
+        "same_item_at_same_rank_fraction": 0.9999687115878869,
+        "embeddings_close": true,
+        "embedding_atol": 1e-06,
+        "embedding_rtol": 1e-06,
+        "max_embedding_absolute_difference": 4.76837158203125e-07,
+        "ranked_scores_close": true,
+        "score_atol": 1e-05,
+        "score_rtol": 1e-06,
+        "max_ranked_score_absolute_difference": 9.613452567336367e-06,
+        "map_absolute_difference": 0.0,
+        "map_tolerance": 1e-06,
+        "passed": true
+      },
+      "test": {
+        "verification_protocol": "numerical_ties_v2",
+        "shape_ok": true,
+        "unique_ids": true,
+        "ids_valid": true,
+        "predictions_identical": false,
+        "same_item_at_same_rank_fraction": 0.9999677310457127,
+        "embeddings_close": true,
+        "embedding_atol": 1e-06,
+        "embedding_rtol": 1e-06,
+        "max_embedding_absolute_difference": 4.76837158203125e-07,
+        "ranked_scores_close": true,
+        "score_atol": 1e-05,
+        "score_rtol": 1e-06,
+        "max_ranked_score_absolute_difference": 4.566560530605557e-06,
+        "map_absolute_difference": 0.0,
+        "map_tolerance": 1e-06,
+        "passed": true
+      }
+    },
+    "checkpoint_sha256": "8541fc534edb0ed2d930789a8075b200474f344df38b161e2d1759be762c53c5",
+    "inference_seconds": 117.29978087999996,
+    "verification_protocol": "numerical_ties_v2"
+  },
+  "artifacts": "RelBenchGNN/results/two_tower_seed_42"
+}
+```
+
+## 2026-10-15T10:49:09+03:00 — two_tower_report
+
+Обновлён отдельный отчёт двухбашенной модели
+
+Запуск: `hm_twotower_report_v1`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/two_tower_v1"
+}
+```
+
+## 2026-10-15T10:49:10+03:00 — two_tower_pipeline_exit
+
+Двухбашенный конвейер завершён с кодом 0
+
+Запуск: `hm_twotower_pipeline_v1`.
+
+```json
+{
+  "status": "complete"
+}
+```
+
+## 2026-10-15T10:56:50+03:00 — two_tower_final_audit
+
+Повторный запрос восстановления: проверено, что возобновлённый конвейер уже завершился в 10:49 МСК с exitcode=0; inference_check passed=true, report final=true, активных процессов нет. Повторный запуск не создавался. Итоговый test MAP@12 0.54301%; CONTEXT.md обновлён.
