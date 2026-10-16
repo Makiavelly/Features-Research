@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "checks": {
+    "fixed": {
+      "beam_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 20.530800439002633
+      },
+      "beam_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 8.25342785900284
+      },
+      "full_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 6.513463911003782
+      },
+      "full_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 5.648639831000764
+      }
+    },
+    "cluster": {
+      "beam_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 8.829294859002403
+      },
+      "beam_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 7.020735035002872
+      },
+      "full_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 6.217787682995549
+      },
+      "full_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 5.430215631000465
+      }
+    }
+  }
+}

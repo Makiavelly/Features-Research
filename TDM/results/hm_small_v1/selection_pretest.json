@@ -1,0 +1,34 @@
+{
+  "selections": {
+    "fixed": {
+      "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+      "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280",
+      "summary": {
+        "best_epoch": 3,
+        "epochs": 7,
+        "best_validation_map": 0.010160103409829287,
+        "training_and_validation_seconds": 188.6061899560009,
+        "peak_cuda_bytes": 102302720,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+        "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280"
+      }
+    },
+    "cluster": {
+      "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+      "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d",
+      "summary": {
+        "best_epoch": 2,
+        "epochs": 6,
+        "best_validation_map": 0.00745875104427736,
+        "training_and_validation_seconds": 132.8533849969972,
+        "peak_cuda_bytes": 102302720,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+        "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d"
+      }
+    }
+  },
+  "criterion": "validation beam64 MAP only",
+  "test_not_evaluated": true
+}

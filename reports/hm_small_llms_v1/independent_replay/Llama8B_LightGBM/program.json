@@ -1,0 +1,90 @@
+{
+  "rationale": "capturing customer behavior, article characteristics, and purchase dynamics to predict purchases with temporal characteristics",
+  "aggregates": [
+    {
+      "name": "f_customer_age_mean",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(customer_age)"
+    },
+    {
+      "name": "f_product_code_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(DISTINCT product_code)"
+    },
+    {
+      "name": "f_days_ago_max",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "max(days_ago)"
+    },
+    {
+      "name": "f_price_avg",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_department_no_mode",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "mode(department_no)"
+    },
+    {
+      "name": "f_product_code_count_distinct",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_garment_group_no_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(DISTINCT garment_group_no)"
+    },
+    {
+      "name": "f_product_type_no_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_type_no)"
+    },
+    {
+      "name": "f_sales_channel_id_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(sales_channel_id)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_temporal_purchase_frequency",
+      "sql": "f_customer_age_mean / f_days_ago_max"
+    },
+    {
+      "name": "f_product_type_no_diversity",
+      "sql": "f_product_type_no_count / f_product_code_count_distinct"
+    },
+    {
+      "name": "f_article_popularity",
+      "sql": "f_product_code_count / f_product_type_no_count"
+    },
+    {
+      "name": "f_price_fluctuation_rate",
+      "sql": "f_price_avg / f_days_ago_max"
+    },
+    {
+      "name": "f_temporal_change_rate",
+      "sql": "f_department_no_mode!= f_department_no_mode - 1"
+    }
+  ]
+}

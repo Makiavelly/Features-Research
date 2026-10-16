@@ -1,0 +1,31 @@
+call,proposal,repair,category,error,issues_detected
+2,1,0,sql_syntax,Traceback (most recent call last):,1
+3,1,1,window_functions,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",1
+4,1,2,grouping_keys,Invalid grouping keys,1
+6,2,0,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",4
+7,2,1,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",4
+8,2,2,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",4
+9,2,3,grouping_keys,Invalid grouping keys,4
+15,5,0,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",2
+16,5,1,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",2
+17,5,2,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",2
+18,5,3,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",1
+21,8,0,window_functions,"Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",6
+22,8,1,window_functions,"Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",6
+28,11,0,window_functions,"Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",3
+29,11,1,window_functions,"Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",3
+30,11,2,id_in_derived,"Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",3
+31,11,3,history_in_derived,Traceback (most recent call last):,3
+36,14,0,window_functions,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",8
+37,14,1,window_functions,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",8
+38,14,2,window_functions,"Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",8
+39,14,3,sql_syntax,Traceback (most recent call last):,2
+43,16,0,grouping_keys,Invalid grouping keys,2
+47,19,0,history_in_derived,Traceback (most recent call last):,1
+48,19,1,history_in_derived,Traceback (most recent call last):,1
+53,21,1,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",1
+56,22,0,history_in_derived,Traceback (most recent call last):,1
+59,22,3,string_values,"Only numeric SQL expressions, no statements/strings/qualified names",1
+60,23,0,grouping_keys,Invalid grouping keys,1
+61,23,1,grouping_keys,Invalid grouping keys,1
+62,23,2,grouping_keys,Invalid grouping keys,1

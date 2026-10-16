@@ -1,0 +1,189 @@
+{
+  "calls": 67,
+  "valid": 20,
+  "rejected": 30,
+  "duplicate": 17,
+  "json_parseable": 67,
+  "truncated": 0,
+  "primary_failure_counts": {
+    "sql_syntax": 2,
+    "window_functions": 8,
+    "grouping_keys": 6,
+    "string_values": 9,
+    "id_in_derived": 1,
+    "history_in_derived": 4
+  },
+  "primary_calls": {
+    "sql_syntax": [
+      2,
+      39
+    ],
+    "window_functions": [
+      3,
+      21,
+      22,
+      28,
+      29,
+      36,
+      37,
+      38
+    ],
+    "grouping_keys": [
+      4,
+      9,
+      43,
+      60,
+      61,
+      62
+    ],
+    "string_values": [
+      6,
+      7,
+      8,
+      15,
+      16,
+      17,
+      18,
+      53,
+      59
+    ],
+    "id_in_derived": [
+      30
+    ],
+    "history_in_derived": [
+      31,
+      47,
+      48,
+      56
+    ]
+  },
+  "proposals": 27,
+  "successful_proposals": 20,
+  "repair_calls": 40,
+  "repair_status_by_depth": {
+    "0": {
+      "valid": 10,
+      "rejected": 10,
+      "duplicate": 7
+    },
+    "1": {
+      "rejected": 9,
+      "duplicate": 5,
+      "valid": 3
+    },
+    "2": {
+      "rejected": 6,
+      "duplicate": 3,
+      "valid": 5
+    },
+    "3": {
+      "valid": 2,
+      "rejected": 5,
+      "duplicate": 2
+    }
+  },
+  "unchanged_program_repairs": [
+    {
+      "call": 7,
+      "previous_call": 6,
+      "status": "rejected"
+    },
+    {
+      "call": 8,
+      "previous_call": 7,
+      "status": "rejected"
+    },
+    {
+      "call": 11,
+      "previous_call": 10,
+      "status": "duplicate"
+    },
+    {
+      "call": 12,
+      "previous_call": 11,
+      "status": "duplicate"
+    },
+    {
+      "call": 16,
+      "previous_call": 15,
+      "status": "rejected"
+    },
+    {
+      "call": 17,
+      "previous_call": 16,
+      "status": "rejected"
+    },
+    {
+      "call": 22,
+      "previous_call": 21,
+      "status": "rejected"
+    },
+    {
+      "call": 25,
+      "previous_call": 24,
+      "status": "duplicate"
+    },
+    {
+      "call": 33,
+      "previous_call": 32,
+      "status": "duplicate"
+    },
+    {
+      "call": 37,
+      "previous_call": 36,
+      "status": "rejected"
+    },
+    {
+      "call": 41,
+      "previous_call": 40,
+      "status": "duplicate"
+    },
+    {
+      "call": 48,
+      "previous_call": 47,
+      "status": "rejected"
+    },
+    {
+      "call": 55,
+      "previous_call": 54,
+      "status": "duplicate"
+    }
+  ],
+  "duplicate_targets": {
+    "1": 9,
+    "45": 2,
+    "46": 4,
+    "27": 1,
+    "49": 1
+  },
+  "multi_issue_rejected_responses": [
+    6,
+    7,
+    8,
+    9,
+    15,
+    16,
+    17,
+    21,
+    22,
+    28,
+    29,
+    30,
+    31,
+    36,
+    37,
+    38,
+    39,
+    43
+  ],
+  "diagnostic_limit": "Synthetic DOUBLE schema: binder validation, not proof of numeric values/feature usefulness/data-dependent semantics.",
+  "duckdb_version": "1.4.1",
+  "no_model_training_or_generation": true,
+  "candidate2_to5": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "proposed_examples_bind_checked": true
+}

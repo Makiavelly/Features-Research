@@ -1,0 +1,27 @@
+{
+  "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+  "files": {
+    "article_id_map.csv": "b2b7ada5ca21be99251bbee4ec4f334e636f4f4b1d24a75c9961a5e8a4d50b39",
+    "customer_id_map.csv": "27f04807923db3ce892f0bafe8c3d28b371db0faf235895758172a4f82b0f0c3",
+    "db/article.parquet": "6c2c2eaa3ed13c38dc11b5055e16f63647b2f2098653c90e4a3bbb95cb67c160",
+    "db/customer.parquet": "1a4ebd5bab73cdde4f767fefe79431180b626fca9ac77de2ff775a0f353ba6cf",
+    "db/transactions.parquet": "c9bf89c7213f62125f75a3071f58df5fe6127f26c38a0cac9383d617eacba21e",
+    "manifest.yaml": "b1e03167a6809a00088b5f37724d78aefdb6a7a1518642d945e419510fe31f44",
+    "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+    "tasks/user-item-purchase/test.parquet": "7751de2a6eafb8d8b29d23080aee0795de35ea0c6a1229d697ee473c15eec74c",
+    "tasks/user-item-purchase/train.parquet": "d70a8aea2123160e502ee613af11ba5d15d4596bb060089634f243a80725ac54",
+    "tasks/user-item-purchase/val.parquet": "05e7ed94146660af3dbffd86770b21aeea53c35be447740869da1ba370d72299"
+  },
+  "rows": {
+    "train": 4804,
+    "val": 304,
+    "test": 250
+  },
+  "train_seen_items": 3714,
+  "history_policy": "past-only t_dat<=cutoff,source-order ties,recent50 reversed",
+  "history_sha256": {
+    "train": "6c7ab03b3466d66a898cc3fd01e86e5beee797f38156900c31d412de5c7a32f1",
+    "val": "87154aa2bacb7de6f8357ff4156ef7319cade0dc0964815139b2b5f4c60601cd",
+    "test": "1c0c0b994deaede2d5d4fde5a47044f461507e7fbeb5c9613c7997df12b6404a"
+  }
+}

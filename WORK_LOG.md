@@ -26739,3 +26739,963 @@ Long Recformer experiment complete; matched short/long comparison verified
 ## 2026-10-16T18:10:22+03:00 — recformer_long_final_audit
 
 Completed: exact scores and top12 in all six independent replays; identical short/long checkpoint selected at epoch2; stopped at epoch5 by patience3; val/test MAP 3.578065/3.438889 percent; training plus validation 20.45min; pipeline exit0; all three report PNGs visually checked; CONTEXT and report updated. Previous runs preserved. Final read-only audit passed using PowerShell after a WSL command quoting error; no training rerun.
+
+## 2026-10-16T19:20:56+03:00 — project_review
+
+Reviewed project history, protocols, runners and latest artifacts before the next user experiment. No training started. WSL has no project training or evaluation processes; GPU idle. Long Recformer pipeline exitcode=0; verification passed. Kaggle Qwen7B/Llama remains user-reported external execution without final results; Qwen14B notebook ready. Historical evaluating/training statuses are not evidence of active processes. Existing results and environments preserved.
+
+## 2026-10-16T19:30:27+03:00 — research_assessment
+
+Studied TDM arXiv1801.02294v5 and JTM1902.07565v2 plus both supplied Alibaba repositories. Actual TDM implementations confirmed in XDL and TorchEasyRec; ready JTM not confirmed in checked modules. Saved pinned source snapshots and hashes, report reports/tdm_assessment/report.md, and CONTEXT entry. Main H&M adaptations: weekly multi-positive targets and negative exclusion, past-only histories, tree/node mappings, MAP@12, frozen tree plus checkpoint and replay. No training, imports of upstream code, package installs or environment changes. Next experiment not yet authorized.
+
+## 2026-10-16T19:55:43+03:00 — tdm_smoke
+
+TDM behavioral checks and isolated CUDA smoke passed
+
+Запуск: `hm_tdm_small_smoke_v1`.
+
+```json
+{
+  "status": "smoke_complete",
+  "checks": {
+    "passed": true,
+    "scope": "behavioral checks and separate one-update CUDA smoke; no experiment metrics",
+    "torch": "2.2.2+cu118",
+    "cuda": true,
+    "smoke8user_update_seconds": 0.29186208300234284,
+    "peak_cuda_bytes": 98534912,
+    "checks": [
+      "all10dataSHA",
+      "tree_reachability_nonpower2",
+      "future_invariance",
+      "item0_padding",
+      "multi_positive_negative_exclusion",
+      "equal_user_mass",
+      "upstream_pooling_parity",
+      "eval_batch_invariance",
+      "exhaustive_beam_matches_full",
+      "article_id_ties",
+      "cuda_backward"
+    ]
+  }
+}
+```
+
+## 2026-10-16T19:56:44+03:00 — tdm_training_start
+
+TDM small weekly training; fixed validation selection
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "config": {
+    "seed": 42,
+    "embedding_dim": 24,
+    "windows": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      5,
+      6,
+      10,
+      20
+    ],
+    "hidden": [
+      128,
+      64,
+      24
+    ],
+    "attention_hidden": 36,
+    "batch": 32,
+    "pair_chunk": 512,
+    "max_epochs": 20,
+    "patience": 4,
+    "minimum_epochs": 5,
+    "max_training_seconds": 900,
+    "lr": 0.001,
+    "negatives_per_level": 8,
+    "beam": 64,
+    "history_length": 50,
+    "precision": "FP32",
+    "objective": "equal-user equal-level balanced multi-positive BCE",
+    "tree_selection": "best beam64 validation MAP; strict improvement",
+    "upstream_reference": "TorchEasyRec 4458f1c66f6c32dc672b9c805855f3d2e6e6179e",
+    "implementation": "local adaptation; no upstream framework installed",
+    "variant": "fixed",
+    "run_id": "hm_tdm_small_fixed_seed42_v1",
+    "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+    "data_hashes": {
+      "article_id_map.csv": "b2b7ada5ca21be99251bbee4ec4f334e636f4f4b1d24a75c9961a5e8a4d50b39",
+      "customer_id_map.csv": "27f04807923db3ce892f0bafe8c3d28b371db0faf235895758172a4f82b0f0c3",
+      "db/article.parquet": "6c2c2eaa3ed13c38dc11b5055e16f63647b2f2098653c90e4a3bbb95cb67c160",
+      "db/customer.parquet": "1a4ebd5bab73cdde4f767fefe79431180b626fca9ac77de2ff775a0f353ba6cf",
+      "db/transactions.parquet": "c9bf89c7213f62125f75a3071f58df5fe6127f26c38a0cac9383d617eacba21e",
+      "manifest.yaml": "b1e03167a6809a00088b5f37724d78aefdb6a7a1518642d945e419510fe31f44",
+      "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+      "tasks/user-item-purchase/test.parquet": "7751de2a6eafb8d8b29d23080aee0795de35ea0c6a1229d697ee473c15eec74c",
+      "tasks/user-item-purchase/train.parquet": "d70a8aea2123160e502ee613af11ba5d15d4596bb060089634f243a80725ac54",
+      "tasks/user-item-purchase/val.parquet": "05e7ed94146660af3dbffd86770b21aeea53c35be447740869da1ba370d72299"
+    },
+    "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280",
+    "prerequisite": {
+      "initial_tree_seconds": 0.029822702999808826
+    },
+    "code_sha256": {
+      "check_protocol.py": "b709798d6bbc705d6096fc6867f2df50a1c6c78987093466f8217075e4e3c4bb",
+      "check_runtime.py": "502c0ad06477b626394357b1c1469dc77cb05778929012cea47b86ed66dd2c69",
+      "common.py": "80c9013353db6142bf45cc1d27629cd3b4ac1a7d6f0a3307cea8989f9cd71f34",
+      "report_small.py": "54ad0554c9ed7d88d9b27a8396da539929478e7f06885b6c1709188fdc76caa0",
+      "run_small.py": "bbe968276d3a88ce0c7f42fabddf3d9a7b0f0c9ac8c10ccb303f93e2e340b278"
+    },
+    "torch_version": "2.2.2+cu118",
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "trainable_parameters": 440079
+  }
+}
+```
+
+## 2026-10-16T19:57:20+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 1,
+  "val_metrics": {
+    "map": 0.006222587719298245
+  },
+  "best_epoch": 1,
+  "train_loss": 0.6818496416536913
+}
+```
+
+## 2026-10-16T19:57:46+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 2,
+  "val_metrics": {
+    "map": 0.006222587719298245
+  },
+  "best_epoch": 1,
+  "train_loss": 0.666370215964737
+}
+```
+
+## 2026-10-16T19:58:14+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 3,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "best_epoch": 3,
+  "train_loss": 0.6413529355026205
+}
+```
+
+## 2026-10-16T19:58:36+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 4,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "best_epoch": 3,
+  "train_loss": 0.5952152306373719
+}
+```
+
+## 2026-10-16T19:59:00+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 5,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "best_epoch": 3,
+  "train_loss": 0.5439312030374384
+}
+```
+
+## 2026-10-16T19:59:28+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 6,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "best_epoch": 3,
+  "train_loss": 0.4957144376391438
+}
+```
+
+## 2026-10-16T19:59:53+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 7,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "best_epoch": 3,
+  "train_loss": 0.45338098841566565
+}
+```
+
+## 2026-10-16T19:59:53+03:00 — tdm_training_complete
+
+TDM training complete; test not evaluated
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "trained_pending_test",
+  "epoch": 7,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "artifacts": "TDM/results/hm_small_v1/fixed",
+  "summary": {
+    "best_epoch": 3,
+    "epochs": 7,
+    "best_validation_map": 0.010160103409829287,
+    "training_and_validation_seconds": 188.6061899560009,
+    "peak_cuda_bytes": 102302720,
+    "stop_reason": "patience4",
+    "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+    "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280"
+  }
+}
+```
+
+## 2026-10-16T20:00:06+03:00 — tdm_training_start
+
+TDM small weekly training; fixed validation selection
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "config": {
+    "seed": 42,
+    "embedding_dim": 24,
+    "windows": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      5,
+      6,
+      10,
+      20
+    ],
+    "hidden": [
+      128,
+      64,
+      24
+    ],
+    "attention_hidden": 36,
+    "batch": 32,
+    "pair_chunk": 512,
+    "max_epochs": 20,
+    "patience": 4,
+    "minimum_epochs": 5,
+    "max_training_seconds": 900,
+    "lr": 0.001,
+    "negatives_per_level": 8,
+    "beam": 64,
+    "history_length": 50,
+    "precision": "FP32",
+    "objective": "equal-user equal-level balanced multi-positive BCE",
+    "tree_selection": "best beam64 validation MAP; strict improvement",
+    "upstream_reference": "TorchEasyRec 4458f1c66f6c32dc672b9c805855f3d2e6e6179e",
+    "implementation": "local adaptation; no upstream framework installed",
+    "variant": "cluster",
+    "run_id": "hm_tdm_small_cluster_seed42_v1",
+    "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+    "data_hashes": {
+      "article_id_map.csv": "b2b7ada5ca21be99251bbee4ec4f334e636f4f4b1d24a75c9961a5e8a4d50b39",
+      "customer_id_map.csv": "27f04807923db3ce892f0bafe8c3d28b371db0faf235895758172a4f82b0f0c3",
+      "db/article.parquet": "6c2c2eaa3ed13c38dc11b5055e16f63647b2f2098653c90e4a3bbb95cb67c160",
+      "db/customer.parquet": "1a4ebd5bab73cdde4f767fefe79431180b626fca9ac77de2ff775a0f353ba6cf",
+      "db/transactions.parquet": "c9bf89c7213f62125f75a3071f58df5fe6127f26c38a0cac9383d617eacba21e",
+      "manifest.yaml": "b1e03167a6809a00088b5f37724d78aefdb6a7a1518642d945e419510fe31f44",
+      "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+      "tasks/user-item-purchase/test.parquet": "7751de2a6eafb8d8b29d23080aee0795de35ea0c6a1229d697ee473c15eec74c",
+      "tasks/user-item-purchase/train.parquet": "d70a8aea2123160e502ee613af11ba5d15d4596bb060089634f243a80725ac54",
+      "tasks/user-item-purchase/val.parquet": "05e7ed94146660af3dbffd86770b21aeea53c35be447740869da1ba370d72299"
+    },
+    "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d",
+    "prerequisite": {
+      "source_checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+      "clustering_seconds": 13.290499057999114,
+      "method": "recursive balanced KMeans2 distance difference; no JTM",
+      "initialization": "fresh seed42; no weight warm start",
+      "fixed_training_seconds": 188.6061899560009
+    },
+    "code_sha256": {
+      "check_protocol.py": "b709798d6bbc705d6096fc6867f2df50a1c6c78987093466f8217075e4e3c4bb",
+      "check_runtime.py": "502c0ad06477b626394357b1c1469dc77cb05778929012cea47b86ed66dd2c69",
+      "common.py": "80c9013353db6142bf45cc1d27629cd3b4ac1a7d6f0a3307cea8989f9cd71f34",
+      "report_small.py": "54ad0554c9ed7d88d9b27a8396da539929478e7f06885b6c1709188fdc76caa0",
+      "run_small.py": "bbe968276d3a88ce0c7f42fabddf3d9a7b0f0c9ac8c10ccb303f93e2e340b278"
+    },
+    "torch_version": "2.2.2+cu118",
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "trainable_parameters": 440079
+  }
+}
+```
+
+## 2026-10-16T20:00:29+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 1,
+  "val_metrics": {
+    "map": 0.007104982310574416
+  },
+  "best_epoch": 1,
+  "train_loss": 0.6062426978053772
+}
+```
+
+## 2026-10-16T20:00:51+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 2,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "best_epoch": 2,
+  "train_loss": 0.578748894425002
+}
+```
+
+## 2026-10-16T20:01:14+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 3,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "best_epoch": 2,
+  "train_loss": 0.5667671860485717
+}
+```
+
+## 2026-10-16T20:01:36+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 4,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "best_epoch": 2,
+  "train_loss": 0.5383922245084377
+}
+```
+
+## 2026-10-16T20:01:56+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 5,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "best_epoch": 2,
+  "train_loss": 0.5059755942390706
+}
+```
+
+## 2026-10-16T20:02:19+03:00 — tdm_epoch
+
+TDM complete epoch and beam validation
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "training",
+  "epoch": 6,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "best_epoch": 2,
+  "train_loss": 0.46484031214184524
+}
+```
+
+## 2026-10-16T20:02:19+03:00 — tdm_training_complete
+
+TDM training complete; test not evaluated
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "trained_pending_test",
+  "epoch": 6,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "artifacts": "TDM/results/hm_small_v1/cluster",
+  "summary": {
+    "best_epoch": 2,
+    "epochs": 6,
+    "best_validation_map": 0.00745875104427736,
+    "training_and_validation_seconds": 132.8533849969972,
+    "peak_cuda_bytes": 102302720,
+    "stop_reason": "patience4",
+    "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+    "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d"
+  }
+}
+```
+
+## 2026-10-16T20:02:19+03:00 — tdm_pretest_frozen
+
+Both TDM models and trees fixed before test scoring
+
+Запуск: `hm_tdm_small_pipeline_v1`.
+
+```json
+{
+  "status": "selected",
+  "selection": {
+    "fixed": {
+      "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+      "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280",
+      "summary": {
+        "best_epoch": 3,
+        "epochs": 7,
+        "best_validation_map": 0.010160103409829287,
+        "training_and_validation_seconds": 188.6061899560009,
+        "peak_cuda_bytes": 102302720,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+        "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280"
+      }
+    },
+    "cluster": {
+      "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+      "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d",
+      "summary": {
+        "best_epoch": 2,
+        "epochs": 6,
+        "best_validation_map": 0.00745875104427736,
+        "training_and_validation_seconds": 132.8533849969972,
+        "peak_cuda_bytes": 102302720,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+        "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d"
+      }
+    }
+  }
+}
+```
+
+## 2026-10-16T20:03:40+03:00 — tdm_scored
+
+TDM weekly MAP measured; independent replay still required
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "measured_pending_verification",
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "test_metrics": {
+    "map": 0.01395194805194805
+  }
+}
+```
+
+## 2026-10-16T20:04:09+03:00 — tdm_scored
+
+TDM weekly MAP measured; independent replay still required
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "measured_pending_verification",
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "test_metrics": {
+    "map": 0.005512626262626263
+  }
+}
+```
+
+## 2026-10-16T20:06:05+03:00 — tdm_verified
+
+All eight TDM beam/full val/test replays matched exactly
+
+Запуск: `hm_tdm_small_pipeline_v1_inference`.
+
+```json
+{
+  "status": "verified",
+  "checks": {
+    "fixed": {
+      "beam_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 20.530800439002633
+      },
+      "beam_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 8.25342785900284
+      },
+      "full_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 6.513463911003782
+      },
+      "full_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 5.648639831000764
+      }
+    },
+    "cluster": {
+      "beam_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 8.829294859002403
+      },
+      "beam_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "trace_nodes": true,
+          "trace_scores": true,
+          "trace_offsets": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 7.020735035002872
+      },
+      "full_val": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 6.217787682995549
+      },
+      "full_test": {
+        "passed": true,
+        "checks": {
+          "predictions": true,
+          "scores": true,
+          "ap_per_user": true,
+          "user_ids": true,
+          "timestamps": true,
+          "metric_identical": true
+        },
+        "replay_seconds": 5.430215631000465
+      }
+    }
+  }
+}
+```
+
+## 2026-10-16T20:06:32+03:00 — tdm_report_ready
+
+TDM measured and replay-verified; report prepared for visual review
+
+Запуск: `hm_tdm_small_pipeline_v1`.
+
+```json
+{
+  "status": "verified_pending_visual_review",
+  "artifacts": "reports/tdm_small_v1",
+  "comparisons": {
+    "TDM cluster beam minus TDM fixed beam": {
+      "difference_pp": -0.8439321789321788,
+      "paired_user_bootstrap95_pp": [
+        -2.142747113997114,
+        0.21910840548340527
+      ]
+    },
+    "TDM fixed beam minus TDM fixed full": {
+      "difference_pp": 0.3922756132756133,
+      "paired_user_bootstrap95_pp": [
+        -0.217825974025974,
+        1.1273543650793647
+      ]
+    },
+    "TDM cluster beam minus TDM cluster full": {
+      "difference_pp": 0.08487373737373738,
+      "paired_user_bootstrap95_pp": [
+        0.007500000000000001,
+        0.16881502525252523
+      ]
+    },
+    "TDM fixed beam minus ContextGNN": {
+      "difference_pp": -1.6203806775235345,
+      "paired_user_bootstrap95_pp": [
+        -3.843799920978492,
+        0.4537329073043358
+      ]
+    },
+    "TDM cluster beam minus ContextGNN": {
+      "difference_pp": -2.4643128564557135,
+      "paired_user_bootstrap95_pp": [
+        -4.3847107125678555,
+        -0.7609954476740202
+      ]
+    },
+    "TDM fixed beam minus Recformer LR/warmup": {
+      "difference_pp": -2.4623184223184222,
+      "paired_user_bootstrap95_pp": [
+        -4.864092352092351,
+        -0.19301960076960162
+      ]
+    },
+    "TDM cluster beam minus Recformer LR/warmup": {
+      "difference_pp": -3.3062506012506017,
+      "paired_user_bootstrap95_pp": [
+        -5.436087662337663,
+        -1.394525853775854
+      ]
+    }
+  }
+}
+```
+
+## 2026-10-16T20:07:52+03:00 — tdm_complete
+
+TDM weekly run complete; independent replay and visual report checks passed
+
+Запуск: `hm_tdm_small_fixed_seed42_v1`.
+
+```json
+{
+  "status": "complete",
+  "epoch": 7,
+  "val_metrics": {
+    "map": 0.010160103409829287
+  },
+  "test_metrics": {
+    "map": 0.01395194805194805
+  },
+  "artifacts": "TDM/results/hm_small_v1/fixed",
+  "summary": {
+    "best_epoch": 3,
+    "epochs": 7,
+    "best_validation_map": 0.010160103409829287,
+    "training_and_validation_seconds": 188.6061899560009,
+    "peak_cuda_bytes": 102302720,
+    "stop_reason": "patience4",
+    "checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+    "tree_sha256": "1a3886a63618901bb5f8957b46c0d197e07cebb277ddac100e6010aeb0851280"
+  }
+}
+```
+
+## 2026-10-16T20:07:52+03:00 — tdm_complete
+
+TDM weekly run complete; independent replay and visual report checks passed
+
+Запуск: `hm_tdm_small_cluster_seed42_v1`.
+
+```json
+{
+  "status": "complete",
+  "epoch": 6,
+  "val_metrics": {
+    "map": 0.00745875104427736
+  },
+  "test_metrics": {
+    "map": 0.005512626262626263
+  },
+  "artifacts": "TDM/results/hm_small_v1/cluster",
+  "summary": {
+    "best_epoch": 2,
+    "epochs": 6,
+    "best_validation_map": 0.00745875104427736,
+    "training_and_validation_seconds": 132.8533849969972,
+    "peak_cuda_bytes": 102302720,
+    "stop_reason": "patience4",
+    "checkpoint_sha256": "15692cd1b9bf8eeaedc98f1bb96ef2626d6f5bf310e1be135855667435e0b0f3",
+    "tree_sha256": "9697f967f52edf9e211578f80f14788671447da109aee417e32e5fe48606e75d"
+  }
+}
+```
+
+## 2026-10-16T20:07:52+03:00 — tdm_pipeline_complete
+
+Completed both authorized TDM small-v1 experiments. Fixed tree:7epochs,best3, beam val/test1.016010/1.395195 percent; exhaustive same checkpoint0.934150/1.002919 percent. Cluster tree:6epochs,best2,beam0.745875/0.551263 percent; exhaustive0.672455/0.466389 percent. Train+validation188.61s and132.85s; clustering13.29s; peak allocated CUDA102302720bytes each. Both selections fixed before test. All8 independent replays exact, final artifact audit passed, all3 PNGs visually checked, pipeline exit0. Local adaptation,one seed250testusers; cluster-minus-fixed beam bootstrap95 percent interval[-2.14275,+0.21911]pp, so robust general harm/benefit not established. Single-pass beam test7.86/7.18s versus full5.49/5.26s despite986/988 versus5000 scored nodes per user. No package/environment changes; earlier results preserved. Source snapshot retained.
+
+Запуск: `hm_tdm_small_pipeline_v1`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/tdm_small_v1",
+  "verification": "TDM/results/hm_small_v1/verification.json",
+  "final_audit": "reports/tdm_small_v1/final_audit.json"
+}
+```
+
+## 2026-10-16T20:52:30+03:00 — kaggle_small_llm_audited
+
+Qwen7B_LightGBM: реальный Kaggle запуск проверен;20успешных/67вызовов,candidate5; val/testMAP=0.777180/1.107143%. Совпали72813trainпар/source/model/programSHA/выборпоconfirmation. НезависимыйCPUreplay точно совпал top12/AP/MAP. Безобучения/новойгенерации/выборапоtest.
+
+Запуск: `hm_small_qwen_llama_sql_v1_2ecc60d61fd4_qwen`.
+
+```json
+{
+  "status": "complete",
+  "val_metrics": {
+    "map": 0.007771796916533759
+  },
+  "test_metrics": {
+    "map": 0.01107142857142857
+  },
+  "artifacts": "reports/hm_small_llms_v1",
+  "selected_call": 5,
+  "llm_calls": 67,
+  "evaluated_distinct": 20
+}
+```
+
+## 2026-10-16T20:52:30+03:00 — kaggle_small_llm_audited
+
+Llama8B_LightGBM: реальный Kaggle запуск проверен;20успешных/201вызовов,candidate144; val/testMAP=0.843960/0.780337%. Совпали72813trainпар/source/model/programSHA/выборпоconfirmation. НезависимыйCPUreplay точно совпал top12/AP/MAP. Безобучения/новойгенерации/выборапоtest.
+
+Запуск: `hm_small_qwen_llama_sql_v1_2ecc60d61fd4_llama`.
+
+```json
+{
+  "status": "complete",
+  "val_metrics": {
+    "map": 0.008439600421508316
+  },
+  "test_metrics": {
+    "map": 0.007803367003367003
+  },
+  "artifacts": "reports/hm_small_llms_v1",
+  "selected_call": 144,
+  "llm_calls": 201,
+  "evaluated_distinct": 20
+}
+```
+
+## 2026-10-16T20:52:30+03:00 — kaggle_small_llm_audited
+
+Qwen14B_LightGBM: реальный Kaggle запуск проверен;20успешных/45вызовов,candidate14; val/testMAP=1.211209/0.743306%. Совпали72813trainпар/source/model/programSHA/выборпоconfirmation. НезависимыйCPUreplay точно совпал top12/AP/MAP. Безобучения/новойгенерации/выборапоtest.
+
+Запуск: `hm_small_qwen14b_sql_v1_f373011050bf`.
+
+```json
+{
+  "status": "complete",
+  "val_metrics": {
+    "map": 0.01211209447229184
+  },
+  "test_metrics": {
+    "map": 0.00743305785123967
+  },
+  "artifacts": "reports/hm_small_llms_v1",
+  "selected_call": 14,
+  "llm_calls": 45,
+  "evaluated_distinct": 20
+}
+```
+
+## 2026-10-16T20:52:31+03:00 — kaggle_small_llms_comparison
+
+Оба ZIP проверены,все60программ. Qwen7Btest1.107143%,Llama8B0.780337%,Qwen14B0.743306%; Raw0.959630%,manual1.233880%,ContextGNN3.015575%. У14B45calls против67/201,но генерация71.61мин против46.42/262.10мин. Выбранные14B/Llama historyагрегатытолькоcustomer_id;Qwen7B включаетcategory/customer×department;причинностьне установлена. Report/таблицы/5PNG/bootstrap10kготовы. Одинseed250test,точечныйпорядокне доказываетустойчивоепревосходство. ИзначальныйWSLстекотклонилnullableboolLlama;точныеCPUверсииKaggleустановленыизолированновaudit_deps,старыеenvне менялись. 4модели×val/testreplayточносовпали. Никакогообучения/измененияисходныхZIP.
+
+Запуск: `hm_small_llms_comparison_v1`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/hm_small_llms_v1",
+  "audit": "reports/hm_small_llms_v1/audit.json",
+  "report": "reports/hm_small_llms_v1/report.md",
+  "bootstrap": "reports/hm_small_llms_v1/paired_test_bootstrap.csv"
+}
+```
+
+## 2026-10-16T20:52:31+03:00 — external_run_audited
+
+Kaggle запуск завершён и проверен; фактические результаты отдельно: hm_small_qwen_llama_sql_v1_2ecc60d61fd4
+
+Запуск: `hm_small_qwen_llama_sql_v1`.
+
+```json
+{
+  "status": "completed_on_kaggle_audited",
+  "actual_run_id": "hm_small_qwen_llama_sql_v1_2ecc60d61fd4",
+  "artifacts": "reports/hm_small_llms_v1"
+}
+```
+
+## 2026-10-16T20:52:31+03:00 — external_run_audited
+
+Kaggle запуск завершён и проверен; фактические результаты отдельно: hm_small_qwen14b_sql_v1_f373011050bf
+
+Запуск: `hm_small_qwen14b_sql_v1`.
+
+```json
+{
+  "status": "completed_on_kaggle_audited",
+  "actual_run_id": "hm_small_qwen14b_sql_v1_f373011050bf",
+  "artifacts": "reports/hm_small_llms_v1"
+}
+```
+
+## 2026-10-16T21:14:45+03:00 — qwen7_generation_error_analysis
+
+Пользователь выбрал Qwen2.5-Coder-7B-Instruct. Разобраны67реальныхответовsmall-v1: 20валидных/30отказов/17дубликатов;JSON67/67,обрезаний0. Первыеошибки9строковыхрезультатов,8OVER,6keys, 4history-в-derived,2SQLsyntax,1ID-в-derived. У18ответов несколько проблемныхfeatures;13/40repair возвращаютнеизменённуюпрограмму(7отказов,6дубликатов).9/17дубликатов=candidate001. Сохраненывсеошибкипоfeatures/цепочки/примеры/promptaddendum/repairtemplate;SQLпримерыEXPLAIN-проверены DuckDB1.4.1насинтетическойсхеме. Нетгенерации/обучения/переоценкиMAP/измененийрабочихноутбуков. H003A/B/CвHYPOTHESES.md предложены,не запущены. Устойчивое превосходство7Bне доказано;testуже просмотрен.
+
+```json
+{
+  "artifacts": "reports/qwen7b_generation_errors_v1",
+  "analysis": "reports/qwen7b_generation_errors_v1/analysis.json",
+  "chosen_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "proposed_hypothesis": "H003",
+  "experiment_started": false
+}
+```
+
+## 2026-10-16T21:29:47+03:00 — gitignore_updated
+
+По просьбе пользователя исключены из Git зависимости аудита, установщик pip, распакованные результаты Kaggle, архивы результатов и временные SQL/scratch файлы. Сам .gitignore остаётся игнорируемым. Код, ноутбуки, отчёты и история сохранены; файлы не удалялись, индекс Git не менялся.

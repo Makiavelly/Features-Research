@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "behavioral checks and separate one-update CUDA smoke; no experiment metrics",
+  "torch": "2.2.2+cu118",
+  "cuda": true,
+  "smoke8user_update_seconds": 0.29186208300234284,
+  "peak_cuda_bytes": 98534912,
+  "checks": [
+    "all10dataSHA",
+    "tree_reachability_nonpower2",
+    "future_invariance",
+    "item0_padding",
+    "multi_positive_negative_exclusion",
+    "equal_user_mass",
+    "upstream_pooling_parity",
+    "eval_batch_invariance",
+    "exhaustive_beam_matches_full",
+    "article_id_ties",
+    "cuda_backward"
+  ]
+}

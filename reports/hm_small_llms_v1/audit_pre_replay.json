@@ -1,0 +1,782 @@
+{
+  "archives": {
+    "qwen_llama": {
+      "file": "hm_small_qwen_llama_sql_v1_2ecc60d61fd4_results.zip",
+      "sha256": "63a754c03b57a6fcaf7da51bbfa6db2261ded5d6f97e5d1e190d3338c899c807"
+    },
+    "qwen14b": {
+      "file": "hm_small_qwen14b_sql_v1_f373011050bf_results.zip",
+      "sha256": "dfb55200c842698c0f821bb7e4863a5c7b68a110b7784dc85a4b8b83d97e5262"
+    }
+  },
+  "matched_fields": [
+    "seed",
+    "target_successful_distinct",
+    "max_llm_calls",
+    "max_repairs_per_proposal",
+    "islands",
+    "memory_programs_per_prompt",
+    "temperature",
+    "max_input_tokens",
+    "max_new_tokens",
+    "lightgbm_rounds",
+    "cpu_threads",
+    "scoring_user_batch",
+    "evaluation_timeout_seconds",
+    "quantization",
+    "feature_interface",
+    "search_users",
+    "confirmation_users",
+    "heldout_val_users",
+    "validation_users",
+    "test_users",
+    "evaluation_catalog",
+    "bundle_manifest_sha256",
+    "train_pairs",
+    "train_pair_sha256",
+    "training_examples",
+    "versions",
+    "gpu"
+  ],
+  "configs_matched": true,
+  "runs": {
+    "qwen_llama": {
+      "fingerprint": "2ecc60d61fd4",
+      "source_hashes_verified": true,
+      "config": {
+        "protocol": "hm_small_qwen_llama_sql_v1",
+        "seed": 42,
+        "target_successful_distinct": 20,
+        "max_llm_calls": 300,
+        "max_repairs_per_proposal": 3,
+        "islands": 3,
+        "memory_programs_per_prompt": 1,
+        "temperature": 0.8,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 2048,
+        "lightgbm_rounds": 150,
+        "cpu_threads": 4,
+        "scoring_user_batch": 16,
+        "evaluation_timeout_seconds": 1800,
+        "quantization": "bnb NF4/double_quant/FP16",
+        "feature_interface": "original_local_qwen_SQL_aggregates_and_derived",
+        "search_users": 128,
+        "confirmation_users": 88,
+        "heldout_val_users": 88,
+        "validation_users": 304,
+        "test_users": 250,
+        "evaluation_catalog": 5000,
+        "llama_source": "hf",
+        "models": {
+          "qwen": {
+            "model_id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+            "revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242"
+          },
+          "llama": {
+            "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+            "revision": "0e9e39f249a16976918f6564b8830bc894c89659"
+          }
+        },
+        "bundle_manifest_sha256": "3cb473dfafa1d60c4922fe85e63ae5b19efe0cf76f72cfd04164030132db01a3",
+        "runtime_sha256": {
+          "features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+          "original_prompt.py": "0b79bb4885bf6383a6a4afb4d18828265780d691aa314e9ea917a1969951d82c",
+          "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+          "runtime.py": "33fead39d4b655ca862921261e33345df2a22f00f483bec864b530a6f8ad10f0"
+        },
+        "train_pairs": 72813,
+        "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+        "versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "4.57.1",
+          "bitsandbytes": "0.48.1",
+          "accelerate": "1.10.1",
+          "lightgbm": "4.6.0",
+          "duckdb": "1.4.1",
+          "numpy": "2.1.3",
+          "pandas": "2.3.3",
+          "pyarrow": "23.0.1"
+        },
+        "gpu": "Tesla T4",
+        "training_examples": "[{\"raw_u_age\":39.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":626,\"raw_i_product_type_no\":31,\"raw_i_graphical_appearance_no\":14,\"raw_i_colour_group_code\":16,\"raw_i_perceived_colour_value_id\":1,\"raw_i_perceived_colour_master_id\":17,\"raw_i_department_no\":30,\"raw_i_index_group_no\":1,\"raw_i_section_no\":21,\"raw_i_garment_group_no\":1},{\"raw_u_age\":35.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":1058,\"raw_i_product_type_no\":46,\"raw_i_graphical_appearance_no\":14,\"raw_i_colour_group_code\":8,\"raw_i_perceived_colour_value_id\":3,\"raw_i_perceived_colour_master_id\":5,\"raw_i_department_no\":43,\"raw_i_index_group_no\":0,\"raw_i_section_no\":6,\"raw_i_garment_group_no\":18},{\"raw_u_age\":35.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":433,\"raw_i_product_type_no\":45,\"raw_i_graphical_appearance_no\":12,\"raw_i_colour_group_code\":8,\"raw_i_perceived_colour_value_id\":3,\"raw_i_perceived_colour_master_id\":5,\"raw_i_department_no\":135,\"raw_i_index_group_no\":4,\"raw_i_section_no\":1,\"raw_i_garment_group_no\":3}]"
+      }
+    },
+    "qwen14b": {
+      "fingerprint": "f373011050bf",
+      "source_hashes_verified": true,
+      "config": {
+        "protocol": "hm_small_qwen14b_sql_v1",
+        "seed": 42,
+        "target_successful_distinct": 20,
+        "max_llm_calls": 300,
+        "max_repairs_per_proposal": 3,
+        "islands": 3,
+        "memory_programs_per_prompt": 1,
+        "temperature": 0.8,
+        "max_input_tokens": 6144,
+        "max_new_tokens": 2048,
+        "lightgbm_rounds": 150,
+        "cpu_threads": 4,
+        "scoring_user_batch": 16,
+        "evaluation_timeout_seconds": 1800,
+        "quantization": "bnb NF4/double_quant/FP16",
+        "feature_interface": "original_local_qwen_SQL_aggregates_and_derived",
+        "search_users": 128,
+        "confirmation_users": 88,
+        "heldout_val_users": 88,
+        "validation_users": 304,
+        "test_users": 250,
+        "evaluation_catalog": 5000,
+        "parent_protocol": "hm_small_qwen_llama_sql_v1",
+        "models": {
+          "qwen14b": {
+            "model_id": "Qwen/Qwen2.5-Coder-14B-Instruct",
+            "revision": "aedcc2d42b622764e023cf882b6652e646b95671"
+          }
+        },
+        "bundle_manifest_sha256": "3cb473dfafa1d60c4922fe85e63ae5b19efe0cf76f72cfd04164030132db01a3",
+        "runtime_sha256": {
+          "features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+          "original_prompt.py": "0b79bb4885bf6383a6a4afb4d18828265780d691aa314e9ea917a1969951d82c",
+          "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+          "runtime.py": "33fead39d4b655ca862921261e33345df2a22f00f483bec864b530a6f8ad10f0",
+          "runtime14.py": "a9b4dd41df4091e544f3a10e16f473c785cd47768e357499dd4e6a9da5bf331c"
+        },
+        "train_pairs": 72813,
+        "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+        "versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "4.57.1",
+          "bitsandbytes": "0.48.1",
+          "accelerate": "1.10.1",
+          "lightgbm": "4.6.0",
+          "duckdb": "1.4.1",
+          "numpy": "2.1.3",
+          "pandas": "2.3.3",
+          "pyarrow": "23.0.1"
+        },
+        "gpu": "Tesla T4",
+        "training_examples": "[{\"raw_u_age\":39.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":626,\"raw_i_product_type_no\":31,\"raw_i_graphical_appearance_no\":14,\"raw_i_colour_group_code\":16,\"raw_i_perceived_colour_value_id\":1,\"raw_i_perceived_colour_master_id\":17,\"raw_i_department_no\":30,\"raw_i_index_group_no\":1,\"raw_i_section_no\":21,\"raw_i_garment_group_no\":1},{\"raw_u_age\":35.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":1058,\"raw_i_product_type_no\":46,\"raw_i_graphical_appearance_no\":14,\"raw_i_colour_group_code\":8,\"raw_i_perceived_colour_value_id\":3,\"raw_i_perceived_colour_master_id\":5,\"raw_i_department_no\":43,\"raw_i_index_group_no\":0,\"raw_i_section_no\":6,\"raw_i_garment_group_no\":18},{\"raw_u_age\":35.0,\"raw_u_fn\":null,\"raw_u_active\":null,\"raw_u_club_member_status\":0.0,\"raw_u_fashion_news_frequency\":0.0,\"raw_i_product_code\":433,\"raw_i_product_type_no\":45,\"raw_i_graphical_appearance_no\":12,\"raw_i_colour_group_code\":8,\"raw_i_perceived_colour_value_id\":3,\"raw_i_perceived_colour_master_id\":5,\"raw_i_department_no\":135,\"raw_i_index_group_no\":4,\"raw_i_section_no\":1,\"raw_i_garment_group_no\":3}]"
+      }
+    }
+  },
+  "models": {
+    "Qwen7B_LightGBM": {
+      "calls": 67,
+      "valid": 20,
+      "statuses": {
+        "valid": 20,
+        "rejected": 30,
+        "duplicate": 17
+      },
+      "responses": 67,
+      "repairs": 40,
+      "proposals": 27,
+      "generation_seconds": 2785.273090227001,
+      "generated_tokens": 32390,
+      "failure_stages": {
+        "preflight": 6,
+        "parse_and_validate": 24
+      },
+      "top_errors": [
+        [
+          "Only numeric SQL expressions, no statements/strings/qualified names",
+          9
+        ],
+        [
+          "Traceback (most recent call last):",
+          6
+        ],
+        [
+          "Invalid grouping keys",
+          6
+        ],
+        [
+          "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          4
+        ],
+        [
+          "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          4
+        ],
+        [
+          "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          1
+        ]
+      ],
+      "selected_call": 5,
+      "aggregates": 6,
+      "derived": 5,
+      "aggregate_groupings": [
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "product_type_no"
+        ],
+        [
+          "department_no"
+        ],
+        [
+          "customer_id",
+          "department_no"
+        ]
+      ],
+      "selected": {
+        "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/qwen/candidates/candidate_005",
+        "call": 5,
+        "confirmation_map": 0.005383379247015611,
+        "selection": "top3 search plus raw -> disjoint confirmation88",
+        "program_sha256": "bbca6b204b2889e318fad6ea741dc6137848590131821f6dfbcacc9ec4a1538f",
+        "model_sha256": "d1f4272d4d3c216c8becddbe2b504d8adc43a2e94cbbd5cf0359d0fe81c32f40",
+        "successful_distinct": 20,
+        "budget_complete": true,
+        "llm_calls": 67,
+        "confirmation": [
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/raw_control",
+            "call": null,
+            "confirmation_map": 0.0013528138528138528
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/qwen/candidates/candidate_027",
+            "call": 27,
+            "confirmation_map": 0.004449937688574052
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/qwen/candidates/candidate_046",
+            "call": 46,
+            "confirmation_map": 0.0009684917355371902
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/qwen/candidates/candidate_005",
+            "call": 5,
+            "confirmation_map": 0.005383379247015611
+          }
+        ]
+      },
+      "program": {
+        "rationale": "Rank articles based on customer purchase history, department purchases, and product type purchases to predict future purchases.",
+        "aggregates": [
+          {
+            "name": "f_customer_purchase_frequency",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(product_code)"
+          },
+          {
+            "name": "f_customer_discount_frequency",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "sum(price)"
+          },
+          {
+            "name": "f_customer_discount_average",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "avg(price)"
+          },
+          {
+            "name": "f_product_type_purchase_frequency",
+            "keys": [
+              "product_type_no"
+            ],
+            "sql": "approx_count_distinct(customer_id)"
+          },
+          {
+            "name": "f_department_purchase_frequency",
+            "keys": [
+              "department_no"
+            ],
+            "sql": "approx_count_distinct(customer_id)"
+          },
+          {
+            "name": "f_customer_dept_product_purchase_frequency",
+            "keys": [
+              "customer_id",
+              "department_no"
+            ],
+            "sql": "approx_count_distinct(product_code)"
+          }
+        ],
+        "derived": [
+          {
+            "name": "f_discount_frequency_per_purchase",
+            "sql": "f_customer_discount_frequency / f_customer_purchase_frequency"
+          },
+          {
+            "name": "f_discount_value_per_purchase",
+            "sql": "f_customer_discount_average * f_customer_purchase_frequency"
+          },
+          {
+            "name": "f_product_type_purchase_rate",
+            "sql": "f_customer_purchase_frequency / f_product_type_purchase_frequency"
+          },
+          {
+            "name": "f_department_purchase_rate",
+            "sql": "f_customer_purchase_frequency / f_department_purchase_frequency"
+          },
+          {
+            "name": "f_dept_product_purchase_rate",
+            "sql": "f_customer_purchase_frequency / f_customer_dept_product_purchase_frequency"
+          }
+        ]
+      },
+      "row_mapping_probes_passed": true
+    },
+    "Llama8B_LightGBM": {
+      "calls": 201,
+      "valid": 20,
+      "statuses": {
+        "rejected": 181,
+        "valid": 20
+      },
+      "responses": 201,
+      "repairs": 140,
+      "proposals": 61,
+      "generation_seconds": 15726.092350749008,
+      "generated_tokens": 144305,
+      "failure_stages": {
+        "preflight": 39,
+        "parse_and_validate": 142
+      },
+      "top_errors": [
+        [
+          "Traceback (most recent call last):",
+          39
+        ],
+        [
+          "Maximum 24 aggregates and 12 derived features",
+          32
+        ],
+        [
+          "Invalid grouping keys",
+          16
+        ],
+        [
+          "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          10
+        ],
+        [
+          "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          10
+        ],
+        [
+          "Only numeric SQL expressions, no statements/strings/qualified names",
+          9
+        ],
+        [
+          "Function outside allowlist: if",
+          6
+        ],
+        [
+          "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+          3
+        ]
+      ],
+      "selected_call": 144,
+      "aggregates": 9,
+      "derived": 5,
+      "aggregate_groupings": [
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ]
+      ],
+      "selected": {
+        "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/llama/candidates/candidate_144",
+        "call": 144,
+        "confirmation_map": 0.00760219893742621,
+        "selection": "top3 search plus raw -> disjoint confirmation88",
+        "program_sha256": "fcac79ed55c30aa74688688d808252a426180b3dfdcf221292f7f110f9a7f8ae",
+        "model_sha256": "115527e5875bb686e67baa9f4659895632405067f1d76d80edf03b2f197e5349",
+        "successful_distinct": 20,
+        "budget_complete": true,
+        "llm_calls": 201,
+        "confirmation": [
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/raw_control",
+            "call": null,
+            "confirmation_map": 0.0013528138528138528
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/llama/candidates/candidate_144",
+            "call": 144,
+            "confirmation_map": 0.00760219893742621
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/llama/candidates/candidate_156",
+            "call": 156,
+            "confirmation_map": 0.0063311688311688315
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen_llama_sql_v1_2ecc60d61fd4/llama/candidates/candidate_107",
+            "call": 107,
+            "confirmation_map": 0.007115800865800866
+          }
+        ]
+      },
+      "program": {
+        "rationale": "capturing customer behavior, article characteristics, and purchase dynamics to predict purchases with temporal characteristics",
+        "aggregates": [
+          {
+            "name": "f_customer_age_mean",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "avg(customer_age)"
+          },
+          {
+            "name": "f_product_code_count",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(DISTINCT product_code)"
+          },
+          {
+            "name": "f_days_ago_max",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "max(days_ago)"
+          },
+          {
+            "name": "f_price_avg",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "avg(price)"
+          },
+          {
+            "name": "f_department_no_mode",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "mode(department_no)"
+          },
+          {
+            "name": "f_product_code_count_distinct",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(product_code)"
+          },
+          {
+            "name": "f_garment_group_no_count",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(DISTINCT garment_group_no)"
+          },
+          {
+            "name": "f_product_type_no_count",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(product_type_no)"
+          },
+          {
+            "name": "f_sales_channel_id_count",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(sales_channel_id)"
+          }
+        ],
+        "derived": [
+          {
+            "name": "f_temporal_purchase_frequency",
+            "sql": "f_customer_age_mean / f_days_ago_max"
+          },
+          {
+            "name": "f_product_type_no_diversity",
+            "sql": "f_product_type_no_count / f_product_code_count_distinct"
+          },
+          {
+            "name": "f_article_popularity",
+            "sql": "f_product_code_count / f_product_type_no_count"
+          },
+          {
+            "name": "f_price_fluctuation_rate",
+            "sql": "f_price_avg / f_days_ago_max"
+          },
+          {
+            "name": "f_temporal_change_rate",
+            "sql": "f_department_no_mode!= f_department_no_mode - 1"
+          }
+        ]
+      },
+      "row_mapping_probes_passed": true
+    },
+    "Qwen14B_LightGBM": {
+      "calls": 45,
+      "valid": 20,
+      "statuses": {
+        "rejected": 12,
+        "valid": 20,
+        "duplicate": 13
+      },
+      "responses": 45,
+      "repairs": 23,
+      "proposals": 22,
+      "generation_seconds": 4296.472605458,
+      "generated_tokens": 23746,
+      "failure_stages": {
+        "parse_and_validate": 3,
+        "preflight": 9
+      },
+      "top_errors": [
+        [
+          "Traceback (most recent call last):",
+          9
+        ],
+        [
+          "Feature names must be unique f_lowercase_names",
+          2
+        ],
+        [
+          "Only numeric SQL expressions, no statements/strings/qualified names",
+          1
+        ]
+      ],
+      "selected_call": 14,
+      "aggregates": 13,
+      "derived": 5,
+      "aggregate_groupings": [
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ],
+        [
+          "customer_id"
+        ]
+      ],
+      "selected": {
+        "directory": "/kaggle/working/hm_small_qwen14b_sql_v1_f373011050bf/qwen14b/candidates/candidate_014",
+        "call": 14,
+        "confirmation_map": 0.011126893939393938,
+        "selection": "top3 search plus raw -> disjoint confirmation88",
+        "program_sha256": "b3741854ad68ed2daa698aff7101cefd302cb941ffd3f197dc9da14360e0ee21",
+        "model_sha256": "4939507569ba0fa21455c762f65222a2182af71996a2f19f2be7996e6836075f",
+        "successful_distinct": 20,
+        "budget_complete": true,
+        "llm_calls": 45,
+        "confirmation": [
+          {
+            "directory": "/kaggle/working/hm_small_qwen14b_sql_v1_f373011050bf/raw_control",
+            "call": null,
+            "confirmation_map": 0.0013528138528138528
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen14b_sql_v1_f373011050bf/qwen14b/candidates/candidate_014",
+            "call": 14,
+            "confirmation_map": 0.011126893939393938
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen14b_sql_v1_f373011050bf/qwen14b/candidates/candidate_023",
+            "call": 23,
+            "confirmation_map": 0.007305194805194804
+          },
+          {
+            "directory": "/kaggle/working/hm_small_qwen14b_sql_v1_f373011050bf/qwen14b/candidates/candidate_036",
+            "call": 36,
+            "confirmation_map": 0.004644660894660895
+          }
+        ]
+      },
+      "program": {
+        "rationale": "To enhance recommendation performance, we will create features that capture customer purchase patterns, product popularity, and diversity of purchases. These features will help in predicting which articles are likely to be purchased in the next 7 days.",
+        "aggregates": [
+          {
+            "name": "f_total_purchases",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(*)"
+          },
+          {
+            "name": "f_avg_days_ago",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "avg(days_ago)"
+          },
+          {
+            "name": "f_total_unique_products",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(product_code)"
+          },
+          {
+            "name": "f_total_unique_types",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(product_type_no)"
+          },
+          {
+            "name": "f_total_unique_appearances",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(graphical_appearance_no)"
+          },
+          {
+            "name": "f_total_unique_colours",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(colour_group_code)"
+          },
+          {
+            "name": "f_total_unique_departments",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(department_no)"
+          },
+          {
+            "name": "f_total_unique_sections",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(section_no)"
+          },
+          {
+            "name": "f_total_unique_garment_groups",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "approx_count_distinct(garment_group_no)"
+          },
+          {
+            "name": "f_total_sales_channel_1",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(*) FILTER (WHERE sales_channel_id = 1)"
+          },
+          {
+            "name": "f_total_sales_channel_2",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "count(*) FILTER (WHERE sales_channel_id = 2)"
+          },
+          {
+            "name": "f_recency_first_purchase",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "min(days_ago)"
+          },
+          {
+            "name": "f_recency_last_purchase",
+            "keys": [
+              "customer_id"
+            ],
+            "sql": "max(days_ago)"
+          }
+        ],
+        "derived": [
+          {
+            "name": "f_purchase_frequency",
+            "sql": "NULLIF(f_total_purchases, 0) / NULLIF(f_avg_days_ago, 0)"
+          },
+          {
+            "name": "f_diversity_ratio",
+            "sql": "f_total_unique_products / NULLIF(f_total_purchases, 0)"
+          },
+          {
+            "name": "f_channel_balance",
+            "sql": "NULLIF(f_total_sales_channel_1, 0) / NULLIF(f_total_sales_channel_2, 0)"
+          },
+          {
+            "name": "f_department_diversity",
+            "sql": "f_total_unique_departments / NULLIF(f_total_purchases, 0)"
+          },
+          {
+            "name": "f_recency_score",
+            "sql": "NULLIF(f_recency_first_purchase, 0) / NULLIF(f_recency_last_purchase, 0)"
+          }
+        ]
+      },
+      "row_mapping_probes_passed": true
+    }
+  },
+  "replays": [],
+  "local_replay_cpu_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "duckdb": "1.4.1",
+    "lightgbm": "4.6.0"
+  },
+  "initial_environment_issue": "Original local dependency versions rejected nullable boolean Llama feature as non-numeric; use isolated exact Kaggle CPU versions without editing code/program/model. Earlier logs preserved in independent_replay/.",
+  "raw_controls_identical": true
+}

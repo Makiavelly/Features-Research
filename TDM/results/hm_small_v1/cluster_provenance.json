@@ -1,0 +1,7 @@
+{
+  "source_checkpoint_sha256": "fec5341ae294b62220e1989c1ea10a8213985d57528f3df4a2e5f36b04c30766",
+  "clustering_seconds": 13.290499057999114,
+  "method": "recursive balanced KMeans2 distance difference; no JTM",
+  "initialization": "fresh seed42; no weight warm start",
+  "fixed_training_seconds": 188.6061899560009
+}

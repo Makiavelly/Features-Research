@@ -1,0 +1,20 @@
+{
+  "val_metrics": {
+    "map": 0.010160103409829287,
+    "seconds": 19.6787455809972,
+    "mean_scored_nodes": 987.0328947368421,
+    "min_scored_nodes": 979,
+    "max_scored_nodes": 995,
+    "unique_recommended_items": 111,
+    "unseen_target_fraction": 0.03270223752151463
+  },
+  "test_metrics": {
+    "map": 0.01395194805194805,
+    "seconds": 7.861345634999452,
+    "mean_scored_nodes": 986.38,
+    "min_scored_nodes": 978,
+    "max_scored_nodes": 994,
+    "unique_recommended_items": 120,
+    "unseen_target_fraction": 0.035343035343035345
+  }
+}

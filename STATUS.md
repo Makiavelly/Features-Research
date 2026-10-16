@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-16T18:10:22+03:00 (Москва).
+Обновлено: 2026-10-16T21:29:47+03:00 (Москва).
 
-Последнее событие: **Completed: exact scores and top12 in all six independent replays; identical short/long checkpoint selected at epoch2; stopped at epoch5 by patience3; val/test MAP 3.578065/3.438889 percent; training plus validation 20.45min; pipeline exit0; all three report PNGs visually checked; CONTEXT and report updated. Previous runs preserved. Final read-only audit passed using PowerShell after a WSL command quoting error; no training rerun.**
+Последнее событие: **По просьбе пользователя исключены из Git зависимости аудита, установщик pip, распакованные результаты Kaggle, архивы результатов и временные SQL/scratch файлы. Сам .gitignore остаётся игнорируемым. Код, ноутбуки, отчёты и история сохранены; файлы не удалялись, индекс Git не менялся.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -81,7 +81,7 @@
 | hm_recformer_small_seed42_v1_zero_shot | complete | — | — | 2026-10-16T14:18:03+03:00 |
 | hm_recformer_small_seed42_v1_finetuned | complete | — | — | 2026-10-16T14:18:03+03:00 |
 | hm_recformer_small_seed42_v1_inference | verified | — | — | 2026-10-16T14:17:47+03:00 |
-| hm_small_qwen_llama_sql_v1 | running_on_kaggle_user_reported | — | — | 2026-10-16T18:09:46+03:00 |
+| hm_small_qwen_llama_sql_v1 | completed_on_kaggle_audited | — | — | 2026-10-16T20:52:31+03:00 |
 | hm_recformer_ablations_v1 | complete | — | — | 2026-10-16T17:31:38+03:00 |
 | hm_recformer_small_low_lr_warmup_seed42_v1 | complete | 4 | — | 2026-10-16T17:31:35+03:00 |
 | hm_recformer_small_freeze_lower6_seed42_v1 | complete | 4 | — | 2026-10-16T17:31:35+03:00 |
@@ -96,6 +96,15 @@
 | hm_recformer_small_long_floor_seed42_v1_short_2plus2 | complete | — | — | 2026-10-16T18:07:40+03:00 |
 | hm_recformer_small_long_floor_seed42_v1_finetuned | complete | — | — | 2026-10-16T18:07:40+03:00 |
 | hm_recformer_small_long_floor_seed42_v1_inference | verified | — | — | 2026-10-16T18:07:21+03:00 |
-| hm_small_qwen14b_sql_v1 | notebook_ready | — | — | 2026-10-16T18:09:46+03:00 |
+| hm_small_qwen14b_sql_v1 | completed_on_kaggle_audited | — | — | 2026-10-16T20:52:31+03:00 |
+| hm_tdm_small_smoke_v1 | smoke_complete | — | — | 2026-10-16T19:55:43+03:00 |
+| hm_tdm_small_fixed_seed42_v1 | complete | 7 | — | 2026-10-16T20:07:52+03:00 |
+| hm_tdm_small_cluster_seed42_v1 | complete | 6 | — | 2026-10-16T20:07:52+03:00 |
+| hm_tdm_small_pipeline_v1 | complete | — | — | 2026-10-16T20:07:52+03:00 |
+| hm_tdm_small_pipeline_v1_inference | verified | — | — | 2026-10-16T20:06:05+03:00 |
+| hm_small_qwen_llama_sql_v1_2ecc60d61fd4_qwen | complete | — | — | 2026-10-16T20:52:30+03:00 |
+| hm_small_qwen_llama_sql_v1_2ecc60d61fd4_llama | complete | — | — | 2026-10-16T20:52:30+03:00 |
+| hm_small_qwen14b_sql_v1_f373011050bf | complete | — | — | 2026-10-16T20:52:30+03:00 |
+| hm_small_llms_comparison_v1 | complete | — | — | 2026-10-16T20:52:31+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

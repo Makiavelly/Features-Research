@@ -1,0 +1,42 @@
+{
+  "aggregates": [
+    {
+      "name": "f_recent_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*) FILTER (WHERE days_ago <= 7)"
+    },
+    {
+      "name": "f_channel1_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*) FILTER (WHERE sales_channel_id = 1)"
+    },
+    {
+      "name": "f_age_mode",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "mode(customer_age ORDER BY customer_age)"
+    },
+    {
+      "name": "f_purchase_count",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_age_bucket",
+      "sql": "CASE WHEN raw_u_age < 20 THEN 0 WHEN raw_u_age < 40 THEN 1 ELSE 2 END"
+    },
+    {
+      "name": "f_recent_share",
+      "sql": "f_recent_count / nullif(f_purchase_count, 0)"
+    }
+  ]
+}

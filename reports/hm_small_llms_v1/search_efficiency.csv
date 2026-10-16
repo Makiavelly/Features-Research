@@ -1,0 +1,4 @@
+model,calls,successful,rejected,duplicate,success_percent,repairs,generation_minutes,selected_call,aggregates,derived,customer_only_aggregates
+Qwen7B_LightGBM,67,20,30,17,29.850746268656717,40,46.42121817045002,5,6,5,False
+Llama8B_LightGBM,201,20,181,0,9.950248756218905,140,262.1015391791501,144,9,5,True
+Qwen14B_LightGBM,45,20,12,13,44.44444444444444,23,71.60787675763332,14,13,5,True

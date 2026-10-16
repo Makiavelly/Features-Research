@@ -1,0 +1,118 @@
+{
+  "rationale": "To enhance recommendation performance, we will create features that capture customer purchase patterns, product popularity, and diversity of purchases. These features will help in predicting which articles are likely to be purchased in the next 7 days.",
+  "aggregates": [
+    {
+      "name": "f_total_purchases",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*)"
+    },
+    {
+      "name": "f_avg_days_ago",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(days_ago)"
+    },
+    {
+      "name": "f_total_unique_products",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_total_unique_types",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_type_no)"
+    },
+    {
+      "name": "f_total_unique_appearances",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(graphical_appearance_no)"
+    },
+    {
+      "name": "f_total_unique_colours",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(colour_group_code)"
+    },
+    {
+      "name": "f_total_unique_departments",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(department_no)"
+    },
+    {
+      "name": "f_total_unique_sections",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(section_no)"
+    },
+    {
+      "name": "f_total_unique_garment_groups",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(garment_group_no)"
+    },
+    {
+      "name": "f_total_sales_channel_1",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*) FILTER (WHERE sales_channel_id = 1)"
+    },
+    {
+      "name": "f_total_sales_channel_2",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "count(*) FILTER (WHERE sales_channel_id = 2)"
+    },
+    {
+      "name": "f_recency_first_purchase",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "min(days_ago)"
+    },
+    {
+      "name": "f_recency_last_purchase",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "max(days_ago)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_purchase_frequency",
+      "sql": "NULLIF(f_total_purchases, 0) / NULLIF(f_avg_days_ago, 0)"
+    },
+    {
+      "name": "f_diversity_ratio",
+      "sql": "f_total_unique_products / NULLIF(f_total_purchases, 0)"
+    },
+    {
+      "name": "f_channel_balance",
+      "sql": "NULLIF(f_total_sales_channel_1, 0) / NULLIF(f_total_sales_channel_2, 0)"
+    },
+    {
+      "name": "f_department_diversity",
+      "sql": "f_total_unique_departments / NULLIF(f_total_purchases, 0)"
+    },
+    {
+      "name": "f_recency_score",
+      "sql": "NULLIF(f_recency_first_purchase, 0) / NULLIF(f_recency_last_purchase, 0)"
+    }
+  ]
+}

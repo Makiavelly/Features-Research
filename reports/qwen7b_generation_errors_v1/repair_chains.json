@@ -1,0 +1,352 @@
+[
+  {
+    "proposal": 0,
+    "calls": [
+      1
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 1,
+    "calls": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 2,
+    "calls": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "rejected"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 3,
+    "calls": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "statuses": [
+      "duplicate",
+      "duplicate",
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 4,
+    "calls": [
+      14
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 5,
+    "calls": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "rejected"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 6,
+    "calls": [
+      19
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 7,
+    "calls": [
+      20
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 8,
+    "calls": [
+      21,
+      22,
+      23
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 9,
+    "calls": [
+      24,
+      25,
+      26
+    ],
+    "statuses": [
+      "duplicate",
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 10,
+    "calls": [
+      27
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 11,
+    "calls": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "rejected"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 12,
+    "calls": [
+      32,
+      33,
+      34
+    ],
+    "statuses": [
+      "duplicate",
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 13,
+    "calls": [
+      35
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 14,
+    "calls": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "rejected"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 15,
+    "calls": [
+      40,
+      41,
+      42
+    ],
+    "statuses": [
+      "duplicate",
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 16,
+    "calls": [
+      43,
+      44
+    ],
+    "statuses": [
+      "rejected",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 17,
+    "calls": [
+      45
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 18,
+    "calls": [
+      46
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 19,
+    "calls": [
+      47,
+      48,
+      49
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 20,
+    "calls": [
+      50,
+      51
+    ],
+    "statuses": [
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 21,
+    "calls": [
+      52,
+      53,
+      54,
+      55
+    ],
+    "statuses": [
+      "duplicate",
+      "rejected",
+      "duplicate",
+      "duplicate"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 22,
+    "calls": [
+      56,
+      57,
+      58,
+      59
+    ],
+    "statuses": [
+      "rejected",
+      "duplicate",
+      "duplicate",
+      "rejected"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 23,
+    "calls": [
+      60,
+      61,
+      62,
+      63
+    ],
+    "statuses": [
+      "rejected",
+      "rejected",
+      "rejected",
+      "duplicate"
+    ],
+    "successful": false
+  },
+  {
+    "proposal": 24,
+    "calls": [
+      64,
+      65
+    ],
+    "statuses": [
+      "duplicate",
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 25,
+    "calls": [
+      66
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  },
+  {
+    "proposal": 26,
+    "calls": [
+      67
+    ],
+    "statuses": [
+      "valid"
+    ],
+    "successful": true
+  }
+]

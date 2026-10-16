@@ -1,0 +1,70 @@
+{
+  "rationale": "Rank articles based on customer purchase history, department purchases, and product type purchases to predict future purchases.",
+  "aggregates": [
+    {
+      "name": "f_customer_purchase_frequency",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    },
+    {
+      "name": "f_customer_discount_frequency",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "sum(price)"
+    },
+    {
+      "name": "f_customer_discount_average",
+      "keys": [
+        "customer_id"
+      ],
+      "sql": "avg(price)"
+    },
+    {
+      "name": "f_product_type_purchase_frequency",
+      "keys": [
+        "product_type_no"
+      ],
+      "sql": "approx_count_distinct(customer_id)"
+    },
+    {
+      "name": "f_department_purchase_frequency",
+      "keys": [
+        "department_no"
+      ],
+      "sql": "approx_count_distinct(customer_id)"
+    },
+    {
+      "name": "f_customer_dept_product_purchase_frequency",
+      "keys": [
+        "customer_id",
+        "department_no"
+      ],
+      "sql": "approx_count_distinct(product_code)"
+    }
+  ],
+  "derived": [
+    {
+      "name": "f_discount_frequency_per_purchase",
+      "sql": "f_customer_discount_frequency / f_customer_purchase_frequency"
+    },
+    {
+      "name": "f_discount_value_per_purchase",
+      "sql": "f_customer_discount_average * f_customer_purchase_frequency"
+    },
+    {
+      "name": "f_product_type_purchase_rate",
+      "sql": "f_customer_purchase_frequency / f_product_type_purchase_frequency"
+    },
+    {
+      "name": "f_department_purchase_rate",
+      "sql": "f_customer_purchase_frequency / f_department_purchase_frequency"
+    },
+    {
+      "name": "f_dept_product_purchase_rate",
+      "sql": "f_customer_purchase_frequency / f_customer_dept_product_purchase_frequency"
+    }
+  ]
+}

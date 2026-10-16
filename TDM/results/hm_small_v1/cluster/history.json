@@ -1,0 +1,92 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.6062426978053772,
+    "val_metrics": {
+      "map": 0.007104982310574416,
+      "seconds": 9.414647950005019,
+      "mean_scored_nodes": 993.9736842105264,
+      "min_scored_nodes": 993,
+      "max_scored_nodes": 994,
+      "unique_recommended_items": 12,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 23.185942183001316,
+    "train_rows": 4804
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.578748894425002,
+    "val_metrics": {
+      "map": 0.00745875104427736,
+      "seconds": 8.307223965995945,
+      "mean_scored_nodes": 988.1052631578947,
+      "min_scored_nodes": 985,
+      "max_scored_nodes": 993,
+      "unique_recommended_items": 26,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 21.3837992139961,
+    "train_rows": 4804
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.5667671860485717,
+    "val_metrics": {
+      "map": 0.007094242867269182,
+      "seconds": 9.489426380001532,
+      "mean_scored_nodes": 987.453947368421,
+      "min_scored_nodes": 979,
+      "max_scored_nodes": 993,
+      "unique_recommended_items": 57,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 23.223927293998713,
+    "train_rows": 4804
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.5383922245084377,
+    "val_metrics": {
+      "map": 0.005802266081871345,
+      "seconds": 8.19584682900313,
+      "mean_scored_nodes": 986.6842105263158,
+      "min_scored_nodes": 971,
+      "max_scored_nodes": 992,
+      "unique_recommended_items": 170,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 21.68825481600652,
+    "train_rows": 4804
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.5059755942390706,
+    "val_metrics": {
+      "map": 0.00436312134502924,
+      "seconds": 7.60706358999596,
+      "mean_scored_nodes": 987.953947368421,
+      "min_scored_nodes": 978,
+      "max_scored_nodes": 994,
+      "unique_recommended_items": 173,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 19.834150567003235,
+    "train_rows": 4804
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.46484031214184524,
+    "val_metrics": {
+      "map": 0.004734057365636313,
+      "seconds": 9.484532455004228,
+      "mean_scored_nodes": 987.358552631579,
+      "min_scored_nodes": 977,
+      "max_scored_nodes": 995,
+      "unique_recommended_items": 236,
+      "unseen_target_fraction": 0.03270223752151463
+    },
+    "epoch_seconds": 23.254768976003106,
+    "train_rows": 4804
+  }
+]

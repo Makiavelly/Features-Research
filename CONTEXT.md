@@ -1,5 +1,81 @@
 ﻿# Контекст для продолжения проекта
 
+## Выбрана Qwen7B: разбор ошибок генерации (2026-10-16)
+
+Пользователь выбрал Qwen2.5-Coder-7B-Instruct. Разобраны67реальныхответовsmall-v1: 20валидных/30отказов/17дубликатов;JSON67/67,обрезаний0. Первыеошибки9строковыхрезультатов,8OVER,6keys, 4history-в-derived,2SQLsyntax,1ID-в-derived. У18ответов несколько проблемныхfeatures;13/40repair возвращаютнеизменённуюпрограмму(7отказов,6дубликатов).9/17дубликатов=candidate001. Сохраненывсеошибкипоfeatures/цепочки/примеры/promptaddendum/repairtemplate;SQLпримерыEXPLAIN-проверены DuckDB1.4.1насинтетическойсхеме. Нетгенерации/обучения/переоценкиMAP/измененийрабочихноутбуков. H003A/B/CвHYPOTHESES.md предложены,не запущены. Устойчивое превосходство7Bне доказано;testуже просмотрен.
+
+Источник:small-v1/qwen,не смешиватьсошибкамиLlama/v5. Приоритет:адресныеспискиошибоквсехfeatures; затемотдельнопримерыprompt;затемduplicate/unchanged. SQLJSONсохранитьдляпервогосравнения. Рабочиеметрики/ноутбукине менялись;H003ещёнепоручензапускать.
+
+
+## Проверенные реальные Kaggle результаты трёх LLM на small-v1 (2026-10-16)
+
+Оба ZIP проверены,все60программ. Qwen7Btest1.107143%,Llama8B0.780337%,Qwen14B0.743306%; Raw0.959630%,manual1.233880%,ContextGNN3.015575%. У14B45calls против67/201,но генерация71.61мин против46.42/262.10мин. Выбранные14B/Llama historyагрегатытолькоcustomer_id;Qwen7B включаетcategory/customer×department;причинностьне установлена. Report/таблицы/5PNG/bootstrap10kготовы. Одинseed250test,точечныйпорядокне доказываетустойчивоепревосходство. ИзначальныйWSLстекотклонилnullableboolLlama;точныеCPUверсииKaggleустановленыизолированновaudit_deps,старыеenvне менялись. 4модели×val/testreplayточносовпали. Никакогообучения/измененияисходныхZIP.
+
+Исходные архивы hm_small_qwen_llama_sql_v1_2ecc60d61fd4_results.zip и hm_small_qwen14b_sql_v1_f373011050bf_results.zip сохранены.
+Конфиги/версии/T4/4sharedsourceSHA совпали. Data:72813train/4804user-time/8cutoffs,search128/confirm88/heldout88,val304/test250/5000catalog.
+Обаrawконтроля идентичны по моделям и прогнозам. Выборtop3+rawпоconfirm проверен;тест не использовался для переотбора.
+CPU audit versions:numpy2.1.3,pandas2.3.3,pyarrow23.0.1,duckdb1.4.1,lightgbm4.6.0. Файлы и первоначальные failurelogs в reports/hm_small_llms_v1.
+ПрежнейPandasIDошибкинет:joinsownedbyhost;проверкиперестановки/блоковпрошли. Raw item features присутствуют у всех.
+Отчёт reports/hm_small_llms_v1/report.md,audit.json,comparison_all_methods.csv,search_efficiency.csv,paired_test_bootstrap.csv;5PNG.
+НовыеKaggleрезультатыне smoke;локальныеfakefixturesотдельно. Не сравнивать малыйкаталог со старымполнымH&M/статьёй.
+
+Qwen7B_LightGBM: val/testMAP=0.77717969%/1.10714286%,calls67,selected5,statuses{'valid': 20, 'rejected': 30, 'duplicate': 17}.
+Llama8B_LightGBM: val/testMAP=0.84396004%/0.78033670%,calls201,selected144,statuses{'rejected': 181, 'valid': 20}.
+Qwen14B_LightGBM: val/testMAP=1.21120945%/0.74330579%,calls45,selected14,statuses{'rejected': 12, 'valid': 20, 'duplicate': 13}.
+
+
+## Завершённый TDM small-v1 fixed/cluster (2026-10-16)
+
+Оба опыта завершены: fixed7эпох/best3,cluster6эпох/best2;patience4.
+Fixedbeam val/testMAP1.016010%/1.395195%;fullleafтемижевесами0.934150%/1.002919%.
+Clusterbeam0.745875%/0.551263%;fullleaf0.672455%/0.466389%.
+Обучение+val188.61с/132.85с,кластеризация13.29с,peakallocatedCUDA102302720bytes
+(~97.6MiB)уобоих. Восемьнезависимыхreplayсовпалиточнопоscores/top12/AP/traces;
+дополнительныйаудитпрошёл,обаselectionдоtest,pipeline.exitcode0,триPNGпроверены.
+Testbeam7.86/7.18с,full5.49/5.26с;~986/988scorednodesпротив5000.
+Этоодиночныепрогонысзагруженноймоделью,неповторныйбенчмаркскорости.
+Cluster−fixedbeamtest−0.84393п.п.,pairedbootstrap95%[-2.14275;+0.21911]:
+точечныйрезультатниже,ноустойчивыйэффектперестройкинеустановлен.
+Одинseed/250test;локальнаяадаптацияTDM,неJTM/неметрикистатьи.
+Отчёт reports/tdm_small_v1/report.md,report.json;sourceснимокв
+TDM/results/hm_small_v1/source;старыеартефакты/пакеты/unslothнеизменены.
+
+Пользователь поручил начать fixed-treeTDM, сравнитьbeam/fullleafтемижевесами,
+затем отдельно проверить перестройку по embeddings. Протокол TDM/PROTOCOL_SMALL.md,
+runner TDM/run_small.py, pipeline TDM/run_pipeline.sh. Новые runIDs:
+hm_tdm_small_fixed_seed42_v1 и hm_tdm_small_cluster_seed42_v1.
+Это явная локальная адаптация TDM в прежнемtorch2.2.2; штатныйTorchEasyRec
+не устанавливается,пакеты/unslothне меняются. Small-v1/4804/304/250/5000каталог,
+историяpast-only50покупок,attention36/emb24/MLP128-64-24,positionalwindows50,
+weeklymulti-positivebalancedBCE,до8негативов/уровеньс исключениемвсехпозитивных
+предков,Adam.001/batch32/seed42,до20эпох/patience4/min5/15минбюджетна модель.
+Beam64MAPпоvalвыбираетcheckpoint,fullleafдиагностический. Сначалаобаобучения
+иselection_pretest,затемtestобоих. Clusterизсобственныхfixedbestleafembeddings,
+balancedKMeans2,n_init10;новаямодельснуляseed42,неJTM. Отдельныйsmoke,
+восемьнезависимыхreplayоценок,новыйотчёт reports/tdm_small_v1.
+Фактическийстатуспроверятьпопроцессам/логам TDM/logs/small_v1.
+
+## Изучение TDM/JTM перед следующим заданием (2026-10-16)
+
+По запросу пользователя изучены arXiv1801.02294v5(TDM),1902.07565v2(JTM),
+XDLwiki и реальные исходники Alibaba x-deeplearning/TorchEasyRec.
+Отчёт reports/tdm_assessment/report.md; источники/APIдеревья/SHA в sources/.
+TorchEasyRec4458f1c66f6c32dc672b9c805855f3d2e6e6179e имеет модель/sampler/
+build/cluster/retrieval/localParquetpipeline; XDL a710108d4457f01992bf0b3b9b6c0f78fdb8e642
+тоже имеет TDM,но старый стекPython2/MXNet/HDFS/C++. Готовый JTM в проверенных
+модулях НЕ подтверждён: KMeansперестройка TDM не равна objective-based
+назначению JTM и истории через предков на соответствующем уровне.
+Подходит как отдельный рекомендатель/генератор кандидатов. Нужны past-only
+user-time истории, недельные multi-positive цели/исключениевсехпозитивных
+предковизнегативов, нашMAP@12вместопопаданияодногоitem, полныйкаталог,
+повторыразрешены, checkpoint+дерево+mapping, независимыйreplay.
+windows_lenвTorchEasyRecпозиционные,недневные. На5000товарахускорение
+негарантировано;предложеныfixedTDM,отдельноclusterTDM,затемJTM;
+beamvsfullleafконтрольтойжемодели. Текущийmasterтребуетдругойстек
+(torch2.14/TorchRec/FBGEMM/GraphLearn);отдельноеокружениеилиявныйперенос.
+Ничегонеустанавливалось/необучалось,старыеокружения/результатынеизменялись.
+Следующийэкспериментещёнепоручен.
+
 ## Kaggle: отдельная Qwen14B на прежнем small SQL протоколе (2026-10-16)
 
 Пользователь сообщил,что Qwen7B/Llama notebook уже работает вKaggle;

@@ -79,7 +79,7 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_recformer_small_seed42_v1_zero_shot | complete | — | 2.66996 | 3.30054 | Recformer/results/hm_small_seed42_v1/zero_shot |
 | hm_recformer_small_seed42_v1_finetuned | complete | — | 2.47022 | 1.23556 | Recformer/results/hm_small_seed42_v1/finetuned |
 | hm_recformer_small_seed42_v1_inference | verified | — | — | — | — |
-| hm_small_qwen_llama_sql_v1 | running_on_kaggle_user_reported | — | — | — | LLMFeatures/kaggle/small_compare |
+| hm_small_qwen_llama_sql_v1 | completed_on_kaggle_audited | — | — | — | reports/hm_small_llms_v1 |
 | hm_recformer_ablations_v1 | complete | — | — | — | reports/recformer_ablations_v1 |
 | hm_recformer_small_low_lr_warmup_seed42_v1 | complete | 4 | 3.55434 | 3.85751 | Recformer/results/hm_small_low_lr_warmup_seed42_v1 |
 | hm_recformer_small_freeze_lower6_seed42_v1 | complete | 4 | 1.98481 | 1.76156 | Recformer/results/hm_small_freeze_lower6_seed42_v1 |
@@ -94,7 +94,16 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_recformer_small_long_floor_seed42_v1_short_2plus2 | complete | — | 3.57807 | 3.43889 | Recformer/results/hm_small_long_floor_seed42_v1/short_2plus2 |
 | hm_recformer_small_long_floor_seed42_v1_finetuned | complete | — | 3.57807 | 3.43889 | Recformer/results/hm_small_long_floor_seed42_v1/finetuned |
 | hm_recformer_small_long_floor_seed42_v1_inference | verified | — | — | — | — |
-| hm_small_qwen14b_sql_v1 | notebook_ready | — | — | — | LLMFeatures/kaggle/qwen14_small |
+| hm_small_qwen14b_sql_v1 | completed_on_kaggle_audited | — | — | — | reports/hm_small_llms_v1 |
+| hm_tdm_small_smoke_v1 | smoke_complete | — | — | — | — |
+| hm_tdm_small_fixed_seed42_v1 | complete | 7 | 1.01601 | 1.39519 | TDM/results/hm_small_v1/fixed |
+| hm_tdm_small_cluster_seed42_v1 | complete | 6 | 0.74588 | 0.55126 | TDM/results/hm_small_v1/cluster |
+| hm_tdm_small_pipeline_v1 | complete | — | — | — | reports/tdm_small_v1 |
+| hm_tdm_small_pipeline_v1_inference | verified | — | — | — | — |
+| hm_small_qwen_llama_sql_v1_2ecc60d61fd4_qwen | complete | — | 0.77718 | 1.10714 | reports/hm_small_llms_v1 |
+| hm_small_qwen_llama_sql_v1_2ecc60d61fd4_llama | complete | — | 0.84396 | 0.78034 | reports/hm_small_llms_v1 |
+| hm_small_qwen14b_sql_v1_f373011050bf | complete | — | 1.21121 | 0.74331 | reports/hm_small_llms_v1 |
+| hm_small_llms_comparison_v1 | complete | — | — | — | reports/hm_small_llms_v1 |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

@@ -1,0 +1,38 @@
+[
+  [
+    "Only numeric SQL expressions, no statements/strings/qualified names",
+    9
+  ],
+  [
+    "Invalid grouping keys",
+    6
+  ],
+  [
+    "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    4
+  ],
+  [
+    "Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    4
+  ],
+  [
+    "_duckdb.BinderException: Binder Error: Referenced column \"days_ago\" not found in FROM clause!",
+    3
+  ],
+  [
+    "_duckdb.ParserException: Parser Error: syntax error at or near \"AS\"",
+    1
+  ],
+  [
+    "Forbidden token 'customer_id': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
+    1
+  ],
+  [
+    "_duckdb.BinderException: Binder Error: Referenced column \"product_code\" not found in FROM clause!",
+    1
+  ],
+  [
+    "_duckdb.ParserException: Parser Error: syntax error at or near \"ROWS\"",
+    1
+  ]
+]
