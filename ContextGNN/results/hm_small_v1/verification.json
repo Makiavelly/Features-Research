@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": {
+    "idgnn": {
+      "val": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "ranked_scores_close": true,
+        "map_difference": 0.0,
+        "seconds": 12.069197740999698
+      },
+      "test": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "ranked_scores_close": true,
+        "map_difference": 0.0,
+        "seconds": 0.11253019600007974
+      },
+      "checkpoint_sha256": "233082a0d8b0d8de78140a3866bfff449b9e28bcda82793c98ebe5e98ff5f9b4"
+    },
+    "contextgnn": {
+      "val": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "ranked_scores_close": true,
+        "map_difference": 0.0,
+        "seconds": 0.2822634219996871
+      },
+      "test": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "ranked_scores_close": true,
+        "map_difference": 0.0,
+        "seconds": 0.06461526600014622
+      },
+      "checkpoint_sha256": "ab6ac0b09d1577261a0246b7462db09af61af729bf050431b1f2f8cbb1fedd15"
+    }
+  }
+}

@@ -61,6 +61,19 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5 | diagnostic_complete | — | — | — | — |
 | hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1 | notebook_ready | — | — | — | — |
 | hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1_aa1ed17300ae | complete | — | 0.74474 | 0.80095 | reports/hm_llmfe_flat_v1_audit |
+| hm_small_data_v1 | complete | — | — | — | data/rel-hm-small-v1 |
+| hm_contextgnn_small_pipeline_v1 | complete | — | — | — | reports/contextgnn_small_v1 |
+| hm_idgnn_small_seed_42_v1 | complete | 7 | 4.41072 | 2.65341 | ContextGNN/results/hm_small_v1/idgnn |
+| hm_contextgnn_small_seed_42_v1 | complete | 8 | 4.76193 | 3.01558 | ContextGNN/results/hm_small_v1/contextgnn |
+| hm_small_manual_features_v1 | complete | — | — | — | ContextGNN/cache/hm_small_v1/manual |
+| hm_idgnn_small_seed_42_v1_inference | verified | — | — | — | — |
+| hm_contextgnn_small_seed_42_v1_inference | verified | — | — | — | — |
+| hm_small_idgnn_features_v1 | features | — | — | — | — |
+| hm_small_lightgbm_manual_seed_42_v1 | complete | — | 0.99832 | 1.23388 | ContextGNN/results/hm_small_v1/lightgbm_manual |
+| hm_small_lightgbm_idgnn_seed_42_v1 | complete | — | 0.68531 | 0.96667 | ContextGNN/results/hm_small_v1/lightgbm_idgnn |
+| hm_twotower_small_seed_42_v1 | complete | 9 | 1.55256 | 0.68368 | ContextGNN/results/hm_small_v1/two_tower |
+| hm_twotower_small_seed_42_v1_inference | verified | — | — | — | ContextGNN/results/hm_small_v1/two_tower |
+| hm_small_comparison_v1 | complete | — | — | — | — |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

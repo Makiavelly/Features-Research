@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": {
+    "val": {
+      "passed": true,
+      "predictions_identical": true,
+      "scores_close": true,
+      "ranked_scores_close": true,
+      "map_difference": 0.0,
+      "seconds": 10.199683484999696
+    },
+    "test": {
+      "passed": true,
+      "predictions_identical": true,
+      "scores_close": true,
+      "ranked_scores_close": true,
+      "map_difference": 0.0,
+      "seconds": 0.6276555509994068
+    }
+  },
+  "checkpoint_sha256": "2314b5af8d6174817627b74cb56686b72ef1126e83948928aebd7d9fa85082c5"
+}

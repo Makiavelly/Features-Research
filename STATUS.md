@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-16T10:02:46+03:00 (Москва).
+Обновлено: 2026-10-16T13:29:27+03:00 (Москва).
 
-Последнее событие: **Получен итог v5 из features-llama-plus-lightgbm-v3.ipynb:20 технически оценённых программ за154 calls,134 отказа. Выбран candidate151, valMAP0.977301%,test0.734573% на общих1024/2048 пользователях. Но обнаружено неверное pandas-сопоставление: groupby Series поarticle_id/customer_id присвоены вRangeIndex F безmap/reindex по ID. Перестановка/разбиение128пар меняют признаки;mean_price неверен у70/128, customer-признаки у52/128. Такой probe провалили кандидаты56,131,147,151. 20 model/program SHA и2 runtimeSHA совпали, независимый replay Raw/selected×val/test точный. Метрики воспроизводимы, но не означают правильные исторические признаки. Никакого ремонта/переобучения или нового выбора поtest не было; исходники/ZIP неизменны. Flat запуск20/23 иtest0.800949% остаётся отдельным экспериментом.**
+Последнее событие: **Recorded user goals: research report, H&M recommendations, existing small-v1 subset preferred, RTX3060 or KaggleT4, desired experiment duration at most one hour. Reviewed Recformer paper and linked replication code. Author repo currently README only. Proposed cutoff-safe multi-positive weekly adaptation and full5000 MAP12 evaluation. Checkpoint bytes, compatibility and runtime not yet verified; no training launched. See reports/recformer_assessment.md.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -63,5 +63,18 @@
 | balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5 | diagnostic_complete | — | — | 2026-10-15T23:52:44+03:00 |
 | hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1 | notebook_ready | — | — | 2026-10-16T00:17:53+03:00 |
 | hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1_aa1ed17300ae | complete | — | — | 2026-10-16T09:54:57+03:00 |
+| hm_small_data_v1 | complete | — | — | 2026-10-16T10:32:41+03:00 |
+| hm_contextgnn_small_pipeline_v1 | complete | — | — | 2026-10-16T11:04:30+03:00 |
+| hm_idgnn_small_seed_42_v1 | complete | 7 | — | 2026-10-16T10:37:39+03:00 |
+| hm_contextgnn_small_seed_42_v1 | complete | 8 | — | 2026-10-16T10:38:01+03:00 |
+| hm_small_manual_features_v1 | complete | — | — | 2026-10-16T10:40:13+03:00 |
+| hm_idgnn_small_seed_42_v1_inference | verified | — | — | 2026-10-16T10:42:11+03:00 |
+| hm_contextgnn_small_seed_42_v1_inference | verified | — | — | 2026-10-16T10:42:11+03:00 |
+| hm_small_idgnn_features_v1 | features | — | — | 2026-10-16T10:44:10+03:00 |
+| hm_small_lightgbm_manual_seed_42_v1 | complete | — | — | 2026-10-16T10:45:21+03:00 |
+| hm_small_lightgbm_idgnn_seed_42_v1 | complete | — | — | 2026-10-16T10:45:35+03:00 |
+| hm_twotower_small_seed_42_v1 | complete | 9 | — | 2026-10-16T11:02:54+03:00 |
+| hm_twotower_small_seed_42_v1_inference | verified | — | — | 2026-10-16T11:04:17+03:00 |
+| hm_small_comparison_v1 | complete | — | — | 2026-10-16T11:06:50+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

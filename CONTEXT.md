@@ -1,5 +1,80 @@
 ﻿# Контекст для продолжения проекта
 
+## Recformer: постановка и предварительный разбор (2026-10-16)
+
+Цель пользователя: исследовательский отчёт, рекомендации H&M с сопоставлением
+подходов. Доступны RTX3060 6GB и KaggleT4; желательная длительность запуска
+не более часа. Для Recformer пользователь предпочитает существующий
+data/rel-hm-small-v1 с baseline малого ContextGNN пилота.
+Изучены arXiv2305.13731v2 и доступная репликация AaronHeee/RecFormer.
+Авторский JiachengLi1995/Recformer сейчас содержит только README с объяснением
+недоступности кода и ссылкой на репликацию. Ссылки на веса есть, байты весов
+и совместимость ещё не проверены. Предлагается сохранить subset/cutoffs,
+перенести next-item objective на недельные многопозитивные цели и MAP@12
+по всем5000товарам. Zero-shot контроль и короткий two-stage finetune с256/512
+tokens требуют предварительного замера. Время до часа не подтверждено.
+Никакого обучения или изменения окружения нет. См. reports/recformer_assessment.md.
+
+## Добавление двухбашенной модели к малому пилоту (2026-10-16)
+
+По поручению пользователя заново обучена существующая двухбашенная
+Model из RelBenchGNN/upstream/examples/model.py на data/rel-hm-small-v1.
+Run_id hm_twotower_small_seed_42_v1. Shared64d GraphSAGE,2слоя,
+encoderResNet64×2,neighbors32/16,batch128,last,seed42,BPR. Batch-группы
+по времени включают остатки: все4804trainстроки,42шага/эпоху.
+Остановлена после9эпох поpatience3, лучшийcheckpoint эпоха6.
+Validation/testMAP1.55256%/0.68368%; train+val38.09с,testinfer0.699с.
+Scores/предсказания/embeddings сохранены в
+ContextGNN/results/hm_small_v1/two_tower. Независимая проверка завершена:
+verification.json passed=true, предсказания совпали, MAP delta=0 на val/test.
+Общий отчёт содержит 5 моделей и Popularity; все MAP пересчитаны из
+предсказаний, comparison.png и learning_curves.png визуально проверены.
+Прежний отчёт в reports/contextgnn_small_v1/before_two_tower сохранён.
+Предыдущие модели/данные не переобучались и не менялись.
+ГипотезаH001 (независимые веса двух башен) по-прежнему не запускалась.
+
+## Малый ContextGNN эксперимент (2026-10-16)
+
+Пользователь поручил сначала выделить малый датасет, затем провести
+ContextGNN эксперимент; дополнительно пересчитать manual LightGBM
+и IDGNN→LightGBM на тех же данных для сопоставимого сравнения.
+Создан отдельный data/rel-hm-small-v1:5000users/5000items/46442transactions,
+train4804/val304/test250 user-time. Состав выбран только по истории доval;
+каталог сужен, пустые цели удалены, покрытиеval37.27%/test33.68%.
+НЕ сравнивать MAP малого набора с полным H&M или статьёй.
+Upstream ContextGNN ca4a96985b7ef73c36a40da32e70710ad9b59a1e, импорт
+без установки и изменения прежнего окружения. IDGNN/ContextGNN64d,
+2слоя,neighbors32/16,batch128,seed42,до10эпох,patience3. Обучены;
+независимый replay пройден. ContextGNN test3.01558%,IDGNN2.65341%.
+Оба LightGBM получают72813одинаковых trainпар; eval ВСЕ5000товаров,
+manual126фичей и IDGNN64+availability. Все4модели и проверки завершены.
+Малый manualLightGBM val/test0.99832%/1.23388%, IDGNN→LightGBM
+0.68531%/0.96667%. SHA trainпар совпал; декартовuser×catalog обоих
+оценочныхкэшей проверен. ВсеMAPнезависимо пересчитаны изpredictions.
+GNncheckpoint replay и повторныйinferизLightGBM model.txt совпали.
+Context−IDGNN test+0.3622п.п., paired-user-bootstrap95%[-0.1003,0.9320],
+пока не доказано устойчивое превосходство. Seedодин,test250пользователей.
+ДляLightGBM-IDGNN безвектора70.50%train и99.77%testпар; это
+ограничение full-catalog протокола, не универсальный вывод о GNN-признаках.
+Обучение+val GNn около21–28с; тёплыйtestinfer0.055–0.068с, без загрузки
+окружения/графа. Cold replay IDvalвключил~12сGPUинициализации.
+Графики comparison.png/learning_curves.png просмотрены и проверены.
+Скрипт ContextGNN/run_small_pipeline.sh сохраняет фиксированные стадии;
+текущие завершённые результаты не переобучаются при повторном вызове.
+Протокол ContextGNN/PROTOCOL_SMALL.md, метрики ContextGNN/results/hm_small_v1,
+отчёт reports/contextgnn_small_v1. Данные и прежние отчёты сохранены.
+
+## Анализ ContextGNN (2026-10-16)
+
+Прочитаны PDF arXiv:2411.19513v1 и kumo-ai/ContextGNN. Подробности:
+reports/contextgnn_assessment.md. Подход уже оценён на нашей задаче H&M:
+ContextGNN val/test MAP 3.00%/2.93%, pair-wise baseline 2.64%/2.81%.
+Локальная ветвь дополняется GNN-user × RHS embedding ветвью и offsets.
+Это адресует локальный охват ID-GNN; не создаёт локальные вектора всех пар.
+Новый запуск не выполнялся. Требуются фиксация commit, адаптация API
+RelBench1.1.0 к нашему checkout, проверка памяти GPU6GB и полный каталог.
+ContextGNN→дерево — наша отдельная гипотеза, не опубликованный результат.
+
 ## Итог старого X+history v5: ошибка сопоставления (2026-10-16)
 
 ПолученZIPpreflight_fulltrain_v5_949add5c4fef;указанныйfeatures-llama-plus-lightgbm-v3.ipynb

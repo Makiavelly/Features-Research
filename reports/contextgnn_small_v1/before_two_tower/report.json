@@ -1,0 +1,589 @@
+{
+  "final": true,
+  "comparison": [
+    {
+      "method": "Popularity",
+      "training_seconds": 0.0,
+      "val_inference_seconds": 0.0,
+      "test_inference_seconds": 0.0,
+      "validation_map_percent": 0.26256116481680386,
+      "test_map_percent": 0.7264502164502166
+    },
+    {
+      "method": "ID-GNN",
+      "validation_map_percent": 4.4107160657325135,
+      "test_map_percent": 2.6534126984126987,
+      "training_seconds": 27.500700685000083,
+      "val_inference_seconds": 0.07999127199991563,
+      "test_inference_seconds": 0.06833403100017676
+    },
+    {
+      "method": "ContextGNN",
+      "validation_map_percent": 4.761926122123491,
+      "test_map_percent": 3.0155754827183396,
+      "training_seconds": 20.95392044900018,
+      "val_inference_seconds": 0.06755045899990364,
+      "test_inference_seconds": 0.05535964399996374
+    },
+    {
+      "method": "LightGBM + manual",
+      "validation_map_percent": 0.9983192672337408,
+      "test_map_percent": 1.2338802308802308,
+      "training_seconds": 20.122374947000026,
+      "val_inference_seconds": 6.522759204999602,
+      "test_inference_seconds": 5.045370581000043
+    },
+    {
+      "method": "LightGBM + ID-GNN features",
+      "validation_map_percent": 0.6853070175438595,
+      "test_map_percent": 0.9666666666666666,
+      "training_seconds": 5.406174842000382,
+      "val_inference_seconds": 1.9870614540000133,
+      "test_inference_seconds": 1.7468301660001089
+    }
+  ],
+  "subset": {
+    "source": "data/rel-hm",
+    "seed": 42,
+    "users": 5000,
+    "items": 5000,
+    "transactions": 46442,
+    "history_start": "2020-03-11 00:00:00",
+    "val_time": "2020-09-07 00:00:00",
+    "test_time": "2020-09-14 00:00:00",
+    "selection": "users active during 90 days before validation; uniform seed42; top5000 items by 180day pre-validation cohort counts; last8 train timestamps; no val/test labels used for membership",
+    "protocol_caveat": "restricted catalog and removal of empty-label rows change task; MAP cannot be compared directly with full H&M/paper",
+    "splits": {
+      "train": {
+        "source_cohort_rows": 5690,
+        "retained_rows": 4804,
+        "original_positive_items": 18986,
+        "retained_positive_items": 12655,
+        "positive_coverage": 0.6665437690930159,
+        "dropped_empty_rows": 886,
+        "min_timestamp": "2020-07-13 00:00:00",
+        "max_timestamp": "2020-08-31 00:00:00"
+      },
+      "val": {
+        "source_cohort_rows": 483,
+        "retained_rows": 304,
+        "original_positive_items": 1559,
+        "retained_positive_items": 581,
+        "positive_coverage": 0.372674791533034,
+        "dropped_empty_rows": 179,
+        "min_timestamp": "2020-09-07 00:00:00",
+        "max_timestamp": "2020-09-07 00:00:00"
+      },
+      "test": {
+        "source_cohort_rows": 440,
+        "retained_rows": 250,
+        "original_positive_items": 1428,
+        "retained_positive_items": 481,
+        "positive_coverage": 0.33683473389355745,
+        "dropped_empty_rows": 190,
+        "min_timestamp": "2020-09-14 00:00:00",
+        "max_timestamp": "2020-09-14 00:00:00"
+      }
+    },
+    "files": {
+      "article_id_map.csv": {
+        "bytes": 65546,
+        "sha256": "b2b7ada5ca21be99251bbee4ec4f334e636f4f4b1d24a75c9961a5e8a4d50b39"
+      },
+      "customer_id_map.csv": {
+        "bytes": 59909,
+        "sha256": "27f04807923db3ce892f0bafe8c3d28b371db0faf235895758172a4f82b0f0c3"
+      },
+      "db/article.parquet": {
+        "bytes": 220236,
+        "sha256": "6c2c2eaa3ed13c38dc11b5055e16f63647b2f2098653c90e4a3bbb95cb67c160"
+      },
+      "db/customer.parquet": {
+        "bytes": 200233,
+        "sha256": "1a4ebd5bab73cdde4f767fefe79431180b626fca9ac77de2ff775a0f353ba6cf"
+      },
+      "db/transactions.parquet": {
+        "bytes": 225067,
+        "sha256": "c9bf89c7213f62125f75a3071f58df5fe6127f26c38a0cac9383d617eacba21e"
+      },
+      "manifest.yaml": {
+        "bytes": 447,
+        "sha256": "b1e03167a6809a00088b5f37724d78aefdb6a7a1518642d945e419510fe31f44"
+      },
+      "tasks/user-item-purchase/manifest.yaml": {
+        "bytes": 718,
+        "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281"
+      },
+      "tasks/user-item-purchase/test.parquet": {
+        "bytes": 4836,
+        "sha256": "7751de2a6eafb8d8b29d23080aee0795de35ea0c6a1229d697ee473c15eec74c"
+      },
+      "tasks/user-item-purchase/train.parquet": {
+        "bytes": 41243,
+        "sha256": "d70a8aea2123160e502ee613af11ba5d15d4596bb060089634f243a80725ac54"
+      },
+      "tasks/user-item-purchase/val.parquet": {
+        "bytes": 5237,
+        "sha256": "05e7ed94146660af3dbffd86770b21aeea53c35be447740869da1ba370d72299"
+      }
+    }
+  },
+  "results": {
+    "idgnn": {
+      "model": "idgnn",
+      "seed": 42,
+      "best_epoch": 4,
+      "epochs_completed": 7,
+      "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+      "training_and_validation_seconds": 27.500700685000083,
+      "peak_cuda_bytes": 79007744,
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": 50,
+        "temporal_strategy": "last",
+        "evaluation": "all 5000 subset catalog items, all retained validation/test users",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "val_metrics": {
+        "map": 0.04410716065732514
+      },
+      "val_inference_seconds": 0.07999127199991563,
+      "test_metrics": {
+        "map": 0.026534126984126986
+      },
+      "test_inference_seconds": 0.06833403100017676
+    },
+    "contextgnn": {
+      "model": "contextgnn",
+      "seed": 42,
+      "best_epoch": 5,
+      "epochs_completed": 8,
+      "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+      "training_and_validation_seconds": 20.95392044900018,
+      "peak_cuda_bytes": 587496448,
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": 50,
+        "temporal_strategy": "last",
+        "evaluation": "all 5000 subset catalog items, all retained validation/test users",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "val_metrics": {
+        "map": 0.04761926122123491
+      },
+      "val_inference_seconds": 0.06755045899990364,
+      "test_metrics": {
+        "map": 0.030155754827183398
+      },
+      "test_inference_seconds": 0.05535964399996374
+    },
+    "lightgbm_manual": {
+      "model": "lightgbm_manual",
+      "seed": 42,
+      "train_pairs": 72813,
+      "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+      "train_user_times": 4804,
+      "features": [
+        "u_age",
+        "u_fn_not_null",
+        "u_is_active",
+        "u_club_member_status",
+        "u_fashion_news_frequency",
+        "i_product_type_no",
+        "i_graphical_appearance_no",
+        "i_colour_group_code",
+        "i_perceived_colour_master_id",
+        "i_department_no",
+        "i_section_no",
+        "i_garment_group_no",
+        "u_count_all",
+        "u_amount_all",
+        "u_price_all",
+        "u_unique_all",
+        "u_channel2_all",
+        "u_recency_days",
+        "u_mode_department_all",
+        "u_mode_section_all",
+        "u_mode_colour_all",
+        "u_count_week1",
+        "u_amount_week1",
+        "u_price_week1",
+        "u_unique_week1",
+        "u_channel2_week1",
+        "u_mode_department_week1",
+        "u_mode_section_week1",
+        "u_mode_colour_week1",
+        "u_count_week2",
+        "u_amount_week2",
+        "u_price_week2",
+        "u_unique_week2",
+        "u_channel2_week2",
+        "u_mode_department_week2",
+        "u_mode_section_week2",
+        "u_mode_colour_week2",
+        "u_count_week3",
+        "u_amount_week3",
+        "u_price_week3",
+        "u_unique_week3",
+        "u_channel2_week3",
+        "u_mode_department_week3",
+        "u_mode_section_week3",
+        "u_mode_colour_week3",
+        "u_count_week4",
+        "u_amount_week4",
+        "u_price_week4",
+        "u_unique_week4",
+        "u_channel2_week4",
+        "u_mode_department_week4",
+        "u_mode_section_week4",
+        "u_mode_colour_week4",
+        "u_count_week5",
+        "u_amount_week5",
+        "u_price_week5",
+        "u_unique_week5",
+        "u_channel2_week5",
+        "u_mode_department_week5",
+        "u_mode_section_week5",
+        "u_mode_colour_week5",
+        "u_count_28d",
+        "i_count_all",
+        "i_amount_all",
+        "i_price_all",
+        "i_recency_days",
+        "i_count_week1",
+        "i_amount_week1",
+        "i_price_week1",
+        "i_unique_buyers_week1",
+        "i_buyer_age_week1",
+        "i_count_week2",
+        "i_amount_week2",
+        "i_price_week2",
+        "i_unique_buyers_week2",
+        "i_buyer_age_week2",
+        "i_count_week3",
+        "i_amount_week3",
+        "i_price_week3",
+        "i_unique_buyers_week3",
+        "i_buyer_age_week3",
+        "i_count_week4",
+        "i_amount_week4",
+        "i_price_week4",
+        "i_unique_buyers_week4",
+        "i_buyer_age_week4",
+        "i_count_week5",
+        "i_amount_week5",
+        "i_price_week5",
+        "i_unique_buyers_week5",
+        "i_buyer_age_week5",
+        "p_count_all",
+        "p_price_all",
+        "p_count_7d",
+        "p_count_28d",
+        "p_recency_days",
+        "a_dept_count_28d",
+        "a_dept_share_28d",
+        "a_section_count_28d",
+        "a_section_share_28d",
+        "a_colour_count_28d",
+        "a_colour_share_28d",
+        "a_type_count_28d",
+        "a_type_share_28d",
+        "match_department_all",
+        "match_department_week1",
+        "match_department_week2",
+        "match_department_week3",
+        "match_department_week4",
+        "match_department_week5",
+        "match_section_all",
+        "match_section_week1",
+        "match_section_week2",
+        "match_section_week3",
+        "match_section_week4",
+        "match_section_week5",
+        "match_colour_all",
+        "match_colour_week1",
+        "match_colour_week2",
+        "match_colour_week3",
+        "match_colour_week4",
+        "match_colour_week5",
+        "price_gap",
+        "price_ratio",
+        "week_of_year",
+        "month_of_year"
+      ],
+      "categorical_features": [
+        "u_club_member_status",
+        "u_fashion_news_frequency",
+        "i_product_type_no",
+        "i_graphical_appearance_no",
+        "i_colour_group_code",
+        "i_perceived_colour_master_id",
+        "i_department_no",
+        "i_section_no",
+        "i_garment_group_no",
+        "u_mode_department_all",
+        "u_mode_section_all",
+        "u_mode_colour_all",
+        "u_mode_department_week1",
+        "u_mode_section_week1",
+        "u_mode_colour_week1",
+        "u_mode_department_week2",
+        "u_mode_section_week2",
+        "u_mode_colour_week2",
+        "u_mode_department_week3",
+        "u_mode_section_week3",
+        "u_mode_colour_week3",
+        "u_mode_department_week4",
+        "u_mode_section_week4",
+        "u_mode_colour_week4",
+        "u_mode_department_week5",
+        "u_mode_section_week5",
+        "u_mode_colour_week5"
+      ],
+      "trials": [
+        {
+          "num_leaves": 15,
+          "validation_map": 0.009983192672337408
+        },
+        {
+          "num_leaves": 31,
+          "validation_map": 0.00935897983595352
+        }
+      ],
+      "selected_num_leaves": 15,
+      "rounds": 150,
+      "training_and_tuning_seconds": 20.122374947000026,
+      "inference_from_saved_model": true,
+      "evaluation_catalog": 5000,
+      "subset": "rel-hm-small-v1",
+      "candidate_audit": {
+        "val": {
+          "full_catalog": true,
+          "users": 304,
+          "pairs": 1520000
+        },
+        "test": {
+          "full_catalog": true,
+          "users": 250,
+          "pairs": 1250000
+        }
+      },
+      "val_metrics": {
+        "map": 0.009983192672337408
+      },
+      "val_inference_seconds": 6.522759204999602,
+      "test_metrics": {
+        "map": 0.012338802308802308
+      },
+      "test_inference_seconds": 5.045370581000043
+    },
+    "lightgbm_idgnn": {
+      "model": "lightgbm_idgnn",
+      "seed": 42,
+      "train_pairs": 72813,
+      "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+      "train_user_times": 4804,
+      "features": [
+        "gnn_000",
+        "gnn_001",
+        "gnn_002",
+        "gnn_003",
+        "gnn_004",
+        "gnn_005",
+        "gnn_006",
+        "gnn_007",
+        "gnn_008",
+        "gnn_009",
+        "gnn_010",
+        "gnn_011",
+        "gnn_012",
+        "gnn_013",
+        "gnn_014",
+        "gnn_015",
+        "gnn_016",
+        "gnn_017",
+        "gnn_018",
+        "gnn_019",
+        "gnn_020",
+        "gnn_021",
+        "gnn_022",
+        "gnn_023",
+        "gnn_024",
+        "gnn_025",
+        "gnn_026",
+        "gnn_027",
+        "gnn_028",
+        "gnn_029",
+        "gnn_030",
+        "gnn_031",
+        "gnn_032",
+        "gnn_033",
+        "gnn_034",
+        "gnn_035",
+        "gnn_036",
+        "gnn_037",
+        "gnn_038",
+        "gnn_039",
+        "gnn_040",
+        "gnn_041",
+        "gnn_042",
+        "gnn_043",
+        "gnn_044",
+        "gnn_045",
+        "gnn_046",
+        "gnn_047",
+        "gnn_048",
+        "gnn_049",
+        "gnn_050",
+        "gnn_051",
+        "gnn_052",
+        "gnn_053",
+        "gnn_054",
+        "gnn_055",
+        "gnn_056",
+        "gnn_057",
+        "gnn_058",
+        "gnn_059",
+        "gnn_060",
+        "gnn_061",
+        "gnn_062",
+        "gnn_063",
+        "gnn_available"
+      ],
+      "categorical_features": [],
+      "trials": [
+        {
+          "num_leaves": 15,
+          "validation_map": 0.006853070175438595
+        },
+        {
+          "num_leaves": 31,
+          "validation_map": 0.006853070175438595
+        }
+      ],
+      "selected_num_leaves": 15,
+      "rounds": 150,
+      "training_and_tuning_seconds": 5.406174842000382,
+      "inference_from_saved_model": true,
+      "evaluation_catalog": 5000,
+      "subset": "rel-hm-small-v1",
+      "candidate_audit": {
+        "val": {
+          "full_catalog": true,
+          "users": 304,
+          "pairs": 1520000
+        },
+        "test": {
+          "full_catalog": true,
+          "users": 250,
+          "pairs": 1250000
+        }
+      },
+      "embedding_coverage": {
+        "train": {
+          "pairs": 72813,
+          "missing_embeddings": 51335,
+          "user_times": 4804
+        },
+        "val": {
+          "pairs": 1520000,
+          "missing_embeddings": 1516257,
+          "user_times": 304
+        },
+        "test": {
+          "pairs": 1250000,
+          "missing_embeddings": 1247101,
+          "user_times": 250
+        }
+      },
+      "missing_policy": "zero local vector plus availability flag; in-sample frozen ID-GNN train representations",
+      "val_metrics": {
+        "map": 0.006853070175438595
+      },
+      "val_inference_seconds": 1.9870614540000133,
+      "test_metrics": {
+        "map": 0.009666666666666665
+      },
+      "test_inference_seconds": 1.7468301660001089
+    }
+  },
+  "gnn_verification": {
+    "passed": true,
+    "checks": {
+      "idgnn": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 12.069197740999698
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.11253019600007974
+        },
+        "checkpoint_sha256": "233082a0d8b0d8de78140a3866bfff449b9e28bcda82793c98ebe5e98ff5f9b4"
+      },
+      "contextgnn": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.2822634219996871
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.06461526600014622
+        },
+        "checkpoint_sha256": "ab6ac0b09d1577261a0246b7462db09af61af729bf050431b1f2f8cbb1fedd15"
+      }
+    }
+  },
+  "context_minus_idgnn_test_bootstrap95_pp": [
+    -0.1002934961863533,
+    0.9319561172954028
+  ]
+}

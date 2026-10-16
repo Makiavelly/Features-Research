@@ -1,0 +1,129 @@
+{
+  "model": "lightgbm_idgnn",
+  "seed": 42,
+  "train_pairs": 72813,
+  "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+  "train_user_times": 4804,
+  "features": [
+    "gnn_000",
+    "gnn_001",
+    "gnn_002",
+    "gnn_003",
+    "gnn_004",
+    "gnn_005",
+    "gnn_006",
+    "gnn_007",
+    "gnn_008",
+    "gnn_009",
+    "gnn_010",
+    "gnn_011",
+    "gnn_012",
+    "gnn_013",
+    "gnn_014",
+    "gnn_015",
+    "gnn_016",
+    "gnn_017",
+    "gnn_018",
+    "gnn_019",
+    "gnn_020",
+    "gnn_021",
+    "gnn_022",
+    "gnn_023",
+    "gnn_024",
+    "gnn_025",
+    "gnn_026",
+    "gnn_027",
+    "gnn_028",
+    "gnn_029",
+    "gnn_030",
+    "gnn_031",
+    "gnn_032",
+    "gnn_033",
+    "gnn_034",
+    "gnn_035",
+    "gnn_036",
+    "gnn_037",
+    "gnn_038",
+    "gnn_039",
+    "gnn_040",
+    "gnn_041",
+    "gnn_042",
+    "gnn_043",
+    "gnn_044",
+    "gnn_045",
+    "gnn_046",
+    "gnn_047",
+    "gnn_048",
+    "gnn_049",
+    "gnn_050",
+    "gnn_051",
+    "gnn_052",
+    "gnn_053",
+    "gnn_054",
+    "gnn_055",
+    "gnn_056",
+    "gnn_057",
+    "gnn_058",
+    "gnn_059",
+    "gnn_060",
+    "gnn_061",
+    "gnn_062",
+    "gnn_063",
+    "gnn_available"
+  ],
+  "categorical_features": [],
+  "trials": [
+    {
+      "num_leaves": 15,
+      "validation_map": 0.006853070175438595
+    },
+    {
+      "num_leaves": 31,
+      "validation_map": 0.006853070175438595
+    }
+  ],
+  "selected_num_leaves": 15,
+  "rounds": 150,
+  "training_and_tuning_seconds": 5.406174842000382,
+  "inference_from_saved_model": true,
+  "evaluation_catalog": 5000,
+  "subset": "rel-hm-small-v1",
+  "candidate_audit": {
+    "val": {
+      "full_catalog": true,
+      "users": 304,
+      "pairs": 1520000
+    },
+    "test": {
+      "full_catalog": true,
+      "users": 250,
+      "pairs": 1250000
+    }
+  },
+  "embedding_coverage": {
+    "train": {
+      "pairs": 72813,
+      "missing_embeddings": 51335,
+      "user_times": 4804
+    },
+    "val": {
+      "pairs": 1520000,
+      "missing_embeddings": 1516257,
+      "user_times": 304
+    },
+    "test": {
+      "pairs": 1250000,
+      "missing_embeddings": 1247101,
+      "user_times": 250
+    }
+  },
+  "missing_policy": "zero local vector plus availability flag; in-sample frozen ID-GNN train representations",
+  "val_metrics": {
+    "map": 0.006853070175438595
+  },
+  "val_inference_seconds": 1.9870614540000133,
+  "test_metrics": {
+    "map": 0.009666666666666665
+  },
+  "test_inference_seconds": 1.7468301660001089
+}

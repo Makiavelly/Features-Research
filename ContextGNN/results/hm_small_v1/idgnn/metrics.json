@@ -1,0 +1,40 @@
+{
+  "model": "idgnn",
+  "seed": 42,
+  "best_epoch": 4,
+  "epochs_completed": 7,
+  "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+  "training_and_validation_seconds": 27.500700685000083,
+  "peak_cuda_bytes": 79007744,
+  "config": {
+    "dataset": "rel-hm-small-v1",
+    "seed": 42,
+    "channels": 64,
+    "encoder_channels": 64,
+    "encoder_layers": 2,
+    "layers": 2,
+    "neighbors": [
+      32,
+      16
+    ],
+    "rhs_embedding_dim": 64,
+    "rhs_mode": "FUSION",
+    "batch_size": 128,
+    "max_epochs": 10,
+    "early_stopping_patience": 3,
+    "lr": 0.001,
+    "steps_per_epoch_cap": 50,
+    "temporal_strategy": "last",
+    "evaluation": "all 5000 subset catalog items, all retained validation/test users",
+    "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+    "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+  },
+  "val_metrics": {
+    "map": 0.04410716065732514
+  },
+  "val_inference_seconds": 0.07999127199991563,
+  "test_metrics": {
+    "map": 0.026534126984126986
+  },
+  "test_inference_seconds": 0.06833403100017676
+}
