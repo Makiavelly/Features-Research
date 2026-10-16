@@ -1,0 +1,18 @@
+{
+  "sample": 5,
+  "call": 5,
+  "proposal": 2,
+  "repair": 3,
+  "parent_call": 4,
+  "island": 0,
+  "batch": 0,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_005",
+  "prompt_tokens": 3022,
+  "generated_tokens": 1025,
+  "llm_seconds": 134.19443828800013,
+  "truncated": false,
+  "status": "rejected",
+  "error": "did you forget parentheses around the comprehension target? (<unknown>, line 4)",
+  "failure_stage": "parse_and_validate",
+  "elapsed_seconds": 134.88130834800018
+}

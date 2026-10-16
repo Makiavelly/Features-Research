@@ -1,0 +1,19 @@
+{
+  "sample": 74,
+  "call": 74,
+  "proposal": 23,
+  "repair": 1,
+  "parent_call": 73,
+  "island": 0,
+  "batch": 7,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_074",
+  "prompt_tokens": 3102,
+  "generated_tokens": 531,
+  "llm_seconds": 70.64506606599934,
+  "truncated": false,
+  "program_key": "191806956c15718e40d47ef48d96403463437594e59ad775d2084c304647fbcd",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: TypeError: in1d() got an unexpected keyword argument 'keep'\nYour code near line 19:\n17:     \n18:     # Compute feature: proportion of past 180 days articles that belong to the same product category\n19:     same_category_proportion = history.groupby('customer_id')['article_id'].apply(lambda x: np.mean(np.in1d(history['article_id'], x, keep=True)))\n20:     F['same_category_proportion'] = same_category_proportion\n21:     \nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 72.29845217799993
+}

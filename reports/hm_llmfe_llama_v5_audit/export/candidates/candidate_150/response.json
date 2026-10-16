@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Filter history within a 7-day window\n    history_7day = history[history['days_ago'] <= 7]\n    \n    # Merge history_7day with X based on customer_id and article_id\n    X_7day = pd.merge(X, history_7day, on=['customer_id', 'article_id'], validate='many_to_one')\n    \n    # Create new features by calculating customer-specific aggregates\n    F['f_customer_mean_price'] = X_7day.groupby('customer_id')['price'].mean()\n    F['f_customer_mean_product_code'] = X_7day.groupby('customer_id')['product_code'].mean()\n    F['f_customer_mean_product_type'] = X_7day.groupby('customer_id')['product_type_no'].mean()\n    F['f_customer_mean_graphical_appearance'] = X_7day.groupby('customer_id')['graphical_appearance_no'].mean()\n    F['f_customer_mean_colour_group'] = X_7day.groupby('customer_id')['colour_group_code'].mean()\n    F['f_customer_mean_perceived_colour_value'] = X_7day.groupby('customer_id')['perceived_colour_value_id'].mean()\n    F['f_customer_mean_perceived_colour_master'] = X_7day.groupby('customer_id')['perceived_colour_master_id'].mean()\n    F['f_customer_mean_department'] = X_7day.groupby('customer_id')['department_no'].mean()\n    F['f_customer_mean_index_group'] = X_7day.groupby('customer_id')['index_group_no'].mean()\n    F['f_customer_mean_section'] = X_7day.groupby('customer_id')['section_no'].mean()\n    F['f_customer_mean_garment_group'] = X_7day.groupby('customer_id')['garment_group_no'].mean()\n    \n    return F\n```",
+  "seed": 191,
+  "prompt_tokens": 2992,
+  "generated_tokens": 398,
+  "seconds": 52.27708963000077,
+  "truncated": false
+}

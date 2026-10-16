@@ -1,0 +1,8 @@
+{
+  "text": "```python\nimport pandas as pd\nimport numpy as np\n\ndef modify_features(X):\n    \"\"\"\n    Modify the input DataFrame to extract meaningful features for H&M clothing recommendations.\n    \n    Parameters:\n    X (pandas DataFrame): Input DataFrame containing customer-article pair information.\n    \n    Returns:\n    F (pandas DataFrame): Modified DataFrame with new features.\n    \"\"\"\n    F = X.copy()\n    \n    # Calculate customer's log purchase count in past 180 days\n    F['f_log_user_purchases'] = np.log1p(F['h_user_count_180'].fillna(0))\n    \n    # Calculate article's log purchase count in past 30 days\n    F['f_log_article_purchases'] = np.log1p(F['h_article_count_30'].fillna(0))\n    \n    # Calculate customer's purchase rate in past 7 days\n    F['f_purchase_rate_7'] = F['h_user_count_7'] / F['h_user_count_30'].fillna(0)\n    \n    # Calculate article's purchase rate in past 7 days\n    F['f_article_purchase_rate_7'] = F['h_article_count_7'] / F['h_article_count_30'].fillna(0)\n    \n    # Calculate customer's recency-normalized purchase count in past 7 days\n    F['f_recent_purchase_rate_7'] = F['h_user_count_7'] / F['h_user_recency'].fillna(0)\n    \n    # Calculate article's recency-normalized purchase count in past 7 days\n    F['f_article_recent_purchase_rate_7'] = F['h_article_count_7'] / F['h_article_recency'].fillna(0)\n    \n    return F\n```",
+  "seed": 51,
+  "prompt_tokens": 2509,
+  "generated_tokens": 358,
+  "seconds": 42.45390699099994,
+  "truncated": false
+}

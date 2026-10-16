@@ -1,0 +1,97 @@
+{
+  "sample": 119,
+  "call": 119,
+  "proposal": 36,
+  "repair": 0,
+  "parent_call": null,
+  "island": 2,
+  "batch": 11,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_119",
+  "prompt_tokens": 1947,
+  "generated_tokens": 404,
+  "llm_seconds": 41.40852231399913,
+  "truncated": false,
+  "program_key": "567021aefbe5af037d5b071361a9826a499faf0f47819a6a601265d72033b7b1",
+  "preflight": {
+    "stage": "preflight",
+    "passed": true,
+    "smoke": true,
+    "backend": "lightgbm",
+    "program_sha256": "78318b9aa7f1612f632db133e1a65f7b046fc07e107dc2b1d17a47449d762d56",
+    "checked": [
+      {
+        "kind": "train",
+        "cutoff": "2019-09-09 00:00:00",
+        "pairs": 256
+      },
+      {
+        "kind": "train",
+        "cutoff": "2020-08-31 00:00:00",
+        "pairs": 256
+      },
+      {
+        "kind": "search_validation",
+        "pairs": 256
+      }
+    ],
+    "features": [
+      "raw_u_age",
+      "raw_u_fn",
+      "raw_u_active",
+      "raw_u_club_member_status",
+      "raw_u_fashion_news_frequency",
+      "raw_i_product_code",
+      "raw_i_product_type_no",
+      "raw_i_graphical_appearance_no",
+      "raw_i_colour_group_code",
+      "raw_i_perceived_colour_value_id",
+      "raw_i_perceived_colour_master_id",
+      "raw_i_department_no",
+      "raw_i_index_group_no",
+      "raw_i_section_no",
+      "raw_i_garment_group_no",
+      "f_mean_price",
+      "f_past_purchases",
+      "f_mean_product_type",
+      "f_past_colors"
+    ],
+    "seconds": 1.6891998700011754,
+    "counted_as_successful_set": false
+  },
+  "status": "valid",
+  "score": 0.011060380591630592,
+  "metrics": {
+    "map": 0.011060380591630592,
+    "users": 256,
+    "pairs": 6594,
+    "seconds": 38.78795601500133,
+    "program_sha256": "78318b9aa7f1612f632db133e1a65f7b046fc07e107dc2b1d17a47449d762d56",
+    "model_sha256": "c7537bf0e03e20c1bee4c4c6e5c8e6ef7ad263b21afc64e23377a295f079c031",
+    "backend": "lightgbm",
+    "stage": "search",
+    "threads": 4,
+    "passed": true,
+    "features": [
+      "raw_u_age",
+      "raw_u_fn",
+      "raw_u_active",
+      "raw_u_club_member_status",
+      "raw_u_fashion_news_frequency",
+      "raw_i_product_code",
+      "raw_i_product_type_no",
+      "raw_i_graphical_appearance_no",
+      "raw_i_colour_group_code",
+      "raw_i_perceived_colour_value_id",
+      "raw_i_perceived_colour_master_id",
+      "raw_i_department_no",
+      "raw_i_index_group_no",
+      "raw_i_section_no",
+      "raw_i_garment_group_no",
+      "f_mean_price",
+      "f_past_purchases",
+      "f_mean_product_type",
+      "f_past_colors"
+    ]
+  },
+  "elapsed_seconds": 83.40477198899862
+}

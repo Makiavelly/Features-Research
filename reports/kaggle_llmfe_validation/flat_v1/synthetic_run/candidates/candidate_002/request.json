@@ -1,0 +1,11 @@
+{
+  "sample": 2,
+  "call": 2,
+  "proposal": 1,
+  "repair": 1,
+  "parent_call": 1,
+  "island": 0,
+  "batch": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/flat_v1/synthetic_run/candidates/candidate_002",
+  "seed": 43
+}

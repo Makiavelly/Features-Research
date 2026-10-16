@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    # Aggregate past transactions per customer\n    history_unique = history.groupby(['customer_id']).max().reset_index()\n\n    # Compute number of past purchases per customer in time window\n    F = pd.DataFrame({'f_days_ago': history_unique['days_ago'].max()})\n\n    # Compute average purchase price per customer in time window\n    F['f_avg_price'] = history_unique.groupby('customer_id')['price'].mean().values\n\n    # Compute count of customers in time window who purchased in each article department\n    department_count = history_unique['department_no'].value_counts().sort_index().to_frame('department_count').reset_index()\n    F = pd.merge(F, department_count, how='left', on='department_no', validate='many_to_one')\n\n    # Compute average fashion news frequency of customers who purchased\n    fashion_news_freq = history_unique.groupby('customer_id')['raw_u_fashion_news_frequency'].mean().reset_index()\n    F = pd.merge(F, fashion_news_freq, how='left', on='customer_id', validate='many_to_one')\n\n    # Compute count of article types per customer in time window\n    article_type_count = history_unique['product_type_no'].value_counts().sort_index().to_frame('article_type_count').reset_index()\n    F = pd.merge(F, article_type_count, how='left', on='product_type_no', validate='many_to_one')\n\n    return F.iloc[X.index]\n```",
+  "seed": 110,
+  "prompt_tokens": 1947,
+  "generated_tokens": 305,
+  "seconds": 31.860545610999907,
+  "truncated": false
+}

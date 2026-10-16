@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Calculate average price per customer\n    avg_price = history.loc[history['days_ago'] <= 180, ['customer_id', 'price']].groupby('customer_id')['price'].mean().reset_index()\n    \n    # Calculate average customer age\n    avg_customer_age = history.loc[history['days_ago'] <= 180, ['customer_id', 'customer_age']].groupby('customer_id')['customer_age'].mean().reset_index()\n    \n    # Calculate days ago count for calendar-day windows\n    days_ago_bin_counts = history['days_ago'].value_counts(sort=True, bins=10, normalize=True).sort_index().rename('days_ago_bin_count')\n    \n    # Merge aggregated history into F\n    F = F.merge(avg_price[['customer_id', 'price']], on='customer_id', how='left').merge(avg_customer_age[['customer_id', 'customer_age']], on='customer_id', how='left').merge(days_ago_bin_counts.reset_index().rename(columns={'index': 'days_ago'}), on='', how='left', left_index=True, right_index=True)\n    \n    # Filter days ago count for calendar-day windows\n    F = F[F['days_ago'] >= F['days_ago']].copy()\n    \n    # Assign values positionally to F\n    F = F[['customer_id', 'article_id', 'price', 'customer_age', 'days_ago_bin_count', 'days_ago']]\n    \n    return F\n```",
+  "seed": 54,
+  "prompt_tokens": 2948,
+  "generated_tokens": 327,
+  "seconds": 43.484039524999844,
+  "truncated": false
+}

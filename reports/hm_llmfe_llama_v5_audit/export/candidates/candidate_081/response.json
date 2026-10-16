@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    # Calculate aggregate statistics for customer buying history within last 180 days\n    days_ago_count = history.groupby('customer_id')['days_ago'].apply(lambda x: (x <= 180).sum())\n    days_ago_mean = history.groupby('customer_id')['days_ago'].apply(lambda x: x[x <= 180].mean())\n    days_ago_median = history.groupby('customer_id')['days_ago'].apply(lambda x: x[x <= 180].median())\n    price_mean = history.groupby('customer_id')['price'].apply(lambda x: x[x <= 180].mean())\n    price_median = history.groupby('customer_id')['price'].apply(lambda x: x[x <= 180].median())\n    recent_purchases = history.groupby('customer_id')['customer_age'].apply(lambda x: x[x <= 180].count())\n\n    # Create a new DataFrame F with the same index as X\n    F = pd.DataFrame(index=X.index)\n\n    # Add the aggregate statistics as columns to F\n    F['f_days_ago_count'] = days_ago_count[X.index]\n    F['f_days_ago_mean'] = days_ago_mean[X.index]\n    F['f_days_ago_median'] = days_ago_median[X.index]\n    F['f_price_mean'] = price_mean[X.index]\n    F['f_price_median'] = price_median[X.index]\n    F['f_recent_purchases'] = recent_purchases[X.index]\n\n    return F\n```",
+  "seed": 122,
+  "prompt_tokens": 1947,
+  "generated_tokens": 315,
+  "seconds": 32.82116154800042,
+  "truncated": false
+}

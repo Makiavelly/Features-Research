@@ -1,0 +1,19 @@
+{
+  "sample": 50,
+  "call": 50,
+  "proposal": 16,
+  "repair": 2,
+  "parent_call": 49,
+  "island": 0,
+  "batch": 5,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_050",
+  "prompt_tokens": 2844,
+  "generated_tokens": 332,
+  "llm_seconds": 43.0012070910002,
+  "truncated": false,
+  "program_key": "6c9bfb3ee4b14e9acc7e2c7c3d980a17e75dde582bce508fca7d47cd79fb5db9",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 139, in matrix\n    raise ValueError(f'Invalid output column {col!r}: return ONLY numeric f_* features in a separate DataFrame F, not X or intermediate aggregates')\nValueError: Invalid output column 'customer_id': return ONLY numeric f_* features in a separate DataFrame F, not X or intermediate aggregates\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 44.665773322999485
+}

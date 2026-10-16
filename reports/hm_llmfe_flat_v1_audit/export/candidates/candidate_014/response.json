@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify the input DataFrame X by adding new features and transformations to rank each customer's fixed candidate articles for purchases in the next 7 days.\n    \n    Parameters:\n    X (pd.DataFrame): A numeric pandas DataFrame with one row per customer-article pair.\n    \n    Returns:\n    F (pd.DataFrame): A modified numeric pandas DataFrame with the same index and row order as X, and exactly X.index and row order.\n    \"\"\"\n    F = X.copy()\n    \n    # Calculate the number of purchases by the user and article in the next 7 days\n    F['f_log_user_purchases_7'] = np.log1p(X['h_user_count_7'].fillna(0))\n    F['f_log_article_purchases_7'] = np.log1p(X['h_article_count_7'].fillna(0))\n    \n    # Calculate the ratio of article recency to user recency\n    F['f_article_recency_ratio'] = np.log1p(X['h_article_recency']) - np.log1p(X['h_user_recency'])\n    \n    # Calculate the ratio of article price mean to user price mean\n    F['f_article_price_ratio'] = np.log1p(X['h_article_price_mean']) - np.log1p(X['h_user_price_mean'])\n    \n    # Calculate the interaction between user age and article type\n    F['f_age_article_type_interaction'] = X['raw_u_age'] * X['raw_i_product_type_no']\n    \n    # Calculate the recency-popularity transform of user purchases in the next 7 days\n    F['f_recency_popularity_user_purchases_7'] = np.log1p(X['h_user_count_7'].fillna(0)) / np.log1p(X['h_user_recency'])\n    \n    return F\n```",
+  "seed": 55,
+  "prompt_tokens": 2509,
+  "generated_tokens": 381,
+  "seconds": 45.40719038899988,
+  "truncated": false
+}

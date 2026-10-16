@@ -1,0 +1,11 @@
+{
+  "sample": 87,
+  "call": 87,
+  "proposal": 26,
+  "repair": 2,
+  "parent_call": 86,
+  "island": 2,
+  "batch": 8,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_087",
+  "seed": 128
+}

@@ -1,0 +1,19 @@
+{
+  "sample": 31,
+  "call": 31,
+  "proposal": 9,
+  "repair": 2,
+  "parent_call": 30,
+  "island": 2,
+  "batch": 2,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_031",
+  "prompt_tokens": 2868,
+  "generated_tokens": 411,
+  "llm_seconds": 52.59098231500002,
+  "truncated": false,
+  "program_key": "55cd76b01eceee4a100447a398ba0e82b7c9e7965f491d538ca6efbc9ca79a21",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: KeyError: 'customer_id'\nYour code near line 7:\n5:     days_ago_avg_price = history.set_index(['customer_id', 'article_id'])['price'].fillna(0).rolling(7, min_periods=1).mean().reset_index()\n6:     customer_category_average = history.set_index(['customer_id', 'article_id'])['product_type_no'].fillna(0).groupby(['customer_id']).mean().reset_index()\n7:     days_ago_count = history.set_index(['customer_id', 'article_id'])['customer_id'].value_counts().reset_index(name='days_ago_count')\n8: \n9:     # Merge results and assign to F\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 54.35043669599963
+}

@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Generate new features for H&M clothing recommendations.\n\n    Parameters:\n    X (DataFrame): A numeric pandas DataFrame containing customer-article pairs.\n\n    Returns:\n    F (DataFrame): A numeric pandas DataFrame with new features.\n    \"\"\"\n    F = X.copy()\n\n    # Log user purchases\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n\n    # Log article purchases\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n\n    # Calculate article purchase count ratio\n    F['f_article_purchases_ratio'] = np.log1p(X['h_article_count_30'].fillna(0)) / np.log1p(X['h_article_count_7'].fillna(0))\n\n    # Calculate article price mean ratio\n    F['f_article_price_mean_ratio'] = np.log1p(X['h_article_price_mean'].fillna(0))\n\n    # Calculate user age colour product affinity\n    F['f_age_colour_product_affinity'] = np.log1p(X['raw_u_age'] * X['raw_i_colour_group_code'])\n\n    return F\n```",
+  "seed": 50,
+  "prompt_tokens": 2852,
+  "generated_tokens": 254,
+  "seconds": 34.18603223499986,
+  "truncated": false
+}

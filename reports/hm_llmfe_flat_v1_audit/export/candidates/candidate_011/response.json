@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify the input DataFrame to include new features that can help in ranking customer-article pairs.\n\n    The new features include:\n    - f_log_user_purchases: log of the number of user purchases in the last 180 days\n    - f_log_article_purchases: log of the number of article purchases in the last 30 days\n    - f_user_article_recency_ratio: ratio of article recency to user recency\n    - f_user_colour_count_ratio: ratio of user colour count to article colour count\n    - f_price_similarity: similarity between user average price and article average price\n\n    Parameters:\n    X (pd.DataFrame): Input DataFrame\n\n    Returns:\n    pd.DataFrame: Modified DataFrame with new features\n    \"\"\"\n    F = X.copy()\n\n    # Calculate log of user purchases in the last 180 days\n    F['f_log_user_purchases'] = np.log1p(F['h_user_count_180'].fillna(0))\n\n    # Calculate log of article purchases in the last 30 days\n    F['f_log_article_purchases'] = np.log1p(F['h_article_count_30'].fillna(0))\n\n    # Calculate ratio of article recency to user recency\n    F['f_user_article_recency_ratio'] = F['h_user_article_recency'] / F['h_article_recency']\n\n    # Calculate ratio of user colour count to article colour count\n    F['f_user_colour_count_ratio'] = F['h_user_colour_count'] / F['h_article_count_7']\n\n    # Calculate similarity between user average price and article average price\n    F['f_price_similarity'] = np.abs(F['h_user_price_mean'] - F['h_article_price_mean'])\n\n    return F\n```",
+  "seed": 52,
+  "prompt_tokens": 2509,
+  "generated_tokens": 367,
+  "seconds": 43.53318115800016,
+  "truncated": false
+}

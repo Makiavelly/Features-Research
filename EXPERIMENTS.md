@@ -51,7 +51,7 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_llmfe_llama31_8b_lightgbm_repair_fulltrain_v4 | notebook_ready | — | — | — | LLMFeatures/kaggle |
 | hm_llmfe_llama31_8b_lightgbm_fulltrain_v3_3b338cf1f141 | audited_no_llm_result | — | — | — | reports/kaggle_llama_v3_audit |
 | hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5 | notebook_ready | — | — | — | LLMFeatures/kaggle |
-| hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef | partial_export_received | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef | complete_with_alignment_bug | — | 0.97730 | 0.73457 | reports/hm_llmfe_llama_v5_audit |
 | hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1 | notebook_ready | — | — | — | — |
 | hm_llmfe_llama31_8b_lightgbm_sql_fulltrain_v1_6eb8a9ef9ba7 | stopped_by_user | — | — | — | — |
 | hm_llmfe_llama31_8b_lightgbm_structured_fulltrain_v1 | notebook_ready | — | — | — | — |
@@ -59,6 +59,8 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | balance_scale_llama31_diagnostic_v1_09de7191636d | failed_before_llm | — | — | — | — |
 | balance_scale_llama31_diagnostic_v2_cpu | notebook_ready | — | — | — | — |
 | balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5 | diagnostic_complete | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1 | notebook_ready | — | — | — | — |
+| hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1_aa1ed17300ae | complete | — | 0.74474 | 0.80095 | reports/hm_llmfe_flat_v1_audit |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

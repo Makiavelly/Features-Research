@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Compute the number of purchases in the last 180 days for each customer-article pair\n    last_180_days = history[history['days_ago'] <= 180][['customer_id', 'article_id']]\n    last_180_days = last_180_days.merge(X[['customer_id', 'article_id']], on=['customer_id', 'article_id'], how='left')\n    F['f_last_180_days'] = last_180_days.groupby(['customer_id', 'article_id'])['customer_id'].count()\n    \n    # Compute the average price of purchases in the last 180 days for each customer-article pair\n    F['f_avg_price_last_180_days'] = last_180_days.groupby(['customer_id', 'article_id'])['price'].transform('mean')\n    \n    # Compute the number of purchases in the last 7 days for each customer-article pair\n    last_7_days = history[history['days_ago'] <= 7][['customer_id', 'article_id']]\n    last_7_days = last_7_days.merge(X[['customer_id', 'article_id']], on=['customer_id', 'article_id'], how='left')\n    F['f_last_7_days'] = last_7_days.groupby(['customer_id', 'article_id'])['customer_id'].count()\n    \n    # Compute the average age of customers who made purchases in the last 180 days for each article\n    F['f_avg_customer_age_article_last_180_days'] = history[history['days_ago'] <= 180].groupby('article_id')['customer_age'].transform('mean')\n    \n    return F\n```",
+  "seed": 153,
+  "prompt_tokens": 3191,
+  "generated_tokens": 356,
+  "seconds": 49.451134146000186,
+  "truncated": false
+}

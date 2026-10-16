@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Compute mean purchase price over last 180 days for each customer\n    cohort_price_mean = history[history['days_ago'] <= 180].pivot_table(index='customer_id', values='price', aggfunc='mean', fill_value=0)\n    \n    # Compute mean age of customers purchasing each article in last 180 days\n    cohort_age_mean = history[history['days_ago'] <= 180].pivot_table(index='article_id', values='customer_age', aggfunc='mean', fill_value=0)\n    \n    # Compute purchases in last 180 days of customers for each article\n    cohort_purchase_count = history[history['days_ago'] <= 180].pivot_table(index='article_id', columns='customer_id', aggfunc='size', fill_value=0).fillna(0).astype(int)\n    \n    # Merge cohorts with customer data\n    cohort_merge = pd.concat([cohort_price_mean, cohort_age_mean, cohort_purchase_count], axis=1).fillna(0)\n    \n    # Extract customer IDs from merge\n    cohort_merge.index = cohort_merge.index.rename('customer_id')\n    \n    # Merge cohorts with candidate articles for mean purchase price, age, and purchases\n    F = pd.merge(X, cohort_merge, left_on='customer_id', right_index=True, how='left', validate='many_to_one')\n    \n    # Compute mean purchase price and age for current candidate articles\n    F['f_price_mean'] = F['price_y']\n    F['f_age_mean'] = F['customer_age_y']\n    \n    # Compute purchases in last 180 days of customers for each article\n    F['f_purchase_count'] = F['purchase_count_y']\n    \n    return F\n```",
+  "seed": 95,
+  "prompt_tokens": 3021,
+  "generated_tokens": 376,
+  "seconds": 50.16257229999974,
+  "truncated": false
+}

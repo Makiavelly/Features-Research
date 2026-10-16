@@ -1,5 +1,55 @@
 ﻿# Контекст для продолжения проекта
 
+## Итог старого X+history v5: ошибка сопоставления (2026-10-16)
+
+ПолученZIPpreflight_fulltrain_v5_949add5c4fef;указанныйfeatures-llama-plus-lightgbm-v3.ipynb
+содержитровнототжеruntime(2SHAсовпали).20техническиоценённыхза154calls/134rejects/103repairs.
+Выбранcandidate151:valMAP.009773007347470239,test.007345734694570958;4independentreplayRaw/selected
+×val/testточносовпали,20model/programхешейиtrain803377проверены.
+КРИТИЧНО:FRangeIndexполучаетSeriesgroupbyIDпрямымприсваиваниембезmapпоX.ID.
+Статистикипопадаютпономерустроки,а не поIDпары.На128searchпарах70неверныхmean_price,
+52неверныхcustomerstats(фактическиеcustomerколонкивсеNaN).Перестановка/разбиениеменяютвыход.
+Такойprobeпровалили4из20:56,131,147,151.Неисправлятьисторическиеметрикизаднимчислом.
+Статусcomplete_with_alignment_bug,feature_semantics_valid=false.13generatedнеявляются
+корректноID-сопоставленнымиhistoryпризнаками. Этоотдельноотflat(20/23,test.800949%).
+Архив/notebookнеизменены;новогообучения/выборапоtestнет.Отчётreports/hm_llmfe_llama_v5_audit/report.md.
+
+## Новый H&M эксперимент: плоская таблица + Python Llama (2026-10-16)
+
+РЕАЛЬНЫЙ flat запуск aa1ed17300ae завершён,ZIPвкорнепроектапроверен.
+20оценённыхASTпрограммза23calls/3repairs/3rejects(.max acrossrows).Выбранcandidate003поconfirm512.
+LLMvalMAP=.0074474111229482325,test=.008009488544766866(0.744741%/0.800949%).
+НаТЕХЖЕval1024/test2048:Raw15test0.713138%,Prepared30test0.737375%,Seeded32test0.723351%,
+manual126test1.862883%,GNN→LGBM1.680568%,IDGNN2.254944%.Не сравниватьсfulltest67144.
+Все20candidateхешеймоделей/программ/train803377проверены;configfingerprintи7runtimeSHAсовпали.
+Независимыйreplay4моделей×val/testсовпалточноtop12/AP/MAP;референсыпересчитаныизbundle.
+Парныйbootstrap10kпользователейseed42:LLM−Prepared30 +.063574п.п.,95%[+.010718;+.127851];
+LLM−Seeded32 +.077598п.п.,95%[+.026709;+.138419];LLM−Raw15CIпересекает0.
+Raw15наval1.026872%вышеLLM.НаэтойвыборкеестьмалыйвкладLLMповерх30/32контролей,
+носущественнохужеmanual/GNN,неоснованиесчитатьполныйкаталогLLMлучше.
+Выбранные36полей:30base+2ручныхseedlog+4LLMratio.Естьнесогласованные180/30окнавratio,
+recencyделитсяпроверкойcountвместоdenominator;inf→NaN.Оценкасмыслапо-прежнемунужна.
+flat_manifestнепопалвZIP:byteсравнениеКaggleкэшанедоступно;локальныеданныетогожекода
+даютточнотежефинальныепредсказания. Архивнеизменён.
+Отчёт/графики:reports/hm_llmfe_flat_v1_audit/report.md,audit.json,export/.
+
+Пользователь одобрил перенос успешной balance-scale постановки на H&M.
+Отдельный notebook LLMFeatures/kaggle/llmfe_llama31_hm_flat_kaggle_t4.ipynb,
+protocol hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1. Исходный Input fulltrain_v2 прежний.
+Одна таблица30полей:15raw+15 фиксированных РУЧНЫХ past-only агрегатов (неLLM).
+ДоLLM измеряютсяRaw15,Prepared30,Seeded32(+2ручныхlog);рабочийSEEDвсегдавпромпте.
+Llama пишет modify_features(X) безhistory/SQL/joins,можетдобавлять/удалятьполя.
+Строковыеимена,числовойвыход1–78;rowwiseоперации,preflightпроверяетbatch-invariance.
+СравнениевкладаLLMсPrepared30иSeeded32,а не присваивание ручныхагрегатовLLM.
+803377 исходныхtrainпар/метки/порядоксохранены;вкэшекопии добавленыслужебныетеги,
+никогда невидимыеLLM.52снимка past180days;inputархивнеизменён;кэшвworking.
+Seed42/LightGBM150/31/4threads;тежеsearch256/confirm512/val1024/test2048/IDGNNпулы.
+3islands,20оценённыхAST-программ/300calls/3repairs;пилот:0успеховпосле6calls→ошибка+ZIP.
+HF/ревизия0e9e39f249a16976918f6564b8830bc894c89659/NF4FP16/chat,unslothвыборсохранён.
+Графики,контрольныепредсказания,независимыйreplay,ZIPприошибкахвключены.
+Исходники/README/проверки:LLMFeatures/kaggle/flat_variant;builderbuild_flat_notebook.py.
+Локальныепрограммы-тесты неявляютсягенерациейLlama;реальныйновыйT4запускещёнесделан.
+
 ## Диагностика balance-scale перед дальнейшим H&M поиском (2026-10-15)
 
 РЕАЛЬНЫЙ Kaggle v2_cpu завершён, ZIP balance_scale_llama31_diagnostic_v2_cpu_6b5c7786f4b5_results.zip

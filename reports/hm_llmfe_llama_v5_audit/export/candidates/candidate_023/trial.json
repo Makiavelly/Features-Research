@@ -1,0 +1,19 @@
+{
+  "sample": 23,
+  "call": 23,
+  "proposal": 7,
+  "repair": 2,
+  "parent_call": 22,
+  "island": 2,
+  "batch": 2,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_023",
+  "prompt_tokens": 2881,
+  "generated_tokens": 449,
+  "llm_seconds": 57.48809617699999,
+  "truncated": false,
+  "program_key": "8d1ea00541cd50c4926fa04e7d1ebabe8d7e794e22fe4e8d7363962ae277c97a",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 134, in matrix\n    raise ValueError('Return a DataFrame with unchanged X.index and one row per pair')\nValueError: Return a DataFrame with unchanged X.index and one row per pair\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 60.332264254000165
+}

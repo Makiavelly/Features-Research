@@ -1,0 +1,19 @@
+{
+  "sample": 104,
+  "call": 104,
+  "proposal": 32,
+  "repair": 1,
+  "parent_call": 103,
+  "island": 2,
+  "batch": 10,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_104",
+  "prompt_tokens": 2992,
+  "generated_tokens": 462,
+  "llm_seconds": 60.2684489509993,
+  "truncated": false,
+  "program_key": "3912220564121a8441daff096d9ffcb2c6c85467091b138079c63efe1f7498cf",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: InvalidIndexError: Reindexing only valid with uniquely valued Index objects\nYour code near line 25:\n23:     \n24:     # Reorder the columns to match the desired output order\n25:     F = pd.concat([article_avg_age, article_purchases, article_avg_price, article_unique_customers, F_days_ago_df, customer_purchases], axis=1)\n26:     \n27:     # Reorder the columns\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 61.922481191999395
+}

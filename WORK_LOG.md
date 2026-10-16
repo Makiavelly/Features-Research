@@ -22982,3 +22982,75 @@ Real Kaggle diagnostic ZIP received and audited: config fingerprint6b5c7786f4b5 
   "status": "diagnostic_complete"
 }
 ```
+
+## 2026-10-16T00:17:53+03:00 — hm_flat_notebook_ready
+
+Prepared independent llmfe_llama31_hm_flat_kaggle_t4.ipynb after user approved flat-table Python experiment.30 base columns=15raw+15fixed human past180d aggregates, generated once per52 training snapshots; original803377 pair rows/labels/order verified unchanged. Controls Raw15/Prepared30/Seeded32(two human log transforms), real seed score/code provided to3island memory; Llama only rowwise modify_features(X), additions/removals allowed.20 AST-distinct measured/300calls/3repairs; no-success after6calls pilot gate produces failure ZIP. Same256/512/1024/2048 candidate users,LightGBM150/31/seed42/4threads. Official hf pinned0e9e39f249a16976918f6564b8830bc894c89659/NF4FP16/chat,unsloth option retained. Four unit checks and synthetic search/repair/duplicate/confirmation/final/replay/resume passed; batch-dependent feature rejected before fit. Full803377 fits and independent val model replay passed for Raw15,Prepared30,Seeded32 and test fixture; cached scoring fits~16-17s locally. Raw15 valMAP.010268722027755231 matches previous Kaggle raw control exactly. Graphs visually checked,hand-feature origins explicit. DuckDB1.4.1 pinned for clean Kaggle setup; source data ZIP unchanged. Real Llama not run, no new LLM quality result. Artifacts LLMFeatures/kaggle/flat_variant and reports/kaggle_llmfe_validation/flat_v1/verification.json.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1`.
+
+```json
+{
+  "status": "notebook_ready"
+}
+```
+
+## 2026-10-16T09:54:57+03:00 — hm_flat_real_run_audited
+
+Реальный flat эксперимент проверен:20 наборов за23 обращения,3 отказа; выбран candidate003. LLM test MAP0.800949%,Prepared30 0.737375%,Seeded32 0.723351%,Raw15 0.713138%, manual126 1.862883%,GNN→LGBM1.680568%,ID-GNN2.254944% на общих2048 test пользователях. 20 candidate model/program SHA и7 runtime SHA совпали. Независимый replay4 моделей×val/test точно совпал. Парный bootstrap10k:LLM−Prepared30+.063574п.п.,95%[+.010718;+.127851]; к Raw15 интервал пересекает0. Raw15 лучше LLM на val. Качество существенно ниже manual/GNN; не полный каталог/не полный test. Выбранные4 LLM ratio поверх30base+2ручныхseedlog. flat_manifest отсутствует вZIP; исходныйbundle и код проверены, локальный кэш дал те же предсказания. Оригинальный архив не изменён.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1_aa1ed17300ae`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/hm_llmfe_flat_v1_audit",
+  "val_metrics": {
+    "map": 0.0074474111229482,
+    "users": 1024,
+    "scope": "shared candidate subset"
+  },
+  "test_metrics": {
+    "map": 0.0080094885447668,
+    "users": 2048,
+    "scope": "shared candidate subset"
+  },
+  "llm_calls": 23,
+  "evaluated_distinct": 20,
+  "rejected": 3,
+  "selected_candidate": 3,
+  "independent_frozen_replay": true,
+  "full_catalog": false,
+  "paper_reproduction": false
+}
+```
+
+## 2026-10-16T10:02:46+03:00 — hm_llama_v5_semantic_audit
+
+Получен итог v5 из features-llama-plus-lightgbm-v3.ipynb:20 технически оценённых программ за154 calls,134 отказа. Выбран candidate151, valMAP0.977301%,test0.734573% на общих1024/2048 пользователях. Но обнаружено неверное pandas-сопоставление: groupby Series поarticle_id/customer_id присвоены вRangeIndex F безmap/reindex по ID. Перестановка/разбиение128пар меняют признаки;mean_price неверен у70/128, customer-признаки у52/128. Такой probe провалили кандидаты56,131,147,151. 20 model/program SHA и2 runtimeSHA совпали, независимый replay Raw/selected×val/test точный. Метрики воспроизводимы, но не означают правильные исторические признаки. Никакого ремонта/переобучения или нового выбора поtest не было; исходники/ZIP неизменны. Flat запуск20/23 иtest0.800949% остаётся отдельным экспериментом.
+
+Запуск: `hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef`.
+
+```json
+{
+  "status": "complete_with_alignment_bug",
+  "artifacts": "reports/hm_llmfe_llama_v5_audit",
+  "val_metrics": {
+    "map": 0.0097730073474702,
+    "users": 1024,
+    "scope": "shared subset; feature alignment bug"
+  },
+  "test_metrics": {
+    "map": 0.0073457346945709,
+    "users": 2048,
+    "scope": "shared subset; feature alignment bug"
+  },
+  "llm_calls": 154,
+  "evaluated_distinct": 20,
+  "rejected": 134,
+  "selected_candidate": 151,
+  "chosen_feature_semantics_valid": false,
+  "independent_frozen_replay": true,
+  "full_catalog": false
+}
+```

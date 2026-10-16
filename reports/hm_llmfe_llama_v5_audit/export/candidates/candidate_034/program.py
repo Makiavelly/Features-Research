@@ -1,0 +1,37 @@
+def modify_features(X, history):
+    # Compute past purchase price average by customer
+    past_price_avg = history.pivot_table(index="customer_id", values="price", aggfunc="mean")
+    past_price_avg = past_price_avg.rename(columns={"price": "f_past_price_avg"})
+
+    # Compute customer age average
+    customer_age_avg = history.pivot_table(index="customer_id", values="customer_age", aggfunc="mean")
+    customer_age_avg = customer_age_avg.rename(columns={"customer_age": "f_customer_age_avg"})
+
+    # Compute past purchase count by customer and article type
+    past_count_avg = history.pivot_table(index=["customer_id", "article_id"], values="days_ago", aggfunc="count")
+    past_count_avg = past_count_avg.rename(columns={"days_ago": "f_past_count_avg"})
+
+    # Compute article type average by customer
+    article_type_avg = history.pivot_table(index="customer_id", values="product_type_no", aggfunc="mean")
+    article_type_avg = article_type_avg.rename(columns={"product_type_no": "f_article_type_avg"})
+
+    # Merge aggregations with X on customer_id
+    F = X.copy()
+    F = F.merge(past_price_avg.reset_index(), how="left", on="customer_id")
+    F = F.merge(customer_age_avg.reset_index(), how="left", on="customer_id")
+    F = F.merge(past_count_avg.reset_index(), how="left", on=["customer_id", "article_id"])
+    F = F.merge(article_type_avg.reset_index(), how="left", on="customer_id")
+
+    # Compute interaction between past purchase price and article type
+    F['f_past_price_avg_product_type_no'] = F['f_past_price_avg'] * F['raw_i_product_type_no']
+
+    # Preserve left ordering after join
+    F = F.sort_index()
+
+    # Drop unnecessary columns
+    F = F.drop(columns=[col for col in F.columns if 'price' in col or 'customer_age' in col or 'product_type_no' in col or 'days_ago' in col])
+
+    # Reorder columns
+    F = F[['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no', 'f_past_price_avg', 'f_customer_age_avg', 'f_past_count_avg', 'f_article_type_avg', 'f_past_price_avg_product_type_no']]
+
+    return F

@@ -1,0 +1,19 @@
+{
+  "sample": 70,
+  "call": 70,
+  "proposal": 22,
+  "repair": 1,
+  "parent_call": 69,
+  "island": 0,
+  "batch": 7,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_070",
+  "prompt_tokens": 2808,
+  "generated_tokens": 222,
+  "llm_seconds": 29.82117388900042,
+  "truncated": false,
+  "program_key": "ab9d8faa5ae62ed074c501af8118117cf3289273060c13c6b2d6d71930641ca1",
+  "status": "rejected",
+  "error": " the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.\nTraceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: ValueError: cannot insert customer_id, already exists\nYour code near line 3:\n1: def modify_features(X, history):\n2:     # Aggregate past transactions per customer\n3:     history_unique = history.groupby('customer_id').apply(lambda x: x[x['days_ago'] < 180].max()).reset_index()\n4: \n5:     # Compute average purchase price per customer in time window\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 34.2209951169998
+}

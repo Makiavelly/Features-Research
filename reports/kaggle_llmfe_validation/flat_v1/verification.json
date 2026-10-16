@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "unit_tests": 4,
+  "fulltrain_pairs": 803377,
+  "same_original_pair_rows_and_labels": true,
+  "fulltrain_control_and_fixture_replay": true,
+  "synthetic_search_final": true,
+  "real_llama_executed": false,
+  "quality_result": false
+}

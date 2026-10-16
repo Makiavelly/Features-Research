@@ -1,0 +1,19 @@
+{
+  "sample": 34,
+  "call": 34,
+  "proposal": 10,
+  "repair": 1,
+  "parent_call": 33,
+  "island": 2,
+  "batch": 3,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_034",
+  "prompt_tokens": 3284,
+  "generated_tokens": 601,
+  "llm_seconds": 82.64886796500014,
+  "truncated": false,
+  "program_key": "69204c86de3ebebd0386a2a03e6fc6397945cb35860c520d2dd93d4179963c67",
+  "status": "rejected",
+  "error": "ain\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: KeyError: \"['raw_i_product_type_no', 'f_past_price_avg', 'f_customer_age_avg', 'f_past_price_avg_product_type_no'] not in index\"\nYour code near line 35:\n33: \n34:     # Reorder columns\n35:     F = F[['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no', 'f_past_price_avg', 'f_customer_age_avg', 'f_past_count_avg', 'f_article_type_avg', 'f_past_price_avg_product_type_no']]\n36: \n37:     return F\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 84.49096242600035
+}

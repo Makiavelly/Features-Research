@@ -1,0 +1,6 @@
+{
+  "notebook": "llmfe_llama31_hm_flat_kaggle_t4.ipynb",
+  "sha256": "5e4151c67e75852aa1fdb3e70686a99cb3740dfd8c070d4165a73d558baef09b",
+  "protocol": "hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1",
+  "gpu_or_llama_executed": false
+}

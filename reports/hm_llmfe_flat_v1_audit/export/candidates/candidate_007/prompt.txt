@@ -1,0 +1,75 @@
+You are a data scientist creating useful features for H&M clothing recommendations.
+Task: rank each customer's fixed candidate articles for purchases in the next7 days. Maximize validation MAP@12.
+Complete ONE Python function: def modify_features(X): return a numeric pandas DataFrame.
+X is already a prepared flat numeric table: one row per customer-article pair. No history joins needed.
+pd (pandas) and np (numpy) are supplied; no other libraries, files, network or fitting.
+Use the existing columns below to create meaningful interactions, ratios, recency/popularity transforms,
+and affinities between customer preferences and candidate attributes. Use domain knowledge.
+Start from X.copy(), prefer preserving informative columns; you may drop less useful columns as in the examples.
+Return a DataFrame with exactly X.index and row order. Numeric output1-78 columns, same schema for every call.
+Use vectorized ROWWISE operations only. No groupby, merge, joins, windows, random, ranking across rows,
+or dataset statistics such as column.mean(). No learning from the current batch. Missing values are allowed.
+Your function is applied in separate chunks and must give identical results regardless of other rows.
+For ratios, handle zero denominators; np.log1p on nonnegative counts is supported.
+Keep the entire function compact, ideally2-6 new transformations, one short docstring, under2048 output tokens.
+Return ONLY the complete function in a python code block; do not generate several versions or explanations.
+
+Column meanings (all supplied by host, NOT invented by Llama):
+raw_u_age: customer age. raw_u_fn/raw_u_active: account flags.
+raw_u_club_member_status/raw_u_fashion_news_frequency: category codes.
+raw_i_*: encoded clothing product/type, graphic, colour, department, index, section, garment categories.
+Category codes are identifiers, not continuous measurements; avoid arbitrary arithmetic on them.
+h_user_count_7/30/180 and h_article_count_7/30/180: past purchase counts in those calendar-day windows.
+h_user_recency/h_article_recency: days since most recent purchase in past180 days.
+h_user_price_mean/h_article_price_mean: average normalized past price in past180 days.
+h_user_type_count_30/180: customer's purchases of candidate's product_type_no in those windows.
+h_user_article_count/h_user_article_recency: past180-day count/recency for this exact customer-article.
+h_user_colour_count: customer's past180-day purchases of candidate's colour group.
+Missing aggregates mean no matching history; counts may be filled with0 but missing recency is NOT recent.
+History is restricted to selected customer cohort and180 days before each cutoff, not population-wide sales.
+Only30 base columns exist. Do not invent other history fields, IDs, timestamps, labels or prices of future purchases.
+The host scores all803377 supervised training pairs with CPU LightGBM150 rounds/31 leaves, seed42.
+Search uses fixed256 validation users and6594 candidates. Test is unavailable during selection.
+Previously measured complete transformations include a real working seeded example.
+{"available_columns":["raw_u_age","raw_u_fn","raw_u_active","raw_u_club_member_status","raw_u_fashion_news_frequency","raw_i_product_code","raw_i_product_type_no","raw_i_graphical_appearance_no","raw_i_colour_group_code","raw_i_perceived_colour_value_id","raw_i_perceived_colour_master_id","raw_i_department_no","raw_i_index_group_no","raw_i_section_no","raw_i_garment_group_no","h_article_count_180","h_article_count_30","h_article_count_7","h_article_price_mean","h_article_recency","h_user_article_count","h_user_article_recency","h_user_colour_count","h_user_count_180","h_user_count_30","h_user_count_7","h_user_price_mean","h_user_recency","h_user_type_count_180","h_user_type_count_30"],"five_training_examples":[{"raw_u_age":32.0,"raw_u_fn":1.0,"raw_u_active":1.0,"raw_u_club_member_status":0.0,"raw_u_fashion_news_frequency":2.0,"raw_i_product_code":32200.0,"raw_i_product_type_no":26.0,"raw_i_graphical_appearance_no":16.0,"raw_i_colour_group_code":14.0,"raw_i_perceived_colour_value_id":2.0,"raw_i_perceived_colour_master_id":13.0,"raw_i_department_no":85.0,"raw_i_index_group_no":0.0,"raw_i_section_no":45.0,"raw_i_garment_group_no":17.0,"h_article_count_180":4.0,"h_article_count_30":1.0,"h_article_count_7":1.0,"h_article_price_mean":0.06309745460748672,"h_article_recency":4.0,"h_user_article_count":1.0,"h_user_article_recency":53.0,"h_user_colour_count":1.0,"h_user_count_180":49.0,"h_user_count_30":24.0,"h_user_count_7":17.0,"h_user_price_mean":0.0404534749686718,"h_user_recency":0.0,"h_user_type_count_180":2.0,"h_user_type_count_30":0.0},{"raw_u_age":34.0,"raw_u_fn":NaN,"raw_u_active":NaN,"raw_u_club_member_status":0.0,"raw_u_fashion_news_frequency":1.0,"raw_i_product_code":7040.0,"raw_i_product_type_no":74.0,"raw_i_graphical_appearance_no":16.0,"raw_i_colour_group_code":31.0,"raw_i_perceived_colour_value_id":1.0,"raw_i_perceived_colour_master_id":4.0,"raw_i_department_no":11.0,"raw_i_index_group_no":0.0,"raw_i_section_no":43.0,"raw_i_garment_group_no":14.0,"h_article_count_180":NaN,"h_article_count_30":NaN,"h_article_count_7":NaN,"h_article_price_mean":NaN,"h_article_recency":NaN,"h_user_article_count":NaN,"h_user_article_recency":NaN,"h_user_colour_count":NaN,"h_user_count_180":4.0,"h_user_count_30":4.0,"h_user_count_7":4.0,"h_user_price_mean":0.01752542331814766,"h_user_recency":2.0,"h_user_type_count_180":NaN,"h_user_type_count_30":NaN},{"raw_u_age":44.0,"raw_u_fn":1.0,"raw_u_active":1.0,"raw_u_club_member_status":0.0,"raw_u_fashion_news_frequency":2.0,"raw_i_product_code":39808.0,"raw_i_product_type_no":33.0,"raw_i_graphical_appearance_no":16.0,"raw_i_colour_group_code":5.0,"raw_i_perceived_colour_value_id":5.0,"raw_i_perceived_colour_master_id":15.0,"raw_i_department_no":108.0,"raw_i_index_group_no":0.0,"raw_i_section_no":45.0,"raw_i_garment_group_no":17.0,"h_article_count_180":21.0,"h_article_count_30":3.0,"h_article_count_7":0.0,"h_article_price_mean":0.04143179953098297,"h_article_recency":8.0,"h_user_article_count":NaN,"h_user_article_recency":NaN,"h_user_colour_count":NaN,"h_user_count_180":125.0,"h_user_count_30":28.0,"h_user_count_7":18.0,"h_user_price_mean":0.019047321751713753,"h_user_recency":1.0,"h_user_type_count_180":NaN,"h_user_type_count_30":NaN},{"raw_u_age":25.0,"raw_u_fn":1.0,"raw_u_active":1.0,"raw_u_club_member_status":0.0,"raw_u_fashion_news_frequency":2.0,"raw_i_product_code":44750.0,"raw_i_product_type_no":63.0,"raw_i_graphical_appearance_no":12.0,"raw_i_colour_group_code":32.0,"raw_i_perceived_colour_value_id":1.0,"raw_i_perceived_colour_master_id":4.0,"raw_i_department_no":251.0,"raw_i_index_group_no":3.0,"raw_i_section_no":53.0,"raw_i_garment_group_no":1.0,"h_article_count_180":NaN,"h_article_count_30":NaN,"h_article_count_7":NaN,"h_article_price_mean":NaN,"h_article_recency":NaN,"h_user_article_count":NaN,"h_user_article_recency":NaN,"h_user_colour_count":NaN,"h_user_count_180":4.0,"h_user_count_30":0.0,"h_user_count_7":0.0,"h_user_price_mean":0.030957628041505814,"h_user_recency":74.0,"h_user_type_count_180":NaN,"h_user_type_count_30":NaN},{"raw_u_age":44.0,"raw_u_fn":NaN,"raw_u_active":NaN,"raw_u_club_member_status":0.0,"raw_u_fashion_news_frequency":1.0,"raw_i_product_code":23006.0,"raw_i_product_type_no":74.0,"raw_i_graphical_appearance_no":12.0,"raw_i_colour_group_code":9.0,"raw_i_perceived_colour_value_id":4.0,"raw_i_perceived_colour_master_id":5.0,"raw_i_department_no":138.0,"raw_i_index_group_no":3.0,"raw_i_section_no":50.0,"raw_i_garment_group_no":14.0,"h_article_count_180":NaN,"h_article_count_30":NaN,"h_article_count_7":NaN,"h_article_price_mean":NaN,"h_article_recency":NaN,"h_user_article_count":NaN,"h_user_article_recency":NaN,"h_user_colour_count":2.0,"h_user_count_180":7.0,"h_user_count_30":6.0,"h_user_count_7":3.0,"h_user_price_mean":0.048409201204776764,"h_user_recency":1.0,"h_user_type_count_180":NaN,"h_user_type_count_30":NaN}],"working_host_seed_example":"def modify_features(X):\n    F = X.copy()\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    return F\n","previous_programs":[{"search_MAP_fraction":0.007320907174422799,"program":"def modify_features(X):\n    F = X.copy()\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    return F\n"}]}
+Fix the previous program. Return ONE COMPLETE corrected function, not a patch.
+Previous response:
+```python
+def modify_features(X):
+    """
+    Generate new features for H&M clothing recommendations.
+
+    Parameters:
+    X (DataFrame): A numeric pandas DataFrame containing customer-article pairs.
+
+    Returns:
+    F (DataFrame): A numeric pandas DataFrame with new features.
+    """
+    F = X.copy()
+
+    # Log user purchases
+    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))
+
+    # Log article purchases
+    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))
+
+    # Calculate user age squared
+    F['f_age_squared'] = X['raw_u_age'] ** 2
+
+    # Calculate user fashion news frequency ratio
+    F['f_fashion_news_frequency_ratio'] = X['raw_u_fashion_news_frequency'] / \
+        (X['raw_u_fashion_news_frequency'].max() + 1)
+
+    # Calculate article price mean ratio
+    F['f_article_price_mean_ratio'] = X['h_article_price_mean'] / \
+        (X['h_article_price_mean'].max() + 1)
+
+    # Calculate user recency ratio
+    F['f_user_recency_ratio'] = X['h_user_recency'] / \
+        (X['h_user_recency'].max() + 1)
+
+    return F
+```
+Rejection:
+No statistics across rows: max; only axis=1 reductions are allowed
+Use only the listed flat columns. No history/groupby/joins. Preserve row index and schema. If duplicate choose different useful transformations. Keep code short.

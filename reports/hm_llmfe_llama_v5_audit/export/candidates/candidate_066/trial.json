@@ -1,0 +1,19 @@
+{
+  "sample": 66,
+  "call": 66,
+  "proposal": 21,
+  "repair": 1,
+  "parent_call": 65,
+  "island": 0,
+  "batch": 6,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_066",
+  "prompt_tokens": 3021,
+  "generated_tokens": 401,
+  "llm_seconds": 53.28041073700024,
+  "truncated": false,
+  "program_key": "6ff95494d2650d68e37c2770256a4c54ef9773137aafc7e5f49550c12e65dce8",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: ValueError: cannot reindex on an axis with duplicate labels\nYour code near line 20:\n18:     \n19:     # Reindex and assign the results to the positionally indexed F\n20:     F['f_avg_price'] = result['avg_price'].reindex(index=X['article_id']).fillna(0)\n21:     F['f_num_purchases'] = result['num_purchases'].reindex(index=X['customer_id']).fillna(0)\n22:     F['f_avg_customer_age'] = result['avg_customer_age'].reindex(index=X['article_id']).fillna(0)\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 54.992801838999185
+}

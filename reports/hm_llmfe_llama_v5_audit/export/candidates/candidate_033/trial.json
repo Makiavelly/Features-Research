@@ -1,0 +1,19 @@
+{
+  "sample": 33,
+  "call": 33,
+  "proposal": 10,
+  "repair": 0,
+  "parent_call": null,
+  "island": 2,
+  "batch": 3,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_033",
+  "prompt_tokens": 1947,
+  "generated_tokens": 716,
+  "llm_seconds": 73.72247874100003,
+  "truncated": false,
+  "program_key": "f557108d246e1c8fc265479bd4e66dff6afad597c799de329b2ef32473a6c999",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: MergeError: Merge keys are not unique in right dataset; not a many-to-one merge\nYour code near line 10:\n8: \n9:     # Merge aggregations with X on customer_id\n10:     past_price_avg = past_price_avg.join(X.set_index(\"customer_id\"), how=\"left\", validate=\"many_to_one\")\n11:     past_age_avg = past_age_avg.join(X.set_index(\"customer_id\"), how=\"left\", validate=\"many_to_one\")\n12:     past_count_avg = past_count_avg.join(X.set_index(\"customer_id\"), how=\"left\", validate=\"many_to_one\").join(X.set_index(\"article_id\"), how=\"left\", validate=\"many_to_one\")\nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 74.85543324500031
+}

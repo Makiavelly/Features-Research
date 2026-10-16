@@ -1,0 +1,8 @@
+model,val_map,test_map
+Raw15 LightGBM,0.0,0.0625
+Prepared30 LightGBM,0.0,0.005681818181818182
+Seeded32 LightGBM,0.0,0.020833333333333332
+Search winner: host control (NO LLM features),0.0,0.005681818181818182
+Manual features → LightGBM,0.0,0.03125
+GNN → LightGBM,0.0,0.03125
+ID-GNN (graph training budget),0.0,0.0625

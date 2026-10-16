@@ -1,0 +1,19 @@
+{
+  "sample": 55,
+  "call": 55,
+  "proposal": 17,
+  "repair": 3,
+  "parent_call": 54,
+  "island": 0,
+  "batch": 5,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_preflight_fulltrain_v5_949add5c4fef/candidates/candidate_055",
+  "prompt_tokens": 2866,
+  "generated_tokens": 363,
+  "llm_seconds": 46.847800176999954,
+  "truncated": false,
+  "program_key": "8330bb55d70648b34cd97d4e73a306ad347fd4dd3248a06059f6bbda8f3c8120",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 290, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 203, in main\n    _,names=matrix(data,sample,func,expected=names)\n            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/llmfe_runtime/worker.py\", line 130, in matrix\n    raise ValueError(feature_error(error,func,X,history)) from None\nValueError: KeyError: 'customer_id'\nYour code near line 14:\n12:     \n13:     # Merge cohorts with customer data on customer_id\n14:     cohort_merge = pd.merge(cohort_price_mean, cohort_age_mean, on='customer_id')\n15:     cohort_merge = pd.merge(cohort_merge, cohort_purchase_count, on=['customer_id', 'article_id'], how='left').fillna(0)\n16:     \nAvailable INPUT X columns: ['customer_id', 'article_id', 'raw_u_age', 'raw_u_fn', 'raw_u_active', 'raw_u_club_member_status', 'raw_u_fashion_news_frequency', 'raw_i_product_code', 'raw_i_product_type_no', 'raw_i_graphical_appearance_no', 'raw_i_colour_group_code', 'raw_i_perceived_colour_value_id', 'raw_i_perceived_colour_master_id', 'raw_i_department_no', 'raw_i_index_group_no', 'raw_i_section_no', 'raw_i_garment_group_no']\nAvailable INPUT history columns: ['customer_id', 'article_id', 'price', 'sales_channel_id', 'days_ago', 'product_code', 'product_type_no', 'graphical_appearance_no', 'colour_group_code', 'perceived_colour_value_id', 'perceived_colour_master_id', 'department_no', 'index_group_no', 'section_no', 'garment_group_no', 'customer_age']\nIntermediate tables may have different columns: inspect your groupby/agg/reset_index/merge. Overlapping non-key columns get _x/_y suffixes after merge. History has no raw_u_*/raw_i_* columns. Return only f_* features in unchanged X order.\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 48.533725856000274
+}

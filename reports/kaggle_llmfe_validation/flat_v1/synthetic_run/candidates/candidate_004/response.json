@@ -1,0 +1,5 @@
+{
+  "text": "def modify_features(X):\n    F = X.copy()\n    F['f_user_type_share'] = X['h_user_type_count_30'].fillna(0) / (X['h_user_count_30'].fillna(0) + 2)\n    return F\n",
+  "truncated": false,
+  "synthetic_not_llm": true
+}

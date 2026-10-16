@@ -1,0 +1,19 @@
+{
+  "sample": 1,
+  "call": 1,
+  "proposal": 1,
+  "repair": 0,
+  "parent_call": null,
+  "island": 0,
+  "batch": 0,
+  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/flat_v1/synthetic_run/candidates/candidate_001",
+  "prompt_tokens": 0,
+  "generated_tokens": 0,
+  "llm_seconds": 0,
+  "truncated": false,
+  "program_key": "e99a3d5eb24918d67d91ec755e0d294124f05c6f3faf0102cf25d0842151f4cb",
+  "status": "rejected",
+  "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/kaggle/flat_variant/worker.py\", line 195, in <module>\n    main()\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/kaggle/flat_variant/worker.py\", line 102, in main\n    values,names=matrix(data,sample,func,expected=names)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/kaggle/flat_variant/flat_features.py\", line 142, in matrix\n    try:out=func(X.copy(deep=True))\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<flat-features>\", line 2, in modify_features\nNameError: name 'python' is not defined\n",
+  "failure_stage": "preflight",
+  "elapsed_seconds": 3.1247521210025297
+}

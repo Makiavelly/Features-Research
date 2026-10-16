@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X, history):\n    # Calculate the count of past purchases for each customer within the last 180 days\n    past_purchases = history[history['days_ago'] <= 180]\n    past_purchases = past_purchases.groupby('customer_id')['article_id'].nunique().reset_index()\n    past_purchases = past_purchases.rename(columns={'article_id': 'f_past_purchases'})\n\n    # Calculate the average purchase price for each customer within the last 180 days\n    avg_price = history[history['days_ago'] <= 180].groupby('customer_id')['price'].mean().reset_index()\n    avg_price = avg_price.rename(columns={'price': 'f_avg_price'})\n\n    # Merge the aggregates with X on customer_id\n    F = past_purchases.merge(X[['customer_id']], on='customer_id')\n    F = F.merge(avg_price[['customer_id', 'f_avg_price']], on='customer_id', how='left', validate='many_to_one')\n    \n    return F\n```",
+  "seed": 166,
+  "prompt_tokens": 3030,
+  "generated_tokens": 215,
+  "seconds": 30.83254385700093,
+  "truncated": false
+}

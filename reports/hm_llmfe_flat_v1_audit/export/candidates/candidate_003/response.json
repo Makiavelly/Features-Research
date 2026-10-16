@@ -1,0 +1,8 @@
+{
+  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify numeric features to rank customer-article pairs for purchases in the next 7 days.\n    \n    Parameters:\n    X (pd.DataFrame): Flat numeric table with one row per customer-article pair.\n    \n    Returns:\n    F (pd.DataFrame): Modified numeric DataFrame with same index and row order as X.\n    \"\"\"\n    F = X.copy()\n    \n    # Calculate log of user and article purchases\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    \n    # Calculate user and article purchase frequency ratios\n    F['f_user_article_purchases_ratio'] = np.where(X['h_user_count_180'] > 0, X['h_user_article_count'] / X['h_user_count_180'], 0)\n    F['f_article_user_purchases_ratio'] = np.where(X['h_article_count_30'] > 0, X['h_user_article_count'] / X['h_article_count_30'], 0)\n    \n    # Calculate user and article purchase recency ratios\n    F['f_user_article_recency_ratio'] = np.where(X['h_user_count_180'] > 0, X['h_user_article_recency'] / X['h_user_recency'], 0)\n    F['f_article_user_recency_ratio'] = np.where(X['h_article_count_30'] > 0, X['h_user_article_recency'] / X['h_article_recency'], 0)\n    \n    return F\n```",
+  "seed": 44,
+  "prompt_tokens": 2509,
+  "generated_tokens": 348,
+  "seconds": 40.685344549999854,
+  "truncated": false
+}

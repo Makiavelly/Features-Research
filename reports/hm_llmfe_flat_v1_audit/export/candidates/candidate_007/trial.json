@@ -1,0 +1,18 @@
+{
+  "sample": 7,
+  "call": 7,
+  "proposal": 6,
+  "repair": 1,
+  "parent_call": 6,
+  "island": 1,
+  "batch": 1,
+  "directory": "/kaggle/working/hm_llmfe_llama31_8b_lightgbm_flat_fulltrain_v1_aa1ed17300ae/candidates/candidate_007",
+  "prompt_tokens": 2836,
+  "generated_tokens": 312,
+  "llm_seconds": 41.08730354399995,
+  "truncated": false,
+  "status": "rejected",
+  "error": "No statistics across rows: max; only axis=1 reductions are allowed",
+  "failure_stage": "parse_and_validate",
+  "elapsed_seconds": 41.30037602000016
+}
