@@ -1,0 +1,65 @@
+{
+  "model": "Recformer zero_shot",
+  "config": {
+    "seed": 42,
+    "max_tokens": 256,
+    "max_items": 50,
+    "attributes": 3,
+    "max_attr_length": 32,
+    "batch": 4,
+    "gradient_accumulation": 4,
+    "epochs_per_stage": 2,
+    "stages": 2,
+    "lr": 5e-05,
+    "weight_decay": 0.0,
+    "precision": "FP16 autocast; FP32 normalized cosine matmul",
+    "objective": "mean per-user-time mean positive negative-log full softmax; catalog5000",
+    "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+    "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+    "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+    "runner_sha256": "f4c57d8a77b73ef2bece649b53dd506697b419f8d80a64dbb127537bf77be62f",
+    "asset_manifest": {
+      "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+      "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+      "backbone_repo": "allenai/longformer-base-4096",
+      "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+      "files": {
+        "config.json": {
+          "bytes": 694,
+          "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+        },
+        "merges.txt": {
+          "bytes": 456318,
+          "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+        },
+        "recformer_seqrec.bin": {
+          "bytes": 749479199,
+          "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+        },
+        "vocab.json": {
+          "bytes": 898823,
+          "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+        }
+      }
+    },
+    "runtime": {
+      "torch": "2.2.2+cu118",
+      "transformers": "4.46.3",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3"
+    },
+    "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+  },
+  "selected_stage": 0,
+  "selected_epoch": 0,
+  "training_and_validation_seconds": 0.0,
+  "peak_cuda_bytes": 3424326656,
+  "val_metrics": {
+    "map": 0.026699561403508775
+  },
+  "val_inference_seconds": 6.151355272000728,
+  "test_metrics": {
+    "map": 0.03300543530543531
+  },
+  "test_inference_seconds": 6.137794426000255
+}

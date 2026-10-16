@@ -1,0 +1,612 @@
+[
+  {
+    "model": "contextgnn",
+    "source": "ContextGNN/results/hm_small_v1/contextgnn",
+    "metrics": {
+      "model": "contextgnn",
+      "seed": 42,
+      "best_epoch": 5,
+      "epochs_completed": 8,
+      "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+      "training_and_validation_seconds": 20.95392044900018,
+      "peak_cuda_bytes": 587496448,
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": 50,
+        "temporal_strategy": "last",
+        "evaluation": "all 5000 subset catalog items, all retained validation/test users",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "val_metrics": {
+        "map": 0.04761926122123491
+      },
+      "val_inference_seconds": 0.06755045899990364,
+      "test_metrics": {
+        "map": 0.030155754827183398
+      },
+      "test_inference_seconds": 0.05535964399996374
+    }
+  },
+  {
+    "model": "idgnn",
+    "source": "ContextGNN/results/hm_small_v1/idgnn",
+    "metrics": {
+      "model": "idgnn",
+      "seed": 42,
+      "best_epoch": 4,
+      "epochs_completed": 7,
+      "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+      "training_and_validation_seconds": 27.500700685000083,
+      "peak_cuda_bytes": 79007744,
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": 50,
+        "temporal_strategy": "last",
+        "evaluation": "all 5000 subset catalog items, all retained validation/test users",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "val_metrics": {
+        "map": 0.04410716065732514
+      },
+      "val_inference_seconds": 0.07999127199991563,
+      "test_metrics": {
+        "map": 0.026534126984126986
+      },
+      "test_inference_seconds": 0.06833403100017676
+    }
+  },
+  {
+    "model": "lightgbm_idgnn",
+    "source": "ContextGNN/results/hm_small_v1/lightgbm_idgnn",
+    "metrics": {
+      "model": "lightgbm_idgnn",
+      "seed": 42,
+      "train_pairs": 72813,
+      "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+      "train_user_times": 4804,
+      "features": [
+        "gnn_000",
+        "gnn_001",
+        "gnn_002",
+        "gnn_003",
+        "gnn_004",
+        "gnn_005",
+        "gnn_006",
+        "gnn_007",
+        "gnn_008",
+        "gnn_009",
+        "gnn_010",
+        "gnn_011",
+        "gnn_012",
+        "gnn_013",
+        "gnn_014",
+        "gnn_015",
+        "gnn_016",
+        "gnn_017",
+        "gnn_018",
+        "gnn_019",
+        "gnn_020",
+        "gnn_021",
+        "gnn_022",
+        "gnn_023",
+        "gnn_024",
+        "gnn_025",
+        "gnn_026",
+        "gnn_027",
+        "gnn_028",
+        "gnn_029",
+        "gnn_030",
+        "gnn_031",
+        "gnn_032",
+        "gnn_033",
+        "gnn_034",
+        "gnn_035",
+        "gnn_036",
+        "gnn_037",
+        "gnn_038",
+        "gnn_039",
+        "gnn_040",
+        "gnn_041",
+        "gnn_042",
+        "gnn_043",
+        "gnn_044",
+        "gnn_045",
+        "gnn_046",
+        "gnn_047",
+        "gnn_048",
+        "gnn_049",
+        "gnn_050",
+        "gnn_051",
+        "gnn_052",
+        "gnn_053",
+        "gnn_054",
+        "gnn_055",
+        "gnn_056",
+        "gnn_057",
+        "gnn_058",
+        "gnn_059",
+        "gnn_060",
+        "gnn_061",
+        "gnn_062",
+        "gnn_063",
+        "gnn_available"
+      ],
+      "categorical_features": [],
+      "trials": [
+        {
+          "num_leaves": 15,
+          "validation_map": 0.006853070175438595
+        },
+        {
+          "num_leaves": 31,
+          "validation_map": 0.006853070175438595
+        }
+      ],
+      "selected_num_leaves": 15,
+      "rounds": 150,
+      "training_and_tuning_seconds": 5.406174842000382,
+      "inference_from_saved_model": true,
+      "evaluation_catalog": 5000,
+      "subset": "rel-hm-small-v1",
+      "candidate_audit": {
+        "val": {
+          "full_catalog": true,
+          "users": 304,
+          "pairs": 1520000
+        },
+        "test": {
+          "full_catalog": true,
+          "users": 250,
+          "pairs": 1250000
+        }
+      },
+      "embedding_coverage": {
+        "train": {
+          "pairs": 72813,
+          "missing_embeddings": 51335,
+          "user_times": 4804
+        },
+        "val": {
+          "pairs": 1520000,
+          "missing_embeddings": 1516257,
+          "user_times": 304
+        },
+        "test": {
+          "pairs": 1250000,
+          "missing_embeddings": 1247101,
+          "user_times": 250
+        }
+      },
+      "missing_policy": "zero local vector plus availability flag; in-sample frozen ID-GNN train representations",
+      "val_metrics": {
+        "map": 0.006853070175438595
+      },
+      "val_inference_seconds": 1.9870614540000133,
+      "test_metrics": {
+        "map": 0.009666666666666665
+      },
+      "test_inference_seconds": 1.7468301660001089
+    }
+  },
+  {
+    "model": "lightgbm_manual",
+    "source": "ContextGNN/results/hm_small_v1/lightgbm_manual",
+    "metrics": {
+      "model": "lightgbm_manual",
+      "seed": 42,
+      "train_pairs": 72813,
+      "train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+      "train_user_times": 4804,
+      "features": [
+        "u_age",
+        "u_fn_not_null",
+        "u_is_active",
+        "u_club_member_status",
+        "u_fashion_news_frequency",
+        "i_product_type_no",
+        "i_graphical_appearance_no",
+        "i_colour_group_code",
+        "i_perceived_colour_master_id",
+        "i_department_no",
+        "i_section_no",
+        "i_garment_group_no",
+        "u_count_all",
+        "u_amount_all",
+        "u_price_all",
+        "u_unique_all",
+        "u_channel2_all",
+        "u_recency_days",
+        "u_mode_department_all",
+        "u_mode_section_all",
+        "u_mode_colour_all",
+        "u_count_week1",
+        "u_amount_week1",
+        "u_price_week1",
+        "u_unique_week1",
+        "u_channel2_week1",
+        "u_mode_department_week1",
+        "u_mode_section_week1",
+        "u_mode_colour_week1",
+        "u_count_week2",
+        "u_amount_week2",
+        "u_price_week2",
+        "u_unique_week2",
+        "u_channel2_week2",
+        "u_mode_department_week2",
+        "u_mode_section_week2",
+        "u_mode_colour_week2",
+        "u_count_week3",
+        "u_amount_week3",
+        "u_price_week3",
+        "u_unique_week3",
+        "u_channel2_week3",
+        "u_mode_department_week3",
+        "u_mode_section_week3",
+        "u_mode_colour_week3",
+        "u_count_week4",
+        "u_amount_week4",
+        "u_price_week4",
+        "u_unique_week4",
+        "u_channel2_week4",
+        "u_mode_department_week4",
+        "u_mode_section_week4",
+        "u_mode_colour_week4",
+        "u_count_week5",
+        "u_amount_week5",
+        "u_price_week5",
+        "u_unique_week5",
+        "u_channel2_week5",
+        "u_mode_department_week5",
+        "u_mode_section_week5",
+        "u_mode_colour_week5",
+        "u_count_28d",
+        "i_count_all",
+        "i_amount_all",
+        "i_price_all",
+        "i_recency_days",
+        "i_count_week1",
+        "i_amount_week1",
+        "i_price_week1",
+        "i_unique_buyers_week1",
+        "i_buyer_age_week1",
+        "i_count_week2",
+        "i_amount_week2",
+        "i_price_week2",
+        "i_unique_buyers_week2",
+        "i_buyer_age_week2",
+        "i_count_week3",
+        "i_amount_week3",
+        "i_price_week3",
+        "i_unique_buyers_week3",
+        "i_buyer_age_week3",
+        "i_count_week4",
+        "i_amount_week4",
+        "i_price_week4",
+        "i_unique_buyers_week4",
+        "i_buyer_age_week4",
+        "i_count_week5",
+        "i_amount_week5",
+        "i_price_week5",
+        "i_unique_buyers_week5",
+        "i_buyer_age_week5",
+        "p_count_all",
+        "p_price_all",
+        "p_count_7d",
+        "p_count_28d",
+        "p_recency_days",
+        "a_dept_count_28d",
+        "a_dept_share_28d",
+        "a_section_count_28d",
+        "a_section_share_28d",
+        "a_colour_count_28d",
+        "a_colour_share_28d",
+        "a_type_count_28d",
+        "a_type_share_28d",
+        "match_department_all",
+        "match_department_week1",
+        "match_department_week2",
+        "match_department_week3",
+        "match_department_week4",
+        "match_department_week5",
+        "match_section_all",
+        "match_section_week1",
+        "match_section_week2",
+        "match_section_week3",
+        "match_section_week4",
+        "match_section_week5",
+        "match_colour_all",
+        "match_colour_week1",
+        "match_colour_week2",
+        "match_colour_week3",
+        "match_colour_week4",
+        "match_colour_week5",
+        "price_gap",
+        "price_ratio",
+        "week_of_year",
+        "month_of_year"
+      ],
+      "categorical_features": [
+        "u_club_member_status",
+        "u_fashion_news_frequency",
+        "i_product_type_no",
+        "i_graphical_appearance_no",
+        "i_colour_group_code",
+        "i_perceived_colour_master_id",
+        "i_department_no",
+        "i_section_no",
+        "i_garment_group_no",
+        "u_mode_department_all",
+        "u_mode_section_all",
+        "u_mode_colour_all",
+        "u_mode_department_week1",
+        "u_mode_section_week1",
+        "u_mode_colour_week1",
+        "u_mode_department_week2",
+        "u_mode_section_week2",
+        "u_mode_colour_week2",
+        "u_mode_department_week3",
+        "u_mode_section_week3",
+        "u_mode_colour_week3",
+        "u_mode_department_week4",
+        "u_mode_section_week4",
+        "u_mode_colour_week4",
+        "u_mode_department_week5",
+        "u_mode_section_week5",
+        "u_mode_colour_week5"
+      ],
+      "trials": [
+        {
+          "num_leaves": 15,
+          "validation_map": 0.009983192672337408
+        },
+        {
+          "num_leaves": 31,
+          "validation_map": 0.00935897983595352
+        }
+      ],
+      "selected_num_leaves": 15,
+      "rounds": 150,
+      "training_and_tuning_seconds": 20.122374947000026,
+      "inference_from_saved_model": true,
+      "evaluation_catalog": 5000,
+      "subset": "rel-hm-small-v1",
+      "candidate_audit": {
+        "val": {
+          "full_catalog": true,
+          "users": 304,
+          "pairs": 1520000
+        },
+        "test": {
+          "full_catalog": true,
+          "users": 250,
+          "pairs": 1250000
+        }
+      },
+      "val_metrics": {
+        "map": 0.009983192672337408
+      },
+      "val_inference_seconds": 6.522759204999602,
+      "test_metrics": {
+        "map": 0.012338802308802308
+      },
+      "test_inference_seconds": 5.045370581000043
+    }
+  },
+  {
+    "model": "recformer_finetuned",
+    "source": "Recformer/results/hm_small_seed42_v1/finetuned",
+    "metrics": {
+      "model": "Recformer finetuned",
+      "config": {
+        "seed": 42,
+        "max_tokens": 256,
+        "max_items": 50,
+        "attributes": 3,
+        "max_attr_length": 32,
+        "batch": 4,
+        "gradient_accumulation": 4,
+        "epochs_per_stage": 2,
+        "stages": 2,
+        "lr": 5e-05,
+        "weight_decay": 0.0,
+        "precision": "FP16 autocast; FP32 normalized cosine matmul",
+        "objective": "mean per-user-time mean positive negative-log full softmax; catalog5000",
+        "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+        "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+        "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+        "runner_sha256": "f4c57d8a77b73ef2bece649b53dd506697b419f8d80a64dbb127537bf77be62f",
+        "asset_manifest": {
+          "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+          "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+          "backbone_repo": "allenai/longformer-base-4096",
+          "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+          "files": {
+            "config.json": {
+              "bytes": 694,
+              "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+            },
+            "merges.txt": {
+              "bytes": 456318,
+              "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+            },
+            "recformer_seqrec.bin": {
+              "bytes": 749479199,
+              "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+            },
+            "vocab.json": {
+              "bytes": 898823,
+              "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+            }
+          }
+        },
+        "runtime": {
+          "torch": "2.2.2+cu118",
+          "transformers": "4.46.3",
+          "numpy": "1.26.4",
+          "pandas": "2.2.3"
+        },
+        "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+      },
+      "selected_stage": 2,
+      "selected_epoch": 2,
+      "training_and_validation_seconds": 1255.72406289,
+      "peak_cuda_bytes": 3424326656,
+      "val_metrics": {
+        "map": 0.02470220295055821
+      },
+      "val_inference_seconds": 5.816426020001018,
+      "test_metrics": {
+        "map": 0.012355555555555555
+      },
+      "test_inference_seconds": 4.916274175999206
+    }
+  },
+  {
+    "model": "recformer_zero_shot",
+    "source": "Recformer/results/hm_small_seed42_v1/zero_shot",
+    "metrics": {
+      "model": "Recformer zero_shot",
+      "config": {
+        "seed": 42,
+        "max_tokens": 256,
+        "max_items": 50,
+        "attributes": 3,
+        "max_attr_length": 32,
+        "batch": 4,
+        "gradient_accumulation": 4,
+        "epochs_per_stage": 2,
+        "stages": 2,
+        "lr": 5e-05,
+        "weight_decay": 0.0,
+        "precision": "FP16 autocast; FP32 normalized cosine matmul",
+        "objective": "mean per-user-time mean positive negative-log full softmax; catalog5000",
+        "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+        "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+        "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+        "runner_sha256": "f4c57d8a77b73ef2bece649b53dd506697b419f8d80a64dbb127537bf77be62f",
+        "asset_manifest": {
+          "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+          "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+          "backbone_repo": "allenai/longformer-base-4096",
+          "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+          "files": {
+            "config.json": {
+              "bytes": 694,
+              "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+            },
+            "merges.txt": {
+              "bytes": 456318,
+              "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+            },
+            "recformer_seqrec.bin": {
+              "bytes": 749479199,
+              "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+            },
+            "vocab.json": {
+              "bytes": 898823,
+              "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+            }
+          }
+        },
+        "runtime": {
+          "torch": "2.2.2+cu118",
+          "transformers": "4.46.3",
+          "numpy": "1.26.4",
+          "pandas": "2.2.3"
+        },
+        "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+      },
+      "selected_stage": 0,
+      "selected_epoch": 0,
+      "training_and_validation_seconds": 0.0,
+      "peak_cuda_bytes": 3424326656,
+      "val_metrics": {
+        "map": 0.026699561403508775
+      },
+      "val_inference_seconds": 6.151355272000728,
+      "test_metrics": {
+        "map": 0.03300543530543531
+      },
+      "test_inference_seconds": 6.137794426000255
+    }
+  },
+  {
+    "model": "two_tower",
+    "source": "ContextGNN/results/hm_small_v1/two_tower",
+    "metrics": {
+      "model": "Two-tower GraphSAGE",
+      "seed": 42,
+      "best_epoch": 6,
+      "epochs_completed": 9,
+      "config": {
+        "subset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "layers": 2,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "batch_size": 128,
+        "max_epochs": 10,
+        "patience": 3,
+        "lr": 0.001,
+        "temporal_strategy": "last",
+        "shared_model": true,
+        "shallow_item_embedding": true,
+        "loss": "BPR with same-time in-batch negatives",
+        "training_rows": 4804,
+        "steps_per_epoch": 42,
+        "partial_batch_policy": "keep remainders of every timestamp group, no training rows dropped",
+        "source": "RelBenchGNN/upstream/examples/model.py, same Model as run_two_tower.py",
+        "source_commit": "919fb8a61a4b4cb787283860597f45701895578d",
+        "trainable_parameters": 920768,
+        "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096"
+      },
+      "training_and_validation_seconds": 38.09164969699941,
+      "peak_cuda_bytes": 121253376,
+      "val_metrics": {
+        "map": 0.015525635426951217
+      },
+      "val_inference_seconds": 0.5815334320004695,
+      "test_metrics": {
+        "map": 0.006836767676767676
+      },
+      "test_inference_seconds": 0.6985469760002161
+    }
+  }
+]

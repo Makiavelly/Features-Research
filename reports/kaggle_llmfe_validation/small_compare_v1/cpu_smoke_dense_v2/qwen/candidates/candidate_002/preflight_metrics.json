@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "row_permutation": true,
+  "batch_invariance": true
+}

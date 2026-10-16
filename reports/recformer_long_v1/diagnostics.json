@@ -1,0 +1,38 @@
+{
+  "zero_shot": {
+    "val": {
+      "unique_top12_items": 1989,
+      "largest_single_item_user_share": 0.06578947368421052,
+      "fraction_users_with_hit": 0.05263157894736842
+    },
+    "test": {
+      "unique_top12_items": 1735,
+      "largest_single_item_user_share": 0.056,
+      "fraction_users_with_hit": 0.076
+    }
+  },
+  "short_2plus2": {
+    "val": {
+      "unique_top12_items": 1801,
+      "largest_single_item_user_share": 0.07236842105263158,
+      "fraction_users_with_hit": 0.08223684210526316
+    },
+    "test": {
+      "unique_top12_items": 1692,
+      "largest_single_item_user_share": 0.08,
+      "fraction_users_with_hit": 0.08
+    }
+  },
+  "finetuned": {
+    "val": {
+      "unique_top12_items": 1801,
+      "largest_single_item_user_share": 0.07236842105263158,
+      "fraction_users_with_hit": 0.08223684210526316
+    },
+    "test": {
+      "unique_top12_items": 1692,
+      "largest_single_item_user_share": 0.08,
+      "fraction_users_with_hit": 0.08
+    }
+  }
+}

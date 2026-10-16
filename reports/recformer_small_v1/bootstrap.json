@@ -1,0 +1,44 @@
+{
+  "zero_shot": {
+    "delta_percentage_points": -2.0649879749879747,
+    "paired_user_bootstrap_95ci_pp": [
+      -4.16532251082251,
+      -0.00999735449735592
+    ]
+  },
+  "contextgnn": {
+    "delta_percentage_points": -1.7800199271627843,
+    "paired_user_bootstrap_95ci_pp": [
+      -3.910321677660963,
+      0.27627463409606273
+    ]
+  },
+  "idgnn": {
+    "delta_percentage_points": -1.417857142857143,
+    "paired_user_bootstrap_95ci_pp": [
+      -3.388894841269841,
+      0.48982539682539367
+    ]
+  },
+  "lightgbm_manual": {
+    "delta_percentage_points": 0.0016753246753246742,
+    "paired_user_bootstrap_95ci_pp": [
+      -1.3446391414141412,
+      1.3529040043290042
+    ]
+  },
+  "lightgbm_idgnn": {
+    "delta_percentage_points": 0.26888888888888884,
+    "paired_user_bootstrap_95ci_pp": [
+      -1.3756666666666666,
+      1.8756111111111105
+    ]
+  },
+  "two_tower": {
+    "delta_percentage_points": 0.5518787878787879,
+    "paired_user_bootstrap_95ci_pp": [
+      -0.8486979797979796,
+      2.0440277777777776
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "passed": true,
+  "checks": {
+    "low_lr_warmup": {
+      "replay": {
+        "passed": true,
+        "checks": {
+          "zero_shot": {
+            "val": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.026699561403508775,
+              "seconds": 14.727275842000381
+            },
+            "test": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.03300543530543531,
+              "seconds": 3.586490170997422
+            },
+            "checkpoint_sha256": "b8fdcc6d1904a74fe590c29b3aa61c8faaed4bbd2554cf2b6f1d5096cc1f7601"
+          },
+          "finetuned": {
+            "val": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.0355434039644566,
+              "seconds": 4.598420926999097
+            },
+            "test": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.038575132275132276,
+              "seconds": 3.5338989489973756
+            },
+            "checkpoint_sha256": "1210322e9218eedbc34ce98ea770576dab59f7a8225627854c64a83aa147c6c5"
+          }
+        }
+      },
+      "frozen_weights": {
+        "passed": true,
+        "frozen_parameters": 0,
+        "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "names": []
+      },
+      "runner_hash_matches": true,
+      "full_train_rows_each_epoch": true,
+      "zero_shot_matches_original": {
+        "val": true,
+        "test": true
+      },
+      "selection_pretest": {
+        "time_moscow": "2026-10-16T17:10:09.482297+03:00",
+        "selected_kind": "finetuned",
+        "zero_shot_val_map": 0.026699561403508775,
+        "best_trained_val_map": 0.0355434039644566,
+        "best_stage": 2,
+        "best_epoch": 2,
+        "test_predictions_absent": true,
+        "criterion": "validation MAP only; epoch0 eligible"
+      }
+    },
+    "freeze_lower6": {
+      "replay": {
+        "passed": true,
+        "checks": {
+          "zero_shot": {
+            "val": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.026699561403508775,
+              "seconds": 14.580587559001287
+            },
+            "test": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.03300543530543531,
+              "seconds": 3.556468978000339
+            },
+            "checkpoint_sha256": "b8fdcc6d1904a74fe590c29b3aa61c8faaed4bbd2554cf2b6f1d5096cc1f7601"
+          },
+          "finetuned": {
+            "val": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.019848101155666945,
+              "seconds": 4.545756769999571
+            },
+            "test": {
+              "passed": true,
+              "predictions_identical": true,
+              "scores_close": true,
+              "max_score_difference": 0.0,
+              "map": 0.017615584415584414,
+              "seconds": 3.7226175619980495
+            },
+            "checkpoint_sha256": "d43b705c11212141651df4901c08721680fb83b817b7ba0a4e64d6f5f3c59ed0"
+          }
+        }
+      },
+      "frozen_weights": {
+        "passed": true,
+        "frozen_parameters": 94952448,
+        "before_sha256": "aa99013ad10a50b3ed7f891a8c383b0a4be887a377f4a60bcd0582b408eb705b",
+        "after_sha256": "aa99013ad10a50b3ed7f891a8c383b0a4be887a377f4a60bcd0582b408eb705b",
+        "names": [
+          "longformer.embeddings.word_embeddings.weight",
+          "longformer.embeddings.position_embeddings.weight",
+          "longformer.embeddings.token_type_embeddings.weight",
+          "longformer.embeddings.item_position_embeddings.weight",
+          "longformer.embeddings.LayerNorm.weight",
+          "longformer.embeddings.LayerNorm.bias",
+          "longformer.encoder.layer.0.attention.self.query.weight",
+          "longformer.encoder.layer.0.attention.self.query.bias",
+          "longformer.encoder.layer.0.attention.self.key.weight",
+          "longformer.encoder.layer.0.attention.self.key.bias",
+          "longformer.encoder.layer.0.attention.self.value.weight",
+          "longformer.encoder.layer.0.attention.self.value.bias",
+          "longformer.encoder.layer.0.attention.self.query_global.weight",
+          "longformer.encoder.layer.0.attention.self.query_global.bias",
+          "longformer.encoder.layer.0.attention.self.key_global.weight",
+          "longformer.encoder.layer.0.attention.self.key_global.bias",
+          "longformer.encoder.layer.0.attention.self.value_global.weight",
+          "longformer.encoder.layer.0.attention.self.value_global.bias",
+          "longformer.encoder.layer.0.attention.output.dense.weight",
+          "longformer.encoder.layer.0.attention.output.dense.bias",
+          "longformer.encoder.layer.0.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.0.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.0.intermediate.dense.weight",
+          "longformer.encoder.layer.0.intermediate.dense.bias",
+          "longformer.encoder.layer.0.output.dense.weight",
+          "longformer.encoder.layer.0.output.dense.bias",
+          "longformer.encoder.layer.0.output.LayerNorm.weight",
+          "longformer.encoder.layer.0.output.LayerNorm.bias",
+          "longformer.encoder.layer.1.attention.self.query.weight",
+          "longformer.encoder.layer.1.attention.self.query.bias",
+          "longformer.encoder.layer.1.attention.self.key.weight",
+          "longformer.encoder.layer.1.attention.self.key.bias",
+          "longformer.encoder.layer.1.attention.self.value.weight",
+          "longformer.encoder.layer.1.attention.self.value.bias",
+          "longformer.encoder.layer.1.attention.self.query_global.weight",
+          "longformer.encoder.layer.1.attention.self.query_global.bias",
+          "longformer.encoder.layer.1.attention.self.key_global.weight",
+          "longformer.encoder.layer.1.attention.self.key_global.bias",
+          "longformer.encoder.layer.1.attention.self.value_global.weight",
+          "longformer.encoder.layer.1.attention.self.value_global.bias",
+          "longformer.encoder.layer.1.attention.output.dense.weight",
+          "longformer.encoder.layer.1.attention.output.dense.bias",
+          "longformer.encoder.layer.1.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.1.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.1.intermediate.dense.weight",
+          "longformer.encoder.layer.1.intermediate.dense.bias",
+          "longformer.encoder.layer.1.output.dense.weight",
+          "longformer.encoder.layer.1.output.dense.bias",
+          "longformer.encoder.layer.1.output.LayerNorm.weight",
+          "longformer.encoder.layer.1.output.LayerNorm.bias",
+          "longformer.encoder.layer.2.attention.self.query.weight",
+          "longformer.encoder.layer.2.attention.self.query.bias",
+          "longformer.encoder.layer.2.attention.self.key.weight",
+          "longformer.encoder.layer.2.attention.self.key.bias",
+          "longformer.encoder.layer.2.attention.self.value.weight",
+          "longformer.encoder.layer.2.attention.self.value.bias",
+          "longformer.encoder.layer.2.attention.self.query_global.weight",
+          "longformer.encoder.layer.2.attention.self.query_global.bias",
+          "longformer.encoder.layer.2.attention.self.key_global.weight",
+          "longformer.encoder.layer.2.attention.self.key_global.bias",
+          "longformer.encoder.layer.2.attention.self.value_global.weight",
+          "longformer.encoder.layer.2.attention.self.value_global.bias",
+          "longformer.encoder.layer.2.attention.output.dense.weight",
+          "longformer.encoder.layer.2.attention.output.dense.bias",
+          "longformer.encoder.layer.2.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.2.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.2.intermediate.dense.weight",
+          "longformer.encoder.layer.2.intermediate.dense.bias",
+          "longformer.encoder.layer.2.output.dense.weight",
+          "longformer.encoder.layer.2.output.dense.bias",
+          "longformer.encoder.layer.2.output.LayerNorm.weight",
+          "longformer.encoder.layer.2.output.LayerNorm.bias",
+          "longformer.encoder.layer.3.attention.self.query.weight",
+          "longformer.encoder.layer.3.attention.self.query.bias",
+          "longformer.encoder.layer.3.attention.self.key.weight",
+          "longformer.encoder.layer.3.attention.self.key.bias",
+          "longformer.encoder.layer.3.attention.self.value.weight",
+          "longformer.encoder.layer.3.attention.self.value.bias",
+          "longformer.encoder.layer.3.attention.self.query_global.weight",
+          "longformer.encoder.layer.3.attention.self.query_global.bias",
+          "longformer.encoder.layer.3.attention.self.key_global.weight",
+          "longformer.encoder.layer.3.attention.self.key_global.bias",
+          "longformer.encoder.layer.3.attention.self.value_global.weight",
+          "longformer.encoder.layer.3.attention.self.value_global.bias",
+          "longformer.encoder.layer.3.attention.output.dense.weight",
+          "longformer.encoder.layer.3.attention.output.dense.bias",
+          "longformer.encoder.layer.3.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.3.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.3.intermediate.dense.weight",
+          "longformer.encoder.layer.3.intermediate.dense.bias",
+          "longformer.encoder.layer.3.output.dense.weight",
+          "longformer.encoder.layer.3.output.dense.bias",
+          "longformer.encoder.layer.3.output.LayerNorm.weight",
+          "longformer.encoder.layer.3.output.LayerNorm.bias",
+          "longformer.encoder.layer.4.attention.self.query.weight",
+          "longformer.encoder.layer.4.attention.self.query.bias",
+          "longformer.encoder.layer.4.attention.self.key.weight",
+          "longformer.encoder.layer.4.attention.self.key.bias",
+          "longformer.encoder.layer.4.attention.self.value.weight",
+          "longformer.encoder.layer.4.attention.self.value.bias",
+          "longformer.encoder.layer.4.attention.self.query_global.weight",
+          "longformer.encoder.layer.4.attention.self.query_global.bias",
+          "longformer.encoder.layer.4.attention.self.key_global.weight",
+          "longformer.encoder.layer.4.attention.self.key_global.bias",
+          "longformer.encoder.layer.4.attention.self.value_global.weight",
+          "longformer.encoder.layer.4.attention.self.value_global.bias",
+          "longformer.encoder.layer.4.attention.output.dense.weight",
+          "longformer.encoder.layer.4.attention.output.dense.bias",
+          "longformer.encoder.layer.4.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.4.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.4.intermediate.dense.weight",
+          "longformer.encoder.layer.4.intermediate.dense.bias",
+          "longformer.encoder.layer.4.output.dense.weight",
+          "longformer.encoder.layer.4.output.dense.bias",
+          "longformer.encoder.layer.4.output.LayerNorm.weight",
+          "longformer.encoder.layer.4.output.LayerNorm.bias",
+          "longformer.encoder.layer.5.attention.self.query.weight",
+          "longformer.encoder.layer.5.attention.self.query.bias",
+          "longformer.encoder.layer.5.attention.self.key.weight",
+          "longformer.encoder.layer.5.attention.self.key.bias",
+          "longformer.encoder.layer.5.attention.self.value.weight",
+          "longformer.encoder.layer.5.attention.self.value.bias",
+          "longformer.encoder.layer.5.attention.self.query_global.weight",
+          "longformer.encoder.layer.5.attention.self.query_global.bias",
+          "longformer.encoder.layer.5.attention.self.key_global.weight",
+          "longformer.encoder.layer.5.attention.self.key_global.bias",
+          "longformer.encoder.layer.5.attention.self.value_global.weight",
+          "longformer.encoder.layer.5.attention.self.value_global.bias",
+          "longformer.encoder.layer.5.attention.output.dense.weight",
+          "longformer.encoder.layer.5.attention.output.dense.bias",
+          "longformer.encoder.layer.5.attention.output.LayerNorm.weight",
+          "longformer.encoder.layer.5.attention.output.LayerNorm.bias",
+          "longformer.encoder.layer.5.intermediate.dense.weight",
+          "longformer.encoder.layer.5.intermediate.dense.bias",
+          "longformer.encoder.layer.5.output.dense.weight",
+          "longformer.encoder.layer.5.output.dense.bias",
+          "longformer.encoder.layer.5.output.LayerNorm.weight",
+          "longformer.encoder.layer.5.output.LayerNorm.bias"
+        ]
+      },
+      "runner_hash_matches": true,
+      "full_train_rows_each_epoch": true,
+      "zero_shot_matches_original": {
+        "val": true,
+        "test": true
+      },
+      "selection_pretest": {
+        "time_moscow": "2026-10-16T17:24:25.984758+03:00",
+        "selected_kind": "zero_shot",
+        "zero_shot_val_map": 0.026699561403508775,
+        "best_trained_val_map": 0.019848101155666945,
+        "best_stage": 2,
+        "best_epoch": 2,
+        "test_predictions_absent": true,
+        "criterion": "validation MAP only; epoch0 eligible"
+      }
+    }
+  }
+}

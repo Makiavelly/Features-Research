@@ -1,0 +1,16 @@
+{
+  "call": 1,
+  "proposal": 0,
+  "island": 0,
+  "repair": 0,
+  "parent_call": null,
+  "directory": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/small_compare_v1/cpu_smoke/qwen/candidates/candidate_001",
+  "seed": 42,
+  "truncated": false,
+  "generated_tokens": 1,
+  "seconds": 0.0,
+  "status": "rejected",
+  "failure_stage": "parse_and_validate",
+  "error": "Expecting value: line 1 column 1 (char 0)",
+  "elapsed_seconds": 0.021529174999159295
+}

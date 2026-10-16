@@ -1,0 +1,40 @@
+{
+  "call": 2,
+  "proposal": 0,
+  "island": 0,
+  "repair": 1,
+  "parent_call": 1,
+  "directory": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/small_compare_v1/cpu_smoke_dense_v2/qwen/candidates/candidate_002",
+  "seed": 43,
+  "truncated": false,
+  "generated_tokens": 1,
+  "seconds": 0.0,
+  "program_key": "2379b6aa7011427057e1f94f815fa286e6f7f0d80c5ccf4e73e992928f07b1a9",
+  "status": "valid",
+  "score": 0.006171837421837422,
+  "program": {
+    "aggregates": [
+      {
+        "name": "f_item_count",
+        "keys": [
+          "article_id"
+        ],
+        "sql": "count(*) FILTER (WHERE days_ago <= 7)"
+      },
+      {
+        "name": "f_customer_last",
+        "keys": [
+          "customer_id"
+        ],
+        "sql": "min(days_ago)"
+      }
+    ],
+    "derived": [
+      {
+        "name": "f_count_log",
+        "sql": "ln(1 + coalesce(f_item_count,0))"
+      }
+    ]
+  },
+  "elapsed_seconds": 15.864516588997503
+}

@@ -1,0 +1,10 @@
+{
+  "selected_kind": "finetuned",
+  "criterion": "validation MAP@12; zero-shot epoch0 eligible",
+  "val_metrics": {
+    "map": 0.0355434039644566
+  },
+  "test_metrics": {
+    "map": 0.038575132275132276
+  }
+}

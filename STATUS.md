@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-16T13:29:27+03:00 (Москва).
+Обновлено: 2026-10-16T18:10:22+03:00 (Москва).
 
-Последнее событие: **Recorded user goals: research report, H&M recommendations, existing small-v1 subset preferred, RTX3060 or KaggleT4, desired experiment duration at most one hour. Reviewed Recformer paper and linked replication code. Author repo currently README only. Proposed cutoff-safe multi-positive weekly adaptation and full5000 MAP12 evaluation. Checkpoint bytes, compatibility and runtime not yet verified; no training launched. See reports/recformer_assessment.md.**
+Последнее событие: **Completed: exact scores and top12 in all six independent replays; identical short/long checkpoint selected at epoch2; stopped at epoch5 by patience3; val/test MAP 3.578065/3.438889 percent; training plus validation 20.45min; pipeline exit0; all three report PNGs visually checked; CONTEXT and report updated. Previous runs preserved. Final read-only audit passed using PowerShell after a WSL command quoting error; no training rerun.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -76,5 +76,26 @@
 | hm_twotower_small_seed_42_v1 | complete | 9 | — | 2026-10-16T11:02:54+03:00 |
 | hm_twotower_small_seed_42_v1_inference | verified | — | — | 2026-10-16T11:04:17+03:00 |
 | hm_small_comparison_v1 | complete | — | — | 2026-10-16T11:06:50+03:00 |
+| hm_recformer_small_seed42_v1 | complete | 4 | — | 2026-10-16T14:18:05+03:00 |
+| hm_recformer_small_smoke_v1 | smoke_complete | — | — | 2026-10-16T13:53:09+03:00 |
+| hm_recformer_small_seed42_v1_zero_shot | complete | — | — | 2026-10-16T14:18:03+03:00 |
+| hm_recformer_small_seed42_v1_finetuned | complete | — | — | 2026-10-16T14:18:03+03:00 |
+| hm_recformer_small_seed42_v1_inference | verified | — | — | 2026-10-16T14:17:47+03:00 |
+| hm_small_qwen_llama_sql_v1 | running_on_kaggle_user_reported | — | — | 2026-10-16T18:09:46+03:00 |
+| hm_recformer_ablations_v1 | complete | — | — | 2026-10-16T17:31:38+03:00 |
+| hm_recformer_small_low_lr_warmup_seed42_v1 | complete | 4 | — | 2026-10-16T17:31:35+03:00 |
+| hm_recformer_small_freeze_lower6_seed42_v1 | complete | 4 | — | 2026-10-16T17:31:35+03:00 |
+| hm_recformer_small_low_lr_warmup_seed42_v1_zero_shot | measured_pending_verification | — | — | 2026-10-16T17:26:02+03:00 |
+| hm_recformer_small_low_lr_warmup_seed42_v1_finetuned | measured_pending_verification | — | — | 2026-10-16T17:26:14+03:00 |
+| hm_recformer_small_low_lr_warmup_seed42_v1_inference | verified | — | — | 2026-10-16T17:27:58+03:00 |
+| hm_recformer_small_freeze_lower6_seed42_v1_zero_shot | measured_pending_verification | — | — | 2026-10-16T17:29:27+03:00 |
+| hm_recformer_small_freeze_lower6_seed42_v1_finetuned | measured_pending_verification | — | — | 2026-10-16T17:29:39+03:00 |
+| hm_recformer_small_freeze_lower6_seed42_v1_inference | verified | — | — | 2026-10-16T17:31:21+03:00 |
+| hm_recformer_small_long_floor_seed42_v1 | complete | 5 | — | 2026-10-16T18:07:40+03:00 |
+| hm_recformer_small_long_floor_seed42_v1_zero_shot | complete | — | — | 2026-10-16T18:07:40+03:00 |
+| hm_recformer_small_long_floor_seed42_v1_short_2plus2 | complete | — | — | 2026-10-16T18:07:40+03:00 |
+| hm_recformer_small_long_floor_seed42_v1_finetuned | complete | — | — | 2026-10-16T18:07:40+03:00 |
+| hm_recformer_small_long_floor_seed42_v1_inference | verified | — | — | 2026-10-16T18:07:21+03:00 |
+| hm_small_qwen14b_sql_v1 | notebook_ready | — | — | 2026-10-16T18:09:46+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

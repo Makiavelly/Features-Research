@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "CPU integration only; fake model callbacks, NOT LLM performance",
+  "train_pairs": 72813,
+  "snapshots": 8,
+  "references_recomputed": 7,
+  "original_train_pair_sha256": "a583938c3a58f481ed65811b830b421a577489136c6f6f666ce5ef6915cb6d39",
+  "both_controls_and_generated_programs_trained": true,
+  "separate_frozen_replay": true,
+  "checks": [
+    "notebook AST/schema",
+    "input hashes",
+    "disjoint validation partitions",
+    "known-answer ID joins and recency",
+    "future transaction exclusion",
+    "permutation/batch invariance",
+    "repair/duplicate/island routing",
+    "resume",
+    "full5000 ranking",
+    "reference AP recomputation",
+    "plots and ZIP"
+  ],
+  "seconds": 5.513405347999651
+}

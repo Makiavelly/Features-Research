@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "Single-model reporting adapter with frozen CPU fixtures; no real14B inference",
+  "shared_four_modules_byte_identical": true,
+  "protocol_differences": [
+    "llama_source",
+    "protocol"
+  ],
+  "initial_prompt_identical": true,
+  "same_bundle_and_train_pairs": true,
+  "only_qwen14b_scheduled": true,
+  "requires_previous_llm_outputs": false,
+  "no_hf_secret_required": true,
+  "frozen_fixture_metrics_unchanged": true,
+  "references_recomputed_from_predictions": 7,
+  "plots_and_zip_created": true,
+  "notebook_sha256": "50640f72158b4061f42576c286a8bcb10eb8939d9a7f5a8933ae3de225fab808"
+}

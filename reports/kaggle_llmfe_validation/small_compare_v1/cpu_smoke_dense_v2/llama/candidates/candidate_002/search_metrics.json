@@ -1,0 +1,10 @@
+{
+  "map": 0.006171837421837422,
+  "users": 128,
+  "pairs": 640000,
+  "full_catalog": 5000,
+  "predictions_sha256": "821dea4f2ae25f7e4d28a92be82e8c28e5c8c6c662d7d9a74770a6315711ff7f",
+  "program_sha256": "9e804b8656fc81a7c6bf947664231233d461b26dfec729149591fcf893605dc2",
+  "model_sha256": "e22a10dc7172498ac405cde5bec0ef3369b253543f9075dba32fbed83b22f81a",
+  "seconds": 4.429657741999108
+}

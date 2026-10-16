@@ -1,0 +1,25 @@
+{
+  "subset_sha256": "28c31d09b91ea8ed03e93e093182d5ad6403ceb95d07f115f86da8b8f234c096",
+  "rows": {
+    "train": 4804,
+    "val": 304,
+    "test": 250
+  },
+  "catalog": 5000,
+  "max_used_transaction": {
+    "train": "2020-08-31T00:00:00.000000000",
+    "val": "2020-09-07T00:00:00.000000000",
+    "test": "2020-09-14T00:00:00.000000000"
+  },
+  "cutoff_policy": "t_dat <= row.timestamp; future excluded before history truncation",
+  "same_day_order": "source transaction row order, not known intraday chronology",
+  "repeats_preserved": true,
+  "cutoff_and_loss_behavior_checks": true,
+  "text_example": {
+    "title": "20 den 1p Stockings",
+    "category": "Underwear Tights; Socks & Tights; Womens Nightwear, Socks & Tigh",
+    "description": "Black; Solid; Semi shiny nylon stockings with a wide, reinforced trim at the top. Use with a suspender belt. 20 denier."
+  },
+  "unique_tokenized_items": 4846,
+  "input_sha256": "4b818b749df766703c19b75bed9c193917158e3efa28a4adee9362afb2686a64"
+}

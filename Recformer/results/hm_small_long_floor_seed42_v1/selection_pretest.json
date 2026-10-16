@@ -1,0 +1,13 @@
+{
+  "time_moscow": "2026-10-16T18:02:38.048002+03:00",
+  "test_predictions_absent": true,
+  "short": {
+    "selected_kind": "short_2plus2",
+    "best_trained_val_map": 0.03578065072719678
+  },
+  "long": {
+    "selected_kind": "finetuned",
+    "best_trained_val_map": 0.03578065072719678
+  },
+  "zero_shot_val_map": 0.026699561403508775
+}

@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": {
+    "zero_shot": {
+      "val": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "max_score_difference": 0.0,
+        "map": 0.026699561403508775,
+        "seconds": 16.32431028499923
+      },
+      "test": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "max_score_difference": 0.0,
+        "map": 0.03300543530543531,
+        "seconds": 4.040454604999468
+      },
+      "checkpoint_sha256": "b8fdcc6d1904a74fe590c29b3aa61c8faaed4bbd2554cf2b6f1d5096cc1f7601"
+    },
+    "finetuned": {
+      "val": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "max_score_difference": 0.0,
+        "map": 0.02470220295055821,
+        "seconds": 4.714585158000773
+      },
+      "test": {
+        "passed": true,
+        "predictions_identical": true,
+        "scores_close": true,
+        "max_score_difference": 0.0,
+        "map": 0.012355555555555555,
+        "seconds": 3.726713430000018
+      },
+      "checkpoint_sha256": "0152a42e16472dd3561c804256a193e534e2f6daaff6aacb802eac4d4ed1c118"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "val": {
+    "zero_shot": {
+      "unique_top12_items": 1989,
+      "unique_top12_lists": 302,
+      "largest_single_item_user_share": 0.06578947368421052,
+      "fraction_users_with_hit": 0.05263157894736842,
+      "top12_mean_past_item_count": 10.27905701754386,
+      "mean_user_score_std": 1.141008973121643,
+      "mean_score_popularity_spearman": 0.10530391316143746
+    },
+    "finetuned": {
+      "unique_top12_items": 722,
+      "unique_top12_lists": 302,
+      "largest_single_item_user_share": 0.506578947368421,
+      "fraction_users_with_hit": 0.06907894736842106,
+      "top12_mean_past_item_count": 12.575109649122806,
+      "mean_user_score_std": 0.6247932314872742,
+      "mean_score_popularity_spearman": 0.14875307342367605
+    },
+    "paired_users": {
+      "fine_better": 15,
+      "fine_worse": 12,
+      "equal": 277
+    }
+  },
+  "test": {
+    "zero_shot": {
+      "unique_top12_items": 1735,
+      "unique_top12_lists": 247,
+      "largest_single_item_user_share": 0.056,
+      "fraction_users_with_hit": 0.076,
+      "top12_mean_past_item_count": 10.360333333333333,
+      "mean_user_score_std": 1.1430717706680298,
+      "mean_score_popularity_spearman": 0.11983502129468808
+    },
+    "finetuned": {
+      "unique_top12_items": 600,
+      "unique_top12_lists": 247,
+      "largest_single_item_user_share": 0.548,
+      "fraction_users_with_hit": 0.044,
+      "top12_mean_past_item_count": 14.002666666666666,
+      "mean_user_score_std": 0.6270151138305664,
+      "mean_score_popularity_spearman": 0.1618076087864117
+    },
+    "paired_users": {
+      "fine_better": 5,
+      "fine_worse": 18,
+      "equal": 227
+    }
+  }
+}

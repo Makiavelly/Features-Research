@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "files": {
+    "article_id_map.csv": true,
+    "customer_id_map.csv": true,
+    "db/article.parquet": true,
+    "db/customer.parquet": true,
+    "db/transactions.parquet": true,
+    "manifest.yaml": true,
+    "tasks/user-item-purchase/manifest.yaml": true,
+    "tasks/user-item-purchase/test.parquet": true,
+    "tasks/user-item-purchase/train.parquet": true,
+    "tasks/user-item-purchase/val.parquet": true
+  }
+}

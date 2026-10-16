@@ -1,19 +1,155 @@
 ﻿# Контекст для продолжения проекта
 
-## Recformer: постановка и предварительный разбор (2026-10-16)
+## Kaggle: отдельная Qwen14B на прежнем small SQL протоколе (2026-10-16)
 
-Цель пользователя: исследовательский отчёт, рекомендации H&M с сопоставлением
-подходов. Доступны RTX3060 6GB и KaggleT4; желательная длительность запуска
-не более часа. Для Recformer пользователь предпочитает существующий
-data/rel-hm-small-v1 с baseline малого ContextGNN пилота.
-Изучены arXiv2305.13731v2 и доступная репликация AaronHeee/RecFormer.
-Авторский JiachengLi1995/Recformer сейчас содержит только README с объяснением
-недоступности кода и ссылкой на репликацию. Ссылки на веса есть, байты весов
-и совместимость ещё не проверены. Предлагается сохранить subset/cutoffs,
-перенести next-item objective на недельные многопозитивные цели и MAP@12
-по всем5000товарам. Zero-shot контроль и короткий two-stage finetune с256/512
-tokens требуют предварительного замера. Время до часа не подтверждено.
-Никакого обучения или изменения окружения нет. См. reports/recformer_assessment.md.
+Пользователь сообщил,что Qwen7B/Llama notebook уже работает вKaggle;
+результатов ещё нет,не повторять их запуск. Новый отдельный notebook
+LLMFeatures/kaggle/hm_small_qwen14b_sql_kaggle_t4.ipynb готов для параллельного
+KaggleT4 запуска Qwen/Qwen2.5-Coder-14B-Instruct,NF4/doublequant/FP16,
+безодобренияHF/токена. Runprotocol hm_small_qwen14b_sql_v1,пока notebook_ready,
+не реальная оценка14B. ПикVRAM не измерен,контекст приOOM не сокращаетсяавто.
+Исходный работающий notebook и Input hm_small_sql_compare_v1.zip не менялись.
+4sharedмодуля побайтово взяты изнего; добавлен только runtime14 reportadapter.
+Те же72813trainпар/4804user-time/8срезов; search128/confirm88/heldout88,
+val304/test250/все5000товаров;SQLJSON24/12,raw15,LightGBM150/31/4threads,
+seed42,temp.8,tokens6144+2048,20success/300calls/3repairs/3islands.
+Метрики/предсказания/графики/гистограммы/программы/models/frozenreplay/ZIP
+сохраняются отдельно. По последнему уточнению НЕ импортировать выводы
+7B/Llama в14B notebook: пользователь пришлёт отчётытрёхLLM длялокального
+сравнения позже. Input только прежний архивмалыхданных.
+Проверены nbformat/AST,configs/начальныйprompt/sharedSHA/неизменностьInput
+и одномодельныйотчёт с7baseline+Popularity наfrozenCPUfixtures. Это НЕ
+метрики14B,новогоLLMинференса/обучения дляпроверки не было. Verification:
+reports/kaggle_llmfe_validation/qwen14_small_v1/verification.json.
+README/manifest/buildercheck вLLMFeatures/kaggle/qwen14_small.
+
+
+## Recformer: завершённый длинный опыт (2026-10-16)
+
+Пользователь поручил проверить большее число эпох. Новыйrun:
+hm_recformer_small_long_floor_seed42_v1; runner Recformer/run_long.py,
+pipeline Recformer/run_long_pipeline.sh,протокол Recformer/PROTOCOL_LONG.md.
+Все148Mвесаизтогожеpretrained,small-v1/seed42/256tokens/batch4accum4/weeklyloss
+сохранены. Stage1=2эпохи,stage2<=6,patience3поglobalbestval после>=4общихэпох.
+LRwarmup100updatesдо1e-5,decayдо1e-6кupdate1204,затемconstant1e-6.
+Matchedкороткийконтроль:неизменяемая копияbest первых4эпох внутриЭТОГОзапуска;
+прежний4эпохrunсdecayк0неподходиткакmatchedконтроль. Длинныйbestвыбирается
+изsupersetдо8эпох;valbestпоопределениюнеубывает,пользасмотритсянаtestпосле
+фиксациидвухрешений. Epoch0 допустимотдельно. Trainingbudget45минплюсрезерв
+наeval/replay;общийориентирчас. Пакеты/прежниеrunner/результатыне меняются.
+Результаты Recformer/results/hm_small_long_floor_seed42_v1,
+логи Recformer/logs/long_v1,отчёт reports/recformer_long_v1.
+Завершён с pipeline.exitcode=0: фактически 5 эпох (2+3), остановка
+stage2_patience3 после трёх эпох без улучшения лучшего validation.
+Короткий контроль (выбор среди первых 4 эпох) и длинный (среди всех 5)
+выбрали одинаковый checkpoint stage1/epoch2, SHA256
+ba88a315d56816dabb226ca5e46ed416dcbeba803cc103db9cdf0af529046ef1.
+У обоих val/test MAP@12=3.578065%/3.438889%; дополнительные эпохи
+не изменили выбранную модель в этом запуске. Это не общий вывод о числе эпох.
+Обучение+validation 1227.21с (20.45мин), 1503 успешных updates/2 AMP skips,
+пик памяти 3.19GiB. Все 6 независимых val/test replay точно воспроизвели
+scores/top12; zero-shot совпал с прежним. Все три PNG визуально проверены.
+Прежний LR/warmup опыт (test 3.857513%) отличается расписанием LR и служит
+отдельным ориентиром; его разницу нельзя приписывать только числу эпох.
+Один seed, 250 test пользователей; устойчивое превосходство не установлено.
+Перед новым обучением проверять реальные процессы/логи, а не только этот статус.
+
+## Recformer: две завершённые отдельные абляции (2026-10-16)
+
+Пользователь поручил сначала меньшийLR/warmup,затем отдельно заморозку.
+Протокол Recformer/PROTOCOL_ABLATIONS.md, runner Recformer/run_ablations.py,
+pipeline Recformer/run_ablations_pipeline.sh. Run IDs:
+hm_recformer_small_low_lr_warmup_seed42_v1 и
+hm_recformer_small_freeze_lower6_seed42_v1. Первый: peakLR1e-5,100успешных
+optimizer updates warmup,линейныйdecayза1204updates;все веса обучаются.
+Второй: прежнийconstantLR5e-5,замороженыembeddings+нижние6из12слоёв.
+Оба независимо стартуют изpretrained,small-v1/seed/order/2+2эпохи сохранены.
+Завершены последовательно;test обоих только после обоих обучений иvalвыбора.
+Zero-shot epoch0 допустим вselection.json; лучшийtrained сохраняется отдельно.
+Старыйrunner/результаты ипакеты не менялись. Итоги: LR/warmup val/testMAP
+3.554340%/3.857513%,1093.30с(18.22мин),пик3.19GiB;freezeнижних6+embeddings
+1.984810%/1.761558%,782.34с(13.04мин),пик2.13GiB. Лучшийtrained обоих:
+стадия2,эпоха2. Поvalсдопустимойэпохой0выбраны:LR→finetuned,freeze→zero-shot;
+selection_pretest.json записаны доtest. Обучаемыхпараметров148110336/53157888,
+замороженных0/94952448. SHA замороженных совпали;AMPskips3/0,updates1201/1204.
+Все8val/testreplayточносовпалипоscores/top12;zero-shotточносовпалсстарымконтролем.
+pipeline.exitcode=0,verificationpassed;comparison/learning_curves/learning_ratesPNG
+визуально проверены. Отчёт reports/recformer_ablations_v1,логи Recformer/logs/ablations_v1.
+LR/warmup−старыйfine test+2.621958п.п.,pairedbootstrap95%[0.59927;4.81070].
+Противzero-shot+0.55697п.п.,95%[-1.05193;2.20969];противContextGNN+0.84194п.п.,
+95%[-0.92051;2.72223]:устойчивое превосходство над ними не доказано.
+Концентрация рекомендаций снижена:уLRtest1757различныхtop12товаров,maxitemshare5.6%,
+уfreeze1104и28.4%,у прежнегоfine600и54.8%. Одинseed/250test,LR+scheduleизмененывместе.
+На вопрос пользователя о числе эпох пояснено: отдельный более длинный опыт
+имеет смысл,т.к. прежнийstage2val ещё рос;нынешний2+2бюджет сохраняется ради
+сопоставимости. Пользователь согласился с этим разделением; более длинный опыт
+в рамках этих двух запусков не проводился.
+
+## Kaggle: одинаковый SQL-поиск Qwen и Llama на small-v1 (2026-10-16)
+
+По поручению пользователя создан отдельный Kaggle T4 notebook
+LLMFeatures/kaggle/hm_small_qwen_vs_llama_sql_kaggle_t4.ipynb и Input
+hm_small_sql_compare_v1.zip (~0.9MB). Прежние notebooks/результаты сохранены.
+Протокол hm_small_qwen_llama_sql_v1, статус notebook_ready, реального нового
+запуска Qwen/Llama ещё нет. Модели Qwen/Qwen2.5-Coder-7B-Instruct и официальная
+Llama3.1-8B-Instruct (с выбором публикации unsloth), последовательно NF4/FP16.
+Ранее локальная Qwen была Q4_K_M/Ollama; это явное изменение квантизации.
+Интерфейс прежней Qwen: JSON aggregates{name,keys,sql}/derived{name,sql},
+host владеет joins/порядком/фильтром t_dat<=cutoff. Ограничений по грамматике
+при генерации нет. Согласованная factorize товарных категорий в raw/history
+устраняет огромные sparse categorical bitsets (smoke174MB→1.3MB model.txt).
+Данные неизменные ContextGNN small-v1:5000users/items/46442tx,
+72813исходныхtrainпар/4804user-times/8срезов; SHA ключей/меток совпал manual.
+Оценка всех5000товаров, val304 делится128search/88confirm/88heldout seed42;
+test250 только после фиксации обоих победителей. Top3+raw наconfirmation.
+Каждой LLM20успешных/300calls/3repairs/3islands/1best-in-island; LGB150/31,
+4threads/seeds42. Общийval содержит search/confirm, baseline выбирались на
+полномval: heldout88 не закрыт для их старого отбора. Разные budgets/одинseed.
+Семь сохранённых baseline (включая Recformer)+Popularity пересчитываются
+из top12; graphs/search/loss/AP histograms/bootstrap/frozen replay/ZIP.
+CPU integration на реальных данных с фиктивными LLM-ответами пройден;
+это НЕ оценка Qwen/Llama. ID joins/known pandas answer/time filtering,
+перестановка/блоки/repair/duplicate/islands/resume/fullcatalog/references
+проверены. Отчёт проверки reports/kaggle_llmfe_validation/small_compare_v1.
+README/исходники/manifest в LLMFeatures/kaggle/small_compare.
+
+
+## Recformer: завершённый малый эксперимент (2026-10-16)
+
+По поручению пользователя проведён hm_recformer_small_seed42_v1 на прежнем
+data/rel-hm-small-v1:4804train/304val/250test,5000товаров. Все10файлов
+совпали с прежними SHA256. Полный каталог и недельные цели сохранены.
+Zero-shot val/test MAP@12=2.669956%/3.300544%; после2+2эпох дообучения
+2.470220%/1.235556%. Fine checkpoint выбран поval:стадия2,эпоха2.
+Дообучение+validation1255.72с(20.93мин),пикCUDA3424326656bytes(~3.19GiB).
+Это перенос опубликованных предобученных весов, НЕ обучение с нуля.
+Все4полных val/test replay дали точное совпадение scores иtop12;
+verification.json passed=true,pipeline.exitcode=0. Графики comparison.png
+иlearning_curves.png визуально проверены. Отчёт reports/recformer_small_v1,
+артефакты Recformer/results/hm_small_seed42_v1,протокол Recformer/PROTOCOL_SMALL.md.
+Старые модели, данные и отчёты не менялись. Код runner SHA совпал после запуска.
+
+Zero-shot test выше ContextGNN3.015575% на0.284968п.п., но парный bootstrap
+95%[-1.23318;1.79754] пересекает0: устойчивое превосходство не установлено.
+В этой короткой конфигурации дообучение ухудшило результат; причины не доказаны.
+Один seed и250test пользователей; результат не переносить на полный H&M/статью.
+5000товаров дают4846уникальных tokenized описаний: совпадения входов ограничивают
+различимость. Features past-only,повторные покупки разрешены,targets не во входе.
+
+Репликация AaronHeee/RecFormer commit26b00a58e7affe0c54a89c143ea7bce37f2e8e08;
+авторский репозиторий сейчас содержит README и ссылку на эту репликацию.
+Checkpoint749479199bytes/SHA6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022
+получен по ссылке репликации; missing=[],unexpected только unusedMLMhead.
+Не называть проверенным оригинальным авторским checkpoint. Первая загрузка
+оборвалась на277MB; ошибка сохранена, downloader поддерживает range/size/ZIP.
+Smoke отделён:148110336параметров,пик2.80GB,catalog26.75s,warmstep.16-.22s.
+Пакеты иunsloth не менялись; импорт model/tokenizer без Lightning.
+Full run:batch4/accum4,256tokens,FP16,AdamW5e-5,mean-per-user multi-positive
+weekly fullsoftmax5000;stage1обновляет itemcache,stage2егофиксирует.
+
+Общая цель пользователя: исследовательский отчёт, сопоставимые H&M рекомендации;
+ресурсы RTX3060 6GB иKaggleT4, желательный бюджет эксперимента до часа.
+Предварительный разбор сохранён в reports/recformer_assessment.md как история.
 
 ## Добавление двухбашенной модели к малому пилоту (2026-10-16)
 

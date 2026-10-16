@@ -1,0 +1,24 @@
+{
+  "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+  "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+  "backbone_repo": "allenai/longformer-base-4096",
+  "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+  "files": {
+    "config.json": {
+      "bytes": 694,
+      "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+    },
+    "merges.txt": {
+      "bytes": 456318,
+      "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+    },
+    "recformer_seqrec.bin": {
+      "bytes": 749479199,
+      "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+    },
+    "vocab.json": {
+      "bytes": 898823,
+      "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+    }
+  }
+}

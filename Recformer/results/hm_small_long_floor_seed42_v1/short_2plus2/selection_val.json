@@ -1,0 +1,6 @@
+{
+  "best_trained_val_map": 0.03578065072719678,
+  "epochs_seen": 4,
+  "checkpoint_sha256": "ba88a315d56816dabb226ca5e46ed416dcbeba803cc103db9cdf0af529046ef1",
+  "criterion": "best validation among first4 trained checkpoints"
+}

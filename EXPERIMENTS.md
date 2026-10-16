@@ -74,6 +74,27 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_twotower_small_seed_42_v1 | complete | 9 | 1.55256 | 0.68368 | ContextGNN/results/hm_small_v1/two_tower |
 | hm_twotower_small_seed_42_v1_inference | verified | — | — | — | ContextGNN/results/hm_small_v1/two_tower |
 | hm_small_comparison_v1 | complete | — | — | — | — |
+| hm_recformer_small_seed42_v1 | complete | 4 | — | — | reports/recformer_small_v1 |
+| hm_recformer_small_smoke_v1 | smoke_complete | — | — | — | — |
+| hm_recformer_small_seed42_v1_zero_shot | complete | — | 2.66996 | 3.30054 | Recformer/results/hm_small_seed42_v1/zero_shot |
+| hm_recformer_small_seed42_v1_finetuned | complete | — | 2.47022 | 1.23556 | Recformer/results/hm_small_seed42_v1/finetuned |
+| hm_recformer_small_seed42_v1_inference | verified | — | — | — | — |
+| hm_small_qwen_llama_sql_v1 | running_on_kaggle_user_reported | — | — | — | LLMFeatures/kaggle/small_compare |
+| hm_recformer_ablations_v1 | complete | — | — | — | reports/recformer_ablations_v1 |
+| hm_recformer_small_low_lr_warmup_seed42_v1 | complete | 4 | 3.55434 | 3.85751 | Recformer/results/hm_small_low_lr_warmup_seed42_v1 |
+| hm_recformer_small_freeze_lower6_seed42_v1 | complete | 4 | 1.98481 | 1.76156 | Recformer/results/hm_small_freeze_lower6_seed42_v1 |
+| hm_recformer_small_low_lr_warmup_seed42_v1_zero_shot | measured_pending_verification | — | 2.66996 | 3.30054 | Recformer/results/hm_small_low_lr_warmup_seed42_v1/zero_shot |
+| hm_recformer_small_low_lr_warmup_seed42_v1_finetuned | measured_pending_verification | — | 3.55434 | 3.85751 | Recformer/results/hm_small_low_lr_warmup_seed42_v1/finetuned |
+| hm_recformer_small_low_lr_warmup_seed42_v1_inference | verified | — | — | — | — |
+| hm_recformer_small_freeze_lower6_seed42_v1_zero_shot | measured_pending_verification | — | 2.66996 | 3.30054 | Recformer/results/hm_small_freeze_lower6_seed42_v1/zero_shot |
+| hm_recformer_small_freeze_lower6_seed42_v1_finetuned | measured_pending_verification | — | 1.98481 | 1.76156 | Recformer/results/hm_small_freeze_lower6_seed42_v1/finetuned |
+| hm_recformer_small_freeze_lower6_seed42_v1_inference | verified | — | — | — | — |
+| hm_recformer_small_long_floor_seed42_v1 | complete | 5 | 3.57807 | 3.43889 | reports/recformer_long_v1 |
+| hm_recformer_small_long_floor_seed42_v1_zero_shot | complete | — | 2.66996 | 3.30054 | Recformer/results/hm_small_long_floor_seed42_v1/zero_shot |
+| hm_recformer_small_long_floor_seed42_v1_short_2plus2 | complete | — | 3.57807 | 3.43889 | Recformer/results/hm_small_long_floor_seed42_v1/short_2plus2 |
+| hm_recformer_small_long_floor_seed42_v1_finetuned | complete | — | 3.57807 | 3.43889 | Recformer/results/hm_small_long_floor_seed42_v1/finetuned |
+| hm_recformer_small_long_floor_seed42_v1_inference | verified | — | — | — | — |
+| hm_small_qwen14b_sql_v1 | notebook_ready | — | — | — | LLMFeatures/kaggle/qwen14_small |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

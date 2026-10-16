@@ -1,0 +1,26 @@
+{
+  "low_lr_warmup": {
+    "val": {
+      "unique_top12_items": 1846,
+      "largest_single_item_user_share": 0.049342105263157895,
+      "fraction_users_with_hit": 0.08881578947368421
+    },
+    "test": {
+      "unique_top12_items": 1757,
+      "largest_single_item_user_share": 0.056,
+      "fraction_users_with_hit": 0.096
+    }
+  },
+  "freeze_lower6": {
+    "val": {
+      "unique_top12_items": 1350,
+      "largest_single_item_user_share": 0.2598684210526316,
+      "fraction_users_with_hit": 0.05921052631578947
+    },
+    "test": {
+      "unique_top12_items": 1104,
+      "largest_single_item_user_share": 0.284,
+      "fraction_users_with_hit": 0.064
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "llama_minus_qwen_pp": 0.0,
+  "ci95_pp": [
+    0.0,
+    0.0
+  ],
+  "test_users": 250,
+  "seed": 42,
+  "note": "Exploratory paired-user interval, not multi-seed uncertainty"
+}
