@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "returncode": 0,
+  "seconds": 15.302004586999828,
+  "command": [
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/trees.py",
+    "2",
+    "manual",
+    "train"
+  ],
+  "log": "reports/medium_cv_v2/stages/f2_manual_train.log"
+}

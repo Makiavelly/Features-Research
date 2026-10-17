@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "time": "2026-10-17T22:53:48.375752+03:00",
+  "frozen_source_files_verified": 17,
+  "outer_test_evaluated_by_this_audit": false,
+  "completed_searches": [
+    {
+      "fold": 0,
+      "mode": "h008",
+      "accepted": 20,
+      "responses": 21,
+      "selected_call": 8,
+      "maximum_message_count": 2,
+      "exact_message_history_verified": true,
+      "selected_hashes_verified": true
+    },
+    {
+      "fold": 0,
+      "mode": "h009",
+      "accepted": 20,
+      "responses": 20,
+      "selected_call": 8,
+      "maximum_message_count": 14,
+      "exact_message_history_verified": true,
+      "selected_hashes_verified": true
+    },
+    {
+      "fold": 1,
+      "mode": "h008",
+      "accepted": 20,
+      "responses": 21,
+      "selected_call": 14,
+      "maximum_message_count": 2,
+      "exact_message_history_verified": true,
+      "selected_hashes_verified": true
+    },
+    {
+      "fold": 1,
+      "mode": "h009",
+      "accepted": 20,
+      "responses": 20,
+      "selected_call": 1,
+      "maximum_message_count": 14,
+      "exact_message_history_verified": true,
+      "selected_hashes_verified": true
+    }
+  ]
+}

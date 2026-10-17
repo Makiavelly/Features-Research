@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "returncode": 0,
+  "seconds": 11.646567732001131,
+  "command": [
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/check.py",
+    "2"
+  ],
+  "log": "reports/medium_cv_v2/stages/f2_validator.log"
+}

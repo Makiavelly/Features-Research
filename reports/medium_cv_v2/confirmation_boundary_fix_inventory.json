@@ -1,0 +1,9 @@
+{
+  "old_worker_sha256": "d86455dbb7bafaefb2719da6e8c53ba232582776f061c0bab5b17084a828ce91",
+  "cached_confirmation_files_before_fix": [
+    "CVBenchmark/results/medium_v2/fold_0/h008/gpt61sol_generated_only/candidates/candidate_014/confirm_metrics.json",
+    "CVBenchmark/results/medium_v2/fold_0/h008/raw_control/confirm_metrics.json"
+  ],
+  "additional_API_requests": 0,
+  "search_fit_implementation_unchanged": true
+}

@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "returncode": 0,
+  "seconds": 102.49941601799947,
+  "command": [
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_0/runtime/recformer.py",
+    "--variant",
+    "low_lr_warmup",
+    "--probe"
+  ],
+  "log": "reports/medium_cv_v2/stages/gpu_recformer_smoke.log"
+}

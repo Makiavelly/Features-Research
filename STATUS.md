@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-17T17:38:54+03:00 (Москва).
+Обновлено: 2026-10-18T01:04:55+03:00 (Москва).
 
-Последнее событие: **Updated ignore rules for raw GPT/authored runs, smoke/replay outputs, provider probes, local pointers and editor settings. Preserved configs/manifests, source, notebooks, summary reports and plots. Exported six selected feature programs with SHA256 manifests to report folders. Untracked files reduced from2453 to339. Files and Git index were not deleted or modified; .gitignore self-ignore preserved.**
+Последнее событие: **Read-only comparison: old ContextGNN248 distinct top12 lists/250users/1574recommended items; medium folds11/8/11lists across1839/1982/1698users, only24/26/26items. Ranking personalization collapsed. Root cause unresolved; larger catalog/full-target denominator alone insufficient(conditionalMAP also very low). Saved audit and notes, no new fitting/inference or model changes; do not infer architectural failure.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -118,5 +118,49 @@
 | hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde | complete | — | — | 2026-10-17T13:57:19+03:00 |
 | isolated_hm_20261017_venvwsl_v1 | completed | — | — | 2026-10-17T13:42:55+03:00 |
 | hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0 | complete | — | — | 2026-10-17T14:24:27+03:00 |
+| hm_medium_temporal_cv_v1 | deferred_by_user | — | — | 2026-10-17T17:55:05+03:00 |
+| hm_medium_temporal_cv_v2 | complete | — | — | 2026-10-18T01:04:55+03:00 |
+| hm_medium_cv_v2_fold0_gnn | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_manual | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_raw15 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_h008 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_idgnn | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_contextgnn | complete | 8 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_tdm_fixed | complete | 8 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_recformer | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_h009 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_manual | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_raw15 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_h008 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_gnn | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_idgnn | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_contextgnn | complete | 10 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_tdm_fixed | complete | 7 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_recformer | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_h009 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold2_manual | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold2_raw15 | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold2_h008 | complete | — | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_gnn | complete | — | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_idgnn | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold2_contextgnn | complete | 4 | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold2_tdm_fixed | complete | 7 | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_recformer | complete | 4 | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_h009 | complete | — | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold0_idgnn_inference | verified | — | — | 2026-10-17T23:16:39+03:00 |
+| hm_medium_cv_v2_fold0_contextgnn_inference | verified | — | — | 2026-10-17T23:16:42+03:00 |
+| hm_medium_cv_v2_fold0_recformer_zero_shot | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_recformer_finetuned | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold0_recformer_inference | verified | — | — | 2026-10-17T23:23:06+03:00 |
+| hm_medium_cv_v2_fold1_idgnn_inference | verified | — | — | 2026-10-17T23:45:18+03:00 |
+| hm_medium_cv_v2_fold1_contextgnn_inference | verified | — | — | 2026-10-17T23:45:22+03:00 |
+| hm_medium_cv_v2_fold1_recformer_zero_shot | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_recformer_finetuned | complete | — | — | 2026-10-18T00:52:31+03:00 |
+| hm_medium_cv_v2_fold1_recformer_inference | verified | — | — | 2026-10-17T23:53:13+03:00 |
+| hm_medium_cv_v2_fold2_idgnn_inference | verified | — | — | 2026-10-18T00:12:56+03:00 |
+| hm_medium_cv_v2_fold2_contextgnn_inference | verified | — | — | 2026-10-18T00:12:58+03:00 |
+| hm_medium_cv_v2_fold2_recformer_zero_shot | complete | — | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_recformer_finetuned | complete | — | — | 2026-10-18T00:52:32+03:00 |
+| hm_medium_cv_v2_fold2_recformer_inference | verified | — | — | 2026-10-18T00:20:36+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

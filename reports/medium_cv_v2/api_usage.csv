@@ -1,0 +1,7 @@
+fold,method,accepted,responses,numeric_distinct_sets,selected_call,selected_constant_control,input_tokens,output_tokens,actual_POST,messages_verified
+0,h008,20,21,17,8,False,42809,19737,21,True
+0,h009,20,20,20,8,False,197971,18863,20,True
+1,h008,20,21,15,14,False,44058,20856,21,True
+1,h009,20,20,17,1,False,193262,17561,20,True
+2,h008,20,23,19,4,False,53070,28203,25,True
+2,h009,20,20,18,8,False,211506,25333,21,True

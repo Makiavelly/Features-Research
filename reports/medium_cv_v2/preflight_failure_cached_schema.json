@@ -1,0 +1,4 @@
+{
+  "error": "gpu_gnn_smoke failed; inspect /mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/medium_cv_v2/stages/gpu_gnn_smoke.log",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/pipeline.py\", line 65, in main\n    step('gpu_gnn_smoke',[rt/'gnn.py','--probe'])\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/pipeline.py\", line 37, in step\n    raise RuntimeError(f'{name} failed; inspect {log}')\nRuntimeError: gpu_gnn_smoke failed; inspect /mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/medium_cv_v2/stages/gpu_gnn_smoke.log\n"
+}

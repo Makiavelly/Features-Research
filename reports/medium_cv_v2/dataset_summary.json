@@ -1,0 +1,337 @@
+{
+  "protocol": "hm_medium_temporal_cv_v2",
+  "users": 20000,
+  "items": 10000,
+  "transactions": 260295,
+  "old_cohort_overlap": 0,
+  "selection_cutoff": "2020-06-29 00:00:00",
+  "folds": [
+    {
+      "fold": 0,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 10923,
+          "positive_items": 29469,
+          "source_positive_items": 43884,
+          "positive_coverage": 0.671520371889527,
+          "dropped_empty_user_times": 1837,
+          "cutoffs": [
+            "2020-06-29 00:00:00",
+            "2020-07-06 00:00:00",
+            "2020-07-13 00:00:00",
+            "2020-07-20 00:00:00",
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1410,
+          "positive_items": 3355,
+          "source_positive_items": 6597,
+          "positive_coverage": 0.5085644990147037,
+          "dropped_empty_user_times": 492,
+          "cutoffs": [
+            "2020-08-10 00:00:00"
+          ],
+          "all_source_user_times": 1902,
+          "all_source_positive_items": 6597,
+          "zero_retrievable_targets": 492
+        },
+        "test": {
+          "rows": 1276,
+          "positive_items": 2861,
+          "source_positive_items": 6157,
+          "positive_coverage": 0.4646743543933734,
+          "dropped_empty_user_times": 563,
+          "cutoffs": [
+            "2020-08-17 00:00:00"
+          ],
+          "all_source_user_times": 1839,
+          "all_source_positive_items": 6157,
+          "zero_retrievable_targets": 563
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "1ebe1d73bdc70e55fa156137a6cb45cb59b0bdbdd4adf543af45df876c7a902d",
+          "bytes": 453
+        },
+        "selection.json": {
+          "sha256": "19bd7c1e178c1214c69d0920d569954f7c7c29a398289f3354751f9018a0b053",
+          "bytes": 9666
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "5e569b098d3971a731646ea722ea5b8876ab9afb6000f511924cebbe04f5be2c",
+          "bytes": 38682
+        },
+        "tasks/user-item-purchase/test_full.parquet": {
+          "sha256": "5e569b098d3971a731646ea722ea5b8876ab9afb6000f511924cebbe04f5be2c",
+          "bytes": 38682
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "fa42d70ae5e3bbea59f5fa3a91be16b1eb961602b2955a754035237d92c46a04",
+          "bytes": 127108
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "42377204d02afd9e0ce03d18b764d6f7b021d441e800f6bc20807c09234c7588",
+          "bytes": 8555
+        },
+        "tasks/user-item-purchase/val_full.parquet": {
+          "sha256": "76dadcd9076d37f9546e7002ebf382ba600008fd44ce6670b6cbceb2b73a7880",
+          "bytes": 40888
+        }
+      },
+      "protocol": "hm_medium_temporal_cv_v2",
+      "evaluation": "all source users and original weekly positives; unretained positives remain in denominators"
+    },
+    {
+      "fold": 1,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 9583,
+          "positive_items": 24095,
+          "source_positive_items": 40961,
+          "positive_coverage": 0.5882424745489612,
+          "dropped_empty_user_times": 2402,
+          "cutoffs": [
+            "2020-07-13 00:00:00",
+            "2020-07-20 00:00:00",
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00",
+            "2020-08-10 00:00:00",
+            "2020-08-17 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1301,
+          "positive_items": 2516,
+          "source_positive_items": 6794,
+          "positive_coverage": 0.3703267589049161,
+          "dropped_empty_user_times": 801,
+          "cutoffs": [
+            "2020-08-24 00:00:00"
+          ],
+          "all_source_user_times": 2102,
+          "all_source_positive_items": 6794,
+          "zero_retrievable_targets": 801
+        },
+        "test": {
+          "rows": 1191,
+          "positive_items": 2327,
+          "source_positive_items": 6618,
+          "positive_coverage": 0.3516168026594137,
+          "dropped_empty_user_times": 791,
+          "cutoffs": [
+            "2020-08-31 00:00:00"
+          ],
+          "all_source_user_times": 1982,
+          "all_source_positive_items": 6618,
+          "zero_retrievable_targets": 791
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "efbe22ac38f7d8d31503d82f4b26466024a94d72d9c097de857fb133f94e1520",
+          "bytes": 453
+        },
+        "selection.json": {
+          "sha256": "fbf9853f8ad633acb8d54c033bcf609d0b3846b6c260e3fd07f88192811b4ec6",
+          "bytes": 10466
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "fc9f3395c335ea1a194f1a58072d645b07cbc2b4995bd23094c7f648b516e124",
+          "bytes": 39988
+        },
+        "tasks/user-item-purchase/test_full.parquet": {
+          "sha256": "fc9f3395c335ea1a194f1a58072d645b07cbc2b4995bd23094c7f648b516e124",
+          "bytes": 39988
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "ceaf7209c229a7924d23e76ff15d8f31d065f94b2622f01028bc7e8c508b9ae6",
+          "bytes": 110296
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "d900e245b24af97cfba768292ab0b1810625f80fa168fcc21d27812823f8c81a",
+          "bytes": 8275
+        },
+        "tasks/user-item-purchase/val_full.parquet": {
+          "sha256": "5a18107f3e4d7bcbc4adb0fe63a1816be92ef16cbbf97dd6e6d631f4fabb24e1",
+          "bytes": 41184
+        }
+      },
+      "protocol": "hm_medium_temporal_cv_v2",
+      "evaluation": "all source users and original weekly positives; unretained positives remain in denominators"
+    },
+    {
+      "fold": 2,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 8548,
+          "positive_items": 19881,
+          "source_positive_items": 40763,
+          "positive_coverage": 0.4877217084120403,
+          "dropped_empty_user_times": 3422,
+          "cutoffs": [
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00",
+            "2020-08-10 00:00:00",
+            "2020-08-17 00:00:00",
+            "2020-08-24 00:00:00",
+            "2020-08-31 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1069,
+          "positive_items": 1945,
+          "source_positive_items": 6319,
+          "positive_coverage": 0.3078018673840798,
+          "dropped_empty_user_times": 842,
+          "cutoffs": [
+            "2020-09-07 00:00:00"
+          ],
+          "all_source_user_times": 1911,
+          "all_source_positive_items": 6319,
+          "zero_retrievable_targets": 842
+        },
+        "test": {
+          "rows": 873,
+          "positive_items": 1545,
+          "source_positive_items": 5418,
+          "positive_coverage": 0.2851605758582503,
+          "dropped_empty_user_times": 825,
+          "cutoffs": [
+            "2020-09-14 00:00:00"
+          ],
+          "all_source_user_times": 1698,
+          "all_source_positive_items": 5418,
+          "zero_retrievable_targets": 825
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "8ebd3c2e78363f344c303f2cdc1324cf209bdddee0fc1add05df2e681258372a",
+          "bytes": 453
+        },
+        "selection.json": {
+          "sha256": "92ea83cede629a55606fc3dc7e9dbf612da8156261b4e7826dac4052406b5c2e",
+          "bytes": 9701
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "974e443c2e0d889c9a17bd9c74ea531d57e83091e049f9ef16aa1e931ceb224c",
+          "bytes": 34148
+        },
+        "tasks/user-item-purchase/test_full.parquet": {
+          "sha256": "974e443c2e0d889c9a17bd9c74ea531d57e83091e049f9ef16aa1e931ceb224c",
+          "bytes": 34148
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "7a5706c114da806df7ca6f8f43ecd17c527e6b7ba44a8fd8d08139fee5a2ed40",
+          "bytes": 96779
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "668cefba71c3fe9467cf2fbb647ef26c31611243d64035432c513dd852027a8a",
+          "bytes": 8710
+        },
+        "tasks/user-item-purchase/val_full.parquet": {
+          "sha256": "5ba80ef398346aacc2ac4f32079efa336ab5bfcfda3f4f5881b95ca9d39924a1",
+          "bytes": 37763
+        }
+      },
+      "protocol": "hm_medium_temporal_cv_v2",
+      "evaluation": "all source users and original weekly positives; unretained positives remain in denominators"
+    }
+  ],
+  "protocol_sha256": "1c53f8a61b279b139c6368b8fbfd0341a854cd7a36b1e07d27d31ba91d6641a1",
+  "primary_metric": "unconditional full-target MAP@12",
+  "selection_metric": "same full-target MAP on disjoint inner users"
+}

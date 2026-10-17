@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "returncode": 0,
+  "seconds": 68.19816880799999,
+  "command": [
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/tdm.py",
+    "0",
+    "verify"
+  ],
+  "log": "reports/medium_cv_v2/stages/f0_tdm_replay.log"
+}

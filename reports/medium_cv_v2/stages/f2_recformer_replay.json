@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "returncode": 0,
+  "seconds": 156.7344785589994,
+  "command": [
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/recformer.py",
+    "--variant",
+    "low_lr_warmup",
+    "--verify-only"
+  ],
+  "log": "reports/medium_cv_v2/stages/f2_recformer_replay.log"
+}

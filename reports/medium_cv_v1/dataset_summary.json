@@ -1,0 +1,275 @@
+{
+  "protocol": "hm_medium_temporal_cv_v1",
+  "users": 20000,
+  "items": 10000,
+  "transactions": 260295,
+  "old_cohort_overlap": 0,
+  "selection_cutoff": "2020-06-29 00:00:00",
+  "folds": [
+    {
+      "fold": 0,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 10923,
+          "positive_items": 29469,
+          "source_positive_items": 43884,
+          "positive_coverage": 0.671520371889527,
+          "dropped_empty_user_times": 1837,
+          "cutoffs": [
+            "2020-06-29 00:00:00",
+            "2020-07-06 00:00:00",
+            "2020-07-13 00:00:00",
+            "2020-07-20 00:00:00",
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1410,
+          "positive_items": 3355,
+          "source_positive_items": 6597,
+          "positive_coverage": 0.5085644990147037,
+          "dropped_empty_user_times": 492,
+          "cutoffs": [
+            "2020-08-10 00:00:00"
+          ]
+        },
+        "test": {
+          "rows": 1276,
+          "positive_items": 2861,
+          "source_positive_items": 6157,
+          "positive_coverage": 0.4646743543933734,
+          "dropped_empty_user_times": 563,
+          "cutoffs": [
+            "2020-08-17 00:00:00"
+          ]
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "1ebe1d73bdc70e55fa156137a6cb45cb59b0bdbdd4adf543af45df876c7a902d",
+          "bytes": 453
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "ef636d2050ff21837972709700bdf3f30c6394639f02325b6dfa9c9e0d22873b",
+          "bytes": 21226
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "fa42d70ae5e3bbea59f5fa3a91be16b1eb961602b2955a754035237d92c46a04",
+          "bytes": 127108
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "c77221bd644121785330e2560193a5d1c6ed5ffa415e5858c1f78ea06f6ca070",
+          "bytes": 23619
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 9583,
+          "positive_items": 24095,
+          "source_positive_items": 40961,
+          "positive_coverage": 0.5882424745489612,
+          "dropped_empty_user_times": 2402,
+          "cutoffs": [
+            "2020-07-13 00:00:00",
+            "2020-07-20 00:00:00",
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00",
+            "2020-08-10 00:00:00",
+            "2020-08-17 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1301,
+          "positive_items": 2516,
+          "source_positive_items": 6794,
+          "positive_coverage": 0.3703267589049161,
+          "dropped_empty_user_times": 801,
+          "cutoffs": [
+            "2020-08-24 00:00:00"
+          ]
+        },
+        "test": {
+          "rows": 1191,
+          "positive_items": 2327,
+          "source_positive_items": 6618,
+          "positive_coverage": 0.3516168026594137,
+          "dropped_empty_user_times": 791,
+          "cutoffs": [
+            "2020-08-31 00:00:00"
+          ]
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "efbe22ac38f7d8d31503d82f4b26466024a94d72d9c097de857fb133f94e1520",
+          "bytes": 453
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "2b14d401303636ada3304dc4a5b13cab5ccdf85cf4b4a78a93374276fd3860fe",
+          "bytes": 18321
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "ceaf7209c229a7924d23e76ff15d8f31d065f94b2622f01028bc7e8c508b9ae6",
+          "bytes": 110296
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "3df1c51cf7e18de1705e2093548efd2bbfb5839d9bb38413e3cbd4b861b2b1d1",
+          "bytes": 19530
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "seed": 42,
+      "users": 20000,
+      "items": 10000,
+      "transactions": 260295,
+      "selection_cutoff": "2020-06-29 00:00:00",
+      "selection_uses_outer_labels": false,
+      "splits": {
+        "train": {
+          "rows": 8548,
+          "positive_items": 19881,
+          "source_positive_items": 40763,
+          "positive_coverage": 0.4877217084120403,
+          "dropped_empty_user_times": 3422,
+          "cutoffs": [
+            "2020-07-27 00:00:00",
+            "2020-08-03 00:00:00",
+            "2020-08-10 00:00:00",
+            "2020-08-17 00:00:00",
+            "2020-08-24 00:00:00",
+            "2020-08-31 00:00:00"
+          ]
+        },
+        "val": {
+          "rows": 1069,
+          "positive_items": 1945,
+          "source_positive_items": 6319,
+          "positive_coverage": 0.3078018673840798,
+          "dropped_empty_user_times": 842,
+          "cutoffs": [
+            "2020-09-07 00:00:00"
+          ]
+        },
+        "test": {
+          "rows": 873,
+          "positive_items": 1545,
+          "source_positive_items": 5418,
+          "positive_coverage": 0.2851605758582503,
+          "dropped_empty_user_times": 825,
+          "cutoffs": [
+            "2020-09-14 00:00:00"
+          ]
+        }
+      },
+      "files": {
+        "article_id_map.csv": {
+          "sha256": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "bytes": 135291
+        },
+        "customer_id_map.csv": {
+          "sha256": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "bytes": 252565
+        },
+        "db/article.parquet": {
+          "sha256": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "bytes": 611690
+        },
+        "db/customer.parquet": {
+          "sha256": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "bytes": 1436318
+        },
+        "db/transactions.parquet": {
+          "sha256": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "bytes": 1387531
+        },
+        "manifest.yaml": {
+          "sha256": "8ebd3c2e78363f344c303f2cdc1324cf209bdddee0fc1add05df2e681258372a",
+          "bytes": 453
+        },
+        "tasks/user-item-purchase/manifest.yaml": {
+          "sha256": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "bytes": 718
+        },
+        "tasks/user-item-purchase/test.parquet": {
+          "sha256": "cd692f1f70d684c3e78cc23e15c48dfdaf397bc266ecee03562c1e7628e607f2",
+          "bytes": 13595
+        },
+        "tasks/user-item-purchase/train.parquet": {
+          "sha256": "7a5706c114da806df7ca6f8f43ecd17c527e6b7ba44a8fd8d08139fee5a2ed40",
+          "bytes": 96779
+        },
+        "tasks/user-item-purchase/val.parquet": {
+          "sha256": "393d90d92039dd1c0f16f3efe5d9039c137c50800d7123570b5227a48f44284d",
+          "bytes": 16293
+        }
+      }
+    }
+  ],
+  "protocol_sha256": "1c53f8a61b279b139c6368b8fbfd0341a854cd7a36b1e07d27d31ba91d6641a1"
+}

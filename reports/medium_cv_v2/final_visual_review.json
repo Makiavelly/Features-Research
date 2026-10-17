@@ -1,0 +1,19 @@
+{
+    "passed":  true,
+    "time":  "2026-10-18T00:51:37.0001064+03:00",
+    "images_visually_inspected":  [
+                                      "comparison.png",
+                                      "fold_comparison.png",
+                                      "ap_histograms.png",
+                                      "paired_heatmap.png"
+                                  ],
+    "plot_sha256":  {
+                        "comparison.png":  "d7affb0b9971661068e24f15a91e604627c146c2f4e83196d3a46e1f38a52640",
+                        "fold_comparison.png":  "7780f487811caa60949fadf9d34b2c8c47b8dfd780c4b5a61704f4e37ca4b9af",
+                        "ap_histograms.png":  "37a229fecab93ed19e9037d9094d74ca260e7edabd9823047374f70b66532a8b",
+                        "paired_heatmap.png":  "ca2599c7ff4c2f28a83c8714fbf0a35533c5505b6f2706fb29dcc108c6f562e1"
+                    },
+    "frozen_selection_files_checked":  45,
+    "checkpoint_mismatches":  0,
+    "notes":  "Four plots inspected: labels readable, plots not clipped, units and method names consistent with report. Original checkpoint and selection hashes unchanged after outer evaluation."
+}

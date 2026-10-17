@@ -4725,13 +4725,1579 @@
       "heldout_val_metrics": {
         "map": 0.019847282347282346
       }
+    },
+    "hm_medium_temporal_cv_v1": {
+      "status": "deferred_by_user",
+      "artifacts": "reports/medium_cv_v1",
+      "updated_at": "2026-10-17T17:55:05+03:00",
+      "last_message": "User deferred work until later. Dataset prepared:20000 users,10000 items,3 temporal folds,3340 outer-test user-times. No model training or API searches started. Draft protocol and preparation source retained. Before fitting review low fixed-catalog future-positive coverage46.47/35.16/28.52 percent and dropped empty-target rows. Neural native environment must avoid NumPy2 audit overlay.",
+      "users": 20000,
+      "items": 10000,
+      "fold_rows": [
+        {
+          "train": 10923,
+          "val": 1410,
+          "test": 1276
+        },
+        {
+          "train": 9583,
+          "val": 1301,
+          "test": 1191
+        },
+        {
+          "train": 8548,
+          "val": 1069,
+          "test": 873
+        }
+      ]
+    },
+    "hm_medium_temporal_cv_v2": {
+      "status": "complete",
+      "test_user_times": [
+        1839,
+        1982,
+        1698
+      ],
+      "artifacts": "reports/medium_cv_v2/report.md",
+      "updated_at": "2026-10-18T01:04:55+03:00",
+      "last_message": "Read-only comparison: old ContextGNN248 distinct top12 lists/250users/1574recommended items; medium folds11/8/11lists across1839/1982/1698users, only24/26/26items. Ranking personalization collapsed. Root cause unresolved; larger catalog/full-target denominator alone insufficient(conditionalMAP also very low). Saved audit and notes, no new fitting/inference or model changes; do not infer architectural failure.",
+      "comparison_summary": [
+        {
+          "method": "manual",
+          "label": "LightGBM manual",
+          "pooled_map": 0.0034728152585535663,
+          "ci95_low": 0.002689589697128854,
+          "ci95_high": 0.00437121626461813,
+          "equal_fold_map": 0.0034630606770140473,
+          "fold_maps": [
+            0.0025059816890336604,
+            0.004127791919344464,
+            0.0037554084226640175
+          ],
+          "conditional_catalog_map": 0.010349418227037985
+        },
+        {
+          "method": "raw15",
+          "label": "LightGBM raw15",
+          "pooled_map": 0.0014149705712941806,
+          "ci95_low": 0.0009301776364485842,
+          "ci95_high": 0.002011699641134648,
+          "equal_fold_map": 0.0014078492114377266,
+          "fold_maps": [
+            0.001972438724749763,
+            0.0012659325342221407,
+            0.0009851763753412754
+          ],
+          "conditional_catalog_map": 0.004624243576339384
+        },
+        {
+          "method": "idgnn",
+          "label": "ID-GNN",
+          "pooled_map": 0.00024461552251912823,
+          "ci95_low": 0.00010682479816394456,
+          "ci95_high": 0.0004075103533474099,
+          "equal_fold_map": 0.00023837872613261595,
+          "fold_maps": [
+            0.0,
+            0.00047792900656170077,
+            0.0002372071718361471
+          ],
+          "conditional_catalog_map": 0.0007013354243893166
+        },
+        {
+          "method": "contextgnn",
+          "label": "ContextGNN",
+          "pooled_map": 0.0002742608049275923,
+          "ci95_low": 0.00011152444900486036,
+          "ci95_high": 0.0004860268873130335,
+          "equal_fold_map": 0.0002622326819158377,
+          "fold_maps": [
+            0.00030906536820076786,
+            0.0004727249429570318,
+            4.9077345897133886e-06
+          ],
+          "conditional_catalog_map": 0.0006477291628863484
+        },
+        {
+          "method": "recformer_zero",
+          "label": "Recformer zero-shot",
+          "pooled_map": 0.006286419238154154,
+          "ci95_low": 0.0048685735793580695,
+          "ci95_high": 0.007855303136564623,
+          "equal_fold_map": 0.006312451303409107,
+          "fold_maps": [
+            0.008612966847061464,
+            0.004664410247785625,
+            0.005659976815380231
+          ],
+          "conditional_catalog_map": 0.015644744061660228
+        },
+        {
+          "method": "recformer_lr",
+          "label": "Recformer LR/warmup",
+          "pooled_map": 0.004525025922891737,
+          "ci95_low": 0.003438627424487717,
+          "ci95_high": 0.005732225124866504,
+          "equal_fold_map": 0.004555162788729233,
+          "fold_maps": [
+            0.004928330862942065,
+            0.003784240038654771,
+            0.004952917464590862
+          ],
+          "conditional_catalog_map": 0.010771740609689712
+        },
+        {
+          "method": "tdm",
+          "label": "TDM fixed beam64",
+          "pooled_map": 0.002135048928587915,
+          "ci95_low": 0.0015730103477115513,
+          "ci95_high": 0.0027807945105828807,
+          "equal_fold_map": 0.0021701785377360155,
+          "fold_maps": [
+            0.0019525557695079176,
+            0.0015955464864395234,
+            0.002962433357260605
+          ],
+          "conditional_catalog_map": 0.006039970178175909
+        },
+        {
+          "method": "h008",
+          "label": "API GPT H008 best-only",
+          "pooled_map": 0.004627086929792302,
+          "ci95_low": 0.003594993036765165,
+          "ci95_high": 0.0058141459891102145,
+          "equal_fold_map": 0.004620992050094544,
+          "fold_maps": [
+            0.005226402635029218,
+            0.004438860883109117,
+            0.004197712632145298
+          ],
+          "conditional_catalog_map": 0.012282781208866536
+        },
+        {
+          "method": "h009",
+          "label": "API GPT H009 full history",
+          "pooled_map": 0.004514477896726273,
+          "ci95_low": 0.003533006715982536,
+          "ci95_high": 0.005613539043720563,
+          "equal_fold_map": 0.004547100437320116,
+          "fold_maps": [
+            0.004640644383711269,
+            0.003866700796550504,
+            0.005133956131698573
+          ],
+          "conditional_catalog_map": 0.012288608337849142
+        }
+      ]
+    },
+    "hm_medium_cv_v2_fold0_gnn": {
+      "status": "complete",
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": null,
+        "temporal_strategy": "last",
+        "evaluation": "all 10000 items; original full-target evaluation including unretrievable positives",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 gnn: all reported variants verified.",
+      "error": "<StatType.MEAN: 'MEAN'>",
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/gnn"
+    },
+    "hm_medium_cv_v2_fold0_manual": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 LightGBM manual: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.0025059816890336604,
+        "recall12": 0.011005825070475045,
+        "hit12": 0.037520391517128875,
+        "users": 1839,
+        "conditional_catalog_map": 0.004738431957279919,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/lightgbm_manual",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_raw15": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 LightGBM raw15: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.001972438724749763,
+        "recall12": 0.004203889277298738,
+        "hit12": 0.015769439912996192,
+        "users": 1839,
+        "conditional_catalog_map": 0.0055601945149358935,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/lightgbm_raw15",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_h008": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 21,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 API GPT H008 best-only: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.005226402635029218,
+        "recall12": 0.012804079794291864,
+        "hit12": 0.03806416530723219,
+        "users": 1839,
+        "conditional_catalog_map": 0.009940724512628901,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/h008",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_idgnn": {
+      "status": "complete",
+      "epoch": 4,
+      "train_loss": 0.04963441821205061,
+      "val_metrics": {
+        "map": 0.000759548611111111
+      },
+      "train_seconds": 2.9595213520005927,
+      "val_seconds": 0.02704861599886499,
+      "steps": 86,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 ID-GNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "config": {
+        "best_epoch": 1,
+        "epochs": 4,
+        "seconds": 25.331882152999242
+      },
+      "best_epoch": 1,
+      "test_metrics": {
+        "map": 0.0,
+        "recall12": 0.0,
+        "hit12": 0.0,
+        "users": 1839,
+        "conditional_catalog_map": 0.0,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/gnn/idgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_contextgnn": {
+      "status": "complete",
+      "epoch": 8,
+      "train_loss": 22.579382852066395,
+      "val_metrics": {
+        "map": 0.0029578711219336216
+      },
+      "train_seconds": 6.384648379000282,
+      "val_seconds": 0.19306771099945763,
+      "steps": 86,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 ContextGNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "config": {
+        "best_epoch": 5,
+        "epochs": 8,
+        "seconds": 58.78566937100004
+      },
+      "best_epoch": 5,
+      "test_metrics": {
+        "map": 0.00030906536820076786,
+        "recall12": 0.0008378893778567515,
+        "hit12": 0.004893964110929853,
+        "users": 1839,
+        "conditional_catalog_map": 0.0005319901602229188,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/gnn/contextgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_tdm_fixed": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "embedding_dim": 24,
+        "windows": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          6,
+          10,
+          20
+        ],
+        "hidden": [
+          128,
+          64,
+          24
+        ],
+        "attention_hidden": 36,
+        "batch": 32,
+        "pair_chunk": 512,
+        "max_epochs": 20,
+        "patience": 4,
+        "minimum_epochs": 5,
+        "max_training_seconds": 1800,
+        "lr": 0.001,
+        "negatives_per_level": 8,
+        "beam": 64,
+        "history_length": 50,
+        "precision": "FP32",
+        "objective": "equal-user equal-level balanced multi-positive BCE",
+        "tree_selection": "best beam64 validation MAP; strict improvement",
+        "upstream_reference": "TorchEasyRec 4458f1c66f6c32dc672b9c805855f3d2e6e6179e",
+        "implementation": "local adaptation; no upstream framework installed",
+        "variant": "fixed",
+        "run_id": "hm_medium_cv_v2_fold0_tdm_fixed",
+        "subset_sha256": "79901c7e20e26891a7bbfe4ab1870414eb2959045746b06129ae6d20e8f70014",
+        "data_hashes": {
+          "article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "db/article.parquet": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "db/customer.parquet": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "db/transactions.parquet": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "manifest.yaml": "1ebe1d73bdc70e55fa156137a6cb45cb59b0bdbdd4adf543af45df876c7a902d",
+          "selection.json": "19bd7c1e178c1214c69d0920d569954f7c7c29a398289f3354751f9018a0b053",
+          "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "tasks/user-item-purchase/test.parquet": "5e569b098d3971a731646ea722ea5b8876ab9afb6000f511924cebbe04f5be2c",
+          "tasks/user-item-purchase/test_full.parquet": "5e569b098d3971a731646ea722ea5b8876ab9afb6000f511924cebbe04f5be2c",
+          "tasks/user-item-purchase/train.parquet": "fa42d70ae5e3bbea59f5fa3a91be16b1eb961602b2955a754035237d92c46a04",
+          "tasks/user-item-purchase/val.parquet": "42377204d02afd9e0ce03d18b764d6f7b021d441e800f6bc20807c09234c7588",
+          "tasks/user-item-purchase/val_full.parquet": "76dadcd9076d37f9546e7002ebf382ba600008fd44ce6670b6cbceb2b73a7880"
+        },
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379",
+        "prerequisite": {
+          "tree": "fixed categories; no clustering"
+        },
+        "code_sha256": {
+          "check_protocol.py": "b709798d6bbc705d6096fc6867f2df50a1c6c78987093466f8217075e4e3c4bb",
+          "check_runtime.py": "502c0ad06477b626394357b1c1469dc77cb05778929012cea47b86ed66dd2c69",
+          "common.py": "80c9013353db6142bf45cc1d27629cd3b4ac1a7d6f0a3307cea8989f9cd71f34",
+          "report_small.py": "54ad0554c9ed7d88d9b27a8396da539929478e7f06885b6c1709188fdc76caa0",
+          "run_small.py": "bbe968276d3a88ce0c7f42fabddf3d9a7b0f0c9ac8c10ccb303f93e2e340b278"
+        },
+        "torch_version": "2.2.2+cu118",
+        "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+        "trainable_parameters": 833295
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 TDM fixed beam64: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.006119791666666667
+      },
+      "best_epoch": 4,
+      "train_loss": 0.34477731793948185,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/tdm/fixed/beam",
+      "summary": {
+        "best_epoch": 4,
+        "epochs": 8,
+        "best_validation_map": 0.006119791666666667,
+        "training_and_validation_seconds": 317.7619972930006,
+        "peak_cuda_bytes": 108993536,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "5932d7ca6170c22ff2e7e6b47f20015417f3214938e98db6b5e6fccb04ba2f03",
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379"
+      },
+      "test_metrics": {
+        "map": 0.0019525557695079176,
+        "recall12": 0.006501284498837517,
+        "hit12": 0.022294725394236,
+        "users": 1839,
+        "conditional_catalog_map": 0.00406271675178415,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_recformer": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "max_tokens": 256,
+        "max_items": 50,
+        "attributes": 3,
+        "max_attr_length": 32,
+        "batch": 4,
+        "gradient_accumulation": 4,
+        "epochs_per_stage": 2,
+        "stages": 2,
+        "lr": 1e-05,
+        "weight_decay": 0.0,
+        "precision": "FP16 autocast; FP32 normalized cosine matmul",
+        "variant": "low_lr_warmup",
+        "parameter_counts": {
+          "total": 148110336,
+          "trainable": 148110336,
+          "frozen": 0
+        },
+        "freeze_policy": "none",
+        "scheduler": "100 successful optimizer updates warmup, then linear decay over1204 updates",
+        "warmup_updates": 100,
+        "comparison_policy": "same pretrained initialization, seed/order/2+2 epochs; lower LR+schedule bundled; freezing separately versus original constant5e-5",
+        "objective": "mean per-user-time mean positive negative-log full softmax; catalog10000",
+        "subset_sha256": "79901c7e20e26891a7bbfe4ab1870414eb2959045746b06129ae6d20e8f70014",
+        "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+        "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+        "runner_sha256": "c56a2ae95cecd0ce6ce5016c4629004ce3293158261cca41df94800b9dd14f57",
+        "asset_manifest": {
+          "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+          "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+          "backbone_repo": "allenai/longformer-base-4096",
+          "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+          "files": {
+            "config.json": {
+              "bytes": 694,
+              "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+            },
+            "merges.txt": {
+              "bytes": 456318,
+              "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+            },
+            "recformer_seqrec.bin": {
+              "bytes": 749479199,
+              "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+            },
+            "vocab.json": {
+              "bytes": 898823,
+              "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+            }
+          }
+        },
+        "runtime": {
+          "torch": "2.2.2+cu118",
+          "transformers": "4.46.3",
+          "numpy": "1.26.4",
+          "pandas": "2.2.3"
+        },
+        "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 recformer: all reported variants verified.",
+      "epoch": 4,
+      "progress": {
+        "stage": 2,
+        "epoch": 2,
+        "train_loss": 8.871781921351799,
+        "val_metrics": {
+          "map": 0.005424303147136954
+        },
+        "epoch_seconds": 511.99816768100027,
+        "val_seconds": 4.2450445530012075,
+        "rows": 10923,
+        "lr_first": 2.60258358662614e-06,
+        "lr_last": 1.1398176291793313e-08,
+        "optimizer_updates": 2730,
+        "amp_skipped_updates": 2
+      },
+      "training_seconds": 2161.4252003680012,
+      "best_trained_val_map": 0.005424303147136954,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/recformer"
+    },
+    "hm_medium_cv_v2_fold0_h009": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 20,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 API GPT H009 full history: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.004640644383711269,
+        "recall12": 0.01506438610027517,
+        "hit12": 0.043501903208265365,
+        "users": 1839,
+        "conditional_catalog_map": 0.008864673945003098,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/h009",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_manual": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 LightGBM manual: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.004127791919344464,
+        "recall12": 0.013877969640123139,
+        "hit12": 0.044399596367305755,
+        "users": 1982,
+        "conditional_catalog_map": 0.0140265979938524,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/lightgbm_manual",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_raw15": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 LightGBM raw15: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.0012659325342221407,
+        "recall12": 0.002684759401791639,
+        "hit12": 0.00958627648839556,
+        "users": 1982,
+        "conditional_catalog_map": 0.003913972296633925,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/lightgbm_raw15",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_h008": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 21,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 API GPT H008 best-only: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.004438860883109117,
+        "recall12": 0.014126355097541425,
+        "hit12": 0.044399596367305755,
+        "users": 1982,
+        "conditional_catalog_map": 0.013030244217796694,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/h008",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_gnn": {
+      "status": "complete",
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": null,
+        "temporal_strategy": "last",
+        "evaluation": "all 10000 items; original full-target evaluation including unretrievable positives",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 gnn: all reported variants verified.",
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/gnn"
+    },
+    "hm_medium_cv_v2_fold1_idgnn": {
+      "status": "complete",
+      "epoch": 4,
+      "train_loss": 0.04472771018743515,
+      "val_metrics": {
+        "map": 0.0006665426587301587
+      },
+      "train_seconds": 2.4872355580009753,
+      "val_seconds": 0.030030302999875857,
+      "steps": 75,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 ID-GNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "best_epoch": 1,
+      "test_metrics": {
+        "map": 0.00047792900656170077,
+        "recall12": 0.0018429756699181522,
+        "hit12": 0.006559031281533804,
+        "users": 1982,
+        "conditional_catalog_map": 0.001407047565737742,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/gnn/idgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_contextgnn": {
+      "status": "complete",
+      "epoch": 10,
+      "train_loss": 20.87695142110189,
+      "val_metrics": {
+        "map": 0.0016121031746031745
+      },
+      "train_seconds": 5.83315403099914,
+      "val_seconds": 0.20101257900023484,
+      "steps": 75,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 ContextGNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "best_epoch": 10,
+      "test_metrics": {
+        "map": 0.0004727249429570318,
+        "recall12": 0.0024133871510258996,
+        "hit12": 0.006054490413723511,
+        "users": 1982,
+        "conditional_catalog_map": 0.0012045306125910659,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/gnn/contextgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_tdm_fixed": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "embedding_dim": 24,
+        "windows": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          6,
+          10,
+          20
+        ],
+        "hidden": [
+          128,
+          64,
+          24
+        ],
+        "attention_hidden": 36,
+        "batch": 32,
+        "pair_chunk": 512,
+        "max_epochs": 20,
+        "patience": 4,
+        "minimum_epochs": 5,
+        "max_training_seconds": 1800,
+        "lr": 0.001,
+        "negatives_per_level": 8,
+        "beam": 64,
+        "history_length": 50,
+        "precision": "FP32",
+        "objective": "equal-user equal-level balanced multi-positive BCE",
+        "tree_selection": "best beam64 validation MAP; strict improvement",
+        "upstream_reference": "TorchEasyRec 4458f1c66f6c32dc672b9c805855f3d2e6e6179e",
+        "implementation": "local adaptation; no upstream framework installed",
+        "variant": "fixed",
+        "run_id": "hm_medium_cv_v2_fold1_tdm_fixed",
+        "subset_sha256": "7ae21022d095be49b701cb85748b4f475349ec8306b8ba55eb6fe2da58372f66",
+        "data_hashes": {
+          "article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "db/article.parquet": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "db/customer.parquet": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "db/transactions.parquet": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "manifest.yaml": "efbe22ac38f7d8d31503d82f4b26466024a94d72d9c097de857fb133f94e1520",
+          "selection.json": "fbf9853f8ad633acb8d54c033bcf609d0b3846b6c260e3fd07f88192811b4ec6",
+          "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "tasks/user-item-purchase/test.parquet": "fc9f3395c335ea1a194f1a58072d645b07cbc2b4995bd23094c7f648b516e124",
+          "tasks/user-item-purchase/test_full.parquet": "fc9f3395c335ea1a194f1a58072d645b07cbc2b4995bd23094c7f648b516e124",
+          "tasks/user-item-purchase/train.parquet": "ceaf7209c229a7924d23e76ff15d8f31d065f94b2622f01028bc7e8c508b9ae6",
+          "tasks/user-item-purchase/val.parquet": "d900e245b24af97cfba768292ab0b1810625f80fa168fcc21d27812823f8c81a",
+          "tasks/user-item-purchase/val_full.parquet": "5a18107f3e4d7bcbc4adb0fe63a1816be92ef16cbbf97dd6e6d631f4fabb24e1"
+        },
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379",
+        "prerequisite": {
+          "tree": "fixed categories; no clustering"
+        },
+        "code_sha256": {
+          "check_protocol.py": "b709798d6bbc705d6096fc6867f2df50a1c6c78987093466f8217075e4e3c4bb",
+          "check_runtime.py": "502c0ad06477b626394357b1c1469dc77cb05778929012cea47b86ed66dd2c69",
+          "common.py": "80c9013353db6142bf45cc1d27629cd3b4ac1a7d6f0a3307cea8989f9cd71f34",
+          "report_small.py": "54ad0554c9ed7d88d9b27a8396da539929478e7f06885b6c1709188fdc76caa0",
+          "run_small.py": "bbe968276d3a88ce0c7f42fabddf3d9a7b0f0c9ac8c10ccb303f93e2e340b278"
+        },
+        "torch_version": "2.2.2+cu118",
+        "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+        "trainable_parameters": 833295
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 TDM fixed beam64: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "epoch": 7,
+      "val_metrics": {
+        "map": 0.0046178582702020195
+      },
+      "best_epoch": 3,
+      "train_loss": 0.34375564383419055,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/tdm/fixed/beam",
+      "summary": {
+        "best_epoch": 3,
+        "epochs": 7,
+        "best_validation_map": 0.0046178582702020195,
+        "training_and_validation_seconds": 244.9855264939997,
+        "peak_cuda_bytes": 108993536,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "6bee87ce61afac8b755b3d77c56f7af6aac81990637a60e4a643620dc9150bb9",
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379"
+      },
+      "test_metrics": {
+        "map": 0.0015955464864395234,
+        "recall12": 0.006959766464055061,
+        "hit12": 0.020181634712411706,
+        "users": 1982,
+        "conditional_catalog_map": 0.004813215518505191,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_recformer": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "max_tokens": 256,
+        "max_items": 50,
+        "attributes": 3,
+        "max_attr_length": 32,
+        "batch": 4,
+        "gradient_accumulation": 4,
+        "epochs_per_stage": 2,
+        "stages": 2,
+        "lr": 1e-05,
+        "weight_decay": 0.0,
+        "precision": "FP16 autocast; FP32 normalized cosine matmul",
+        "variant": "low_lr_warmup",
+        "parameter_counts": {
+          "total": 148110336,
+          "trainable": 148110336,
+          "frozen": 0
+        },
+        "freeze_policy": "none",
+        "scheduler": "100 successful optimizer updates warmup, then linear decay over1204 updates",
+        "warmup_updates": 100,
+        "comparison_policy": "same pretrained initialization, seed/order/2+2 epochs; lower LR+schedule bundled; freezing separately versus original constant5e-5",
+        "objective": "mean per-user-time mean positive negative-log full softmax; catalog10000",
+        "subset_sha256": "7ae21022d095be49b701cb85748b4f475349ec8306b8ba55eb6fe2da58372f66",
+        "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+        "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+        "runner_sha256": "9ef731d89c6fbb594a667a538209d1e783a4c4c1dbc91bc20b04a5ee88cfbf5e",
+        "asset_manifest": {
+          "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+          "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+          "backbone_repo": "allenai/longformer-base-4096",
+          "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+          "files": {
+            "config.json": {
+              "bytes": 694,
+              "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+            },
+            "merges.txt": {
+              "bytes": 456318,
+              "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+            },
+            "recformer_seqrec.bin": {
+              "bytes": 749479199,
+              "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+            },
+            "vocab.json": {
+              "bytes": 898823,
+              "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+            }
+          }
+        },
+        "runtime": {
+          "torch": "2.2.2+cu118",
+          "transformers": "4.46.3",
+          "numpy": "1.26.4",
+          "pandas": "2.2.3"
+        },
+        "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+      },
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 recformer: all reported variants verified.",
+      "epoch": 4,
+      "progress": {
+        "stage": 2,
+        "epoch": 2,
+        "train_loss": 8.850581478793952,
+        "val_metrics": {
+          "map": 0.0008091517857142857
+        },
+        "epoch_seconds": 441.1847353690009,
+        "val_seconds": 4.118304243002058,
+        "rows": 9583,
+        "lr_first": 2.617595818815331e-06,
+        "lr_last": 1.3066202090592337e-08,
+        "optimizer_updates": 2394,
+        "amp_skipped_updates": 2
+      },
+      "training_seconds": 1888.1977026929999,
+      "best_trained_val_map": 0.0017868768601190476,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/recformer"
+    },
+    "hm_medium_cv_v2_fold1_h009": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 20,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 API GPT H009 full history: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.003866700796550504,
+        "recall12": 0.014749322462490978,
+        "hit12": 0.04490413723511604,
+        "users": 1982,
+        "conditional_catalog_map": 0.011599044760853565,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/h009",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_manual": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold2 LightGBM manual: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.0037554084226640175,
+        "recall12": 0.01340750179060905,
+        "hit12": 0.043580683156654886,
+        "users": 1698,
+        "conditional_catalog_map": 0.013533951306001707,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/lightgbm_manual",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_raw15": {
+      "status": "complete",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold2 LightGBM raw15: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.0009851763753412754,
+        "recall12": 0.005005676825464812,
+        "hit12": 0.015901060070671377,
+        "users": 1698,
+        "conditional_catalog_map": 0.004225228337484924,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/lightgbm_raw15",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_h008": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 23,
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 API GPT H008 best-only: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.004197712632145298,
+        "recall12": 0.01148110396343612,
+        "hit12": 0.038869257950530034,
+        "users": 1698,
+        "conditional_catalog_map": 0.014686258758423706,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/h008",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_gnn": {
+      "status": "complete",
+      "config": {
+        "dataset": "rel-hm-small-v1",
+        "seed": 42,
+        "channels": 64,
+        "encoder_channels": 64,
+        "encoder_layers": 2,
+        "layers": 2,
+        "neighbors": [
+          32,
+          16
+        ],
+        "rhs_embedding_dim": 64,
+        "rhs_mode": "FUSION",
+        "batch_size": 128,
+        "max_epochs": 10,
+        "early_stopping_patience": 3,
+        "lr": 0.001,
+        "steps_per_epoch_cap": null,
+        "temporal_strategy": "last",
+        "evaluation": "all 10000 items; original full-target evaluation including unretrievable positives",
+        "upstream_commit": "ca4a96985b7ef73c36a40da32e70710ad9b59a1e",
+        "rhs_cache_policy": "clear before each evaluation and weight reload; avoid stale FUSION cache"
+      },
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 gnn: all reported variants verified.",
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/gnn"
+    },
+    "hm_medium_cv_v2_fold2_idgnn": {
+      "status": "complete",
+      "epoch": 4,
+      "train_loss": 0.04389295935519596,
+      "val_metrics": {
+        "map": 0.00045262896825396827
+      },
+      "train_seconds": 2.7333997120003914,
+      "val_seconds": 0.03192098999716109,
+      "steps": 67,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold2 ID-GNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "best_epoch": 1,
+      "test_metrics": {
+        "map": 0.0002372071718361471,
+        "recall12": 0.000785237534354142,
+        "hit12": 0.0017667844522968198,
+        "users": 1698,
+        "conditional_catalog_map": 0.0007636502481863306,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/gnn/idgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_contextgnn": {
+      "status": "complete",
+      "epoch": 4,
+      "train_loss": 20.068540345377,
+      "val_metrics": {
+        "map": 0.0001953125
+      },
+      "train_seconds": 5.021959753000004,
+      "val_seconds": 0.198231241000002,
+      "steps": 67,
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold2 ContextGNN: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "best_epoch": 1,
+      "test_metrics": {
+        "map": 4.9077345897133886e-06,
+        "recall12": 4.907734589713388e-05,
+        "hit12": 0.0005889281507656066,
+        "users": 1698,
+        "conditional_catalog_map": 5.72737686139748e-05,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/gnn/contextgnn",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_tdm_fixed": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "embedding_dim": 24,
+        "windows": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          5,
+          6,
+          10,
+          20
+        ],
+        "hidden": [
+          128,
+          64,
+          24
+        ],
+        "attention_hidden": 36,
+        "batch": 32,
+        "pair_chunk": 512,
+        "max_epochs": 20,
+        "patience": 4,
+        "minimum_epochs": 5,
+        "max_training_seconds": 1800,
+        "lr": 0.001,
+        "negatives_per_level": 8,
+        "beam": 64,
+        "history_length": 50,
+        "precision": "FP32",
+        "objective": "equal-user equal-level balanced multi-positive BCE",
+        "tree_selection": "best beam64 validation MAP; strict improvement",
+        "upstream_reference": "TorchEasyRec 4458f1c66f6c32dc672b9c805855f3d2e6e6179e",
+        "implementation": "local adaptation; no upstream framework installed",
+        "variant": "fixed",
+        "run_id": "hm_medium_cv_v2_fold2_tdm_fixed",
+        "subset_sha256": "1f83dbb1e24d59b9737ece7746464478697969a5a24ff01a7e7d2926f39d5a87",
+        "data_hashes": {
+          "article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+          "customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+          "db/article.parquet": "d30e5b0075f792d6d3b52d315ae8c2f23fe787fc01d87aa5e533ca80e9e19cb5",
+          "db/customer.parquet": "9e5b831bbd8e49e8ac910d0da6c5d14bd17bcf4674288b42a6234fadb9042489",
+          "db/transactions.parquet": "6a88fb46636e38d4c76a26998b0038e92ddc7099f27fe9dffeaf9fd1bb9e716c",
+          "manifest.yaml": "8ebd3c2e78363f344c303f2cdc1324cf209bdddee0fc1add05df2e681258372a",
+          "selection.json": "92ea83cede629a55606fc3dc7e9dbf612da8156261b4e7826dac4052406b5c2e",
+          "tasks/user-item-purchase/manifest.yaml": "3b2acb699377f9074a11a9033507ec2ca32b7ce2e03c78a90b488ee2216e9281",
+          "tasks/user-item-purchase/test.parquet": "974e443c2e0d889c9a17bd9c74ea531d57e83091e049f9ef16aa1e931ceb224c",
+          "tasks/user-item-purchase/test_full.parquet": "974e443c2e0d889c9a17bd9c74ea531d57e83091e049f9ef16aa1e931ceb224c",
+          "tasks/user-item-purchase/train.parquet": "7a5706c114da806df7ca6f8f43ecd17c527e6b7ba44a8fd8d08139fee5a2ed40",
+          "tasks/user-item-purchase/val.parquet": "668cefba71c3fe9467cf2fbb647ef26c31611243d64035432c513dd852027a8a",
+          "tasks/user-item-purchase/val_full.parquet": "5ba80ef398346aacc2ac4f32079efa336ab5bfcfda3f4f5881b95ca9d39924a1"
+        },
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379",
+        "prerequisite": {
+          "tree": "fixed categories; no clustering"
+        },
+        "code_sha256": {
+          "check_protocol.py": "b709798d6bbc705d6096fc6867f2df50a1c6c78987093466f8217075e4e3c4bb",
+          "check_runtime.py": "502c0ad06477b626394357b1c1469dc77cb05778929012cea47b86ed66dd2c69",
+          "common.py": "80c9013353db6142bf45cc1d27629cd3b4ac1a7d6f0a3307cea8989f9cd71f34",
+          "report_small.py": "54ad0554c9ed7d88d9b27a8396da539929478e7f06885b6c1709188fdc76caa0",
+          "run_small.py": "bbe968276d3a88ce0c7f42fabddf3d9a7b0f0c9ac8c10ccb303f93e2e340b278"
+        },
+        "torch_version": "2.2.2+cu118",
+        "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+        "trainable_parameters": 833295
+      },
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 TDM fixed beam64: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "epoch": 7,
+      "val_metrics": {
+        "map": 0.006591162743506494
+      },
+      "best_epoch": 3,
+      "train_loss": 0.33820404855000136,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/tdm/fixed/beam",
+      "summary": {
+        "best_epoch": 3,
+        "epochs": 7,
+        "best_validation_map": 0.006591162743506494,
+        "training_and_validation_seconds": 219.290067177,
+        "peak_cuda_bytes": 108993536,
+        "stop_reason": "patience4",
+        "checkpoint_sha256": "693a1257ccdf11d225b233d989f1bcede1616a9d4c6cd540853e5324301cd046",
+        "tree_sha256": "26bae1bd4f30d3890eeec4c60dc19d4e1ca4f66fd3a383599f089ae182378379"
+      },
+      "test_metrics": {
+        "map": 0.002962433357260605,
+        "recall12": 0.009445986742806532,
+        "hit12": 0.02591283863368669,
+        "users": 1698,
+        "conditional_catalog_map": 0.010603590077080505,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_recformer": {
+      "status": "complete",
+      "config": {
+        "seed": 42,
+        "max_tokens": 256,
+        "max_items": 50,
+        "attributes": 3,
+        "max_attr_length": 32,
+        "batch": 4,
+        "gradient_accumulation": 4,
+        "epochs_per_stage": 2,
+        "stages": 2,
+        "lr": 1e-05,
+        "weight_decay": 0.0,
+        "precision": "FP16 autocast; FP32 normalized cosine matmul",
+        "variant": "low_lr_warmup",
+        "parameter_counts": {
+          "total": 148110336,
+          "trainable": 148110336,
+          "frozen": 0
+        },
+        "freeze_policy": "none",
+        "scheduler": "100 successful optimizer updates warmup, then linear decay over1204 updates",
+        "warmup_updates": 100,
+        "comparison_policy": "same pretrained initialization, seed/order/2+2 epochs; lower LR+schedule bundled; freezing separately versus original constant5e-5",
+        "objective": "mean per-user-time mean positive negative-log full softmax; catalog10000",
+        "subset_sha256": "1f83dbb1e24d59b9737ece7746464478697969a5a24ff01a7e7d2926f39d5a87",
+        "pretrained_sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022",
+        "source_commit": "26b00a58e7affe0c54a89c143ea7bce37f2e8e08",
+        "runner_sha256": "8d7e4d998da1c5e35544772225f94492aadfcc0e933b09ff5d12e6a8c0a15e61",
+        "asset_manifest": {
+          "checkpoint_source": "https://github.com/AaronHeee/RecFormer#pretrained-model",
+          "checkpoint_file_id": "1BEboY3NxAUOBe6YwYZ_RsQ4BR6IIbl0-",
+          "backbone_repo": "allenai/longformer-base-4096",
+          "backbone_revision": "301e6a42cb0d9976a6d6a26a079fef81c18aa895",
+          "files": {
+            "config.json": {
+              "bytes": 694,
+              "sha256": "d0a64aa58d1b43c0d38000fa3083c142533c59fa151043e5c8113bcbee106d82"
+            },
+            "merges.txt": {
+              "bytes": 456318,
+              "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+            },
+            "recformer_seqrec.bin": {
+              "bytes": 749479199,
+              "sha256": "6ca01ee6ce48756e49b381da1fa6eedb8873cdeb6f96b13274e89a6b5884d022"
+            },
+            "vocab.json": {
+              "bytes": 898823,
+              "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+            }
+          }
+        },
+        "runtime": {
+          "torch": "2.2.2+cu118",
+          "transformers": "4.46.3",
+          "numpy": "1.26.4",
+          "pandas": "2.2.3"
+        },
+        "budget_policy": "4 full epochs; no test before checkpoint selection; no continuation under same run after changes"
+      },
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 recformer: all reported variants verified.",
+      "epoch": 4,
+      "progress": {
+        "stage": 2,
+        "epoch": 2,
+        "train_loss": 8.881475609934213,
+        "val_metrics": {
+          "map": 0.009154110863095238
+        },
+        "epoch_seconds": 396.429374629,
+        "val_seconds": 4.73114808299988,
+        "rows": 8548,
+        "lr_first": 2.6372549019607847e-06,
+        "lr_last": 1.9607843137254902e-08,
+        "optimizer_updates": 2137,
+        "amp_skipped_updates": 3
+      },
+      "training_seconds": 1609.4941478459998,
+      "best_trained_val_map": 0.009154110863095238,
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/recformer"
+    },
+    "hm_medium_cv_v2_fold2_h009": {
+      "status": "complete",
+      "measured": 20,
+      "responses": 20,
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 API GPT H009 full history: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "test_metrics": {
+        "map": 0.005133956131698573,
+        "recall12": 0.013804434179875875,
+        "hit12": 0.04299175500588928,
+        "users": 1698,
+        "conditional_catalog_map": 0.018233866648815104,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/h009",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_idgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 6.132010645999799
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.39413183000033314
+        },
+        "checkpoint_sha256": "17f3d39bd3c0299bc450b73ce4c0ba121226b63e4f844fdd56cdb503bec4c350"
+      },
+      "updated_at": "2026-10-17T23:16:39+03:00",
+      "last_message": "Независимая проверка idgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold0_contextgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.450118927999938
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 1.2461239379999824
+        },
+        "checkpoint_sha256": "a251ed61b80f01f384ee6b04dfba454701f40f98c27516c6728e0bde6a761ccb"
+      },
+      "updated_at": "2026-10-17T23:16:42+03:00",
+      "last_message": "Независимая проверка contextgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold0_recformer_zero_shot": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.008153909350198413
+      },
+      "test_metrics": {
+        "map": 0.008612966847061464,
+        "recall12": 0.015006903404130157,
+        "hit12": 0.03588907014681892,
+        "users": 1839,
+        "conditional_catalog_map": 0.017767266258645567,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/recformer/zero_shot",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 Recformer zero-shot: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_recformer_finetuned": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.005424303147136954
+      },
+      "test_metrics": {
+        "map": 0.004928330862942065,
+        "recall12": 0.015232004265446351,
+        "hit12": 0.03643284393692224,
+        "users": 1839,
+        "conditional_catalog_map": 0.009898372156405072,
+        "conditional_users": 1276,
+        "zero_retrievable_users": 563
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_0/recformer/finetuned",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold0 Recformer LR/warmup: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold0_recformer_inference": {
+      "status": "verified",
+      "checks": {
+        "zero_shot": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.008153909350198413,
+            "seconds": 9.697484712999994
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.008612966847061464,
+            "seconds": 25.766506284000116
+          },
+          "checkpoint_sha256": "dc848016451b90999aa11ef3a8b957ad6b5e97e9ef402645785c2834ea287adf"
+        },
+        "finetuned": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.005424303147136954,
+            "seconds": 3.8384904560002724
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.004928330862942065,
+            "seconds": 27.52184799400038
+          },
+          "checkpoint_sha256": "8ea881e128a19aac14cbdd5a359bfaa2c42423e4ccb21c4025dbf716ed58277e"
+        }
+      },
+      "updated_at": "2026-10-17T23:23:06+03:00",
+      "last_message": "Recformer small: independent full val/test checkpoint and item-cache replay passed"
+    },
+    "hm_medium_cv_v2_fold1_idgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 10.913856116000716
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.4299358389998815
+        },
+        "checkpoint_sha256": "fd249fc6763c8f7cfb09814c2d14834a80db4acfd356671cc23c70e33b88b5be"
+      },
+      "updated_at": "2026-10-17T23:45:18+03:00",
+      "last_message": "Независимая проверка idgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold1_contextgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.37058369199985464
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 1.3793569079998633
+        },
+        "checkpoint_sha256": "22b7b11d1f41409652e08ed286c7c36681d3e8ce044a863d6cd9bf8053a94fb7"
+      },
+      "updated_at": "2026-10-17T23:45:22+03:00",
+      "last_message": "Независимая проверка contextgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold1_recformer_zero_shot": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.0021577380952380954
+      },
+      "test_metrics": {
+        "map": 0.004664410247785625,
+        "recall12": 0.010110689229335997,
+        "hit12": 0.026236125126135216,
+        "users": 1982,
+        "conditional_catalog_map": 0.012723416848101986,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/recformer/zero_shot",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 Recformer zero-shot: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_recformer_finetuned": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.0017868768601190476
+      },
+      "test_metrics": {
+        "map": 0.003784240038654771,
+        "recall12": 0.009945872545851301,
+        "hit12": 0.024217961654894045,
+        "users": 1982,
+        "conditional_catalog_map": 0.00933415054951579,
+        "conditional_users": 1191,
+        "zero_retrievable_users": 791
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_1/recformer/finetuned",
+      "updated_at": "2026-10-18T00:52:31+03:00",
+      "last_message": "Fold1 Recformer LR/warmup: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold1_recformer_inference": {
+      "status": "verified",
+      "checks": {
+        "zero_shot": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.0021577380952380954,
+            "seconds": 13.099791110999831
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.004664410247785625,
+            "seconds": 26.902163176999238
+          },
+          "checkpoint_sha256": "dc848016451b90999aa11ef3a8b957ad6b5e97e9ef402645785c2834ea287adf"
+        },
+        "finetuned": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.0017868768601190476,
+            "seconds": 3.5990127310005846
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.003784240038654771,
+            "seconds": 26.909847835999244
+          },
+          "checkpoint_sha256": "a05ab632e5d7c6a14c609a2096819d8939bc40d29d2764441dda7320df3ae26c"
+        }
+      },
+      "updated_at": "2026-10-17T23:53:13+03:00",
+      "last_message": "Recformer small: independent full val/test checkpoint and item-cache replay passed"
+    },
+    "hm_medium_cv_v2_fold2_idgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 11.159976279000148
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.35203016300056333
+        },
+        "checkpoint_sha256": "b76e3b1e3ffbdf0864de4adcd4da0848d39c0b32829bf251c6de591c92f8269f"
+      },
+      "updated_at": "2026-10-18T00:12:56+03:00",
+      "last_message": "Независимая проверка idgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold2_contextgnn_inference": {
+      "status": "verified",
+      "checks": {
+        "val": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 0.4294001880007272
+        },
+        "test": {
+          "passed": true,
+          "predictions_identical": true,
+          "scores_close": true,
+          "ranked_scores_close": true,
+          "map_difference": 0.0,
+          "seconds": 1.2442135080000298
+        },
+        "checkpoint_sha256": "a8567bc18297cb7bccc3dbf985024a0ae7091284284559584ed5be46a966e4a4"
+      },
+      "updated_at": "2026-10-18T00:12:58+03:00",
+      "last_message": "Независимая проверка contextgnn на малом наборе"
+    },
+    "hm_medium_cv_v2_fold2_recformer_zero_shot": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.004503038194444444
+      },
+      "test_metrics": {
+        "map": 0.005659976815380231,
+        "recall12": 0.0117937961135841,
+        "hit12": 0.023557126030624265,
+        "users": 1698,
+        "conditional_catalog_map": 0.0165278624900618,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/recformer/zero_shot",
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 Recformer zero-shot: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_recformer_finetuned": {
+      "status": "complete",
+      "val_metrics": {
+        "map": 0.009154110863095238
+      },
+      "test_metrics": {
+        "map": 0.004952917464590862,
+        "recall12": 0.011813816009929081,
+        "hit12": 0.023557126030624265,
+        "users": 1698,
+        "conditional_catalog_map": 0.014009527445953563,
+        "conditional_users": 873,
+        "zero_retrievable_users": 825
+      },
+      "artifacts": "CVBenchmark/results/medium_v2/fold_2/recformer/finetuned",
+      "updated_at": "2026-10-18T00:52:32+03:00",
+      "last_message": "Fold2 Recformer LR/warmup: final original-target test metrics; saved-model replay and independent metric check passed.",
+      "evaluation_scope": "Original weekly targets including outside-catalog purchases; fixed10000-item catalog"
+    },
+    "hm_medium_cv_v2_fold2_recformer_inference": {
+      "status": "verified",
+      "checks": {
+        "zero_shot": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.004503038194444444,
+            "seconds": 14.536022279999997
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.005659976815380231,
+            "seconds": 24.55203222199998
+          },
+          "checkpoint_sha256": "dc848016451b90999aa11ef3a8b957ad6b5e97e9ef402645785c2834ea287adf"
+        },
+        "finetuned": {
+          "val": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.009154110863095238,
+            "seconds": 4.769786582999586
+          },
+          "test": {
+            "passed": true,
+            "predictions_identical": true,
+            "scores_close": true,
+            "max_score_difference": 0.0,
+            "map": 0.004952917464590862,
+            "seconds": 29.741962598999635
+          },
+          "checkpoint_sha256": "b197ddea9f5c86734e7d5046b225a63bf9cbde3729cd00e51b162be6961c0579"
+        }
+      },
+      "updated_at": "2026-10-18T00:20:36+03:00",
+      "last_message": "Recformer small: independent full val/test checkpoint and item-cache replay passed"
     }
   },
   "latest_event": {
-    "time": "2026-10-17T17:38:54+03:00",
-    "kind": "gitignore_cleanup",
-    "message": "Updated ignore rules for raw GPT/authored runs, smoke/replay outputs, provider probes, local pointers and editor settings. Preserved configs/manifests, source, notebooks, summary reports and plots. Exported six selected feature programs with SHA256 manifests to report folders. Untracked files reduced from2453 to339. Files and Git index were not deleted or modified; .gitignore self-ignore preserved.",
-    "run_id": null,
-    "data": {}
+    "time": "2026-10-18T01:04:55+03:00",
+    "kind": "contextgnn_regression_diagnosed",
+    "message": "Read-only comparison: old ContextGNN248 distinct top12 lists/250users/1574recommended items; medium folds11/8/11lists across1839/1982/1698users, only24/26/26items. Ranking personalization collapsed. Root cause unresolved; larger catalog/full-target denominator alone insufficient(conditionalMAP also very low). Saved audit and notes, no new fitting/inference or model changes; do not infer architectural failure.",
+    "run_id": "hm_medium_temporal_cv_v2",
+    "data": {
+      "status": "complete"
+    }
   }
 }

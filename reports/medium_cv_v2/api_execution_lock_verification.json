@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "child_waited_for_existing_arm_lock": true,
+  "resume_existing_selection_unchanged": true,
+  "new_api_attempts": 0,
+  "new_candidate_fits": 0,
+  "host_api_sha256": "13ada28de2cffe9d9b6ff1233374953abfd023110dab7bc2fe7591e451b98e37"
+}

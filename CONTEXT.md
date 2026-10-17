@@ -1,5 +1,278 @@
 # Контекст для продолжения проекта
 
+## Medium CV v2: завершено и проверено (2026-10-18)
+
+Дополнительная read-only диагностика по вопросу пользователя о ContextGNN:
+старыйsmall даёт248уникальных orderedtop12 для250пользователей/1574товара;
+новыеfold0/1/2 всего11/8/11списков для1839/1982/1698пользователей,
+24/26/26уникальных рекомендованныхтоваров. Это вырождение персонализации;
+точнаяпричина пока НЕустановлена. Необъяснятьпадение лишь размером/знаменателем:
+дажеconditionalcatalogMAPновогоContextGNN~0.0648% противстарого3.0156%.
+Изменилиськогорта, возрасткаталога(anchorJune29vsSep7), train6vs8срезов,
+preprocfitpastvsfull. См.contextgnn_regression_audit.json и
+contextgnn_regression_notes_ru.md; ссылкадобавленавsummary_ru.md.
+Новогообучения/инференса/изменениямоделей не было. Replay доказывает
+повторяемостьoutputs, но неустраняетвозможностьошибкивсемобучающемпайплайне.
+
+ИТОГ: все27 оценок (9методов×3фолда) и frozen-model replays прошли.
+Pipeline закончился00:45:56, живых процессов обучения/оценки прифинальнойпроверке
+нет. Итоговыеартефакты reports/medium_cv_v2/: report.md, summary_ru.md,
+comparison.json/.png/.svg, fold_comparison.png, ap_histograms.png,
+paired_heatmap.png, fold_metrics.csv, summary.csv, paired_differences.csv,
+api_usage.csv, selected_programs/. Все4PNG визуально просмотрены, читаемы;
+45pretestконтрольныхсуммвыбранныхмоделей/программ совпали послеouterоценки.
+Свидетельство final_visual_review.json. Модели/отбор поouterметрикам не менялись.
+
+Основной pooled full-target MAP@12(%): Recformer zero-shot0.6286,
+H0080.4627, RecformerLR0.4525, H0090.4514, manual0.3473, TDM0.2135,
+raw150.1415, ContextGNN0.0274, IDGNN0.0245. Не сравнивать абсолютныецифры
+с прежнимsmallpilot: здесь другиепокупатели/каталог/полныеисходныецели.
+H008>manual на3/3неделях, но paired95%CI разницы включает0; это сигнал,
+не доказанноепревосходство. H009>H008 не подтверждено; inputtokens4.31×больше.
+Recformerzero вышеfinetuned на3/3; zero-vs-H008 pairedCI включает0.
+Только3недели/1seed, customerbootstrap неоценка нового временного режима.
+
+Все6APIarms по20validstructural (120), численноразличныхtrainматриц
+H00817/15/19 иH00920/17/18. Ничего заднимчисломнеудалено/непереотобрано.
+APIhistoriesиselectedhashes проверены. Costtimers НЕполноеобщевремязапуска:
+H008fold0пауза, recoveryтаймеры могутучитыватьлишьпоследнюючасть;
+неизвестнытокены/списанияпровайдера по оборваннымPOST. Подробноreview_notes_ru.md.
+finalize_verified_tracking.py сохраняетtest_metrics/complete каждогоиз27run.
+Все предыдущие сообщения ниже — хронология, а не актуальныйстатус.
+
+2026-10-18 00:20 МСК: PID4552 жив. Fold0/1 все9методов оценены и проверены.
+Fold2 GNN2+TDM evaluation/replay прошли; Recformer оценён, идёт полныйreplay
+(child6263, GPUиспользуется). Далее4treeварианта иreport. Новыхошибокнет,
+25GiBсвободно. Сводныхграфиковещёнет. Не менятьпротокол поouterрезультатам.
+
+23:48 МСК: PID4552 продолжаетouterоценку. Fold0 ВСЕ9методов оценены,
+verification/replay прошли. Наfold1 GNN2+TDM evaluation/replay прошли,
+идётRecformer evaluation (child5433 припроверке), затемmanual/raw15/H008/H009.
+Новыхошибокнет; failure.json старый22:52. Осталсятакжеfold2 иreport.
+Модели/отборзаморожены, не менять поouterметрикам. Итоговыхсводок/графиковещёнет.
+
+23:29 МСК: ВСЕ6 APIsearch завершены (каждый20valid, суммарно120). Helper1973
+закончилработу и запустил обычныйpipeline PID4552, теперь идёт OUTER EVALUATION.
+selection_pretest.json создан ДОouter, модели/признаки заморожены.
+Fold0 GNN/TDM/Recformer evaluation+полныйcheckpoint replay прошли, manual
+evaluation завершён, raw15evaluation работает наCPU4 (child4848 припроверке).
+Далееfold0 H008/H009, затемfold1/2, verification/report/plots. GPU может быть
+свободен наCPU/APIscoring. failure.json от22:52 — старыйCPUfuture, новыхошибокнет.
+НЕподстраивать модели/параметры/промпты по уже доступным outer-метрикам.
+Финальныхсводныхметрик/графиков ещёнет, отдельныеfoldрезультаты неитогсравнения.
+
+23:12 МСК: H008fold2 завершён (20valid/23ответа, выбранcall4). H009fold2
+дошёл до19valid; последнийcall20 получилтаймаут наPOST20 в23:11. Helper1973
+автоматически выдержал30сек, переиспользовал19trial и отправилPOST21.
+Пользователь вновь перезапустилVPN; responsePOST21 сохранён23:12:10,
+preflightcall20 прошёл, идётLightGBM/search. Не считать20valid доtrial.json.
+Послеconfirmation helper сам запускает новыйpipeline; весьGPUtrain завершён,
+outer-test пока не запускался. ПоследнийживойAPIchild был2793 доretry,
+фактическиеPIDперепроверять. Не запускать дополнительныйпоиск.
+
+Проверка22:52–22:54 МСК: GPU-обучение всех3fold завершено; Recformerfold2
+имеет complete stage marker (4эпохи). Maincontroller1342 вышел с ранее
+сохранённой ошибкой H008, это ожидаемо: егоCPUfuture упал22:27, GPUдоделалработу.
+APIhelper1973 и егоchild1986 продолжаютживойпоиск. H008fold2 принялcall23:
+теперь20valid/23ответа,25actualPOST (2сетевыхотказа), идётconfirmation/selection.
+H009fold2 далее будет выполнен этимжеhelper. ПослеAPIон ждёт выхода1342
+(теперьуже вышел), вызываетlaunch.py; готовые этапы переиспользуются,
+затем глобальныйpretestбарьер, outer/replay/report. GPU сейчас может быть
+свободен закономерно: обучения завершены, следующийGPUэтаппослеAPIпоиска.
+Новых сетевыхошибокпослеперезапускаVPN не видно; последниеPOSTfailure005/017.
+Read-only аудит4завершённыхAPIarms прошёл22:53:48: selectedхеши, точныеmessages,
+20distinctprogram_keyкаждого,17sourcehashes. GNNстатусы всехfold исправлены
+поtrained.json. Outer-test пока неоценивался. Не запускать ещё одинcontroller.
+
+Проверка около22:37–22:42 МСК: WSL/PID1342 жив, GPU Recformer fold2
+завершил stage1 (2эпохи), начал stage2. GNN/TDM fold2 обучены. APIH008 fold2
+дошёл до12valid/15trial, POST17 дляcall16 остановился с connectiontimedout;
+CPUfuture основногоcontroller завершился ошибкой, controller ждёт GPU.
+Проверка безтокена изWSL получилаHTTP401(сервердоступен), изWindows соединение
+неустановилось. Пользователь сообщил о перезапускеVPN; причинная связь не доказана.
+Перезапущен helper reports/.../scratch/resume_api_lane.py, PID1973 (перепроверять),
+последовательно завершает fold2H008/H009 и ждёт выходаcontroller1342,
+затем вызываетCVBenchmark/launch.py для полноценного resume/outer/report.
+Helper теперь допускает не более3 последовательных запусков этапа при
+transport/HTTP408,429,500,502,503,504 с паузой30сек; 401/лимит300/прочиеошибки
+НЕповторяет. Счётчик actualPOST общий сохранённый, старыеответы переиспользуются.
+Self-test6checks прошёл, новыхAPI/fit=0 (api_resume_retry_verification.json).
+Старая версияhelper сохранена runtime/resume_api_lane_before_bounded_retry.py.
+Это изменения только ignored helper; frozenCVBenchmark/runtime/params не менялись.
+Первый запуск теста не исполнился из-за сбоя автоapprovalHTTP403; повтор через
+тот же механизм согласования успешно выполнен. Блокировкиarm сохраняются.
+
+Проверка22:16–22:18 МСК: WSL ПЕРЕЗАПУСТИЛСЯ (uptime<1мин), все старые
+PID2447/3205/10438 исчезли; GPU был свободен. Причина перезапуска не установлена.
+Recformer fold1 успешно закончил4эпохи, stage marker имеется. Fold2 IDGNN
+имеет trained.json (4эпохи), ContextGNN ещё не начал сохранять свою папку.
+H008 fold2 имеет7valid/9trial; response call10 сохранён, model/feature_schema
+записаны, search_metrics/trial ещё отсутствуют. Полная копия partialcall10
+и прежних process-status сохранена в reports/.../runtime/wsl_restart_2216/.
+Незавершённый fit call10 при resume может повториться; APIresponse переиспользуется.
+Все17 frozen source hashes совпали. Запущен обычный CVBenchmark/launch.py:
+НОВЫЙ pipeline PID1342 (перепроверять). Отдельные старые recovery/resume helpers
+запускать НЕ нужно: новый pipeline ведёт обе ветки. pipeline.log append содержит
+старые traceback, а failure.json от22:03 — предыдущий transportfailure,
+не свидетельство ошибки новогоPID. Проверять свежие строки и процессы.
+
+Продолжение около22:07 МСК: H009 fold1 тоже завершён (20/20, выбранcall1,
+confirmation MAP=.004899949036853799). Обе tree-базы fold2 обучены. В H008 fold2
+принятыcall1,2,4; call3 корректно отклонён до fit: values от короткого окна z
+сопоставлены с MultiIndex полной history h. POST attempt005 для call5 оборван
+провайдером: Remote end closed connection without response. Ответа нет,
+failure.json сохранён, запрос остаётся в бюджете300. Original controller2447
+вышел, записав старый TDM+новый transport failure; GPU recovery3205 и Recformer
+fold1 продолжили работу (stage2epoch2). Это НЕ потеря обученных моделей.
+В host CVBenchmark/api.py добавлена межпроцессная fcntl-блокировка наarm,
+чтобы отдельный resume не пересёкся с будущим автоматическим восстановлением.
+Это только оркестрация, модель/данные/промпты/валидация не изменялись.
+Старый api.py сохранён runtime/api_before_execution_lock.py, старыйsource_manifest
+сохранён source_manifest_before_api_execution_lock.json; новыйhash обновлён.
+Проверка actual child lock на завершённом fold0 H008 прошла: child ждал lock,
+selected не изменился, новыхAPI/fit=0 (api_execution_lock_verification.json).
+Запущен отдельный resume_api_lane.py PID10438 (PID перепроверять), последовательно
+доделывает fold2 H008/H009 с reuse всех saved responses. Логи:
+api_lane_resume.log/.pid/_status.json плюс stages/f2_h00*_search.log.
+Не создавать дополнительные ручные поиски: этот resume держитarm lock.
+GPU recovery по завершении GPUлейна вызовет pipeline.main(); APIentrypoints
+теперь сериализованы, готовые selected.json переиспользуются без новых запросов.
+Outer-test всё ещё не запускался. Helpers находятся в ignored reports/.../scratch/.
+
+Проверка 2026-10-17 21:44 МСК: первый фолд полностью закончил обучение и отбор,
+outer-test ещё не запускался. На втором фолде обучены manual/raw15, ID-GNN
+(4 эпохи, выбран epoch1), ContextGNN (10 эпох, выбран epoch10), TDM (7 эпох).
+Recformer fold1 обучается на GPU (PID8173 на момент проверки); H009 fold1
+ищет признаки (PID8207). Основной CPU/API-контроллер2447 и GPU-recovery3205 живы.
+H009 fold0: 20/20 приняты, выбран call8, confirmation MAP=.011440098035492771.
+H008 fold1: 20 принятых/21 ответ, выбран call14, confirmation MAP=.00783797083648274.
+Read-only аудит reports/medium_cv_v2/completed_selection_audit.json прошёл:
+в трёх завершённых API-поисках по20 различных program_key, хеши выбранных
+программ/моделей совпадают, точная история сообщений проверена (H008 максимум2
+сообщения, H009 fold0 максимум14). Все17 frozen source hashes совпадают.
+Тестовые метрики аудит не вычислял, новых API/обучений не делал. Скрипт аудита
+лежит в ignored reports/medium_cv_v2/scratch/. GNN статусы по trained.json
+исправлены на trained_pending_test, validation отражает выбранный checkpoint.
+Описание данных/метрик для пользователя: reports/medium_cv_v2/evaluation_explained_ru.md.
+
+Последнеепроверенноесостояние: H008fold0выбралcandidate008поconfirmation
+MAP=.007180277081592872 (20принятых/21ответ,searchлидербыл014). НачатH009fold0,
+новыйAPIparent4736(перепроверятьPID). Recformerfold0завершилstage1epoch1:
+10923строк,527.7секэпоха,searchMAP=.004959753787878787;всегозапланировано4эпохи2+2.
+НЕТoutertestметрик. Строкаselectionвlegacyruntimeговоритconfirmation88,
+нофактическийselection.json/workerиспользуетновыеconfirmation_usersизconfig;
+этостараятекстоваяметка, недействительныйразмер. Считатьпоconfig/metric.users.
+ТаймерH008fold0включаеттехническуюSIGSTOPпаузунапроверкусхемы;несравнивать
+егокаксобственнуюскоростьLLMсH009,длястоимостииспользоватьтокены/POST.
+
+Доп.проверка:fold0H008достиг20валидныхза21ответ(20-йответотклонён:>36столбцов,
+21-йrepairвалиден). ПередконцомconfirmationAPIparent2595краткоSIGSTOP.
+Найденлатентныйриск:predictновымпроцессомнеподставлялtrainedschemaвengine.names;
+приответесдругимпорядкомколонокмогисказитьсяинференс. Вworker.predictдобавлено
+engine.names=model.feature_name() иassertсовпадениясfeature_schema.json.
+Fit/предыдущиеsearchнеизменны(тамengineсохраняетnamesизfitвтомжепроцессе).
+Синтетическийтестсобратнымпорядкомколонокпрошёл;обеужеимевшиесяconfirmation
+оценки(контрольиcandidate014)повтореныТОЧНОсновымworker.47регрессийпрошли.
+Результатreports/medium_cv_v2/saved_schema_verification.json;старыйworker
+сохранёнвruntime/worker_before_saved_schema_alignment.py,старыеconfig/manifest
+сохранены. НовыхAPI/fitкандидатовдляпроверкиНЕбыло(одинуспешныйsyntheticfit,
+одинпредыдущийтехническийtestfitдоисправленияWindows/POSIXпутиинвентаря).
+Послеуспеха2595SIGCONT,Recformerпродолжалобучатьсявсёвремя. Model/data/параметры
+неперенастраивались;финальныйreportтакжетребуетsaved_schema_verificationpassed.
+
+ПослеCUDAfix:fold0TDMзавершён8эпох/349.6сек,выбранcheckpoint;запущенRecformer.
+H008первогоfold17/20валидныхбезотказов(проверятьлоги:счётчикменяется).
+pipeline.pidтеперьуказываетнаrecovery3205,чтобынедопуститьдублирующийlaunch;
+original2447всёещёведётCPU/API. Добавленaudit_numeric.py:вфинальномотчёте
+проверяетзначениявсех20trainматрицкаждогоAPIarm/fold(безновыхAPIилиfit),
+отдельноотчислаAST-программ. Reportэкспортируетвыбранныеprogram.py,provenance,
+APIusageсчисленнымразнообразиемиcosts.csv. Source_manifestактуален;
+предыдущиеревизиисохранены. Программымоделей/генерацииприэтомнеменялись.
+
+Продолжение: первыйTDMостановился ДОуспешногоforward/optimizer из-за отсутствия
+CUBLAS_WORKSPACE_CONFIGприdeterministic=True. Failedconfig/tree сохраненыв
+fold_0/tdm/fixed_failed_before_first_forward_cublas. CVBenchmark/tdm.py теперь
+ставит:4096:8доimporttorch. ИсходныйконтроллерWSL2447остаётсясCPU/APIлейном;
+отдельныйrecover_gpu.py3205возобновляетGPUлейн, затемждётвыхода2447иповторяет
+pipeline.main() сreuseготовыхэтапов. СледитьТАКЖЕзаgpu_recovery.log/.pid,
+непутатьстарыестекивappend-логахсновойошибкой. Полеpipeline_status.json может
+показыватьпоследнийзаписавшийлейн; stages/*.jsonявляютсясвидетельствомготовности.
+ФактическиеPIDперепроверять. H008уже6принятых/6ответов;новыеответыпереиспользуются.
+Дофинальногоотчётадобавленыguards:все7семействverification.jsonкаждогоfold
+обязаныpassed; APIusageявнопоказываетвыбранныйcallилиconstantcontrol.
+Этоотчётность, неперенастройкамоделей;манифестыревизийисточниковсохранены.
+
+Фактическое продвижение после smoke: fold0 LightGBM manual/raw15 обучены,
+IDGNN/ContextGNN обучены (151.5с включая загрузку/подготовку), начатTDM fixed.
+H008 APIпоток запущен; первые2ответа приняты и обучены,3-й прошёлpreflight.
+Этоsearch, неoutertest. ПриповторномGPUsmoke былнайден cache/schema bug:
+get_stype_proposal семплирует1000строк безseed и мог поменятьтипколонки при
+загрузкестатистиккэша. ДоAPI/fit исправленыseed42доinfer иinferпрошлогоdb;
+новыйcache/gnn_seeded_past_v2. Исправленныйsmoke иполноеобучениеизкэша прошли.
+Старыйотказ/манифесты сохраненывreports/medium_cv_v2/preflight_failure_cached_schema.json
+иsource_manifest_before_seeded_schema_fix.json. RecformerGPUsmokeуспешен;
+егоунаследованныйprobeestimated_4epoch... используетстарое4804 иНЕ является
+оценкойновогообучения; корректнаягрубаяоценкапересчитанавtiming_estimate.json.
+
+Пользователь вернулся и поручил продолжить сравнение9 методов. Код: CVBenchmark/.
+Главный запуск: hm_medium_temporal_cv_v2; журнал reports/medium_cv_v2/pipeline.log,
+машинный статус pipeline_status.json, этапы stages/*.json/*.log. Реальные процессы
+проверять по pipeline.pid (WSL), не считать историю доказательством живого процесса.
+Оркестратор запускается CVBenchmark/launch.py родным RelBenchGNN/.venv-wsl/bin/python
+без audit_deps/NumPy2. Окружения и старые результаты не менялись.
+
+Новая версия данных data/hm-cv-medium-v2 сохраняет20000 пользователей/10000 товаров,
+но НЕ удаляет контрольных пользователей с покупками только вне каталога и НЕ
+обрезает знаменательAP. Их цели имеют стабильныеID>=10000, предсказания0..9999.
+Outer1839/1982/1698 пользователей(5519 наблюдений), прежний v1 сохраняется отдельно.
+Пользователю объяснено: вне каталога верно угадать невозможно; первичная метрика
+оценивает систему с ограниченным каталогом, отдельная conditional_catalog_map
+показывает ранжирование покупок в каталоге. Все методы имеют одинаковые условия.
+Тренировочные пары общие:190260/166670/148100 на6 недель каждого фолда.
+Search256 пользователей; confirmation20% полногоinner-val, heldout20% невыбирающий.
+GNN-препроцессинг транзакций теперь fit до первогоtraincutoff, transform поздних
+строк тем же преобразователем; без50stepcap,10эпох/patience3. Stable score ties.
+Recformer прежний2+2эпохи/1e-5/warmup100/linear schedule поразмеруfold;
+TDM fixed beam64, безcluster/full; LightGBM150/31/4CPU.
+H008/H009 независимо накаждомfold:20валидных/300POST/3repair/3популяции;
+оба без автоматическихraw15, Python, hasattr исправлен одинаково. ТолькоGPTAPI,
+никакихQwen/Llama. H009полнаясвояистория, H008лучшийкодпопуляции.
+
+До запуска прошли47валидационныхпроверок fold0/fold1 иGPUforward/backward
+IDGNN/ContextGNN накаталоге10000. Pipeline повторяетпроверкивсех3folds иRecformer
+GPUsmoke до API. Два ресурслейна:GPUпоследовательно, CPU/APIпоследовательно;
+outertestбудет посчитан только после выбора всехмоделей всехfolds.
+Исходники фиксируются source_manifest.json; не менять их подживымзапуском.
+Итоговый отчёт создаст CVBenchmark/report.py: foldтаблица, pooled/equal-fold MAP,
+парный customer-clusterbootstrap,36исследовательскихсравненийсHolm и графики.
+3временныхблока/1seedнеоцениваютустойчивостьксеменам; неделатьбезусловныйвывод
+«идеяхорошая/плохая»толькопопобедителюсреднейметрики. Пока итоговыхметрик НЕТ.
+
+## Medium temporal CV: отложено пользователем (2026-10-17)
+
+Пользователь поручил увеличить подвыборку H&M и сравнить кросс-валидацией девять
+методов: LightGBM manual/raw15, IDGNN, ContextGNN, Recformer zero-shot/LR warmup,
+TDM fixed beam, API GPT H008/H009. Qwen/Llama не запускать. Затем пользователь
+сообщил, что уходит и вернётся к задаче позже. Новое обучение/API не запускались.
+Созданы CVBenchmark/PROTOCOL.md (предварительный протокол), prepare.py и probe.py.
+Подвыборка data/hm-cv-medium-v1:20000 покупателей вне прежнего small-v1,
+10000 товаров; состав выбран по истории до2020-06-29. Три временных фолда,
+по6 train-недель: train/val/test10923/1410/1276,9583/1301/1191,8548/1069/873.
+Тестовые cutoff2020-08-17/08-31/09-14; всего3340 test user-times.
+Манифест и отчёт подготовки: reports/medium_cv_v1/dataset_summary.json.
+Критичное наблюдение ДО обучения: неподвижный июньский каталог покрывает лишь
+46.47%,35.16%,28.52% будущих уникальных покупок по outer-фолдам; исключены
+563/791/825 пользователей без целей внутри каталога. Перед возобновлением
+пересмотреть дизайн каталога/сохранение исходных целей и знаменателей метрики,
+чтобы отбор сохранившихся целей не давал вводящую в заблуждение оценку.
+Исходные данные и старые результаты не менялись; адаптеры девяти методов,
+проверки и оркестратор ещё НЕ созданы. Не называть CV запущенной/завершённой.
+Нейросети планируются наRTX3060 6GB последовательно; LightGBM/признаки CPU,
+GPT у провайдера. Проверенный WSL RelBenchGNN/.venv-wsl:torch2.2.2+cu118.
+Не подключать audit_deps NumPy2 к нейросетям: torch2.2 требует совместимый
+родной NumPy; probe с общим PYTHONPATH показал предупреждение ABI. Сам prepare.py
+успешно выполнен в родном окружении без overlays. Процессы перепроверить после паузы.
+
 ## H009: API-поиск с полной историей сообщений завершён (2026-10-17)
 
 Run hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0:24 POST,20 принятых

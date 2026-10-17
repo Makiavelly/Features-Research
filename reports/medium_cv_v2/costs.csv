@@ -1,0 +1,28 @@
+fold,method,training_or_search_seconds,note
+0,manual,8.226599665998947,native training/search timer; setup boundaries differ
+0,raw15,2.803564211999401,native training/search timer; setup boundaries differ
+0,idgnn,25.331882152999242,native training/search timer; setup boundaries differ
+0,contextgnn,58.78566937100004,native training/search timer; setup boundaries differ
+0,recformer_zero,0.0,pretrained; item encoding and external pretraining excluded
+0,recformer_lr,2161.4252003680012,native training/search timer; setup boundaries differ
+0,tdm,317.7619972930006,native training/search timer; setup boundaries differ
+0,h008,1215.3005020359997,native training/search timer; setup boundaries differ
+0,h009,1093.202315822,native training/search timer; setup boundaries differ
+1,manual,8.371271798001544,native training/search timer; setup boundaries differ
+1,raw15,3.205438660999789,native training/search timer; setup boundaries differ
+1,idgnn,21.855577140000605,native training/search timer; setup boundaries differ
+1,contextgnn,67.43537742699846,native training/search timer; setup boundaries differ
+1,recformer_zero,0.0,pretrained; item encoding and external pretraining excluded
+1,recformer_lr,1888.1977026929999,native training/search timer; setup boundaries differ
+1,tdm,244.9855264939997,native training/search timer; setup boundaries differ
+1,h008,897.1541354829988,native training/search timer; setup boundaries differ
+1,h009,904.6440490929999,native training/search timer; setup boundaries differ
+2,manual,7.32459129200106,native training/search timer; setup boundaries differ
+2,raw15,2.6306217729998025,native training/search timer; setup boundaries differ
+2,idgnn,26.533979674000875,native training/search timer; setup boundaries differ
+2,contextgnn,39.004590304000004,native training/search timer; setup boundaries differ
+2,recformer_zero,0.0,pretrained; item encoding and external pretraining excluded
+2,recformer_lr,1609.4941478459998,native training/search timer; setup boundaries differ
+2,tdm,219.290067177,native training/search timer; setup boundaries differ
+2,h008,912.3817066269999,native training/search timer; setup boundaries differ
+2,h009,132.13255432100004,native training/search timer; setup boundaries differ
