@@ -1,0 +1,238 @@
+{
+  "audit_passed": true,
+  "comparison": [
+    {
+      "model": "Raw15",
+      "source": "reports/h003_small_v1/exports/raw_control",
+      "search_map_percent": 0.5555555555555556,
+      "confirm_map_percent": 0.1352813852813852,
+      "heldout_val_map_percent": 0.5573695559491013,
+      "val_map_percent": 0.4344223484848484,
+      "test_map_percent": 0.9596296296296296
+    },
+    {
+      "model": "Qwen7B_control",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/qwen/candidates/candidate_005",
+      "search_map_percent": 1.150173611111111,
+      "confirm_map_percent": 0.538337924701561,
+      "heldout_val_map_percent": 0.4734848484848484,
+      "val_map_percent": 0.7771796916533759,
+      "test_map_percent": 1.107142857142857
+    },
+    {
+      "model": "h003a",
+      "source": "reports/h003_small_v1/exports/h003a/candidates/candidate_058",
+      "search_map_percent": 1.0606060606060606,
+      "confirm_map_percent": 0.3873966942148761,
+      "heldout_val_map_percent": 0.2883953168044077,
+      "val_map_percent": 0.642194976076555,
+      "test_map_percent": 0.7512121212121212
+    },
+    {
+      "model": "h003b",
+      "source": "reports/h003_small_v1/exports/h003b/candidates/candidate_031",
+      "search_map_percent": 0.9824810606060606,
+      "confirm_map_percent": 0.5499188311688312,
+      "heldout_val_map_percent": 0.4829545454545455,
+      "val_map_percent": 0.7126658976987924,
+      "test_map_percent": 0.8735930735930736
+    },
+    {
+      "model": "h003c",
+      "source": "reports/h003_small_v1/exports/h003c/candidates/candidate_008",
+      "search_map_percent": 1.1908143939393938,
+      "confirm_map_percent": 0.7548086383313655,
+      "heldout_val_map_percent": 0.4198232323232322,
+      "val_map_percent": 0.84142054947976,
+      "test_map_percent": 0.8887445887445888
+    }
+  ],
+  "efficiency": [
+    {
+      "model": "Qwen7B_control",
+      "calls": 67,
+      "valid": 20,
+      "rejected": 30,
+      "duplicate": 17,
+      "repair_calls": 40,
+      "unchanged_repairs": 13,
+      "generation_minutes": 46.42121817045002,
+      "generated_tokens": 32390,
+      "max_input_tokens": 2420,
+      "target_reached": true
+    },
+    {
+      "model": "h003a",
+      "calls": 65,
+      "valid": 20,
+      "rejected": 36,
+      "duplicate": 9,
+      "repair_calls": 38,
+      "unchanged_repairs": 9,
+      "generation_minutes": 48.3667609168167,
+      "generated_tokens": 31808,
+      "max_input_tokens": 2787,
+      "target_reached": true
+    },
+    {
+      "model": "h003b",
+      "calls": 78,
+      "valid": 20,
+      "rejected": 21,
+      "duplicate": 37,
+      "repair_calls": 50,
+      "unchanged_repairs": 20,
+      "generation_minutes": 59.37125910814995,
+      "generated_tokens": 35633,
+      "max_input_tokens": 3148,
+      "target_reached": true
+    },
+    {
+      "model": "h003c",
+      "calls": 51,
+      "valid": 20,
+      "rejected": 15,
+      "duplicate": 16,
+      "repair_calls": 23,
+      "unchanged_repairs": 8,
+      "generation_minutes": 44.87919269568327,
+      "generated_tokens": 26531,
+      "max_input_tokens": 3579,
+      "target_reached": true
+    }
+  ],
+  "paired_test_bootstrap": [
+    {
+      "a": "h003a",
+      "b": "Qwen7B_control",
+      "difference_pp": -0.35593073593073593,
+      "ci95_low_pp": -1.04320670995671,
+      "ci95_high_pp": 0.1520010822510821,
+      "better": 6,
+      "tied": 237,
+      "worse": 7
+    },
+    {
+      "a": "h003b",
+      "b": "h003a",
+      "difference_pp": 0.1223809523809524,
+      "ci95_low_pp": -0.36480952380952375,
+      "ci95_high_pp": 0.5719166666666665,
+      "better": 7,
+      "tied": 238,
+      "worse": 5
+    },
+    {
+      "a": "h003c",
+      "b": "h003b",
+      "difference_pp": 0.015151515151515128,
+      "ci95_low_pp": -0.307762987012987,
+      "ci95_high_pp": 0.2802352092352092,
+      "better": 7,
+      "tied": 237,
+      "worse": 6
+    },
+    {
+      "a": "h003c",
+      "b": "Qwen7B_control",
+      "difference_pp": -0.21839826839826845,
+      "ci95_low_pp": -1.0384238816738818,
+      "ci95_high_pp": 0.36771320346320335,
+      "better": 8,
+      "tied": 237,
+      "worse": 5
+    },
+    {
+      "a": "h003c",
+      "b": "Raw15",
+      "difference_pp": -0.07088504088504091,
+      "ci95_low_pp": -0.8853262385762387,
+      "ci95_high_pp": 0.526491341991342,
+      "better": 11,
+      "tied": 233,
+      "worse": 6
+    }
+  ],
+  "protocol_limit_probes": [
+    {
+      "arm": "h003a",
+      "call": 30,
+      "name": "f_high_value_purchases",
+      "sql": "sum(case when price > quantile_cont(0.8) within group (order by price) then price else 0 end)",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 6,
+      "name": "f_median_days_between_purchases",
+      "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0)",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 6,
+      "name": "f_high_value_purchases",
+      "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price))",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 7,
+      "name": "f_high_value_purchases",
+      "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price))",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 8,
+      "name": "f_high_value_purchases",
+      "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price))",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 9,
+      "name": "f_high_value_purchases",
+      "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price))",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 13,
+      "name": "f_history_median_price",
+      "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 14,
+      "name": "f_history_median_price",
+      "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    },
+    {
+      "arm": "h003b",
+      "call": 15,
+      "name": "f_history_median_price",
+      "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+      "empty_schema_bind_passed": false,
+      "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+    }
+  ],
+  "test_previously_inspected": true,
+  "single_seed": true,
+  "test_users": 250,
+  "hypotheses": {
+    "A": "No clear efficiency gain in this run:65 vs67 calls,36 vs30 rejections",
+    "B": "Fewer rejections but37 duplicates and78 calls",
+    "C": "51 calls and15 rejections; better call efficiency, no test MAP improvement over control/raw"
+  }
+}

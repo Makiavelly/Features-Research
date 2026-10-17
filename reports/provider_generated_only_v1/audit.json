@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "run_id": "hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde",
+  "source_directory": "/mnt/c/Users/\u041c\u0438\u0448\u0430\u043d\u044f/ml/projs/tbank/Features/LLMFeatures/results/hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde",
+  "stats": {
+    "api_posts": 23,
+    "responses": 23,
+    "valid": 20,
+    "statuses": {
+      "valid": 20,
+      "rejected": 3
+    },
+    "http_transport_failures": 0,
+    "numeric_distinct_sets": 19,
+    "saved_candidate_models": 20,
+    "control_models": 1,
+    "prompt_tokens": 55261,
+    "completion_tokens": 26597,
+    "api_generation_seconds": 341.89357968600416,
+    "valid_programs_per_island": {
+      "0": 7,
+      "1": 7,
+      "2": 6
+    }
+  },
+  "selected_call": 12,
+  "matched_fields": [
+    "seed",
+    "model_id",
+    "base_url",
+    "temperature",
+    "reasoning_effort",
+    "max_new_tokens",
+    "memory_programs_per_prompt",
+    "train_pairs",
+    "train_pair_sha256",
+    "lightgbm_rounds",
+    "cpu_threads",
+    "scoring_user_batch",
+    "search_users",
+    "confirmation_users",
+    "heldout_val_users",
+    "validation_users",
+    "test_users",
+    "evaluation_catalog"
+  ],
+  "no_automatic_raw_columns": true,
+  "all_search_metrics_recomputed": true,
+  "request_prompts_verified": true,
+  "six_saved_frozen_replays_verified": true,
+  "rejection_review": [
+    {
+      "call": 5,
+      "verified": "failure reproduced without training",
+      "error": "Return 1..36 unique numeric f_lowercase features, no raw fields or IDs"
+    },
+    {
+      "call": 14,
+      "verified": "failure reproduced without training",
+      "error": "'raw_i_type_no'"
+    },
+    {
+      "call": 21,
+      "verified": "failure reproduced without training",
+      "error": "Return 1..36 unique numeric f_lowercase features, no raw fields or IDs"
+    }
+  ],
+  "winner_features": [
+    "f_customer_purchases_7d",
+    "f_article_purchases_7d",
+    "f_customer_purchases_30d",
+    "f_article_purchases_30d",
+    "f_customer_purchases_90d",
+    "f_article_purchases_90d",
+    "f_customer_purchases_all",
+    "f_article_purchases_all",
+    "f_customer_recency",
+    "f_pair_purchases",
+    "f_pair_recency",
+    "f_pair_purchases_30d",
+    "f_customer_product_type_purchases",
+    "f_customer_department_purchases",
+    "f_customer_section_purchases",
+    "f_customer_garment_group_purchases",
+    "f_item_mean_price",
+    "f_item_recency",
+    "f_static_u_age",
+    "f_static_u_club_member_status",
+    "f_static_u_fashion_news_frequency",
+    "f_static_i_product_code",
+    "f_static_i_product_type_no",
+    "f_static_i_section_no",
+    "f_static_i_garment_group_no"
+  ],
+  "winner_explicit_static_copy_names": [
+    "f_static_u_age",
+    "f_static_u_club_member_status",
+    "f_static_u_fashion_news_frequency",
+    "f_static_i_product_code",
+    "f_static_i_product_type_no",
+    "f_static_i_section_no",
+    "f_static_i_garment_group_no"
+  ]
+}

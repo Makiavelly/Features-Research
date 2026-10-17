@@ -1,0 +1,3 @@
+model,calls,valid,rejected,duplicate,outside_pool,api_failures,minutes
+GPT SQL,26,20,0,4,2,0,4.440911252366656
+GPT Python,22,20,1,0,0,1,6.3298680960667

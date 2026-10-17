@@ -1,0 +1,12 @@
+{
+  "scope": "Exact tokenizer on initial/example/stress prompts; no model weights or LLM generation",
+  "input_limit": 6144,
+  "output_limit": 2048,
+  "stress_response_tokens": 2031,
+  "counts": {
+    "initial": 1340,
+    "example_repair": 2040,
+    "large_six_query_repair": 5866,
+    "large_duplicate_repair": 5443
+  }
+}

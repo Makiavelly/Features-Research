@@ -1,0 +1,6 @@
+model,calls,valid,rejected,duplicate,repair_calls,unchanged_repairs,generation_minutes,generated_tokens,max_input_tokens,target_reached,outside_corrected_pool
+Qwen7B_control,67,20,30,17,40,13.0,46.42121817045002,32390,2420,True,
+h003a,65,20,36,9,38,9.0,48.3667609168167,31808,2787,True,
+h003b,78,20,21,37,50,20.0,59.37125910814995,35633,3148,True,
+h003c,51,20,15,16,23,8.0,44.87919269568327,26531,3579,True,
+GPT61Sol,26,20,0,4,5,,4.440911252366656,16080,2275,,2.0

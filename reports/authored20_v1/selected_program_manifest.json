@@ -1,0 +1,15 @@
+{
+  "run_id": "hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9",
+  "selected_call": 9,
+  "source_directory": "LLMFeatures/results/hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9/codex_authored20/candidates/candidate_009",
+  "files": {
+    "selected_program.py": {
+      "sha256": "421940f2448df5682b763bb18bd9215f25659b1d137cc3f88426cd1aa39976ca",
+      "bytes": 5623
+    },
+    "selected_program.json": {
+      "sha256": "8423da0ba2146d237381e726ce0e3a87a03872c2a569d4ccb035e610b13f4ce2",
+      "bytes": 5720
+    }
+  }
+}

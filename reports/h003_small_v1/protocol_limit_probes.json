@@ -1,0 +1,74 @@
+[
+  {
+    "arm": "h003a",
+    "call": 30,
+    "name": "f_high_value_purchases",
+    "sql": "sum(case when price > quantile_cont(0.8) within group (order by price) then price else 0 end)",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 6,
+    "name": "f_median_days_between_purchases",
+    "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0)",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 6,
+    "name": "f_high_value_purchases",
+    "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price))",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 7,
+    "name": "f_high_value_purchases",
+    "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price))",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 8,
+    "name": "f_high_value_purchases",
+    "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price))",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 9,
+    "name": "f_high_value_purchases",
+    "sql": "sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price))",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 13,
+    "name": "f_history_median_price",
+    "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 14,
+    "name": "f_history_median_price",
+    "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  },
+  {
+    "arm": "h003b",
+    "call": 15,
+    "name": "f_history_median_price",
+    "sql": "quantile_cont(0.5) WITHIN GROUP (ORDER BY price)",
+    "empty_schema_bind_passed": false,
+    "error": "Parser Error: Unknown ordered aggregate \"quantile_cont\"."
+  }
+]

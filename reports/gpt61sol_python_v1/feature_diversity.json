@@ -1,0 +1,156 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "call": 1,
+      "columns": 27,
+      "ordered_float32_sha256": "15c400ff472dbd2c9d341a1f589afc823ebcbfa99d56bab86e63dffd1c1e6bb9",
+      "column_multiset_sha256": "48244380c5a62103be7e54d5cb471c3cdedb4071276919727ea30609a0a09f85"
+    },
+    {
+      "call": 2,
+      "columns": 24,
+      "ordered_float32_sha256": "414524d951a9d7117a1a7fc51243646292f0493f2cd93099b3456c621f87e7b1",
+      "column_multiset_sha256": "2ddd4b2227703b6fdb21f8e1fe9a964e26efb65b0e531a7b9179a2620c851d1c"
+    },
+    {
+      "call": 3,
+      "columns": 26,
+      "ordered_float32_sha256": "7230900bde80ae49b8547b65d83e5859f2beeb6e30c35e95dc3ab0ddf6be948b",
+      "column_multiset_sha256": "c8fd49fa76f6cd22f11c8c06df6705508770577b00154600b35605408c684b8b"
+    },
+    {
+      "call": 4,
+      "columns": 27,
+      "ordered_float32_sha256": "213033c987f26f92c8be9fdc0d3d6c675ba399ca46fd5926f9b4353019a8abf6",
+      "column_multiset_sha256": "5e503e4a241c18267dfafbce0ffc22c6c84fde87374a68431a8cd760c592597e"
+    },
+    {
+      "call": 5,
+      "columns": 32,
+      "ordered_float32_sha256": "d38a8d4b591ca36370512b3ffd0acf165b551df4432d00522a9684fa28c16f49",
+      "column_multiset_sha256": "b97ec2257c7ed0012aa64243625dd44a4b4df339cf5d314181287e31deaba036"
+    },
+    {
+      "call": 6,
+      "columns": 35,
+      "ordered_float32_sha256": "1866d846cb96fb5dfc4300c5cff5b86799eceb5853c21abfecda6db187fdbfa5",
+      "column_multiset_sha256": "5ba7202bc8cdcc54288756f361295657a476ee67e08be9f4f20015a50f323643"
+    },
+    {
+      "call": 7,
+      "columns": 27,
+      "ordered_float32_sha256": "213033c987f26f92c8be9fdc0d3d6c675ba399ca46fd5926f9b4353019a8abf6",
+      "column_multiset_sha256": "5e503e4a241c18267dfafbce0ffc22c6c84fde87374a68431a8cd760c592597e"
+    },
+    {
+      "call": 8,
+      "columns": 29,
+      "ordered_float32_sha256": "6ca4b9acf779f7d9a64bae3cb902306651f379403ed4b1a05db7b85a81b8687e",
+      "column_multiset_sha256": "a101dc357c8579118723b84a0da61e40fa77e6b31efebe5d1480375058636b81"
+    },
+    {
+      "call": 9,
+      "columns": 33,
+      "ordered_float32_sha256": "655c3a09f4853e1cb33a19c541c7d4f860d9d588a039d1828ca7420fbc6fdd3f",
+      "column_multiset_sha256": "d8b2d1971e4f8aea49f11041ba799530bd867732b1a527ed2d5f7c72966f6070"
+    },
+    {
+      "call": 10,
+      "columns": 27,
+      "ordered_float32_sha256": "995bd32583bf2b1b411abfe6e34ee395385cba746e9f562d48d025ca346983ee",
+      "column_multiset_sha256": "6b5cf373f278be270de8ac85dd2c72df5ba177b3cfbf50065dcbc6d1e3ac389a"
+    },
+    {
+      "call": 11,
+      "columns": 35,
+      "ordered_float32_sha256": "b332b6ba089eeae3aa1cd07d797dd87a726d66c21206b0c035ce0cef8187841a",
+      "column_multiset_sha256": "9589bb37e8a8bdc1fbaf146fc9b3dd892358c395e491e551fa05383ff6e0fc11"
+    },
+    {
+      "call": 12,
+      "columns": 51,
+      "ordered_float32_sha256": "170efd2cceb5c8df8de50e004923f263abab7c55d8d21a80134de6f535d2a2f4",
+      "column_multiset_sha256": "6bc5e3e9c7d87df22cc769b9a0701fe7f8eb241731f4a48351ca735b27cae1c7"
+    },
+    {
+      "call": 13,
+      "columns": 27,
+      "ordered_float32_sha256": "baf96dc1dbcc2abcfe2f123b018fed9ece4e0eb9906c85535153f26537f8b238",
+      "column_multiset_sha256": "c49cff8d6a15803e5fdb39360f760c2b3c7bad8744af63c763c11fab21227e21"
+    },
+    {
+      "call": 14,
+      "columns": 46,
+      "ordered_float32_sha256": "6b11b538ce09527296497b9f24322164c0062c8736765052e142d64e8fe59637",
+      "column_multiset_sha256": "3a95307ea8d0ee144f68eff46b73d5e371558d7a721ab9c6da4162bf2cff5a20"
+    },
+    {
+      "call": 16,
+      "columns": 31,
+      "ordered_float32_sha256": "db5416bfa1591f22484c9a35e22a4b2a688c0da7ba4c66413452b850e75111b3",
+      "column_multiset_sha256": "e2ca1714489a772155ed5d534e7467a357783092dca186004ab2f99bb30e5211"
+    },
+    {
+      "call": 17,
+      "columns": 27,
+      "ordered_float32_sha256": "995bd32583bf2b1b411abfe6e34ee395385cba746e9f562d48d025ca346983ee",
+      "column_multiset_sha256": "6b5cf373f278be270de8ac85dd2c72df5ba177b3cfbf50065dcbc6d1e3ac389a"
+    },
+    {
+      "call": 18,
+      "columns": 51,
+      "ordered_float32_sha256": "9decc0809182e9d4cf8881930f786f1e3402b5bec88c3442c7086fe2f7a6a70a",
+      "column_multiset_sha256": "e80e53f7a41f6ea4210847808872063b1bb0bd306b43b53cb825f6775f0148f0"
+    },
+    {
+      "call": 19,
+      "columns": 51,
+      "ordered_float32_sha256": "96f4e0464841a9d9250b7763b4d97f602ad56103bdffdfed5cb0ab7474920ad7",
+      "column_multiset_sha256": "5e4a5f596f8f7ff893eab94d562286c4755537257f9ef0dc9b566fa4ef46994c"
+    },
+    {
+      "call": 20,
+      "columns": 30,
+      "ordered_float32_sha256": "a636a69584c8012785a0032cc694084257fed51e211fb37e5ea46b3e02bed5b8",
+      "column_multiset_sha256": "50329177276c6c9b3c05d211d5343abaaa0fa30a6827424395659333fd24c0e6"
+    },
+    {
+      "call": 21,
+      "columns": 45,
+      "ordered_float32_sha256": "52902a33191f05556f2a0ce5ab7428c77180840558115c80ff6d7ca16f96c522",
+      "column_multiset_sha256": "4259c5a14a0b3b0387b6998941121404bf53d78bf6d4e066576633d29b57b6a8"
+    }
+  ],
+  "groups": {
+    "ordered_float32_sha256": {
+      "distinct": 18,
+      "duplicate_groups": [
+        [
+          4,
+          7
+        ],
+        [
+          10,
+          17
+        ]
+      ]
+    },
+    "column_multiset_sha256": {
+      "distinct": 18,
+      "duplicate_groups": [
+        [
+          4,
+          7
+        ],
+        [
+          10,
+          17
+        ]
+      ]
+    }
+  },
+  "api_calls": 0,
+  "training_runs": 0,
+  "scope": "Float32 training matrices over all8cutoffs after host missing handling; semantic equality outside this train data is not established. Diagnostic only, no re-selection."
+}

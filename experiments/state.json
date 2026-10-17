@@ -4450,12 +4450,287 @@
       "bootstrap": "reports/hm_small_llms_v1/paired_test_bootstrap.csv",
       "updated_at": "2026-10-16T20:52:31+03:00",
       "last_message": "Оба ZIP проверены,все60программ. Qwen7Btest1.107143%,Llama8B0.780337%,Qwen14B0.743306%; Raw0.959630%,manual1.233880%,ContextGNN3.015575%. У14B45calls против67/201,но генерация71.61мин против46.42/262.10мин. Выбранные14B/Llama historyагрегатытолькоcustomer_id;Qwen7B включаетcategory/customer×department;причинностьне установлена. Report/таблицы/5PNG/bootstrap10kготовы. Одинseed250test,точечныйпорядокне доказываетустойчивоепревосходство. ИзначальныйWSLстекотклонилnullableboolLlama;точныеCPUверсииKaggleустановленыизолированновaudit_deps,старыеenvне менялись. 4модели×val/testreplayточносовпали. Никакогообучения/измененияисходныхZIP."
+    },
+    "hm_small_qwen7b_h003_v1_6852748fc0e4_h003a": {
+      "status": "complete",
+      "artifacts": "reports/h003_small_v1",
+      "val_metrics": {
+        "map": 0.006421949760765549
+      },
+      "test_metrics": {
+        "map": 0.007512121212121212
+      },
+      "llm_calls": 65,
+      "evaluated_distinct": 20,
+      "selected_call": 58,
+      "updated_at": "2026-10-17T09:27:39+03:00",
+      "last_message": "h003a:20измеренных/65вызовов;отказов36,дубликатов9; val/testMAP=0.642195/0.751212%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации."
+    },
+    "hm_small_qwen7b_h003_v1_6852748fc0e4_h003b": {
+      "status": "complete",
+      "artifacts": "reports/h003_small_v1",
+      "val_metrics": {
+        "map": 0.007126658976987924
+      },
+      "test_metrics": {
+        "map": 0.008735930735930736
+      },
+      "llm_calls": 78,
+      "evaluated_distinct": 20,
+      "selected_call": 31,
+      "updated_at": "2026-10-17T09:27:39+03:00",
+      "last_message": "h003b:20измеренных/78вызовов;отказов21,дубликатов37; val/testMAP=0.712666/0.873593%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации."
+    },
+    "hm_small_qwen7b_h003_v1_6852748fc0e4_h003c": {
+      "status": "complete",
+      "artifacts": "reports/h003_small_v1",
+      "val_metrics": {
+        "map": 0.0084142054947976
+      },
+      "test_metrics": {
+        "map": 0.008887445887445888
+      },
+      "llm_calls": 51,
+      "evaluated_distinct": 20,
+      "selected_call": 8,
+      "updated_at": "2026-10-17T09:27:39+03:00",
+      "last_message": "h003c:20измеренных/51вызовов;отказов15,дубликатов16; val/testMAP=0.841421/0.888745%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации."
+    },
+    "hm_small_qwen7b_h003_v1_6852748fc0e4": {
+      "status": "complete",
+      "artifacts": "reports/h003_small_v1",
+      "report": "reports/h003_small_v1/report.md",
+      "test_previously_inspected": true,
+      "updated_at": "2026-10-17T09:27:39+03:00",
+      "last_message": "H003 полностью проверен: A65/36/9,B78/21/37,C51/15/16 (calls/reject/duplicate), каждый20успехов. Cпротивконтроля67calls:на23.9%меньшеобращений,44.88против46.42мингенерации. TestMAP A0.751212/B0.873593/C0.888745% противстарогоQwen7B1.107143% иraw0.959630%; качество не улучшилось. Все4модели×val/test frozenreplayсовпали. A21–23derivedагрегациипропущеныдиагностикой,остановленыpreflight. 9WITHINGROUPвыраженийоказалисьневалиднымquantile_contдиалектом,ложныхотказовсрединихнет. Одинseed250test,повторнаяоценка;всеbootstrapинтервалыразницывключают0."
+    },
+    "hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0": {
+      "status": "complete",
+      "artifacts": "reports/gpt61sol_small_v1",
+      "model": "gpt-6.1-sol",
+      "updated_at": "2026-10-17T11:19:53+03:00",
+      "last_message": "Поиск GPT-6.1 Sol завершён и независимо проверен. 20 оценённых наборов; test MAP@12 0.979030%, raw 0.959630%, прежний Qwen7B 1.107143%. Преимущество по качеству не подтверждено. Исходный поток: 26 API обращений, 5 дубликатов и один ложный отказ AND.",
+      "evaluated_distinct": 20,
+      "llm_calls": 14,
+      "api_requests": 26,
+      "source_api_requests": 26,
+      "val_metrics": {
+        "map": 0.007914435710488343
+      },
+      "test_metrics": {
+        "map": 0.009790303030303031
+      },
+      "independent_audit": "passed",
+      "independent_llm_run": true
+    },
+    "hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899": {
+      "status": "complete",
+      "artifacts": "reports/gpt61sol_small_v2",
+      "source_run": "hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0",
+      "updated_at": "2026-10-17T11:19:53+03:00",
+      "last_message": "Поиск GPT-6.1 Sol завершён и независимо проверен. 20 оценённых наборов; test MAP@12 0.979030%, raw 0.959630%, прежний Qwen7B 1.107143%. Преимущество по качеству не подтверждено. Исправленная оценка сохранённого потока: первые 20 валидных за 24 ответа, 4 дубликата, без отказов; дополнительных API обращений 0. Это не независимый LLM запуск. Выбран тот же candidate_004.",
+      "evaluated_distinct": 20,
+      "api_requests": 0,
+      "source_api_requests": 26,
+      "val_metrics": {
+        "map": 0.007914435710488343
+      },
+      "test_metrics": {
+        "map": 0.009790303030303031
+      },
+      "independent_audit": "passed",
+      "independent_llm_run": false
+    },
+    "hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1": {
+      "status": "superseded_validator_v2",
+      "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1",
+      "updated_at": "2026-10-17T11:38:42+03:00",
+      "last_message": "Исходный Pythonv1 сохранён. Дополнительная проверка нашла другой порядок одинаковых столбцов на пустой историиcall5; v2 выравнивает столбцы поименам и добавляет empty/absent preflight. 7 оценённых наборов,8 сохранённых ответов,9 POST включая502. Перенос без сбросаAPIбюджета, до итогового отбора/test."
+    },
+    "hm_small_gpt61sol_python_seed42_v2_db3ced2f4449": {
+      "status": "complete",
+      "artifacts": "reports/gpt61sol_python_v1",
+      "source_run": "hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1",
+      "updated_at": "2026-10-17T11:59:40+03:00",
+      "last_message": "H006 завершена и независимо проверена: Python test MAP@12 1.357362%, validation 1.079708%; SQL 0.979030%, прежний Qwen7B 1.107143%, raw 0.959630%. 20 оценённых программ, 22 фактическихAPIPOST в одном потоке; отказовкода 1, дубликатов 0, ошибокAPI 1. v1 сохранён, исправлениеv2 выполнено до итогового выбора/test без повторной генерации первых8ответов. 29 регрессий, дополнительный разбор всех ответов и независимые SQL эталоны пройдены. Численно различных train-матриц 18 из20; confirmation-кандидаты численно различаются. Все12признаков победителя выраженыSQL и дают точно те жеfloat32 значения на всех72813train-парах. Одинseed/250ранее просмотренныхtest пользователей; это диагностическое сравнение, не воспроизведение статьи.",
+      "api_requests": 22,
+      "evaluated_distinct": 20,
+      "val_metrics": {
+        "map": 0.010797076339839498
+      },
+      "test_metrics": {
+        "map": 0.013573617123617125
+      },
+      "independent_audit": "passed",
+      "validator_audit": "passed"
+    },
+    "hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9": {
+      "status": "complete",
+      "artifacts": "reports/authored20_v1",
+      "planned_sets": 20,
+      "api_requests": 0,
+      "updated_at": "2026-10-17T13:29:27+03:00",
+      "last_message": "H007 complete: 20 adaptive sets, 3 populations; confirmation selected set 9. Validation MAP@12 1.260603%, test 2.231032%. Audit passed. Generated features plus raw15; prior experiment history known, not a blind search.",
+      "committed_sets": 20,
+      "evaluated_sets": 20,
+      "selected_call": 9,
+      "authored_sets": 20,
+      "audit_status": "passed",
+      "prior_experiment_history_known": true,
+      "automatic_raw_features": 15,
+      "search_metrics": {
+        "map": 0.018064856150793653
+      },
+      "confirm_metrics": {
+        "map": 0.010532475731339369
+      },
+      "heldout_val_metrics": {
+        "map": 0.006739472648563558
+      },
+      "val_metrics": {
+        "map": 0.012606029752411332
+      },
+      "test_metrics": {
+        "map": 0.02231031746031746
+      }
+    },
+    "hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde": {
+      "status": "complete",
+      "artifacts": "reports/provider_generated_only_v1",
+      "updated_at": "2026-10-17T13:57:19+03:00",
+      "last_message": "H008 verified:23 API POST,20 valid programs,3 genuine preflight rejections,0 HTTP failures;19 unordered numeric feature sets (calls9/16 coincide by values but differ in column order). Selected12:25 explicitly returned inputs including7 static copies, automatic raw15=0. Validation1.478563%,test1.426760%; prior H006test1.357362%, difference+0.069399pp, paired-user95%CI[-1.034078,1.273127] includes0. Report/plots/archive delivered in reports/provider_generated_only_v1 and the unique run folder.",
+      "measured": 20,
+      "responses": 23,
+      "api_requests": 23,
+      "selected_call": 12,
+      "automatic_raw_features": 0,
+      "audit_status": "passed",
+      "numeric_distinct_sets": 19,
+      "val_metrics": {
+        "map": 0.014785629108545773
+      },
+      "test_metrics": {
+        "map": 0.014267604617604618
+      }
+    },
+    "isolated_hm_20261017_venvwsl_v1": {
+      "status": "completed",
+      "winner": "s17",
+      "metrics": {
+        "s17": {
+          "heldout_val": {
+            "split": "heldout_val",
+            "n_users": 88,
+            "map12": 0.030298520923520922,
+            "max_feature_batch_seconds": 0.22584884500065527,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          },
+          "validation": {
+            "split": "validation",
+            "n_users": 304,
+            "map12": 0.02280822400065821,
+            "max_feature_batch_seconds": 0.20266831800108775,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          },
+          "test": {
+            "split": "test",
+            "n_users": 250,
+            "map12": 0.024371224146224148,
+            "max_feature_batch_seconds": 0.34216597600061505,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          }
+        },
+        "control": {
+          "heldout_val": {
+            "split": "heldout_val",
+            "n_users": 88,
+            "map12": 0.0009469696969696969,
+            "max_feature_batch_seconds": 0.007121442000425304,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          },
+          "validation": {
+            "split": "validation",
+            "n_users": 304,
+            "map12": 0.00027412280701754384,
+            "max_feature_batch_seconds": 0.00837782700000389,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          },
+          "test": {
+            "split": "test",
+            "n_users": 250,
+            "map12": 0.0016666666666666666,
+            "max_feature_batch_seconds": 0.008947611000621691,
+            "full_catalog_size": 5000,
+            "batch_users": 16
+          }
+        }
+      },
+      "counts": {
+        "successful_feature_sets": 20,
+        "population_sizes": [
+          7,
+          7,
+          6
+        ],
+        "substantive_proposal_versions": 20,
+        "control_proposals": 1,
+        "total_submitted_versions_including_control": 21,
+        "repairs": 0,
+        "rejections": 0,
+        "numerical_duplicates": 0,
+        "trainings_current_run": 21,
+        "superseded_control_trainings": 1,
+        "trainings_total_chat": 22,
+        "post_selection_trainings": 0
+      },
+      "report": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/isolated_hm_20261017_venvwsl_v1/REPORT.md",
+      "history_read": false,
+      "train_pairs_sha256": "b30309d657a3d5aa7772a9affe81fb558c8a5289a8c9d39992ca12735821e719",
+      "updated_at": "2026-10-17T13:42:55+03:00",
+      "last_message": "Independent H&M adaptive feature search completed in .venv-wsl: 20 numerically distinct sets, populations 7/7/6. Winner s17 selected by confirm; final test MAP@12=0.024371224146224148. Original train_pairs checksum differed; user explicitly authorized actual file in a new protocol. Old solutions/history were not read."
+    },
+    "hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0": {
+      "status": "complete",
+      "artifacts": "reports/provider_history_v1",
+      "updated_at": "2026-10-17T14:24:27+03:00",
+      "last_message": "H009 complete:24 API POST,20 accepted programs,18 unordered numeric sets. Selected6:validation2.286989%,test0.721596% versus best-only H008test1.426760%. All own-island histories/search feedback verified, max18 messages/38143 input tokens, 385823 total input tokens versus55261. Four rejections include one HOST hasattr limitation; diagnostic proves rejected15 equals accepted16 when only hasattr is enabled. Live runtime unchanged. One run does not establish a universal memory effect.",
+      "measured": 20,
+      "responses": 24,
+      "api_requests": 24,
+      "selected_call": 6,
+      "automatic_raw_features": 0,
+      "audit_status": "passed",
+      "numeric_distinct_sets": 18,
+      "val_metrics": {
+        "map": 0.022869891743247005
+      },
+      "test_metrics": {
+        "map": 0.007215958284140102
+      },
+      "full_own_island_history_verified": true,
+      "input_tokens": 385823,
+      "max_input_tokens_observed": 38143,
+      "host_builtin_limitations": 1,
+      "search_metrics": {
+        "map": 0.029162016369047625
+      },
+      "confirm_metrics": {
+        "map": 0.016740319865319864
+      },
+      "heldout_val_metrics": {
+        "map": 0.019847282347282346
+      }
     }
   },
   "latest_event": {
-    "time": "2026-10-16T21:29:47+03:00",
-    "kind": "gitignore_updated",
-    "message": "По просьбе пользователя исключены из Git зависимости аудита, установщик pip, распакованные результаты Kaggle, архивы результатов и временные SQL/scratch файлы. Сам .gitignore остаётся игнорируемым. Код, ноутбуки, отчёты и история сохранены; файлы не удалялись, индекс Git не менялся.",
+    "time": "2026-10-17T17:38:54+03:00",
+    "kind": "gitignore_cleanup",
+    "message": "Updated ignore rules for raw GPT/authored runs, smoke/replay outputs, provider probes, local pointers and editor settings. Preserved configs/manifests, source, notebooks, summary reports and plots. Exported six selected feature programs with SHA256 manifests to report folders. Untracked files reduced from2453 to339. Files and Git index were not deleted or modified; .gitignore self-ignore preserved.",
     "run_id": null,
     "data": {}
   }

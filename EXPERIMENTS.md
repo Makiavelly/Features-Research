@@ -104,6 +104,18 @@ MAP@12 указан в процентах. Smoke не является оцен�
 | hm_small_qwen_llama_sql_v1_2ecc60d61fd4_llama | complete | — | 0.84396 | 0.78034 | reports/hm_small_llms_v1 |
 | hm_small_qwen14b_sql_v1_f373011050bf | complete | — | 1.21121 | 0.74331 | reports/hm_small_llms_v1 |
 | hm_small_llms_comparison_v1 | complete | — | — | — | reports/hm_small_llms_v1 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003a | complete | — | 0.64219 | 0.75121 | reports/h003_small_v1 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003b | complete | — | 0.71267 | 0.87359 | reports/h003_small_v1 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003c | complete | — | 0.84142 | 0.88874 | reports/h003_small_v1 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4 | complete | — | — | — | reports/h003_small_v1 |
+| hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0 | complete | — | 0.79144 | 0.97903 | reports/gpt61sol_small_v1 |
+| hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899 | complete | — | 0.79144 | 0.97903 | reports/gpt61sol_small_v2 |
+| hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1 | superseded_validator_v2 | — | — | — | LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1 |
+| hm_small_gpt61sol_python_seed42_v2_db3ced2f4449 | complete | — | 1.07971 | 1.35736 | reports/gpt61sol_python_v1 |
+| hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9 | complete | — | 1.26060 | 2.23103 | reports/authored20_v1 |
+| hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde | complete | — | 1.47856 | 1.42676 | reports/provider_generated_only_v1 |
+| isolated_hm_20261017_venvwsl_v1 | completed | — | — | — | — |
+| hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0 | complete | — | 2.28699 | 0.72160 | reports/provider_history_v1 |
 
 Текущая конфигурация и ограничения сравнения: [RelBenchGNN/README.md](RelBenchGNN/README.md).
 

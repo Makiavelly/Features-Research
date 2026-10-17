@@ -1,0 +1,266 @@
+{
+  "run_id": "hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0",
+  "audit_passed": true,
+  "stats": {
+    "calls": 26,
+    "api_attempts": 26,
+    "evaluated_candidate_responses": 26,
+    "outside_corrected_pool": 0,
+    "statuses": {
+      "valid": 20,
+      "duplicate": 5,
+      "rejected": 1
+    },
+    "repairs": 6,
+    "generation_minutes": 4.440911252366656,
+    "prompt_tokens": 46569,
+    "completion_tokens": 16080,
+    "max_input_tokens": 2275,
+    "max_completion_tokens": 1158,
+    "truncated": 0,
+    "selected_call": 4,
+    "failure_stages": {
+      "parse_and_validate": 1
+    }
+  },
+  "comparison": [
+    {
+      "model": "Raw15_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/raw_control",
+      "val_map_percent": 0.4344223484848484,
+      "search_map_percent": 0.5555555555555556,
+      "confirm_map_percent": 0.1352813852813852,
+      "heldout_val_map_percent": 0.5573695559491013,
+      "test_map_percent": 0.9596296296296296
+    },
+    {
+      "model": "Qwen7B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/qwen/candidates/candidate_005",
+      "val_map_percent": 0.7771796916533759,
+      "search_map_percent": 1.150173611111111,
+      "confirm_map_percent": 0.538337924701561,
+      "heldout_val_map_percent": 0.4734848484848484,
+      "test_map_percent": 1.107142857142857
+    },
+    {
+      "model": "Llama8B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/llama/candidates/candidate_144",
+      "val_map_percent": 0.8439600421508316,
+      "search_map_percent": 1.1467633928571428,
+      "confirm_map_percent": 0.760219893742621,
+      "heldout_val_map_percent": 0.4872589531680441,
+      "test_map_percent": 0.7803367003367003
+    },
+    {
+      "model": "Qwen14B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen14b/qwen14b/candidates/candidate_014",
+      "val_map_percent": 1.211209447229184,
+      "search_map_percent": 1.812169312169312,
+      "confirm_map_percent": 1.1126893939393938,
+      "heldout_val_map_percent": 0.4356060606060605,
+      "test_map_percent": 0.7433057851239669
+    },
+    {
+      "model": "contextgnn",
+      "source": "ContextGNN/results/hm_small_v1/contextgnn",
+      "val_map_percent": 4.761926122123491,
+      "search_map_percent": 7.589708468614717,
+      "confirm_map_percent": 3.310335497835497,
+      "heldout_val_map_percent": 2.100378787878788,
+      "test_map_percent": 3.01557548271834
+    },
+    {
+      "model": "idgnn",
+      "source": "ContextGNN/results/hm_small_v1/idgnn",
+      "val_map_percent": 4.4107160657325135,
+      "search_map_percent": 7.122395833333334,
+      "confirm_map_percent": 3.632551160960252,
+      "heldout_val_map_percent": 1.2446194903581267,
+      "test_map_percent": 2.6534126984126987
+    },
+    {
+      "model": "lightgbm_idgnn",
+      "source": "ContextGNN/results/hm_small_v1/lightgbm_idgnn",
+      "val_map_percent": 0.6853070175438595,
+      "search_map_percent": 0.78125,
+      "confirm_map_percent": 1.1363636363636365,
+      "heldout_val_map_percent": 0.0946969696969696,
+      "test_map_percent": 0.9666666666666666
+    },
+    {
+      "model": "lightgbm_manual",
+      "source": "ContextGNN/results/hm_small_v1/lightgbm_manual",
+      "val_map_percent": 0.9983192672337408,
+      "search_map_percent": 1.2605406746031746,
+      "confirm_map_percent": 0.8475378787878789,
+      "heldout_val_map_percent": 0.7676876995058814,
+      "test_map_percent": 1.2338802308802308
+    },
+    {
+      "model": "recformer_finetuned",
+      "source": "Recformer/results/hm_small_seed42_v1/finetuned",
+      "val_map_percent": 2.470220295055821,
+      "search_map_percent": 3.809481534090909,
+      "confirm_map_percent": 0.9469696969696968,
+      "heldout_val_map_percent": 2.0454545454545454,
+      "test_map_percent": 1.2355555555555555
+    },
+    {
+      "model": "recformer_zero_shot",
+      "source": "Recformer/results/hm_small_seed42_v1/zero_shot",
+      "val_map_percent": 2.6699561403508776,
+      "search_map_percent": 4.5703125,
+      "confirm_map_percent": 1.8181818181818183,
+      "heldout_val_map_percent": 0.7575757575757575,
+      "test_map_percent": 3.3005435305435307
+    },
+    {
+      "model": "two_tower",
+      "source": "ContextGNN/results/hm_small_v1/two_tower",
+      "val_map_percent": 1.5525635426951216,
+      "search_map_percent": 0.949074074074074,
+      "confirm_map_percent": 1.1174242424242424,
+      "heldout_val_map_percent": 2.865505706414797,
+      "test_map_percent": 0.6836767676767677
+    },
+    {
+      "model": "Recformer_LR_warmup",
+      "source": "Recformer/results/hm_small_low_lr_warmup_seed42_v1/finetuned",
+      "val_map_percent": 3.55434039644566,
+      "search_map_percent": 4.583333333333333,
+      "confirm_map_percent": 3.079004329004329,
+      "heldout_val_map_percent": 2.5329594647776457,
+      "test_map_percent": 3.857513227513228
+    },
+    {
+      "model": "Recformer_freeze6_trained",
+      "source": "Recformer/results/hm_small_freeze_lower6_seed42_v1/finetuned",
+      "val_map_percent": 1.9848101155666944,
+      "search_map_percent": 2.9524222883597884,
+      "confirm_map_percent": 2.272727272727273,
+      "heldout_val_map_percent": 0.2894570707070707,
+      "test_map_percent": 1.761558441558441
+    },
+    {
+      "model": "Recformer_long_selected",
+      "source": "Recformer/results/hm_small_long_floor_seed42_v1/finetuned",
+      "val_map_percent": 3.578065072719678,
+      "search_map_percent": 4.953215187590187,
+      "confirm_map_percent": 2.7056277056277054,
+      "heldout_val_map_percent": 2.450284090909091,
+      "test_map_percent": 3.4388888888888887
+    },
+    {
+      "model": "TDM_fixed_beam",
+      "source": "TDM/results/hm_small_v1/fixed/beam",
+      "val_map_percent": 1.0160103409829286,
+      "search_map_percent": 0.9351599765011224,
+      "confirm_map_percent": 1.4204545454545454,
+      "heldout_val_map_percent": 0.7291666666666666,
+      "test_map_percent": 1.395194805194805
+    },
+    {
+      "model": "TDM_fixed_full",
+      "source": "TDM/results/hm_small_v1/fixed/full",
+      "val_map_percent": 0.9341496101364524,
+      "search_map_percent": 0.8333333333333334,
+      "confirm_map_percent": 1.3520622895622896,
+      "heldout_val_map_percent": 0.6628787878787878,
+      "test_map_percent": 1.002919191919192
+    },
+    {
+      "model": "TDM_cluster_beam",
+      "source": "TDM/results/hm_small_v1/cluster/beam",
+      "val_map_percent": 0.745875104427736,
+      "search_map_percent": 0.5268787202380952,
+      "confirm_map_percent": 0.4356060606060605,
+      "heldout_val_map_percent": 1.3746843434343432,
+      "test_map_percent": 0.5512626262626263
+    },
+    {
+      "model": "TDM_cluster_full",
+      "source": "TDM/results/hm_small_v1/cluster/full",
+      "val_map_percent": 0.6724552859421281,
+      "search_map_percent": 0.5133928571428571,
+      "confirm_map_percent": 0.2272727272727273,
+      "heldout_val_map_percent": 1.3490013774104683,
+      "test_map_percent": 0.4663888888888888
+    },
+    {
+      "model": "popularity",
+      "source": "same time-safe popularity control",
+      "val_map_percent": 0.2625611648168038,
+      "search_map_percent": NaN,
+      "confirm_map_percent": NaN,
+      "heldout_val_map_percent": 0.8123325087610801,
+      "test_map_percent": 0.7264502164502166
+    },
+    {
+      "model": "h003a",
+      "source": "reports/h003_small_v1/exports/h003a/candidates/candidate_058",
+      "val_map_percent": 0.642194976076555,
+      "search_map_percent": 1.0606060606060606,
+      "confirm_map_percent": 0.3873966942148761,
+      "heldout_val_map_percent": 0.2883953168044077,
+      "test_map_percent": 0.7512121212121212
+    },
+    {
+      "model": "h003b",
+      "source": "reports/h003_small_v1/exports/h003b/candidates/candidate_031",
+      "val_map_percent": 0.7126658976987924,
+      "search_map_percent": 0.9824810606060606,
+      "confirm_map_percent": 0.5499188311688312,
+      "heldout_val_map_percent": 0.4829545454545455,
+      "test_map_percent": 0.8735930735930736
+    },
+    {
+      "model": "h003c",
+      "source": "reports/h003_small_v1/exports/h003c/candidates/candidate_008",
+      "val_map_percent": 0.84142054947976,
+      "search_map_percent": 1.1908143939393938,
+      "confirm_map_percent": 0.7548086383313655,
+      "heldout_val_map_percent": 0.4198232323232322,
+      "test_map_percent": 0.8887445887445888
+    },
+    {
+      "model": "GPT61Sol",
+      "source": "LLMFeatures/results/hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0/gpt61sol_full_sql/candidates/candidate_004",
+      "val_map_percent": 0.7914435710488342,
+      "search_map_percent": 1.3080018939393938,
+      "confirm_map_percent": 0.5411255411255411,
+      "heldout_val_map_percent": 0.2904040404040404,
+      "test_map_percent": 0.9790303030303033
+    }
+  ],
+  "bootstrap": [
+    {
+      "comparison": "GPT61Sol minus Raw15",
+      "difference_pp": 0.01940067340067342,
+      "ci95_low_pp": -0.9299800625300625,
+      "ci95_high_pp": 0.8129389129389127,
+      "better": 12,
+      "tied": 229,
+      "worse": 9
+    },
+    {
+      "comparison": "GPT61Sol minus Qwen7B_control",
+      "difference_pp": -0.1281125541125541,
+      "ci95_low_pp": -1.042981746031746,
+      "ci95_high_pp": 0.57695,
+      "better": 11,
+      "tied": 230,
+      "worse": 9
+    },
+    {
+      "comparison": "GPT61Sol minus H003C",
+      "difference_pp": 0.09028571428571429,
+      "ci95_low_pp": -0.33433333333333326,
+      "ci95_high_pp": 0.5486235209235205,
+      "better": 12,
+      "tied": 227,
+      "worse": 11
+    }
+  ],
+  "test_previously_inspected": true,
+  "interpretation": "Different model AND full SQL interface relative to historical JSON runs; real matched Qwen full SQL results pending"
+}

@@ -1,0 +1,15 @@
+{
+  "run_id": "hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0",
+  "selected_call": 6,
+  "source_directory": "LLMFeatures/results/hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0/gpt61sol_generated_only/candidates/candidate_006",
+  "files": {
+    "selected_program.py": {
+      "sha256": "8857d78cb80fc769220d5fb0e2722f087beaf255ef4681163ba6b839695db798",
+      "bytes": 4599
+    },
+    "selected_program.json": {
+      "sha256": "a85bc9e20da0e7c4f2d29572171787aaa5d063abcb432dfbda2e92d0c4276f82",
+      "bytes": 4969
+    }
+  }
+}

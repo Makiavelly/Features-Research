@@ -1,6 +1,19 @@
 # Kaggle T4: Llama3.1-8B, H&M, одинаковые803377 train пар
 
-Основной файл: [llmfe_llama31_hm_kaggle_t4.ipynb](llmfe_llama31_hm_kaggle_t4.ipynb).
+Новый эксперимент **H004 / Qwen7B / полные SQL-запросы**:
+[исправленная версия v2](hm_small_qwen7b_full_sql_v2_kaggle_t4.ipynb)
+разрешает стандартные Boolean-выражения AND/OR/NOT/IN/BETWEEN/IS в SQL-валидаторе.
+CPU regression пройден; Input и условия прежние. Исходная версия сохранена:
+[hm_small_qwen7b_full_sql_kaggle_t4.ipynb](hm_small_qwen7b_full_sql_kaggle_t4.ipynb),
+[инструкция](full_sql_small/README.md). Input прежний `hm_small_sql_compare_v1.zip`;
+модель возвращает обычные SELECT/WITH без JSON DSL.
+
+Эксперимент **H003 / Qwen7B / small-v1**:
+[hm_small_qwen7b_h003_kaggle_t4.ipynb](hm_small_qwen7b_h003_kaggle_t4.ipynb),
+[инструкция](h003_small/README.md). Он использует прежний малый архив
+`hm_small_sql_compare_v1.zip` и три отдельных варианта A/AB/ABC.
+
+Основной файл большого Llama-эксперимента: [llmfe_llama31_hm_kaggle_t4.ipynb](llmfe_llama31_hm_kaggle_t4.ipynb).
 Самодостаточный Jupyter-ноутбук; `.py`-модули автоматически создаются из встроенной ячейки.
 Клонирование этого репозитория и загрузка отдельных скриптов не нужны.
 

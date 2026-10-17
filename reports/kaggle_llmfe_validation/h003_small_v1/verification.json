@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "CPU smoke only: scripted callbacks, 3 LightGBM rounds; not actual LLM results",
+  "historical_responses_checked": 67,
+  "historical_valid_or_duplicate_accepted": 37,
+  "historical_rejected_diagnosed": 30,
+  "arms": [
+    "h003a",
+    "h003b",
+    "h003c"
+  ],
+  "train_pairs": 72813,
+  "checks": [
+    "notebook schema/embedded hashes",
+    "frozen feature/worker/prompt code",
+    "all input hashes",
+    "multi-feature diagnosis",
+    "BOOL references",
+    "repair/duplicate/island/unchanged routing",
+    "resume",
+    "independent model replay",
+    "full5000 scoring",
+    "references/plots/ZIP"
+  ],
+  "seconds": 8.719616098998813
+}

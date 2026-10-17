@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scope": "CPU integration with scripted SQL callbacks, not a Qwen experiment",
+  "train_pairs": 72813,
+  "worker_unchanged": true,
+  "raw_control_byte_identical": true,
+  "rejected_programs": [
+    "DDL",
+    "future_table",
+    "external_file",
+    "unknown_column",
+    "ID_predictor",
+    "transformed_key",
+    "bad_grouping",
+    "string_output",
+    "duplicate_feature_names",
+    "random_sampling"
+  ],
+  "checks": [
+    "notebook schema/embedded sources",
+    "input hashes",
+    "CTE/quantile/window SQL",
+    "pandas ID/count/recency/median checks",
+    "physical future exclusion",
+    "duplicate result keys rejected",
+    "repair/duplicate/island/unchanged routing",
+    "resume",
+    "full5000 scoring",
+    "frozen replay",
+    "references/plots/ZIP"
+  ],
+  "seconds": 7.398235279000801
+}

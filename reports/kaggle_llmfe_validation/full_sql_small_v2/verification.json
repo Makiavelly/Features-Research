@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "scope": "Boolean numeric regression, AST/notebook/source checks only; no Qwen run",
+  "AND_OR_NOT_BETWEEN_IN_IS_match_pandas": true,
+  "other_modules_byte_identical_v1": true
+}

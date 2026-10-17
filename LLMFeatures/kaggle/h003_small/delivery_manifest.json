@@ -1,0 +1,33 @@
+{
+  "protocol": "hm_small_qwen7b_h003_v1",
+  "notebook": "hm_small_qwen7b_h003_kaggle_t4.ipynb",
+  "notebook_sha256": "846179f1dd1edf87d9e6b7f7160615408fca7ecc83136c349db09970431b0e03",
+  "modules": {
+    "features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "original_prompt.py": "0b79bb4885bf6383a6a4afb4d18828265780d691aa314e9ea917a1969951d82c",
+    "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+    "runtime.py": "a8fa0bd34e7a79746c5b133e4654018df7fe0c402e5cb4b5578e506d106ddd0f",
+    "diagnostics.py": "b34d84d01149933451a8ea102e0a9dedc9f84ff0f6a479c2d132cdad6fdf2842"
+  },
+  "bundle_manifest_sha256": "3cb473dfafa1d60c4922fe85e63ae5b19efe0cf76f72cfd04164030132db01a3",
+  "dataset": "hm_small_sql_compare_v1.zip",
+  "dataset_sha256": "99197d63ad853b6dfa3b88ed10afddec076bb2c3038612622ae9ad4cfaaa8406",
+  "llm_inference_executed_locally": false,
+  "parent_modules": {
+    "features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "original_prompt.py": "0b79bb4885bf6383a6a4afb4d18828265780d691aa314e9ea917a1969951d82c",
+    "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+    "runtime.py": "33fead39d4b655ca862921261e33345df2a22f00f483bec864b530a6f8ad10f0"
+  },
+  "default_arms": [
+    "h003a",
+    "h003b",
+    "h003c"
+  ],
+  "unchanged_modules": [
+    "features.py",
+    "original_prompt.py",
+    "worker.py"
+  ],
+  "test_previously_inspected": true
+}

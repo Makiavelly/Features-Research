@@ -1,0 +1,34 @@
+{
+  "protocol": "hm_small_qwen7b_full_sql_v2",
+  "notebook": "hm_small_qwen7b_full_sql_v2_kaggle_t4.ipynb",
+  "notebook_sha256": "17b36a0c055b9209f6834e934af42a5cf25186c0cd340c17578f9bbe6921b405",
+  "modules": {
+    "base_features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+    "features.py": "6aeefafe74853b1afe7d9bcacd184e6ab8725dc4f32b6a0941b92a63f7a0f628",
+    "full_sql.py": "b7e0aa3e04d398b53fbe8067cf37569e575d2e6cb272c71be7d63fc5b9b3927c",
+    "prompting.py": "c86ca707a7ba54b5922500f310939050ef8e0573737242d07e715b3b47243ec0",
+    "runtime.py": "7d361ad793955c084230562aad3eb1a4c2473ccd1803849970eb2664682b8b03"
+  },
+  "bundle_manifest_sha256": "3cb473dfafa1d60c4922fe85e63ae5b19efe0cf76f72cfd04164030132db01a3",
+  "dataset": "hm_small_sql_compare_v1.zip",
+  "dataset_sha256": "99197d63ad853b6dfa3b88ed10afddec076bb2c3038612622ae9ad4cfaaa8406",
+  "llm_inference_executed_locally": false,
+  "parent_modules": {
+    "features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "original_prompt.py": "0b79bb4885bf6383a6a4afb4d18828265780d691aa314e9ea917a1969951d82c",
+    "worker.py": "3844f32b7a86a387725f6a5c1cc0121c8f7921aee2893e17847bd6c0c47c92a4",
+    "runtime.py": "33fead39d4b655ca862921261e33345df2a22f00f483bec864b530a6f8ad10f0"
+  },
+  "default_arms": [
+    "qwen_full_sql"
+  ],
+  "unchanged_modules": [
+    "worker.py"
+  ],
+  "test_previously_inspected": true,
+  "parent_notebook_sha256": "90cc21791a1b7b3ce2274ef7f37258be90816921bee944846ebb9b1b980099fd",
+  "unchanged_worker": true,
+  "feature_host_base_matches": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+  "validator_patch": "Standard Boolean AST syntax"
+}

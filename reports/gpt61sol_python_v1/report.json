@@ -1,0 +1,758 @@
+{
+  "run_id": "hm_small_gpt61sol_python_seed42_v2_db3ced2f4449",
+  "status": "audited",
+  "stats": {
+    "calls": 22,
+    "api_attempts": 22,
+    "evaluated_candidate_responses": 21,
+    "outside_corrected_pool": 0,
+    "statuses": {
+      "valid": 20,
+      "rejected": 1
+    },
+    "repairs": 1,
+    "generation_minutes": 6.3298680960667,
+    "prompt_tokens": 46056,
+    "completion_tokens": 26200,
+    "max_input_tokens": 4579,
+    "max_completion_tokens": 1912,
+    "truncated": 0,
+    "selected_call": 10,
+    "failure_stages": {
+      "preflight": 1
+    },
+    "api_failures": [
+      {
+        "api_attempt": 4,
+        "http_status": 502,
+        "error": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+        "seconds": 0.9083165290003308
+      }
+    ],
+    "api_failures_count": 1
+  },
+  "validator_review": {
+    "status": "passed",
+    "calls_reviewed": 21,
+    "counts": {
+      "accepted_extra_contract_checks_passed": 20,
+      "model_schema_changes_with_empty_history": 1
+    },
+    "records": [
+      {
+        "call": 1,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 2,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 9,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 3,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 11,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 4,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 5,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 17,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 6,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 20,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 7,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 8,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 14,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 9,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 18,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 10,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 11,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 20,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 12,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 36,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 13,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 14,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 31,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 15,
+        "original_status": "rejected",
+        "classification": "model_schema_changes_with_empty_history",
+        "reproduced": true,
+        "only_nonempty": [
+          "f_user_colour_group_code_rate",
+          "f_user_colour_group_code_recent_rate",
+          "f_user_index_group_rate",
+          "f_user_index_group_recent_rate",
+          "f_user_product_type_rate",
+          "f_user_product_type_recent_rate"
+        ],
+        "only_empty": [
+          "f_user_colour_rate",
+          "f_user_colour_recent_rate",
+          "f_user_index_rate",
+          "f_user_index_recent_rate",
+          "f_user_type_rate",
+          "f_user_type_recent_rate"
+        ],
+        "detail": "Ordinary Python syntax is valid; returned feature names violate the documented fixed-schema contract. The actual dataset cutoffs have nonempty global history."
+      },
+      {
+        "call": 16,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 16,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 17,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 12,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 18,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 36,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 19,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 36,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 20,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 15,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      },
+      {
+        "call": 21,
+        "original_status": "valid",
+        "classification": "accepted_extra_contract_checks_passed",
+        "reproduced": true,
+        "features": 30,
+        "empty_history_passed": true,
+        "absent_groups_passed": true,
+        "permutation_and_batch_passed": true
+      }
+    ],
+    "api_calls": 0,
+    "note": "Model code is only executed via the existing restricted wrapper. Unrestricted exec was rejected by automatic safety review and not performed. Numeric references are separately auditor-authored. Regression evidence cannot prove absence of every validator defect."
+  },
+  "numeric_reference": {
+    "status": "passed",
+    "checks": [
+      {
+        "call": 3,
+        "cutoffs": 8,
+        "features": 11,
+        "exact_feature_names": [
+          "f_item_count_7d",
+          "f_item_count_30d",
+          "f_item_count_90d",
+          "f_item_count_all",
+          "f_user_count_30d",
+          "f_user_count_all",
+          "f_user_recency",
+          "f_item_recency",
+          "f_pair_count",
+          "f_user_section_rate",
+          "f_user_type_rate"
+        ],
+        "rows": 1024,
+        "float32_exact": false,
+        "status": "passed",
+        "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n7,0) AS f_item_count_7d,coalesce(i.n30,0) AS f_item_count_30d,\ncoalesce(i.n90,0) AS f_item_count_90d,coalesce(i.n,0) AS f_item_count_all,\ncoalesce(u.n30,0) AS f_user_count_30d,coalesce(u.n,0) AS f_user_count_all,\nu.recency AS f_user_recency,i.recency AS f_item_recency,coalesce(pair.n,0) AS f_pair_count,\ncoalesce(s.n/nullif(u.n,0),0) AS f_user_section_rate,\ncoalesce(t.n/nullif(u.n,0),0) AS f_user_type_rate\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+      },
+      {
+        "call": 5,
+        "cutoffs": 8,
+        "features": 17,
+        "exact_feature_names": [
+          "f_item_count_30d",
+          "f_item_count_365d",
+          "f_customer_recency",
+          "f_customer_count_30d",
+          "f_customer_count_365d",
+          "f_user_product_affinity",
+          "f_user_type_affinity",
+          "f_user_department_affinity",
+          "f_user_section_affinity",
+          "f_user_item_count",
+          "f_item_recency",
+          "f_item_channel2_share",
+          "f_item_mean_price",
+          "f_user_mean_price",
+          "f_user_channel2_share",
+          "f_price_vs_user",
+          "f_product_count_30d"
+        ],
+        "rows": 1024,
+        "float32_exact": false,
+        "status": "passed",
+        "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n30,0) AS f_item_count_30d,coalesce(i.n365,0) AS f_item_count_365d,\nu.recency AS f_customer_recency,coalesce(u.n30,0) AS f_customer_count_30d,\ncoalesce(u.n365,0) AS f_customer_count_365d,\nln(1+coalesce(p.n,0)) AS f_user_product_affinity,\nln(1+coalesce(t.n,0)) AS f_user_type_affinity,\nln(1+coalesce(d.n,0)) AS f_user_department_affinity,\nln(1+coalesce(s.n,0)) AS f_user_section_affinity,\nln(1+coalesce(u.n,0)) AS f_user_item_count,i.recency AS f_item_recency,\ni.channel2 AS f_item_channel2_share,i.mean_price AS f_item_mean_price,\nu.mean_price AS f_user_mean_price,u.channel2 AS f_user_channel2_share,\ni.mean_price-u.mean_price AS f_price_vs_user,coalesce(prod.n,0) AS f_product_count_30d\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+      },
+      {
+        "call": 10,
+        "cutoffs": 8,
+        "features": 12,
+        "exact_feature_names": [
+          "f_item_count_30d",
+          "f_item_count_90d",
+          "f_item_count_all",
+          "f_item_recency",
+          "f_item_price_mean",
+          "f_user_count_30d",
+          "f_user_count_all",
+          "f_user_recency",
+          "f_pair_count_all",
+          "f_user_section_count",
+          "f_user_product_count",
+          "f_user_colour_count"
+        ],
+        "rows": 72813,
+        "float32_exact": true,
+        "status": "passed",
+        "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n30,0) AS f_item_count_30d,coalesce(i.n90,0) AS f_item_count_90d,\ncoalesce(i.n,0) AS f_item_count_all,coalesce(i.recency,-1) AS f_item_recency,\ni.mean_price AS f_item_price_mean,coalesce(u.n30,0) AS f_user_count_30d,\ncoalesce(u.n,0) AS f_user_count_all,coalesce(u.recency,-1) AS f_user_recency,\ncoalesce(pair.n,0) AS f_pair_count_all,coalesce(s.n,0) AS f_user_section_count,\ncoalesce(p.n,0) AS f_user_product_count,coalesce(c.n,0) AS f_user_colour_count\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+      }
+    ],
+    "api_calls": 0,
+    "training_runs": 0,
+    "scope": "Three real responses manually translated to independent SQL. Selected call10 checked on all72813 train rows with exact float32 equality; calls3/5 on128 rows per cutoff. Not a claim to verify every proposed formula."
+  },
+  "feature_diversity": {
+    "status": "passed",
+    "rows": [
+      {
+        "call": 1,
+        "columns": 27,
+        "ordered_float32_sha256": "15c400ff472dbd2c9d341a1f589afc823ebcbfa99d56bab86e63dffd1c1e6bb9",
+        "column_multiset_sha256": "48244380c5a62103be7e54d5cb471c3cdedb4071276919727ea30609a0a09f85"
+      },
+      {
+        "call": 2,
+        "columns": 24,
+        "ordered_float32_sha256": "414524d951a9d7117a1a7fc51243646292f0493f2cd93099b3456c621f87e7b1",
+        "column_multiset_sha256": "2ddd4b2227703b6fdb21f8e1fe9a964e26efb65b0e531a7b9179a2620c851d1c"
+      },
+      {
+        "call": 3,
+        "columns": 26,
+        "ordered_float32_sha256": "7230900bde80ae49b8547b65d83e5859f2beeb6e30c35e95dc3ab0ddf6be948b",
+        "column_multiset_sha256": "c8fd49fa76f6cd22f11c8c06df6705508770577b00154600b35605408c684b8b"
+      },
+      {
+        "call": 4,
+        "columns": 27,
+        "ordered_float32_sha256": "213033c987f26f92c8be9fdc0d3d6c675ba399ca46fd5926f9b4353019a8abf6",
+        "column_multiset_sha256": "5e503e4a241c18267dfafbce0ffc22c6c84fde87374a68431a8cd760c592597e"
+      },
+      {
+        "call": 5,
+        "columns": 32,
+        "ordered_float32_sha256": "d38a8d4b591ca36370512b3ffd0acf165b551df4432d00522a9684fa28c16f49",
+        "column_multiset_sha256": "b97ec2257c7ed0012aa64243625dd44a4b4df339cf5d314181287e31deaba036"
+      },
+      {
+        "call": 6,
+        "columns": 35,
+        "ordered_float32_sha256": "1866d846cb96fb5dfc4300c5cff5b86799eceb5853c21abfecda6db187fdbfa5",
+        "column_multiset_sha256": "5ba7202bc8cdcc54288756f361295657a476ee67e08be9f4f20015a50f323643"
+      },
+      {
+        "call": 7,
+        "columns": 27,
+        "ordered_float32_sha256": "213033c987f26f92c8be9fdc0d3d6c675ba399ca46fd5926f9b4353019a8abf6",
+        "column_multiset_sha256": "5e503e4a241c18267dfafbce0ffc22c6c84fde87374a68431a8cd760c592597e"
+      },
+      {
+        "call": 8,
+        "columns": 29,
+        "ordered_float32_sha256": "6ca4b9acf779f7d9a64bae3cb902306651f379403ed4b1a05db7b85a81b8687e",
+        "column_multiset_sha256": "a101dc357c8579118723b84a0da61e40fa77e6b31efebe5d1480375058636b81"
+      },
+      {
+        "call": 9,
+        "columns": 33,
+        "ordered_float32_sha256": "655c3a09f4853e1cb33a19c541c7d4f860d9d588a039d1828ca7420fbc6fdd3f",
+        "column_multiset_sha256": "d8b2d1971e4f8aea49f11041ba799530bd867732b1a527ed2d5f7c72966f6070"
+      },
+      {
+        "call": 10,
+        "columns": 27,
+        "ordered_float32_sha256": "995bd32583bf2b1b411abfe6e34ee395385cba746e9f562d48d025ca346983ee",
+        "column_multiset_sha256": "6b5cf373f278be270de8ac85dd2c72df5ba177b3cfbf50065dcbc6d1e3ac389a"
+      },
+      {
+        "call": 11,
+        "columns": 35,
+        "ordered_float32_sha256": "b332b6ba089eeae3aa1cd07d797dd87a726d66c21206b0c035ce0cef8187841a",
+        "column_multiset_sha256": "9589bb37e8a8bdc1fbaf146fc9b3dd892358c395e491e551fa05383ff6e0fc11"
+      },
+      {
+        "call": 12,
+        "columns": 51,
+        "ordered_float32_sha256": "170efd2cceb5c8df8de50e004923f263abab7c55d8d21a80134de6f535d2a2f4",
+        "column_multiset_sha256": "6bc5e3e9c7d87df22cc769b9a0701fe7f8eb241731f4a48351ca735b27cae1c7"
+      },
+      {
+        "call": 13,
+        "columns": 27,
+        "ordered_float32_sha256": "baf96dc1dbcc2abcfe2f123b018fed9ece4e0eb9906c85535153f26537f8b238",
+        "column_multiset_sha256": "c49cff8d6a15803e5fdb39360f760c2b3c7bad8744af63c763c11fab21227e21"
+      },
+      {
+        "call": 14,
+        "columns": 46,
+        "ordered_float32_sha256": "6b11b538ce09527296497b9f24322164c0062c8736765052e142d64e8fe59637",
+        "column_multiset_sha256": "3a95307ea8d0ee144f68eff46b73d5e371558d7a721ab9c6da4162bf2cff5a20"
+      },
+      {
+        "call": 16,
+        "columns": 31,
+        "ordered_float32_sha256": "db5416bfa1591f22484c9a35e22a4b2a688c0da7ba4c66413452b850e75111b3",
+        "column_multiset_sha256": "e2ca1714489a772155ed5d534e7467a357783092dca186004ab2f99bb30e5211"
+      },
+      {
+        "call": 17,
+        "columns": 27,
+        "ordered_float32_sha256": "995bd32583bf2b1b411abfe6e34ee395385cba746e9f562d48d025ca346983ee",
+        "column_multiset_sha256": "6b5cf373f278be270de8ac85dd2c72df5ba177b3cfbf50065dcbc6d1e3ac389a"
+      },
+      {
+        "call": 18,
+        "columns": 51,
+        "ordered_float32_sha256": "9decc0809182e9d4cf8881930f786f1e3402b5bec88c3442c7086fe2f7a6a70a",
+        "column_multiset_sha256": "e80e53f7a41f6ea4210847808872063b1bb0bd306b43b53cb825f6775f0148f0"
+      },
+      {
+        "call": 19,
+        "columns": 51,
+        "ordered_float32_sha256": "96f4e0464841a9d9250b7763b4d97f602ad56103bdffdfed5cb0ab7474920ad7",
+        "column_multiset_sha256": "5e4a5f596f8f7ff893eab94d562286c4755537257f9ef0dc9b566fa4ef46994c"
+      },
+      {
+        "call": 20,
+        "columns": 30,
+        "ordered_float32_sha256": "a636a69584c8012785a0032cc694084257fed51e211fb37e5ea46b3e02bed5b8",
+        "column_multiset_sha256": "50329177276c6c9b3c05d211d5343abaaa0fa30a6827424395659333fd24c0e6"
+      },
+      {
+        "call": 21,
+        "columns": 45,
+        "ordered_float32_sha256": "52902a33191f05556f2a0ce5ab7428c77180840558115c80ff6d7ca16f96c522",
+        "column_multiset_sha256": "4259c5a14a0b3b0387b6998941121404bf53d78bf6d4e066576633d29b57b6a8"
+      }
+    ],
+    "groups": {
+      "ordered_float32_sha256": {
+        "distinct": 18,
+        "duplicate_groups": [
+          [
+            4,
+            7
+          ],
+          [
+            10,
+            17
+          ]
+        ]
+      },
+      "column_multiset_sha256": {
+        "distinct": 18,
+        "duplicate_groups": [
+          [
+            4,
+            7
+          ],
+          [
+            10,
+            17
+          ]
+        ]
+      }
+    },
+    "api_calls": 0,
+    "training_runs": 0,
+    "scope": "Float32 training matrices over all8cutoffs after host missing handling; semantic equality outside this train data is not established. Diagnostic only, no re-selection."
+  },
+  "comparison": [
+    {
+      "model": "Raw15_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/raw_control",
+      "val_map_percent": 0.4344223484848484,
+      "search_map_percent": 0.5555555555555556,
+      "confirm_map_percent": 0.1352813852813852,
+      "heldout_val_map_percent": 0.5573695559491013,
+      "test_map_percent": 0.9596296296296296
+    },
+    {
+      "model": "Qwen7B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/qwen/candidates/candidate_005",
+      "val_map_percent": 0.7771796916533759,
+      "search_map_percent": 1.150173611111111,
+      "confirm_map_percent": 0.538337924701561,
+      "heldout_val_map_percent": 0.4734848484848484,
+      "test_map_percent": 1.107142857142857
+    },
+    {
+      "model": "Llama8B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen_llama/llama/candidates/candidate_144",
+      "val_map_percent": 0.8439600421508316,
+      "search_map_percent": 1.1467633928571428,
+      "confirm_map_percent": 0.760219893742621,
+      "heldout_val_map_percent": 0.4872589531680441,
+      "test_map_percent": 0.7803367003367003
+    },
+    {
+      "model": "Qwen14B_LightGBM",
+      "source": "reports/hm_small_llms_v1/exports/qwen14b/qwen14b/candidates/candidate_014",
+      "val_map_percent": 1.211209447229184,
+      "search_map_percent": 1.812169312169312,
+      "confirm_map_percent": 1.1126893939393938,
+      "heldout_val_map_percent": 0.4356060606060605,
+      "test_map_percent": 0.7433057851239669
+    },
+    {
+      "model": "contextgnn",
+      "source": "ContextGNN/results/hm_small_v1/contextgnn",
+      "val_map_percent": 4.761926122123491,
+      "search_map_percent": 7.589708468614717,
+      "confirm_map_percent": 3.310335497835497,
+      "heldout_val_map_percent": 2.100378787878788,
+      "test_map_percent": 3.01557548271834
+    },
+    {
+      "model": "idgnn",
+      "source": "ContextGNN/results/hm_small_v1/idgnn",
+      "val_map_percent": 4.4107160657325135,
+      "search_map_percent": 7.122395833333334,
+      "confirm_map_percent": 3.632551160960252,
+      "heldout_val_map_percent": 1.2446194903581267,
+      "test_map_percent": 2.6534126984126987
+    },
+    {
+      "model": "lightgbm_idgnn",
+      "source": "ContextGNN/results/hm_small_v1/lightgbm_idgnn",
+      "val_map_percent": 0.6853070175438595,
+      "search_map_percent": 0.78125,
+      "confirm_map_percent": 1.1363636363636365,
+      "heldout_val_map_percent": 0.0946969696969696,
+      "test_map_percent": 0.9666666666666666
+    },
+    {
+      "model": "lightgbm_manual",
+      "source": "ContextGNN/results/hm_small_v1/lightgbm_manual",
+      "val_map_percent": 0.9983192672337408,
+      "search_map_percent": 1.2605406746031746,
+      "confirm_map_percent": 0.8475378787878789,
+      "heldout_val_map_percent": 0.7676876995058814,
+      "test_map_percent": 1.2338802308802308
+    },
+    {
+      "model": "recformer_finetuned",
+      "source": "Recformer/results/hm_small_seed42_v1/finetuned",
+      "val_map_percent": 2.470220295055821,
+      "search_map_percent": 3.809481534090909,
+      "confirm_map_percent": 0.9469696969696968,
+      "heldout_val_map_percent": 2.0454545454545454,
+      "test_map_percent": 1.2355555555555555
+    },
+    {
+      "model": "recformer_zero_shot",
+      "source": "Recformer/results/hm_small_seed42_v1/zero_shot",
+      "val_map_percent": 2.6699561403508776,
+      "search_map_percent": 4.5703125,
+      "confirm_map_percent": 1.8181818181818183,
+      "heldout_val_map_percent": 0.7575757575757575,
+      "test_map_percent": 3.3005435305435307
+    },
+    {
+      "model": "two_tower",
+      "source": "ContextGNN/results/hm_small_v1/two_tower",
+      "val_map_percent": 1.5525635426951216,
+      "search_map_percent": 0.949074074074074,
+      "confirm_map_percent": 1.1174242424242424,
+      "heldout_val_map_percent": 2.865505706414797,
+      "test_map_percent": 0.6836767676767677
+    },
+    {
+      "model": "Recformer_LR_warmup",
+      "source": "Recformer/results/hm_small_low_lr_warmup_seed42_v1/finetuned",
+      "val_map_percent": 3.55434039644566,
+      "search_map_percent": 4.583333333333333,
+      "confirm_map_percent": 3.079004329004329,
+      "heldout_val_map_percent": 2.5329594647776457,
+      "test_map_percent": 3.857513227513228
+    },
+    {
+      "model": "Recformer_freeze6_trained",
+      "source": "Recformer/results/hm_small_freeze_lower6_seed42_v1/finetuned",
+      "val_map_percent": 1.9848101155666944,
+      "search_map_percent": 2.9524222883597884,
+      "confirm_map_percent": 2.272727272727273,
+      "heldout_val_map_percent": 0.2894570707070707,
+      "test_map_percent": 1.761558441558441
+    },
+    {
+      "model": "Recformer_long_selected",
+      "source": "Recformer/results/hm_small_long_floor_seed42_v1/finetuned",
+      "val_map_percent": 3.578065072719678,
+      "search_map_percent": 4.953215187590187,
+      "confirm_map_percent": 2.7056277056277054,
+      "heldout_val_map_percent": 2.450284090909091,
+      "test_map_percent": 3.4388888888888887
+    },
+    {
+      "model": "TDM_fixed_beam",
+      "source": "TDM/results/hm_small_v1/fixed/beam",
+      "val_map_percent": 1.0160103409829286,
+      "search_map_percent": 0.9351599765011224,
+      "confirm_map_percent": 1.4204545454545454,
+      "heldout_val_map_percent": 0.7291666666666666,
+      "test_map_percent": 1.395194805194805
+    },
+    {
+      "model": "TDM_fixed_full",
+      "source": "TDM/results/hm_small_v1/fixed/full",
+      "val_map_percent": 0.9341496101364524,
+      "search_map_percent": 0.8333333333333334,
+      "confirm_map_percent": 1.3520622895622896,
+      "heldout_val_map_percent": 0.6628787878787878,
+      "test_map_percent": 1.002919191919192
+    },
+    {
+      "model": "TDM_cluster_beam",
+      "source": "TDM/results/hm_small_v1/cluster/beam",
+      "val_map_percent": 0.745875104427736,
+      "search_map_percent": 0.5268787202380952,
+      "confirm_map_percent": 0.4356060606060605,
+      "heldout_val_map_percent": 1.3746843434343432,
+      "test_map_percent": 0.5512626262626263
+    },
+    {
+      "model": "TDM_cluster_full",
+      "source": "TDM/results/hm_small_v1/cluster/full",
+      "val_map_percent": 0.6724552859421281,
+      "search_map_percent": 0.5133928571428571,
+      "confirm_map_percent": 0.2272727272727273,
+      "heldout_val_map_percent": 1.3490013774104683,
+      "test_map_percent": 0.4663888888888888
+    },
+    {
+      "model": "popularity",
+      "source": "same time-safe popularity control",
+      "val_map_percent": 0.2625611648168038,
+      "search_map_percent": NaN,
+      "confirm_map_percent": NaN,
+      "heldout_val_map_percent": 0.8123325087610801,
+      "test_map_percent": 0.7264502164502166
+    },
+    {
+      "model": "h003a",
+      "source": "reports/h003_small_v1/exports/h003a/candidates/candidate_058",
+      "val_map_percent": 0.642194976076555,
+      "search_map_percent": 1.0606060606060606,
+      "confirm_map_percent": 0.3873966942148761,
+      "heldout_val_map_percent": 0.2883953168044077,
+      "test_map_percent": 0.7512121212121212
+    },
+    {
+      "model": "h003b",
+      "source": "reports/h003_small_v1/exports/h003b/candidates/candidate_031",
+      "val_map_percent": 0.7126658976987924,
+      "search_map_percent": 0.9824810606060606,
+      "confirm_map_percent": 0.5499188311688312,
+      "heldout_val_map_percent": 0.4829545454545455,
+      "test_map_percent": 0.8735930735930736
+    },
+    {
+      "model": "h003c",
+      "source": "reports/h003_small_v1/exports/h003c/candidates/candidate_008",
+      "val_map_percent": 0.84142054947976,
+      "search_map_percent": 1.1908143939393938,
+      "confirm_map_percent": 0.7548086383313655,
+      "heldout_val_map_percent": 0.4198232323232322,
+      "test_map_percent": 0.8887445887445888
+    },
+    {
+      "model": "GPT61Sol_SQL",
+      "source": "LLMFeatures/results/hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899/gpt61sol_full_sql/candidates/candidate_004",
+      "val_map_percent": 0.7914435710488342,
+      "search_map_percent": 1.3080018939393938,
+      "confirm_map_percent": 0.5411255411255411,
+      "heldout_val_map_percent": 0.2904040404040404,
+      "test_map_percent": 0.9790303030303033
+    },
+    {
+      "model": "GPT61Sol_Python",
+      "source": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449/gpt61sol_python/candidates/candidate_010",
+      "val_map_percent": 1.0797076339839498,
+      "search_map_percent": 1.703249007936508,
+      "confirm_map_percent": 0.892447199265381,
+      "heldout_val_map_percent": 0.3599987974987975,
+      "test_map_percent": 1.3573617123617123
+    }
+  ],
+  "bootstrap": [
+    {
+      "comparison": "GPT Python minus GPT SQL",
+      "difference_pp": 0.37833140933140935,
+      "ci95_low_pp": -0.014632395382395412,
+      "ci95_high_pp": 0.8511820586820585,
+      "better": 12,
+      "tied": 228,
+      "worse": 10
+    },
+    {
+      "comparison": "GPT Python minus Raw15",
+      "difference_pp": 0.39773208273208266,
+      "ci95_low_pp": -0.7369536435786436,
+      "ci95_high_pp": 1.3499537037037037,
+      "better": 15,
+      "tied": 227,
+      "worse": 8
+    },
+    {
+      "comparison": "GPT Python minus Qwen7B JSON",
+      "difference_pp": 0.25021885521885523,
+      "ci95_low_pp": -0.8557746512746514,
+      "ci95_high_pp": 1.1363158970658964,
+      "better": 15,
+      "tied": 227,
+      "worse": 8
+    }
+  ],
+  "limitations": [
+    "One seed and previously inspected250-user test",
+    "SQL/Python prompts and example/interface differ; model and downstream/data matched",
+    "Conservative AST dedup does not guarantee numerically distinct features"
+  ]
+}

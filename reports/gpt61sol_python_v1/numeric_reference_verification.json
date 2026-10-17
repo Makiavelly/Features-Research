@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "call": 3,
+      "cutoffs": 8,
+      "features": 11,
+      "exact_feature_names": [
+        "f_item_count_7d",
+        "f_item_count_30d",
+        "f_item_count_90d",
+        "f_item_count_all",
+        "f_user_count_30d",
+        "f_user_count_all",
+        "f_user_recency",
+        "f_item_recency",
+        "f_pair_count",
+        "f_user_section_rate",
+        "f_user_type_rate"
+      ],
+      "rows": 1024,
+      "float32_exact": false,
+      "status": "passed",
+      "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n7,0) AS f_item_count_7d,coalesce(i.n30,0) AS f_item_count_30d,\ncoalesce(i.n90,0) AS f_item_count_90d,coalesce(i.n,0) AS f_item_count_all,\ncoalesce(u.n30,0) AS f_user_count_30d,coalesce(u.n,0) AS f_user_count_all,\nu.recency AS f_user_recency,i.recency AS f_item_recency,coalesce(pair.n,0) AS f_pair_count,\ncoalesce(s.n/nullif(u.n,0),0) AS f_user_section_rate,\ncoalesce(t.n/nullif(u.n,0),0) AS f_user_type_rate\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+    },
+    {
+      "call": 5,
+      "cutoffs": 8,
+      "features": 17,
+      "exact_feature_names": [
+        "f_item_count_30d",
+        "f_item_count_365d",
+        "f_customer_recency",
+        "f_customer_count_30d",
+        "f_customer_count_365d",
+        "f_user_product_affinity",
+        "f_user_type_affinity",
+        "f_user_department_affinity",
+        "f_user_section_affinity",
+        "f_user_item_count",
+        "f_item_recency",
+        "f_item_channel2_share",
+        "f_item_mean_price",
+        "f_user_mean_price",
+        "f_user_channel2_share",
+        "f_price_vs_user",
+        "f_product_count_30d"
+      ],
+      "rows": 1024,
+      "float32_exact": false,
+      "status": "passed",
+      "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n30,0) AS f_item_count_30d,coalesce(i.n365,0) AS f_item_count_365d,\nu.recency AS f_customer_recency,coalesce(u.n30,0) AS f_customer_count_30d,\ncoalesce(u.n365,0) AS f_customer_count_365d,\nln(1+coalesce(p.n,0)) AS f_user_product_affinity,\nln(1+coalesce(t.n,0)) AS f_user_type_affinity,\nln(1+coalesce(d.n,0)) AS f_user_department_affinity,\nln(1+coalesce(s.n,0)) AS f_user_section_affinity,\nln(1+coalesce(u.n,0)) AS f_user_item_count,i.recency AS f_item_recency,\ni.channel2 AS f_item_channel2_share,i.mean_price AS f_item_mean_price,\nu.mean_price AS f_user_mean_price,u.channel2 AS f_user_channel2_share,\ni.mean_price-u.mean_price AS f_price_vs_user,coalesce(prod.n,0) AS f_product_count_30d\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+    },
+    {
+      "call": 10,
+      "cutoffs": 8,
+      "features": 12,
+      "exact_feature_names": [
+        "f_item_count_30d",
+        "f_item_count_90d",
+        "f_item_count_all",
+        "f_item_recency",
+        "f_item_price_mean",
+        "f_user_count_30d",
+        "f_user_count_all",
+        "f_user_recency",
+        "f_pair_count_all",
+        "f_user_section_count",
+        "f_user_product_count",
+        "f_user_colour_count"
+      ],
+      "rows": 72813,
+      "float32_exact": true,
+      "status": "passed",
+      "reference_sql": "\nWITH u AS (\n SELECT customer_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY customer_id),\ni AS (\n SELECT article_id,count(*) AS n,\n count(*) FILTER(WHERE days_ago<=7) AS n7,\n count(*) FILTER(WHERE days_ago<=30) AS n30,\n count(*) FILTER(WHERE days_ago<=90) AS n90,\n count(*) FILTER(WHERE days_ago<=365) AS n365,\n min(days_ago) AS recency,avg(price) AS mean_price,\n avg(CASE WHEN sales_channel_id=2 THEN 1.0 ELSE 0.0 END) AS channel2\n FROM history GROUP BY article_id),\npair AS (SELECT customer_id,article_id,count(*) AS n FROM history GROUP BY customer_id,article_id),\nt AS (SELECT customer_id,product_type_no,count(*) AS n FROM history GROUP BY customer_id,product_type_no),\ns AS (SELECT customer_id,section_no,count(*) AS n FROM history GROUP BY customer_id,section_no),\np AS (SELECT customer_id,product_code,count(*) AS n FROM history GROUP BY customer_id,product_code),\nd AS (SELECT customer_id,department_no,count(*) AS n FROM history GROUP BY customer_id,department_no),\nc AS (SELECT customer_id,colour_group_code,count(*) AS n FROM history GROUP BY customer_id,colour_group_code),\nprod AS (SELECT product_code,count(*) AS n FROM history WHERE days_ago<=30 GROUP BY product_code)\n\nSELECT coalesce(i.n30,0) AS f_item_count_30d,coalesce(i.n90,0) AS f_item_count_90d,\ncoalesce(i.n,0) AS f_item_count_all,coalesce(i.recency,-1) AS f_item_recency,\ni.mean_price AS f_item_price_mean,coalesce(u.n30,0) AS f_user_count_30d,\ncoalesce(u.n,0) AS f_user_count_all,coalesce(u.recency,-1) AS f_user_recency,\ncoalesce(pair.n,0) AS f_pair_count_all,coalesce(s.n,0) AS f_user_section_count,\ncoalesce(p.n,0) AS f_user_product_count,coalesce(c.n,0) AS f_user_colour_count\n\nFROM reference_pairs x LEFT JOIN u USING(customer_id) LEFT JOIN i USING(article_id)\nLEFT JOIN pair ON pair.customer_id=x.customer_id AND pair.article_id=x.article_id\nLEFT JOIN t ON t.customer_id=x.customer_id AND t.product_type_no=x.raw_i_product_type_no\nLEFT JOIN s ON s.customer_id=x.customer_id AND s.section_no=x.raw_i_section_no\nLEFT JOIN p ON p.customer_id=x.customer_id AND p.product_code=x.raw_i_product_code\nLEFT JOIN d ON d.customer_id=x.customer_id AND d.department_no=x.raw_i_department_no\nLEFT JOIN c ON c.customer_id=x.customer_id AND c.colour_group_code=x.raw_i_colour_group_code\nLEFT JOIN prod ON prod.product_code=x.raw_i_product_code ORDER BY x.rid\n"
+    }
+  ],
+  "api_calls": 0,
+  "training_runs": 0,
+  "scope": "Three real responses manually translated to independent SQL. Selected call10 checked on all72813 train rows with exact float32 equality; calls3/5 on128 rows per cutoff. Not a claim to verify every proposed formula."
+}

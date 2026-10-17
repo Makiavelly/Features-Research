@@ -27699,3 +27699,2139 @@ Kaggle запуск завершён и проверен; фактические
 ## 2026-10-16T21:29:47+03:00 — gitignore_updated
 
 По просьбе пользователя исключены из Git зависимости аудита, установщик pip, распакованные результаты Kaggle, архивы результатов и временные SQL/scratch файлы. Сам .gitignore остаётся игнорируемым. Код, ноутбуки, отчёты и история сохранены; файлы не удалялись, индекс Git не менялся.
+
+## 2026-10-16T21:40:32+03:00 — h003_kaggle_notebook_prepared
+
+Подготовлен отдельный Kaggle T4 ноутбук H003 для Qwen2.5-Coder-7B-Instruct: A/AB/ABC, те же72813пары иSQLинтерфейс; CPU smoke/67историческихответов проверены. Реальная LLM-генерация H003 не выполнялась; старые эксперименты сохранены.
+
+```json
+{
+  "notebook": "LLMFeatures/kaggle/hm_small_qwen7b_h003_kaggle_t4.ipynb",
+  "verification": "reports/kaggle_llmfe_validation/h003_small_v1/verification.json",
+  "protocol": "hm_small_qwen7b_h003_v1",
+  "actual_llm_experiment_started": false
+}
+```
+
+## 2026-10-16T22:49:09+03:00 — h003_context_checked
+
+Точный токенизатор закреплённой Qwen7B: реконструированы201 H003-промпт по67историческимобращениям. Максимумы входа A2693/B3184/C3297 при6144; примеры491токен. Включены system/chat template/repair. Будущие ответы не гарантируются; runtime проверяет длину без обрезки. Веса не загружались, генерации не было. Артефакт reports/kaggle_llmfe_validation/h003_small_v1/context_budget.json.
+
+## 2026-10-17T09:27:39+03:00 — h003_kaggle_arm_audited
+
+h003a:20измеренных/65вызовов;отказов36,дубликатов9; val/testMAP=0.642195/0.751212%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации.
+
+Запуск: `hm_small_qwen7b_h003_v1_6852748fc0e4_h003a`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/h003_small_v1",
+  "val_metrics": {
+    "map": 0.006421949760765549
+  },
+  "test_metrics": {
+    "map": 0.007512121212121212
+  },
+  "llm_calls": 65,
+  "evaluated_distinct": 20,
+  "selected_call": 58
+}
+```
+
+## 2026-10-17T09:27:39+03:00 — h003_kaggle_arm_audited
+
+h003b:20измеренных/78вызовов;отказов21,дубликатов37; val/testMAP=0.712666/0.873593%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации.
+
+Запуск: `hm_small_qwen7b_h003_v1_6852748fc0e4_h003b`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/h003_small_v1",
+  "val_metrics": {
+    "map": 0.007126658976987924
+  },
+  "test_metrics": {
+    "map": 0.008735930735930736
+  },
+  "llm_calls": 78,
+  "evaluated_distinct": 20,
+  "selected_call": 31
+}
+```
+
+## 2026-10-17T09:27:39+03:00 — h003_kaggle_arm_audited
+
+h003c:20измеренных/51вызовов;отказов15,дубликатов16; val/testMAP=0.841421/0.888745%. Верифицированы данные/исходники/selection/frozen CPU replay. Без обучения/новой генерации.
+
+Запуск: `hm_small_qwen7b_h003_v1_6852748fc0e4_h003c`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/h003_small_v1",
+  "val_metrics": {
+    "map": 0.0084142054947976
+  },
+  "test_metrics": {
+    "map": 0.008887445887445888
+  },
+  "llm_calls": 51,
+  "evaluated_distinct": 20,
+  "selected_call": 8
+}
+```
+
+## 2026-10-17T09:27:39+03:00 — h003_kaggle_results_audited
+
+H003 полностью проверен: A65/36/9,B78/21/37,C51/15/16 (calls/reject/duplicate), каждый20успехов. Cпротивконтроля67calls:на23.9%меньшеобращений,44.88против46.42мингенерации. TestMAP A0.751212/B0.873593/C0.888745% противстарогоQwen7B1.107143% иraw0.959630%; качество не улучшилось. Все4модели×val/test frozenreplayсовпали. A21–23derivedагрегациипропущеныдиагностикой,остановленыpreflight. 9WITHINGROUPвыраженийоказалисьневалиднымquantile_contдиалектом,ложныхотказовсрединихнет. Одинseed250test,повторнаяоценка;всеbootstrapинтервалыразницывключают0.
+
+Запуск: `hm_small_qwen7b_h003_v1_6852748fc0e4`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/h003_small_v1",
+  "report": "reports/h003_small_v1/report.md",
+  "test_previously_inspected": true
+}
+```
+
+## 2026-10-17T10:44:11+03:00 — full_sql_kaggle_notebook_prepared
+
+По поручению пользователя подготовлен отдельный Kaggle T4 ноутбук Qwen7B full SQL: обычные SELECT/WITH без JSON,host проверяет и присоединяет числовые таблицы признаков. Те же72813пары/LightGBM150/31/4threads/3популяции/20успехов/300calls/3repair. CPU smoke с заданными SQL ответами прошёл,rawконтроль byte-identical, CTE/quantile/window/pandas/future exclusion/ключи/routing/resume/replay/ZIP проверены. Реальной LLM-генерации нет; GPU запустит пользователь.
+
+```json
+{
+  "notebook": "LLMFeatures/kaggle/hm_small_qwen7b_full_sql_kaggle_t4.ipynb",
+  "protocol": "hm_small_qwen7b_full_sql_v1",
+  "hypothesis": "H004",
+  "verification": "reports/kaggle_llmfe_validation/full_sql_small_v1/verification.json",
+  "context_counts": {
+    "initial": 1340,
+    "example_repair": 2040,
+    "large_six_query_repair": 5866,
+    "large_duplicate_repair": 5443
+  },
+  "actual_llm_experiment_started": false
+}
+```
+
+## 2026-10-17T10:56:22+03:00 — provider_feature_search_started
+
+Запущен реальный GPT-6.1-Sol через tookен.club: small-v1/fullSQL,20успехов/300calls,данныеиLightGBMпрежние. Токен только в памяти.
+
+Запуск: `hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0",
+  "model": "gpt-6.1-sol"
+}
+```
+
+## 2026-10-17T11:03:16+03:00 — provider_feature_search_progress
+
+GPT-6.1-Sol API fullSQL: сейчас11/20оценённых,14/300обращений. Тотжеsmall-v1/72813пары/LightGBM150/31/4CPU;поискнеиспользуетtest,промежуточныйsearchMAPнеитоговыйрезультат.
+
+Запуск: `hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0",
+  "evaluated_distinct": 11,
+  "llm_calls": 14
+}
+```
+
+## 2026-10-17T11:07:09+03:00 — provider_validator_bug_identified
+
+Дофинальногоselection/test обнаруженложныйотказ APIcall14:SQLGlot считаетAND exp.Func,allowlistнеучёллогическиеоператоры. План:сохранитьисходныйv1,изолированноисправитьвалидатор,переоценитьтотжепотокответовбезновыхAPIвызовов,взятьпервые20валидныхпоисправленнойпроверке,выбратьтолькопоvalidation. Неизменятьстарыеисходники/метрики. Этоисправленныйreplay,ненезависимыйLLMпрогон.
+
+## 2026-10-17T11:11:45+03:00 — provider_feature_search_finished
+
+API поиск завершён,выборзафиксировандоtest,отчётсохранён. Требуетсялокальныйаудитпередитоговымвыводом.
+
+Запуск: `hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0"
+}
+```
+
+## 2026-10-17T11:13:38+03:00 — provider_corrected_evaluation_selected
+
+Исправленныйsaved-streamreplay:первые20валидных,selectionпоvalidationзафиксирован. ДополнительныхAPIвызовов0;этоНЕнезависимыйLLMпрогон.
+
+Запуск: `hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899`.
+
+```json
+{
+  "status": "evaluating",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899",
+  "source_run": "hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0"
+}
+```
+
+## 2026-10-17T11:19:53+03:00 — provider_feature_experiment_audited
+
+Поиск GPT-6.1 Sol завершён и независимо проверен. 20 оценённых наборов; test MAP@12 0.979030%, raw 0.959630%, прежний Qwen7B 1.107143%. Преимущество по качеству не подтверждено. Исходный поток: 26 API обращений, 5 дубликатов и один ложный отказ AND.
+
+Запуск: `hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/gpt61sol_small_v1",
+  "evaluated_distinct": 20,
+  "api_requests": 26,
+  "source_api_requests": 26,
+  "val_metrics": {
+    "map": 0.007914435710488343
+  },
+  "test_metrics": {
+    "map": 0.009790303030303031
+  },
+  "independent_audit": "passed",
+  "independent_llm_run": true
+}
+```
+
+## 2026-10-17T11:19:53+03:00 — provider_feature_experiment_audited
+
+Поиск GPT-6.1 Sol завершён и независимо проверен. 20 оценённых наборов; test MAP@12 0.979030%, raw 0.959630%, прежний Qwen7B 1.107143%. Преимущество по качеству не подтверждено. Исправленная оценка сохранённого потока: первые 20 валидных за 24 ответа, 4 дубликата, без отказов; дополнительных API обращений 0. Это не независимый LLM запуск. Выбран тот же candidate_004.
+
+Запуск: `hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/gpt61sol_small_v2",
+  "evaluated_distinct": 20,
+  "api_requests": 0,
+  "source_api_requests": 26,
+  "val_metrics": {
+    "map": 0.007914435710488343
+  },
+  "test_metrics": {
+    "map": 0.009790303030303031
+  },
+  "independent_audit": "passed",
+  "independent_llm_run": false
+}
+```
+
+## 2026-10-17T11:19:53+03:00 — provider_feature_experiment_summary
+
+H005 завершена: 20 наборов, 26 API запросов, независимый аудит пройден. Полный SQL исполняется успешно, но преимущество по MAP не подтверждено. Исправление ложного AND отказа не изменило выбранный набор и итоговые метрики.
+
+```json
+{
+  "artifacts": "reports/gpt61sol_small_v2",
+  "seed": 42,
+  "test_users": 250
+}
+```
+
+## 2026-10-17T11:29:04+03:00 — provider_python_protocol_registered
+
+H006: отдельный Python эксперимент с прежними данными и LightGBM. 300 обращений максимум / 20 оценённых наборов. Валидатор проверяется до генерации, все реальные отказы будут разобраны отдельно.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "prepared",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:29:25+03:00 — provider_python_search_started
+
+H006: реальный GPT-6.1 Sol пишет полную Python функцию. Те же 72813 пар / LightGBM150/31 / seed42 / 20 наборов / 300 API вызовов. Предварительная проверка валидатора пройдена. Test не используется при отборе.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:31:09+03:00 — provider_python_search_interrupted
+
+API HTTP502: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.24.0 (Ubuntu)</center>
+</body>
+</html>
+
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "interrupted",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:32:13+03:00 — provider_python_api_outage
+
+После 3 валидных программ провайдер ответил HTTP502 на API attempt4. Ошибка сохранена отдельно и не считается ошибкой Python/валидатора. Возобновляем тот же поток; неудачный POST входит в лимит300.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "resuming"
+}
+```
+
+## 2026-10-17T11:32:29+03:00 — provider_python_search_started
+
+H006: реальный GPT-6.1 Sol пишет полную Python функцию. Те же 72813 пар / LightGBM150/31 / seed42 / 20 наборов / 300 API вызовов. Предварительная проверка валидатора пройдена. Test не используется при отборе.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:35:58+03:00 — provider_python_search_interrupted
+
+
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "interrupted",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:38:42+03:00 — provider_python_validator_v1_preserved
+
+Исходный Pythonv1 сохранён. Дополнительная проверка нашла другой порядок одинаковых столбцов на пустой историиcall5; v2 выравнивает столбцы поименам и добавляет empty/absent preflight. 7 оценённых наборов,8 сохранённых ответов,9 POST включая502. Перенос без сбросаAPIбюджета, до итогового отбора/test.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1`.
+
+```json
+{
+  "status": "superseded_validator_v2"
+}
+```
+
+## 2026-10-17T11:39:25+03:00 — provider_python_validator_migration
+
+До итогового отбора найдена нестабильность порядка столбцов на пустой истории в call5. v2 выравнивает столбцы по именам и добавляет empty/absent preflight. Исходный поток сохранён; модели переиспользованы только после совпадения матриц. API запросов для миграции0, общий лимит300 не обнуляется.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "prepared",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449",
+  "source_run": "hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T11:39:25+03:00 — provider_python_search_started
+
+H006: реальный GPT-6.1 Sol пишет полную Python функцию. Те же 72813 пар / LightGBM150/31 / seed42 / 20 наборов / 300 API вызовов. Предварительная проверка валидатора пройдена; v2 выравнивает столбцы и проверяет пустую историю. Test не используется при отборе.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449"
+}
+```
+
+## 2026-10-17T11:41:17+03:00 — provider_python_progress
+
+H006 Pythonv2: 10/20 полностью оценённых наборов, 11/300 фактических API запросов. Бюджет включает исходные9POST v1. v1 сохранён; v2 выравнивает столбцы по именам и проверяет пустую историю. 29 регрессий пройдено, два реальных набора (11+17 признаков) совпали с независимым SQL по8срезам. Неограниченный exec был отклонён автоматической проверкой безопасности и не выполнялся; проверки модельного кода идут через ограниченный wrapper.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "searching",
+  "api_requests": 11,
+  "evaluated_distinct": 10,
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449"
+}
+```
+
+## 2026-10-17T11:43:31+03:00 — provider_python_hypothesis_clarified
+
+Пользователь справедливо указал: текущие агрегаты выразимы иSQL иPython. Нет оснований ожидать превосходства Python как языка. H006 сравнивает результат поиска через разные интерфейсы/промпты; одинаковые матрицы с теми же настройкамиLightGBM дают одинаковое обучение. Активный протокол не изменён.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "searching"
+}
+```
+
+## 2026-10-17T11:47:00+03:00 — tdm_next_experiments_proposed
+
+User asked which TDM experiments could establish potential. Proposed validation-only routing/history diagnostics, a matched leaf-only DNN versus new TDM control, separate weekly-loss and negative-allocation ablations, then conditional tree/features/JTM and scale checks. Plan saved in reports/tdm_assessment/next_experiments.md. Proposals only: no training launched, no active LLM protocol or environment changed. Previously viewed test must not be used for tuning; confirm promising results across seeds and additional temporal holdout.
+
+## 2026-10-17T11:54:29+03:00 — provider_python_search_finished
+
+Python эксперимент завершён; требуется независимый аудит. Отбор заморожен до test.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449"
+}
+```
+
+## 2026-10-17T11:56:22+03:00 — provider_python_prompt_log_reconciled
+
+Независимый аудит нашёл неточность лога приresume call8: prompt.txt был заменён реконструированнымv2 текстом, хотя ответ повторно не запрашивался. Фактически отправленныйprompt восстановлен из неизменного APIrequest (совпадаетсv1); неотправленный текст сохранён отдельно. Данные, код модели, отбор и метрики не менялись.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_python_seed42_v2_db3ced2f4449"
+}
+```
+
+## 2026-10-17T11:59:40+03:00 — provider_python_experiment_audited
+
+H006 завершена и независимо проверена: Python test MAP@12 1.357362%, validation 1.079708%; SQL 0.979030%, прежний Qwen7B 1.107143%, raw 0.959630%. 20 оценённых программ, 22 фактическихAPIPOST в одном потоке; отказовкода 1, дубликатов 0, ошибокAPI 1. v1 сохранён, исправлениеv2 выполнено до итогового выбора/test без повторной генерации первых8ответов. 29 регрессий, дополнительный разбор всех ответов и независимые SQL эталоны пройдены. Численно различных train-матриц 18 из20; confirmation-кандидаты численно различаются. Все12признаков победителя выраженыSQL и дают точно те жеfloat32 значения на всех72813train-парах. Одинseed/250ранее просмотренныхtest пользователей; это диагностическое сравнение, не воспроизведение статьи.
+
+Запуск: `hm_small_gpt61sol_python_seed42_v2_db3ced2f4449`.
+
+```json
+{
+  "status": "complete",
+  "artifacts": "reports/gpt61sol_python_v1",
+  "api_requests": 22,
+  "evaluated_distinct": 20,
+  "val_metrics": {
+    "map": 0.010797076339839498
+  },
+  "test_metrics": {
+    "map": 0.013573617123617125
+  },
+  "independent_audit": "passed",
+  "validator_audit": "passed",
+  "source_run": "hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1"
+}
+```
+
+## 2026-10-17T12:10:04+03:00 — authored20_protocol_registered
+
+H007: пользователь поручил текущей сессии Codex самостоятельно написать и оценить ровно20 наборов. Адаптивный поиск по3популяциям, выбор родителей поsearch. Те же72813пары/LightGBM150/31/4CPU/seed42. Точная модель сессии не аттестована; сравнение не доказывает подмену провайдером. Текущая сессия знает историю, ограничение2048токенов к ней не применяется. Черновики не обучались; только20зафиксированных перед оценкой предложений будут оценены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "prepared",
+  "artifacts": "LLMFeatures/results/hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9",
+  "planned_sets": 20,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:11:52+03:00 — authored20_candidate_committed
+
+Зафиксирован набор1/20, популяция0, родительNone. 12 новых признаков. Решение записано до получения егоMAP. Начальная популяция0: компактная временная основа и повторные покупки. Контроль — raw15; новые метрики ещё не известны.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 1,
+  "evaluated_sets": 0,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:12:13+03:00 — authored20_candidate_evaluated
+
+Набор1/20 оценён: searchMAP@12 1.526199%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 1,
+  "committed_sets": 1,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:13:17+03:00 — authored20_candidate_committed
+
+Зафиксирован набор2/20, популяция1, родительNone. 21 новых признаков. Решение записано до получения егоMAP. Начальная популяция1 независимо от популяции0. Проверяю близость кандидата к личной истории продуктовых семей и типов, с поправкой на глобальную популярность.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 2,
+  "evaluated_sets": 1,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:13:31+03:00 — authored20_candidate_evaluated
+
+Набор2/20 оценён: searchMAP@12 0.931328%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 2,
+  "committed_sets": 2,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:13:31+03:00 — authored20_candidate_committed
+
+Зафиксирован набор3/20, популяция2, родительNone. 23 новых признаков. Решение записано до получения егоMAP. Начальная популяция2: считаю сходство разных категорий по общим покупателям на прошлой90-дневной истории, убирая диагональ. Этот коллективный сигнал дополняет личные частоты; валидационных результатов ещё нет.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 3,
+  "evaluated_sets": 2,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:14:03+03:00 — authored20_candidate_evaluated
+
+Набор3/20 оценён: searchMAP@12 1.197607%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 3,
+  "committed_sets": 3,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:14:58+03:00 — authored20_candidate_committed
+
+Зафиксирован набор4/20, популяция0, родитель1. 20 новых признаков. Решение записано до получения егоMAP. Родитель1 дал search1.526199%. Сохраняю все12признаков, добавляю относительные короткие/длинные тренды товара и пользователя и тренды типов/секций. Это проверка, помогает ли свежесть популярности сверх абсолютных счётчиков.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 4,
+  "evaluated_sets": 3,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:15:12+03:00 — authored20_candidate_evaluated
+
+Набор4/20 оценён: searchMAP@12 1.203046%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 4,
+  "committed_sets": 4,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:15:12+03:00 — authored20_candidate_committed
+
+Зафиксирован набор5/20, популяция1, родитель2. 25 новых признаков. Решение записано до получения егоMAP. Родитель2 дал search0.931328%. Узкая продуктовая семья может иметь мало повторений; убираю её отдельные счётчики, сохраняю тип и добавляю более общие секцию/цвет, их давность и30-дневные доли. Ценовой разрыв и разнообразие дополняют сигналы пользователя.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 5,
+  "evaluated_sets": 4,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:15:25+03:00 — authored20_candidate_evaluated
+
+Набор5/20 оценён: searchMAP@12 1.765715%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 5,
+  "committed_sets": 5,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:15:25+03:00 — authored20_candidate_committed
+
+Зафиксирован набор6/20, популяция2, родитель3. 26 новых признаков. Решение записано до получения егоMAP. Родитель3 дал search1.197607%. Делаю коллективный сигнал менее разреженным: оставляю типы/секции, добавляю365-дневный горизонт вместо графов цвета/группы одежды. Дополняю недавними личными предпочтениями и относительным ценовым отклонением.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 6,
+  "evaluated_sets": 5,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:16:03+03:00 — authored20_candidate_evaluated
+
+Набор6/20 оценён: searchMAP@12 1.791295%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 6,
+  "committed_sets": 6,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:16:51+03:00 — authored20_candidate_committed
+
+Зафиксирован набор7/20, популяция0, родитель1. 19 новых признаков. Решение записано до получения егоMAP. Расширение4 дало1.203046% против1.526199% у1; возвращаюсь к лучшему родителю1. Вместо множества отношений окон добавляю экспоненциальное затухание14/30дней и долю/относительную давность повторных покупок.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 7,
+  "evaluated_sets": 6,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:17:06+03:00 — authored20_candidate_evaluated
+
+Набор7/20 оценён: searchMAP@12 1.473214%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 7,
+  "committed_sets": 7,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:17:06+03:00 — authored20_candidate_committed
+
+Зафиксирован набор8/20, популяция1, родитель5. 31 новых признаков. Решение записано до получения егоMAP. Набор5 улучшил собственную ветку с0.931328% до1.765715%. Сохраняю его25признаков и добавляю затухающие предпочтения типа/секции/цвета, вес повторной покупки и масштабированное ценовое отклонение. Проверяю непрерывную давность сверх фиксированного30-дневного окна.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 8,
+  "evaluated_sets": 7,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:17:20+03:00 — authored20_candidate_evaluated
+
+Набор8/20 оценён: searchMAP@12 2.148015%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 8,
+  "committed_sets": 8,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:17:21+03:00 — authored20_candidate_committed
+
+Зафиксирован набор9/20, популяция2, родитель6. 26 новых признаков. Решение записано до получения егоMAP. Набор6 поднял search ветки с1.197607% до1.791295%, но изменял несколько компонентов сразу. Проверяю более простой вариант с365-дневными графами типов/секций;90-дневные убираю, добавляю разнообразие пользователя и число уникальных покупателей товара. Остальные признаки6 сохраняю.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 9,
+  "evaluated_sets": 8,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:17:47+03:00 — authored20_candidate_evaluated
+
+Набор9/20 оценён: searchMAP@12 1.806486%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 9,
+  "committed_sets": 9,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:18:47+03:00 — authored20_candidate_committed
+
+Зафиксирован набор10/20, популяция0, родитель1. 19 новых признаков. Решение записано до получения егоMAP. В этой популяции и тренды4(1.203046%), и затухание7(1.473214%) не обошли1(1.526199%). Снова беру1, проверяю другое направление: историческую цену кандидата относительно среднего/разброса бюджета пользователя и цены типа.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 10,
+  "evaluated_sets": 9,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:19:01+03:00 — authored20_candidate_evaluated
+
+Набор10/20 оценён: searchMAP@12 1.049624%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 10,
+  "committed_sets": 10,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:19:01+03:00 — authored20_candidate_committed
+
+Зафиксирован набор11/20, популяция1, родитель8. 36 новых признаков. Решение записано до получения егоMAP. Набор8 улучшил5 с1.765715% до2.148015%, поэтому сохраняю все31признак8. Добавляю разницу между давностью категории и последней покупкой пользователя, ценовой межквартильный размах и совместимость исторического канала. Получается36признаков — прежний предел.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 11,
+  "evaluated_sets": 10,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:19:15+03:00 — authored20_candidate_evaluated
+
+Набор11/20 оценён: searchMAP@12 1.614076%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 11,
+  "committed_sets": 11,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:19:15+03:00 — authored20_candidate_committed
+
+Зафиксирован набор12/20, популяция2, родитель9. 30 новых признаков. Решение записано до получения егоMAP. Набор9 дал1.806486% против1.791295% у6 — небольшое улучшение, но по установленному правилу родитель9. Сохраняю его26признаков и дополняю плавно затухающими личными предпочтениями типа/секции/цвета и весом повторной покупки, чтобы совместить долгую коллективную историю с текущими интересами.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 12,
+  "evaluated_sets": 11,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:19:42+03:00 — authored20_candidate_evaluated
+
+Набор12/20 оценён: searchMAP@12 1.119637%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 12,
+  "committed_sets": 12,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:21:24+03:00 — authored20_candidate_committed
+
+Зафиксирован набор13/20, популяция0, родитель1. 11 новых признаков. Решение записано до получения егоMAP. Родитель1 остаётся лучшим1.526199%; добавление цен10 ухудшило до1.049624%. Теперь сокращаю общие пользовательские/длинные счётчики и акцентирую давность/частоту конкретного товара и его продуктовой семьи. Это структурное упрощение, а не смена параметровLightGBM.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 13,
+  "evaluated_sets": 12,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:21:37+03:00 — authored20_candidate_evaluated
+
+Набор13/20 оценён: searchMAP@12 1.260293%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 13,
+  "committed_sets": 13,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:21:37+03:00 — authored20_candidate_committed
+
+Зафиксирован набор14/20, популяция1, родитель8. 28 новых признаков. Решение записано до получения егоMAP. У8 search2.148015%, расширение11 до36признаков дало лишь1.614076%. Возвращаюськ8; убираю часть абсолютных счётчиков категорий, уже представленных долями и давностью, и оставляю стандартизированный ценовой разрыв вместо двух его версий. Добавляю30-дневную и затухающую долю отдела как более общий уровень интереса.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 14,
+  "evaluated_sets": 13,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:21:50+03:00 — authored20_candidate_evaluated
+
+Набор14/20 оценён: searchMAP@12 1.677489%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 14,
+  "committed_sets": 14,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:21:51+03:00 — authored20_candidate_committed
+
+Зафиксирован набор15/20, популяция2, родитель9. 24 новых признаков. Решение записано до получения егоMAP. У9 search1.806486%, добавлениезатухания12 снизило до1.119637%. Проверяю, нужны ли сами графы: удаляю только graph_t365/graph_s365 из9, сохраняя все остальные24признака. Такое сравнение поможет выбрать направление последних шагов этой популяции.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 15,
+  "evaluated_sets": 14,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:22:04+03:00 — authored20_candidate_evaluated
+
+Набор15/20 оценён: searchMAP@12 1.768663%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 15,
+  "committed_sets": 15,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:23:16+03:00 — authored20_candidate_committed
+
+Зафиксирован набор16/20, популяция0, родитель1. 18 новых признаков. Решение записано до получения егоMAP. После четырёхнеудачных расширений лучшимвветкеостаётся1(1.526199%); упрощение13 дало1.260293%. Сохраняю12признаков1 и проверяю новый для этой ветки сигнал: прямые личные счётчики и давность секции, продуктовой семьи и цвета, вместо дополнительных глобальных трендов/цен.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 16,
+  "evaluated_sets": 15,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:23:29+03:00 — authored20_candidate_evaluated
+
+Набор16/20 оценён: searchMAP@12 1.441310%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 16,
+  "committed_sets": 16,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:23:29+03:00 — authored20_candidate_committed
+
+Зафиксирован набор17/20, популяция1, родитель8. 30 новых признаков. Решение записано до получения егоMAP. Родитель8 остаётся лучшим2.148015%; добавление11 и многокомпонентное сокращение14 хуже(1.614076%,1.677489%). Теперь меняю ровноодинпризнак: убираю абсолютныйprice_gap, оставляя масштабированныйprice_z. Проверяю более контролируемое сокращение коррелирующей информации.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 17,
+  "evaluated_sets": 16,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:23:42+03:00 — authored20_candidate_evaluated
+
+Набор17/20 оценён: searchMAP@12 1.181176%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 17,
+  "committed_sets": 17,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:23:42+03:00 — authored20_candidate_committed
+
+Зафиксирован набор18/20, популяция2, родитель9. 28 новых признаков. Решение записано до получения егоMAP. Удалениеграфов15 дало1.768663% против1.806486% у9 — небольшой спад, потому сохраняю9какродителя. Последний шаг этой популяции расширяет365-дневный коллективный сигнал двумя уровнями:цветом и группой одежды. Не возвращаю затухание, которое в12 ухудшило результат.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 18,
+  "evaluated_sets": 17,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:24:19+03:00 — authored20_candidate_evaluated
+
+Набор18/20 оценён: searchMAP@12 1.203215%, популяция2. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 18,
+  "committed_sets": 18,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:26:14+03:00 — authored20_candidate_committed
+
+Зафиксирован набор19/20, популяция0, родитель1. 16 новых признаков. Решение записано до получения егоMAP. Лучший0по-прежнему1(1.526199%); личные категории16 дали1.441310%, а предыдущие временные/ценовые варианты не улучшили1. Последний шаг ветки проверяет отдельный источник информации: возраст исторических покупателей товара/типа и его отклонение от возраста пользователя. Добавляю четыре признака к неизменённому1.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 19,
+  "evaluated_sets": 18,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:26:26+03:00 — authored20_candidate_evaluated
+
+Набор19/20 оценён: searchMAP@12 1.005704%, популяция0. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 19,
+  "committed_sets": 19,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:26:26+03:00 — authored20_candidate_committed
+
+Зафиксирован набор20/20, популяция1, родитель8. 35 новых признаков. Решение записано до получения егоMAP. Родитель8 остаётся2.148015%; удаление толькоprice_gap в17 снизило до1.181176%, поэтому сохраняю все31признак8. В последнем разрешённом наборе добавляю явные счётчики типа за7дней, секции/цвета за30дней и покупок пользователя за7дней. Часть информации связана с долями, но такие координаты могут быть удобнее деревьям. Это ровно20-й набор, дальше поиск не продолжается.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "committed_sets": 20,
+  "evaluated_sets": 19,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T12:26:40+03:00 — authored20_candidate_evaluated
+
+Набор20/20 оценён: searchMAP@12 1.205808%, популяция1. Матрица численно отличается от предыдущих; код и адаптивное решение сохранены.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "searching",
+  "evaluated_sets": 20,
+  "committed_sets": 20,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T13:13:37+03:00 — fresh_chat_prompt_prepared
+
+Сохранён самостоятельный промпт без прежних решений: три популяции, 20 адаптивных наборов, только сгенерированные признаки в LightGBM. Созданы search_results.md/csv для 20 уже оценённых наборов H007; поиск H007 не является слепым, confirmation/test ещё не выполнены. Новый промпт не означает запуска API generated-only.
+
+## 2026-10-17T13:17:12+03:00 — authored20_search_plots
+
+Построены search_dashboard и 6 графиков PNG/SVG для 20 наборов H007: ход поиска, лидеры популяций, оценки наборов, гистограмма MAP, гистограмма AP пользователей и train loss. Средние сохранённых AP всех 20 наборов сверены с search MAP. Новых обучений/API нет; confirmation/test не выполнялись. Артефакты: reports/authored20_v1/plots.
+
+## 2026-10-17T13:20:02+03:00 — authored20_selection_frozen
+
+Все20 наборов оценены. Победитель выбран поconfirmation88 до итоговой оценкиval/test.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "evaluating",
+  "selected_call": 9,
+  "authored_sets": 20,
+  "api_requests": 0
+}
+```
+
+## 2026-10-17T13:22:17+03:00 — authored20_scoring_complete
+
+All 20 sets retained; confirmation selected set 9. Final scores and six frozen replays completed. Legacy API-efficiency report failed on a missing non-API config key; verified output-only recovery, frozen sources/config unchanged. Independent audit next.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "authored_sets": 20,
+  "api_requests": 0,
+  "artifacts": "reports/authored20_v1"
+}
+```
+
+## 2026-10-17T13:25:18+03:00 — authored20_comparison_delivered
+
+Аудит H007 пройден:20 различных наборов, цепочка решений и независимые replay проверены. Выбран9: validation1.260603%,test2.231032%. Создан общий график reports/authored20_v1/comparison_all_methods.png. Исправлена ошибка в промпте нового чата: SHA256 байтов train_pairs.parquet=b30309d657a3d5aa7772a9affe81fb558c8a5289a8c9d39992ca12735821e719; a583938... — логический отпечаток записей, не хеш файла.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "complete"
+}
+```
+
+## 2026-10-17T13:29:27+03:00 — authored20_verified_metrics_registered
+
+H007 complete: 20 adaptive sets, 3 populations; confirmation selected set 9. Validation MAP@12 1.260603%, test 2.231032%. Audit passed. Generated features plus raw15; prior experiment history known, not a blind search.
+
+Запуск: `hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9`.
+
+```json
+{
+  "status": "complete",
+  "selected_call": 9,
+  "authored_sets": 20,
+  "api_requests": 0,
+  "audit_status": "passed",
+  "prior_experiment_history_known": true,
+  "automatic_raw_features": 15,
+  "artifacts": "reports/authored20_v1",
+  "search_metrics": {
+    "map": 0.018064856150793653
+  },
+  "confirm_metrics": {
+    "map": 0.010532475731339369
+  },
+  "heldout_val_metrics": {
+    "map": 0.006739472648563558
+  },
+  "val_metrics": {
+    "map": 0.012606029752411332
+  },
+  "test_metrics": {
+    "map": 0.02231031746031746
+  }
+}
+```
+
+## 2026-10-17T13:39:25+03:00 — provider_generated_only_prepared
+
+H008: new GPT-6.1 Sol API stream, only generated f_* features enter LightGBM. Same data/LightGBM/seed/best-only memory as H006; constant-only control,20 valid programs/300 POST/3 repairs/3 islands.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "prepared",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde"
+}
+```
+
+## 2026-10-17T13:40:37+03:00 — provider_generated_only_started
+
+Validator verified; starting constant control and fresh API search.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde"
+}
+```
+
+## 2026-10-17T13:41:46+03:00 — provider_generated_only_progress
+
+H008: 1/20 programs evaluated; 1 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 1,
+  "responses": 1,
+  "api_requests": 1
+}
+```
+
+## 2026-10-17T13:42:28+03:00 — provider_generated_only_progress
+
+H008: 2/20 programs evaluated; 2 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 2,
+  "responses": 2,
+  "api_requests": 2
+}
+```
+
+## 2026-10-17T13:42:55+03:00 — experiment_completed
+
+Independent H&M adaptive feature search completed in .venv-wsl: 20 numerically distinct sets, populations 7/7/6. Winner s17 selected by confirm; final test MAP@12=0.024371224146224148. Original train_pairs checksum differed; user explicitly authorized actual file in a new protocol. Old solutions/history were not read.
+
+Запуск: `isolated_hm_20261017_venvwsl_v1`.
+
+```json
+{
+  "status": "completed",
+  "winner": "s17",
+  "metrics": {
+    "s17": {
+      "heldout_val": {
+        "split": "heldout_val",
+        "n_users": 88,
+        "map12": 0.030298520923520922,
+        "max_feature_batch_seconds": 0.22584884500065527,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      },
+      "validation": {
+        "split": "validation",
+        "n_users": 304,
+        "map12": 0.02280822400065821,
+        "max_feature_batch_seconds": 0.20266831800108775,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      },
+      "test": {
+        "split": "test",
+        "n_users": 250,
+        "map12": 0.024371224146224148,
+        "max_feature_batch_seconds": 0.34216597600061505,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      }
+    },
+    "control": {
+      "heldout_val": {
+        "split": "heldout_val",
+        "n_users": 88,
+        "map12": 0.0009469696969696969,
+        "max_feature_batch_seconds": 0.007121442000425304,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      },
+      "validation": {
+        "split": "validation",
+        "n_users": 304,
+        "map12": 0.00027412280701754384,
+        "max_feature_batch_seconds": 0.00837782700000389,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      },
+      "test": {
+        "split": "test",
+        "n_users": 250,
+        "map12": 0.0016666666666666666,
+        "max_feature_batch_seconds": 0.008947611000621691,
+        "full_catalog_size": 5000,
+        "batch_users": 16
+      }
+    }
+  },
+  "counts": {
+    "successful_feature_sets": 20,
+    "population_sizes": [
+      7,
+      7,
+      6
+    ],
+    "substantive_proposal_versions": 20,
+    "control_proposals": 1,
+    "total_submitted_versions_including_control": 21,
+    "repairs": 0,
+    "rejections": 0,
+    "numerical_duplicates": 0,
+    "trainings_current_run": 21,
+    "superseded_control_trainings": 1,
+    "trainings_total_chat": 22,
+    "post_selection_trainings": 0
+  },
+  "report": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/isolated_hm_20261017_venvwsl_v1/REPORT.md",
+  "history_read": false,
+  "train_pairs_sha256": "b30309d657a3d5aa7772a9affe81fb558c8a5289a8c9d39992ca12735821e719"
+}
+```
+
+## 2026-10-17T13:43:11+03:00 — provider_generated_only_progress
+
+H008: 3/20 programs evaluated; 3 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 3,
+  "responses": 3,
+  "api_requests": 3
+}
+```
+
+## 2026-10-17T13:43:59+03:00 — provider_generated_only_progress
+
+H008: 4/20 programs evaluated; 4 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 4,
+  "responses": 4,
+  "api_requests": 4
+}
+```
+
+## 2026-10-17T13:44:46+03:00 — provider_generated_only_progress
+
+H008: 4/20 programs evaluated; 5 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 4,
+  "responses": 5,
+  "api_requests": 5
+}
+```
+
+## 2026-10-17T13:45:12+03:00 — provider_generated_only_progress
+
+H008: 5/20 programs evaluated; 6 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 5,
+  "responses": 6,
+  "api_requests": 6
+}
+```
+
+## 2026-10-17T13:46:03+03:00 — provider_generated_only_progress
+
+H008: 6/20 programs evaluated; 7 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 6,
+  "responses": 7,
+  "api_requests": 7
+}
+```
+
+## 2026-10-17T13:46:28+03:00 — provider_generated_only_progress
+
+H008: 7/20 programs evaluated; 8 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 7,
+  "responses": 8,
+  "api_requests": 8
+}
+```
+
+## 2026-10-17T13:46:55+03:00 — provider_generated_only_progress
+
+H008: 8/20 programs evaluated; 9 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 8,
+  "responses": 9,
+  "api_requests": 9
+}
+```
+
+## 2026-10-17T13:47:23+03:00 — provider_generated_only_progress
+
+H008: 9/20 programs evaluated; 10 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 9,
+  "responses": 10,
+  "api_requests": 10
+}
+```
+
+## 2026-10-17T13:47:51+03:00 — provider_generated_only_progress
+
+H008: 10/20 programs evaluated; 11 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 10,
+  "responses": 11,
+  "api_requests": 11
+}
+```
+
+## 2026-10-17T13:48:18+03:00 — provider_generated_only_progress
+
+H008: 11/20 programs evaluated; 12 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 11,
+  "responses": 12,
+  "api_requests": 12
+}
+```
+
+## 2026-10-17T13:48:41+03:00 — provider_generated_only_progress
+
+H008: 12/20 programs evaluated; 13 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 12,
+  "responses": 13,
+  "api_requests": 13
+}
+```
+
+## 2026-10-17T13:48:57+03:00 — provider_generated_only_progress
+
+H008: 12/20 programs evaluated; 14 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 12,
+  "responses": 14,
+  "api_requests": 14
+}
+```
+
+## 2026-10-17T13:49:25+03:00 — provider_generated_only_progress
+
+H008: 13/20 programs evaluated; 15 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 13,
+  "responses": 15,
+  "api_requests": 15
+}
+```
+
+## 2026-10-17T13:49:53+03:00 — provider_generated_only_progress
+
+H008: 14/20 programs evaluated; 16 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 14,
+  "responses": 16,
+  "api_requests": 16
+}
+```
+
+## 2026-10-17T13:50:15+03:00 — provider_generated_only_progress
+
+H008: 15/20 programs evaluated; 17 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 15,
+  "responses": 17,
+  "api_requests": 17
+}
+```
+
+## 2026-10-17T13:50:42+03:00 — provider_generated_only_progress
+
+H008: 16/20 programs evaluated; 18 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 16,
+  "responses": 18,
+  "api_requests": 18
+}
+```
+
+## 2026-10-17T13:51:14+03:00 — provider_generated_only_progress
+
+H008: 17/20 programs evaluated; 19 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 17,
+  "responses": 19,
+  "api_requests": 19
+}
+```
+
+## 2026-10-17T13:51:38+03:00 — provider_generated_only_progress
+
+H008: 18/20 programs evaluated; 20 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 18,
+  "responses": 20,
+  "api_requests": 20
+}
+```
+
+## 2026-10-17T13:51:56+03:00 — provider_generated_only_progress
+
+H008: 18/20 programs evaluated; 21 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 18,
+  "responses": 21,
+  "api_requests": 21
+}
+```
+
+## 2026-10-17T13:52:26+03:00 — provider_generated_only_progress
+
+H008: 19/20 programs evaluated; 22 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 19,
+  "responses": 22,
+  "api_requests": 22
+}
+```
+
+## 2026-10-17T13:52:59+03:00 — provider_generated_only_progress
+
+H008: 20/20 programs evaluated; 23 responses processed.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "searching",
+  "measured": 20,
+  "responses": 23,
+  "api_requests": 23
+}
+```
+
+## 2026-10-17T13:53:31+03:00 — provider_generated_only_selection_frozen
+
+Selection frozen on confirmation before final evaluation.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "evaluating",
+  "selected_call": 12,
+  "measured": 20
+}
+```
+
+## 2026-10-17T13:55:12+03:00 — provider_generated_only_finished
+
+Search and final evaluation completed; independent audit required.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde"
+}
+```
+
+## 2026-10-17T13:56:09+03:00 — provider_generated_only_audited
+
+H008 complete: generated-only inputs verified; final metrics and plots audited.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "complete",
+  "automatic_raw_features": 0,
+  "audit_status": "passed",
+  "api_requests": 23,
+  "measured": 20,
+  "numeric_distinct_sets": 19,
+  "selected_call": 12,
+  "val_metrics": {
+    "map": 0.014785629108545773
+  },
+  "test_metrics": {
+    "map": 0.014267604617604618
+  },
+  "artifacts": "reports/provider_generated_only_v1"
+}
+```
+
+## 2026-10-17T13:57:19+03:00 — provider_generated_only_summary
+
+H008 verified:23 API POST,20 valid programs,3 genuine preflight rejections,0 HTTP failures;19 unordered numeric feature sets (calls9/16 coincide by values but differ in column order). Selected12:25 explicitly returned inputs including7 static copies, automatic raw15=0. Validation1.478563%,test1.426760%; prior H006test1.357362%, difference+0.069399pp, paired-user95%CI[-1.034078,1.273127] includes0. Report/plots/archive delivered in reports/provider_generated_only_v1 and the unique run folder.
+
+Запуск: `hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde`.
+
+```json
+{
+  "status": "complete"
+}
+```
+
+## 2026-10-17T14:02:29+03:00 — provider_history_prepared
+
+H009: fresh GPT API stream, full separate history of each island, including failures and search feedback. Same generated-only features/data/downstream/20 valid/300POST/3repairs as H008. No history truncation; input-token budget differs.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "prepared",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0"
+}
+```
+
+## 2026-10-17T14:03:56+03:00 — provider_history_progress
+
+H009: 1/20 valid; 1 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 1,
+  "responses": 1,
+  "api_requests": 1
+}
+```
+
+## 2026-10-17T14:04:44+03:00 — provider_history_progress
+
+H009: 2/20 valid; 2 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 2,
+  "responses": 2,
+  "api_requests": 2
+}
+```
+
+## 2026-10-17T14:05:35+03:00 — provider_history_progress
+
+H009: 3/20 valid; 3 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 3,
+  "responses": 3,
+  "api_requests": 3
+}
+```
+
+## 2026-10-17T14:06:15+03:00 — provider_history_progress
+
+H009: 4/20 valid; 4 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 4,
+  "responses": 4,
+  "api_requests": 4
+}
+```
+
+## 2026-10-17T14:06:54+03:00 — provider_history_progress
+
+H009: 5/20 valid; 5 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 5,
+  "responses": 5,
+  "api_requests": 5
+}
+```
+
+## 2026-10-17T14:07:43+03:00 — provider_history_progress
+
+H009: 6/20 valid; 6 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 6,
+  "responses": 6,
+  "api_requests": 6
+}
+```
+
+## 2026-10-17T14:08:27+03:00 — provider_history_progress
+
+H009: 7/20 valid; 7 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 7,
+  "responses": 7,
+  "api_requests": 7
+}
+```
+
+## 2026-10-17T14:09:03+03:00 — provider_history_progress
+
+H009: 8/20 valid; 8 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 8,
+  "responses": 8,
+  "api_requests": 8
+}
+```
+
+## 2026-10-17T14:09:33+03:00 — provider_history_progress
+
+H009: 9/20 valid; 9 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 9,
+  "responses": 9,
+  "api_requests": 9
+}
+```
+
+## 2026-10-17T14:09:58+03:00 — provider_history_progress
+
+H009: 10/20 valid; 10 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 10,
+  "responses": 10,
+  "api_requests": 10
+}
+```
+
+## 2026-10-17T14:10:28+03:00 — provider_history_progress
+
+H009: 10/20 valid; 11 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 10,
+  "responses": 11,
+  "api_requests": 11
+}
+```
+
+## 2026-10-17T14:11:02+03:00 — provider_history_progress
+
+H009: 11/20 valid; 12 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 11,
+  "responses": 12,
+  "api_requests": 12
+}
+```
+
+## 2026-10-17T14:11:32+03:00 — provider_history_progress
+
+H009: 12/20 valid; 13 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 12,
+  "responses": 13,
+  "api_requests": 13
+}
+```
+
+## 2026-10-17T14:11:56+03:00 — provider_history_progress
+
+H009: 12/20 valid; 14 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 12,
+  "responses": 14,
+  "api_requests": 14
+}
+```
+
+## 2026-10-17T14:12:21+03:00 — provider_history_progress
+
+H009: 12/20 valid; 15 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 12,
+  "responses": 15,
+  "api_requests": 15
+}
+```
+
+## 2026-10-17T14:12:52+03:00 — provider_history_progress
+
+H009: 13/20 valid; 16 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 13,
+  "responses": 16,
+  "api_requests": 16
+}
+```
+
+## 2026-10-17T14:13:19+03:00 — provider_history_progress
+
+H009: 13/20 valid; 17 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 13,
+  "responses": 17,
+  "api_requests": 17
+}
+```
+
+## 2026-10-17T14:13:54+03:00 — provider_history_progress
+
+H009: 14/20 valid; 18 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 14,
+  "responses": 18,
+  "api_requests": 18
+}
+```
+
+## 2026-10-17T14:14:41+03:00 — provider_history_progress
+
+H009: 15/20 valid; 19 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 15,
+  "responses": 19,
+  "api_requests": 19
+}
+```
+
+## 2026-10-17T14:15:23+03:00 — provider_history_progress
+
+H009: 16/20 valid; 20 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 16,
+  "responses": 20,
+  "api_requests": 20
+}
+```
+
+## 2026-10-17T14:15:51+03:00 — provider_history_progress
+
+H009: 17/20 valid; 21 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 17,
+  "responses": 21,
+  "api_requests": 21
+}
+```
+
+## 2026-10-17T14:16:08+03:00 — provider_history_host_limit
+
+H009: call15 rejected because restricted host omits hasattr, not because ordinary Python is invalid. Separate diagnostic allowing only hasattr preserves AST/I/O restrictions, passes preflight and exactly matches accepted call16 on all72813 train pairs. Live sources/config unchanged;0 extra fits/0 API. This limitation must be disclosed and fixed or documented before a future protocol.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+## 2026-10-17T14:16:37+03:00 — provider_history_progress
+
+H009: 18/20 valid; 22 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 18,
+  "responses": 22,
+  "api_requests": 22
+}
+```
+
+## 2026-10-17T14:17:25+03:00 — provider_history_progress
+
+H009: 19/20 valid; 23 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 19,
+  "responses": 23,
+  "api_requests": 23
+}
+```
+
+## 2026-10-17T14:17:53+03:00 — provider_history_progress
+
+H009: 20/20 valid; 24 responses.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "searching",
+  "measured": 20,
+  "responses": 24,
+  "api_requests": 24
+}
+```
+
+## 2026-10-17T14:18:32+03:00 — provider_history_selection_frozen
+
+Full-history selection frozen before final targets.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "evaluating",
+  "selected_call": 6
+}
+```
+
+## 2026-10-17T14:20:25+03:00 — provider_history_finished
+
+H009 final scoring completed; independent audit next.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "completed_pending_audit",
+  "artifacts": "LLMFeatures/results/hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0"
+}
+```
+
+## 2026-10-17T14:22:46+03:00 — provider_history_audited
+
+H009 complete: full own-island message histories verified; final metrics and plots audited.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "complete",
+  "automatic_raw_features": 0,
+  "audit_status": "passed",
+  "api_requests": 24,
+  "measured": 20,
+  "numeric_distinct_sets": 18,
+  "selected_call": 6,
+  "val_metrics": {
+    "map": 0.022869891743247005
+  },
+  "test_metrics": {
+    "map": 0.007215958284140102
+  },
+  "artifacts": "reports/provider_history_v1"
+}
+```
+
+## 2026-10-17T14:24:27+03:00 — provider_history_verified_summary
+
+H009 complete:24 API POST,20 accepted programs,18 unordered numeric sets. Selected6:validation2.286989%,test0.721596% versus best-only H008test1.426760%. All own-island histories/search feedback verified, max18 messages/38143 input tokens, 385823 total input tokens versus55261. Four rejections include one HOST hasattr limitation; diagnostic proves rejected15 equals accepted16 when only hasattr is enabled. Live runtime unchanged. One run does not establish a universal memory effect.
+
+Запуск: `hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0`.
+
+```json
+{
+  "status": "complete",
+  "audit_status": "passed",
+  "api_requests": 24,
+  "measured": 20,
+  "numeric_distinct_sets": 18,
+  "selected_call": 6,
+  "full_own_island_history_verified": true,
+  "input_tokens": 385823,
+  "max_input_tokens_observed": 38143,
+  "automatic_raw_features": 0,
+  "host_builtin_limitations": 1,
+  "artifacts": "reports/provider_history_v1",
+  "search_metrics": {
+    "map": 0.029162016369047625
+  },
+  "confirm_metrics": {
+    "map": 0.016740319865319864
+  },
+  "heldout_val_metrics": {
+    "map": 0.019847282347282346
+  },
+  "val_metrics": {
+    "map": 0.022869891743247005
+  },
+  "test_metrics": {
+    "map": 0.007215958284140102
+  }
+}
+```
+
+## 2026-10-17T17:38:54+03:00 — gitignore_cleanup
+
+Updated ignore rules for raw GPT/authored runs, smoke/replay outputs, provider probes, local pointers and editor settings. Preserved configs/manifests, source, notebooks, summary reports and plots. Exported six selected feature programs with SHA256 manifests to report folders. Untracked files reduced from2453 to339. Files and Git index were not deleted or modified; .gitignore self-ignore preserved.

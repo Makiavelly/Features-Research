@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-16T21:29:47+03:00 (Москва).
+Обновлено: 2026-10-17T17:38:54+03:00 (Москва).
 
-Последнее событие: **По просьбе пользователя исключены из Git зависимости аудита, установщик pip, распакованные результаты Kaggle, архивы результатов и временные SQL/scratch файлы. Сам .gitignore остаётся игнорируемым. Код, ноутбуки, отчёты и история сохранены; файлы не удалялись, индекс Git не менялся.**
+Последнее событие: **Updated ignore rules for raw GPT/authored runs, smoke/replay outputs, provider probes, local pointers and editor settings. Preserved configs/manifests, source, notebooks, summary reports and plots. Exported six selected feature programs with SHA256 manifests to report folders. Untracked files reduced from2453 to339. Files and Git index were not deleted or modified; .gitignore self-ignore preserved.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -106,5 +106,17 @@
 | hm_small_qwen_llama_sql_v1_2ecc60d61fd4_llama | complete | — | — | 2026-10-16T20:52:30+03:00 |
 | hm_small_qwen14b_sql_v1_f373011050bf | complete | — | — | 2026-10-16T20:52:30+03:00 |
 | hm_small_llms_comparison_v1 | complete | — | — | 2026-10-16T20:52:31+03:00 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003a | complete | — | — | 2026-10-17T09:27:39+03:00 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003b | complete | — | — | 2026-10-17T09:27:39+03:00 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4_h003c | complete | — | — | 2026-10-17T09:27:39+03:00 |
+| hm_small_qwen7b_h003_v1_6852748fc0e4 | complete | — | — | 2026-10-17T09:27:39+03:00 |
+| hm_small_gpt61sol_full_sql_seed42_v1_f33bb22767c0 | complete | — | — | 2026-10-17T11:19:53+03:00 |
+| hm_small_gpt61sol_full_sql_corrected_eval_v2_ffbd51c51899 | complete | — | — | 2026-10-17T11:19:53+03:00 |
+| hm_small_gpt61sol_python_seed42_v1_8b3ac9a151c1 | superseded_validator_v2 | — | — | 2026-10-17T11:38:42+03:00 |
+| hm_small_gpt61sol_python_seed42_v2_db3ced2f4449 | complete | — | — | 2026-10-17T11:59:40+03:00 |
+| hm_small_codex_authored20_adaptive_seed42_v1_cbebf62371c9 | complete | — | — | 2026-10-17T13:29:27+03:00 |
+| hm_small_gpt61sol_generated_only_seed42_v1_1257cedd9dde | complete | — | — | 2026-10-17T13:57:19+03:00 |
+| isolated_hm_20261017_venvwsl_v1 | completed | — | — | 2026-10-17T13:42:55+03:00 |
+| hm_small_gpt61sol_full_history_seed42_v1_93021ef262b0 | complete | — | — | 2026-10-17T14:24:27+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

@@ -1,0 +1,434 @@
+[
+  {
+    "arm": "h003a",
+    "call": 2,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_customer_age_group sql=mode(customer_age) ORDER BY customer_age | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 4,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_customer_recent_purchase sql=case when days_ago = min(days_ago) then 1 else 0 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 5,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_customer_recent_purchase sql=case when days_ago = min(days_ago) then 1 else 0 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 6,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_customer_recent_purchase sql=case when days_ago = min(days_ago) then 1 else 0 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 7,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_customer_recent_purchase sql=case when days_ago = min(days_ago) then 1 else 0 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 10,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_purchase_history sql=approx_count_distinct(product_code) AS customer_purchase_count | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[1] f_product_popularity sql=approx_count_distinct(customer_id) AS product_popularity | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[2] f_customer_recent_purchases sql=sum(CASE WHEN days_ago < 30 THEN 1 ELSE 0 END) AS recent_purchases | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[3] f_customer_frequency sql=approx_count_distinct(product_code) AS customer_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[4] f_product_frequency sql=approx_count_distinct(customer_id) AS product_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_customer_age sql=avg(raw_u_age) AS avg_customer_age | raw_* fields absent from history; Parser Error: syntax error at or near \"AS\" | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[6] f_product_department_popularity sql=approx_count_distinct(customer_id) AS department_popularity | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_age_discount sql=f_customer_age * 0.05 AS age_discount | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[3] f_department_discount sql=f_product_department_popularity * 0.1 AS department_discount | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 11,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_purchase_history sql=approx_count_distinct(product_code) AS customer_purchase_count | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[1] f_product_popularity sql=approx_count_distinct(customer_id) AS product_popularity | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[2] f_customer_recent_purchases sql=sum(CASE WHEN days_ago < 30 THEN 1 ELSE 0 END) AS recent_purchases | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[3] f_customer_frequency sql=approx_count_distinct(product_code) AS customer_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[4] f_product_frequency sql=approx_count_distinct(customer_id) AS product_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_age_discount sql=raw_u_age * 0.05 AS age_discount | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 12,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_purchase_history sql=approx_count_distinct(product_code) AS customer_purchase_count | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[1] f_product_popularity sql=approx_count_distinct(customer_id) AS product_popularity | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[2] f_customer_recent_purchases sql=sum(CASE WHEN days_ago < 30 THEN 1 ELSE 0 END) AS recent_purchases | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[3] f_customer_frequency sql=approx_count_distinct(product_code) AS customer_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[4] f_product_frequency sql=approx_count_distinct(customer_id) AS product_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 13,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_purchase_history sql=approx_count_distinct(product_code) AS customer_purchase_count | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[1] f_product_popularity sql=approx_count_distinct(customer_id) AS product_popularity | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[2] f_customer_recent_purchases sql=sum(CASE WHEN days_ago < 30 THEN 1 ELSE 0 END) AS recent_purchases | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[3] f_customer_frequency sql=count(*) AS customer_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[4] f_product_frequency sql=count(*) AS product_frequency | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 16,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[7] f_customer_sales_channel_frequency sql=sum(case when sales_channel_id = 1 then 1 else 0 end) as sales_channel_1, sum(case when sales_channel_id = 2 then 1 else 0 end) as sales_cha | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[5] f_sales_channel_balance sql=abs(f_customer_sales_channel_frequency_sales_channel_1 - f_customer_sales_channel_frequency_sales_channel_2) | Binder Error: Referenced column \"f_customer_sales_channel_frequency_sales_channel_1\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 17,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[7] f_customer_sales_channel_frequency sql=sum(case when sales_channel_id = 1 then 1 else 0 end) + sum(case when sales_channel_id = 2 then 1 else 0 end) as sales_channel_total | Parser Error: syntax error at or near \"AS\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[5] f_sales_channel_balance sql=abs(f_customer_sales_channel_frequency_sales_channel_1 - f_customer_sales_channel_frequency_sales_channel_2) | Binder Error: Referenced column \"f_customer_sales_channel_frequency_sales_channel_1\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 18,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[7] f_customer_sales_channel_frequency sql=sum(case when sales_channel_id = 1 then 1 else 0 end) as sales_channel_1 + sum(case when sales_channel_id = 2 then 1 else 0 end) as sales_ch | Parser Error: syntax error at or near \"+\" | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[5] f_sales_channel_balance sql=abs(f_customer_sales_channel_frequency_sales_channel_1 - f_customer_sales_channel_frequency_sales_channel_2) | Binder Error: Referenced column \"f_customer_sales_channel_frequency_sales_channel_1\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 20,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[0] f_repeated_purchases sql=sum(iif(f_recent_purchases > 1, 1, 0)) | Function outside allowlist: iif | Allowed: raw_* + aggregate outputs + earlier derived"
+  },
+  {
+    "arm": "h003a",
+    "call": 21,
+    "stage": "preflight",
+    "error": "Traceback (most recent call last):\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 159, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 141, in main\n    checks = preflight(engine, pd.read_parquet(root / 'train_pairs.parquet'), program)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 55, in preflight\n    whole = timed_frame(engine, sample)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 45, in timed_frame\n    return engine.matrix(pairs)\n           ~~~~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 184, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 173, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_duckdb.BinderException: Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.\n"
+  },
+  {
+    "arm": "h003a",
+    "call": 22,
+    "stage": "preflight",
+    "error": "Traceback (most recent call last):\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 159, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 141, in main\n    checks = preflight(engine, pd.read_parquet(root / 'train_pairs.parquet'), program)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 55, in preflight\n    whole = timed_frame(engine, sample)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 45, in timed_frame\n    return engine.matrix(pairs)\n           ~~~~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 184, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 173, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_duckdb.BinderException: Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.\n"
+  },
+  {
+    "arm": "h003a",
+    "call": 23,
+    "stage": "preflight",
+    "error": "Traceback (most recent call last):\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 159, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 141, in main\n    checks = preflight(engine, pd.read_parquet(root / 'train_pairs.parquet'), program)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 55, in preflight\n    whole = timed_frame(engine, sample)\n  File \"/kaggle/working/hm_small_h003_runtime/worker.py\", line 45, in timed_frame\n    return engine.matrix(pairs)\n           ~~~~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 184, in matrix\n    values = self.frame(pairs).to_numpy(dtype=np.float32)\n             ~~~~~~~~~~^^^^^^^\n  File \"/kaggle/working/hm_small_h003_runtime/features.py\", line 173, in frame\n    frame = self.con.sql(f\"SELECT {ordered} FROM ({query}) ORDER BY rid\").df()\n            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_duckdb.BinderException: Binder Error: column \"rid\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(rid)\" if the exact value of \"rid\" is not important.\n"
+  },
+  {
+    "arm": "h003a",
+    "call": 27,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[6] f_customer_sales_channel_frequency sql=approx_count_distinct(product_code) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\naggregates[7] f_customer_normalized_discount_frequency sql=coalesce(f_customer_discount_frequency / f_customer_purchase_frequency, 0) | Binder Error: Referenced column \"f_customer_discount_frequency\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[8] f_customer_normalized_discount_average sql=coalesce(f_customer_discount_average / f_customer_purchase_frequency, 0) | Binder Error: Referenced column \"f_customer_discount_average\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 29,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[0] f_age_category sql=CASE WHEN raw_u_age < 25 THEN 'young' WHEN raw_u_age >= 25 AND raw_u_age < 50 THEN 'middle' ELSE 'senior' END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003a",
+    "call": 30,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_high_value_purchases sql=sum(case when price > quantile_cont(0.8) within group (order by price) then price else 0 end) | Function outside allowlist: group | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[6] f_middle_value_purchases sql=sum(case when price between quantile_cont(0.2) and quantile_cont(0.8) then price else 0 end) | Binder Error: aggregate function calls cannot be nested | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[7] f_low_value_purchases sql=sum(case when price <= quantile_cont(0.2) then price else 0 end) | Binder Error: aggregate function calls cannot be nested | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 31,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_high_value_purchases sql=sum(price * case when price > 0.8 * f_avg_price then 1 else 0 end) | Binder Error: Referenced column \"f_avg_price\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[6] f_low_value_purchases sql=sum(price * case when price <= 0.2 * f_avg_price then 1 else 0 end) | Binder Error: Referenced column \"f_avg_price\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 32,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_high_value_purchases sql=sum(price * case when price > 0.8 * f_avg_price then 1 else 0 end) | Binder Error: Referenced column \"f_avg_price\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[6] f_low_value_purchases sql=sum(price * case when price <= 0.2 * f_avg_price then 1 else 0 end) | Binder Error: Referenced column \"f_avg_price\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 36,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_purchase_frequency sql=approx_count_distinct(product_code) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[1] f_product_popularity sql=approx_count_distinct(customer_id) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[2] f_customer_recent_purchase sql=min(days_ago) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[3] f_product_recent_purchase sql=min(days_ago) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[4] f_customer_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[5] f_product_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[6] f_customer_price_trend sql=avg(price) OVER (PARTITION BY customer_id ORDER BY days_ago ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[7] f_product_price_trend sql=avg(price) OVER (PARTITION BY product_code ORDER BY days_ago ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003a",
+    "call": 37,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_recent_purchase sql=min(days_ago) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[1] f_customer_purchase_frequency sql=count(*) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[2] f_product_recent_purchase sql=min(days_ago) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[3] f_product_purchase_frequency sql=count(*) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[4] f_customer_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[5] f_product_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[6] f_customer_price_trend sql=avg(price) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id ORDER BY days_ago) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[7] f_product_price_trend sql=avg(price) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code ORDER BY days_ago) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003a",
+    "call": 38,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_recent_purchase sql=min(days_ago) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[1] f_customer_purchase_frequency sql=count(*) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[2] f_product_recent_purchase sql=min(days_ago) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[3] f_product_purchase_frequency sql=count(*) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[4] f_customer_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[5] f_product_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[6] f_customer_price_trend sql=avg(price) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY customer_id ORDER BY days_ago) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[7] f_product_price_trend sql=avg(price) FILTER(WHERE days_ago <= 7) OVER (PARTITION BY product_code ORDER BY days_ago) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003a",
+    "call": 39,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[0] f_customer_recent_purchase sql=min(days_ago) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[1] f_customer_purchase_frequency sql=count(*) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[2] f_product_recent_purchase sql=min(days_ago) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[3] f_product_purchase_frequency sql=count(*) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[4] f_customer_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY customer_id) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\naggregates[5] f_product_sales_channel_familiarity sql=approx_count_distinct(sales_channel_id) FILTER (WHERE days_ago <= 7) OVER (PARTITION BY product_code) | Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003a",
+    "call": 43,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[6] f_discount_value_per_department_discount_frequency sql=f_customer_department_discount_value / f_customer_department_discount_frequency | Invalid/duplicate feature name | Unique f_lowercase_name, <=48 characters"
+  },
+  {
+    "arm": "h003a",
+    "call": 47,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[7] f_product_department_frequency sql=approx_count_distinct(department_no) | Invalid grouping keys: ['product_code', 'department_no'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\nderived[6] f_customer_product_color_group_intersection sql=approx_count_distinct(graphical_appearance_no) / approx_count_distinct(color_group_code) | History fields absent from derived: graphical_appearance_no; Binder Error: Referenced column \"graphical_appearance_no\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[7] f_customer_product_price_variance sql=stddev_pop(price) | History fields absent from derived: price; Binder Error: Referenced column \"price\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 49,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_product_purchase_rate sql=f_product_purchase_frequency / f_customer_purchase_frequency | Binder Error: Referenced column \"f_product_purchase_frequency\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 50,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_department_purchase_rate sql=f_customer_department_purchase_frequency / f_customer_purchase_frequency | Binder Error: Referenced column \"f_customer_department_purchase_frequency\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003a",
+    "call": 51,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_sales_channel_frequency sql=COUNT(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 53,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_sales_channel_frequency sql=COUNT(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 55,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[10] f_frequency_sales_channel sql=count(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 57,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[7] f_customer_sales_channel_frequency sql=approx_count_distinct(product_code) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 59,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[6] f_sales_channel_frequency sql=COUNT(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 63,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_sales_channel_frequency sql=COUNT(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\naggregates[6] f_age_diversity sql=approx_count_distinct(customer_age) | Invalid grouping keys: ['customer_id', 'customer_age'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003a",
+    "call": 64,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_sales_channel_frequency sql=COUNT(*) FILTER (WHERE sales_channel_id = 1) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003b",
+    "call": 2,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_age_group sql=CASE WHEN raw_u_age < 20 THEN 0 WHEN raw_u_age < 40 THEN 1 ELSE 2 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_age\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names; raw_* fields absent from history | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Use numeric CASE results 0/1/2, not quoted strings\naggregates[6] f_club_member sql=CASE WHEN raw_u_club_member_status = 1 THEN 1 ELSE 0 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_club_member_status\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[7] f_fashion_news sql=CASE WHEN raw_u_fashion_news_frequency > 0 THEN 1 ELSE 0 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_fashion_news_frequency\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 3,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_recent_avg_price sql=f_recent_count * f_avg_price / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_diversity_per_purchase sql=f_diversity / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_diversity\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003b",
+    "call": 4,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_recent_avg_price sql=f_recent_count * f_avg_price / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_diversity_per_purchase sql=f_diversity / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_diversity\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003b",
+    "call": 5,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_recent_avg_price sql=f_recent_count * f_avg_price / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_diversity_per_purchase sql=f_diversity / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_diversity\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003b",
+    "call": 6,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_recent_purchase_share sql=f_recent_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_median_days_between_purchases sql=quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[6] f_high_value_purchases sql=sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price)) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\nderived[1] f_purchase_count_per_article sql=f_purchase_count / nullif(count(distinct product_code), 0) | History fields absent from derived: product_code; Binder Error: Referenced column \"product_code\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 7,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_recent_purchase_share sql=f_recent_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_median_days_between_purchases sql=approx_quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0) | Function outside allowlist: approx_quantile_cont | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[6] f_high_value_purchases sql=sum(price) FILTER (WHERE price > quantile_cont(0.9) WITHIN GROUP (ORDER BY price)) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\nderived[1] f_purchase_count_per_article sql=f_purchase_count / nullif(count(distinct product_code), 0) | History fields absent from derived: product_code; Binder Error: Referenced column \"product_code\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 8,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_recent_purchase_share sql=f_recent_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_median_days_between_purchases sql=approx_quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0) | Function outside allowlist: approx_quantile_cont | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[6] f_high_value_purchases sql=sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price)) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  },
+  {
+    "arm": "h003b",
+    "call": 9,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_recent_purchase_share sql=f_recent_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_median_days_between_purchases sql=approx_quantile_cont(0.5) WITHIN GROUP (ORDER BY days_ago) FILTER (WHERE days_ago > 0) | Function outside allowlist: approx_quantile_cont | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[6] f_high_value_purchases sql=sum(price) FILTER (WHERE price > quantile_cont(0.75) WITHIN GROUP (ORDER BY price)) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  },
+  {
+    "arm": "h003b",
+    "call": 10,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_channel1_share sql=f_channel1_purchase_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 13,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_history_median_price sql=quantile_cont(0.5) WITHIN GROUP (ORDER BY price) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[8] f_history_gender sql=mode(gender) | Invalid grouping keys: ['gender'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003b",
+    "call": 14,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[5] f_history_median_price sql=quantile_cont(0.5) WITHIN GROUP (ORDER BY price) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[7] f_gender_frequency sql=count(*) | Invalid grouping keys: ['gender'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\naggregates[8] f_age_group sql=CASE WHEN customer_age < 20 THEN 0 WHEN customer_age < 40 THEN 1 ELSE 2 END | Invalid grouping keys: ['customer_age'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003b",
+    "call": 15,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_history_median_price sql=quantile_cont(0.5) WITHIN GROUP (ORDER BY price) | Function outside allowlist: GROUP | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  },
+  {
+    "arm": "h003b",
+    "call": 17,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_purchase_frequency sql=f_recent_purchase_count / nullif(f_unique_products, 0) | Binder Error: Referenced column \"f_recent_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 19,
+    "stage": "parse_and_validate",
+    "error": "Expecting ',' delimiter: line 22 column 24 (char 859)"
+  },
+  {
+    "arm": "h003b",
+    "call": 24,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[4] f_recent_purchase_share sql=f_recent_purchase_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 29,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[6] f_customer_age_distribution sql=approx_count_distinct(customer_age) | Invalid grouping keys: ['customer_age'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)"
+  },
+  {
+    "arm": "h003b",
+    "call": 42,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[2] f_age_group_purchase_count sql=count(*) | Invalid grouping keys: ['customer_age'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\naggregates[5] f_age_group_recent_purchase_count sql=count(*) FILTER (WHERE days_ago <= 7) | Invalid grouping keys: ['customer_age'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\nderived[0] f_category_purchase_rate sql=f_category_purchase_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[1] f_color_purchase_rate sql=f_color_purchase_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_age_group_purchase_rate sql=f_age_group_purchase_count / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[3] f_category_recent_purchase_rate sql=f_category_recent_purchase_count / nullif(f_recent_purchase_count, 0) | Binder Error: Referenced column \"f_recent_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[4] f_color_recent_purchase_rate sql=f_color_recent_purchase_count / nullif(f_recent_purchase_count, 0) | Binder Error: Referenced column \"f_recent_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[5] f_age_group_recent_purchase_rate sql=f_age_group_recent_purchase_count / nullif(f_recent_purchase_count, 0) | Binder Error: Referenced column \"f_recent_purchase_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 52,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_avg_days_since_last_purchase sql=f_average_age / nullif(f_days_since_last_purchase, 0) | Binder Error: Referenced column \"f_days_since_last_purchase\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[5] f_total_spending sql=sum(price) | History fields absent from derived: price; Binder Error: Referenced column \"price\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 53,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[4] f_total_spending sql=sum(price) | History fields absent from derived: price; Binder Error: Referenced column \"price\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003b",
+    "call": 65,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[8] f_high_value_purchases sql=count(*) FILTER (WHERE price > (SELECT AVG(price) FROM history)) | Forbidden token 'SELECT': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  },
+  {
+    "arm": "h003b",
+    "call": 74,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_sales_channel_usage sql=count(*) | Invalid grouping keys: ['customer_id', 'sales_channel_id'] | keys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys; channel counts use count(*) FILTER(WHERE sales_channel_id=1)\nderived[4] f_channel_diversity sql=approx_count_distinct(sales_channel_id) / nullif(f_purchase_count, 0) | History fields absent from derived: sales_channel_id; Binder Error: Referenced column \"sales_channel_id\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 2,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_age_group sql=CASE WHEN raw_u_age < 20 THEN 0 WHEN raw_u_age < 40 THEN 1 ELSE 2 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_age\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names; raw_* fields absent from history | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Use numeric CASE results 0/1/2, not quoted strings\naggregates[6] f_club_member sql=CASE WHEN raw_u_club_member_status = 1 THEN 1 ELSE 0 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_club_member_status\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[7] f_fashion_news sql=CASE WHEN raw_u_fashion_news_frequency > 0 THEN 1 ELSE 0 END | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_fashion_news_frequency\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 3,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_recent_avg_price sql=f_recent_count * f_avg_price / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_diversity_per_purchase sql=f_diversity / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_diversity\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003c",
+    "call": 4,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_recent_avg_price sql=f_recent_count * f_avg_price / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_recent_count\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\naggregates[5] f_diversity_per_purchase sql=f_diversity / nullif(f_purchase_count, 0) | Binder Error: Referenced column \"f_diversity\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x\nderived[2] f_gender sql=CASE WHEN raw_u_fn IS NOT NULL AND raw_u_fn = 'M' THEN 0 ELSE 1 END | Only numeric SQL expressions, no statements/strings/qualified names | Use numeric CASE results 0/1/2, not quoted strings"
+  },
+  {
+    "arm": "h003c",
+    "call": 5,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_seasonal_popularity sql=approx_count_distinct(customer_id) FILTER (WHERE EXTRACT(ISODOW FROM CURRENT_DATE) IN (1, 2, 3, 4, 5)) | Forbidden token 'FROM': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm\naggregates[4] f_age_group sql=case when customer_age < 20 then 0 when customer_age < 40 then 1 else 2 end | Binder Error: column \"customer_age\" must appear in the GROUP BY clause or must be part of an aggregate function. | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 6,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[3] f_seasonal_popularity sql=approx_count_distinct(customer_id) FILTER (WHERE EXTRACT(ISODOW FROM CURRENT_DATE) IN (1, 2, 3, 4, 5)) | Forbidden token 'FROM': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  },
+  {
+    "arm": "h003c",
+    "call": 10,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[1] f_recency sql=min(days_ago) | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 11,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[1] f_recency sql=case when raw_u_age > 0 then max(days_ago) else -1 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 12,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[1] f_recency sql=case when raw_u_age > 0 then max(days_ago) else -1 end | History fields absent from derived: days_ago; Binder Error: Referenced column \"days_ago\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 15,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[2] f_product_type_rank sql=dense_rank() over (order by -f_product_type_popularity) | Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\nderived[3] f_department_rank sql=dense_rank() over (order by -f_department_popularity) | Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003c",
+    "call": 16,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[2] f_product_type_rank sql=dense_rank() over (order by -f_product_type_popularity) | Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)\nderived[3] f_department_rank sql=dense_rank() over (order by -f_department_popularity) | Forbidden token 'over': IDs only in grouping keys/counts; no SQL statements, window functions, or labels | Host groups rows; no OVER. Use count(*) FILTER(WHERE days_ago<=7) or mode(customer_age ORDER BY customer_age)"
+  },
+  {
+    "arm": "h003c",
+    "call": 17,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\n$  sql= | Maximum24 aggregates/12 derived | Remove excess features and dependent formulas"
+  },
+  {
+    "arm": "h003c",
+    "call": 19,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[4] f_gender sql=mode(raw_u_gender ORDER BY raw_u_gender) | raw_* fields absent from history; Binder Error: Referenced column \"raw_u_gender\" not found in FROM clause! | Age bucket belongs in derived: CASE WHEN raw_u_age<30 THEN 0 ELSE 1 END; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 20,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[3] f_gender sql=mode(raw_u_gender ORDER BY raw_u_gender) | Binder Error: Referenced column \"raw_u_gender\" not found in FROM clause! | Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 35,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\nderived[4] f_category_diversity sql=count(DISTINCT product_type_no) / nullif(f_purchase_count, 0) | History fields absent from derived: product_type_no; Binder Error: Referenced column \"product_type_no\" not found in FROM clause! | First aggregate history into f_*; derived may reference raw_* and earlier f_* only; Check namespace and syntax; mode(x ORDER BY x), not mode(x) ORDER BY x"
+  },
+  {
+    "arm": "h003c",
+    "call": 42,
+    "stage": "parse_and_validate",
+    "error": "Fix ALL listed features; return the COMPLETE JSON, not a patch.\nAggregates see HISTORY only. Derived sees RAW static fields + aggregate outputs + earlier derived, no history.\nkeys=[customer_id], [article_id], [one clothing category], or [customer_id,article/category]; no price/days_ago/channel/raw keys\naggregates[6] f_recent_category_popularity sql=count(*) FILTER (WHERE days_ago <= 7 AND product_type_no IN (SELECT product_type_no FROM history WHERE customer_id = history.customer_id AND | Only numeric SQL expressions, no statements/strings/qualified names | Allowed history fields: customer_id,article_id,price,sales_channel_id,days_ago,customer_age,product_code,product_type_no,graphical_appearance_no,colour_group_code,perceived_colour_value_id,perceived_colour_master_id,department_no,index_group_no,section_no,garm"
+  }
+]
