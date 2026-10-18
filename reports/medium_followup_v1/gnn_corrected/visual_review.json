@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "reviewed_by": "Codex: all three PNGs visually inspected; labels/axes readable",
+  "plots": {
+    "comparison.png": "0778393eda33b35944234ac49699473abe3dc9b84f55741e9c0ffdf014cf67d2",
+    "fold_comparison.png": "d91f3a470909b690580a5a5d7b8a48cd4218819dd9486a87e90ae0066e27b85d",
+    "ap_histograms.png": "ac76848ac2b45b655e883f1677be7e29674827570dd6319bce44c1c7d681ba4b"
+  },
+  "numeric_replay_limitation": "See NUMERIC_REPLAY_AMENDMENT.md; no bitwise-deterministic score claim"
+}

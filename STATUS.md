@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-18T01:04:55+03:00 (Москва).
+Обновлено: 2026-10-18T17:03:19+03:00 (Москва).
 
-Последнее событие: **Read-only comparison: old ContextGNN248 distinct top12 lists/250users/1574recommended items; medium folds11/8/11lists across1839/1982/1698users, only24/26/26items. Ranking personalization collapsed. Root cause unresolved; larger catalog/full-target denominator alone insufficient(conditionalMAP also very low). Saved audit and notes, no new fitting/inference or model changes; do not infer architectural failure.**
+Последнее событие: **All six API streams and18 frozen20/30/40 budget evaluations/replays complete; comparisons, usage and incumbent-selection audit published.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -162,5 +162,71 @@
 | hm_medium_cv_v2_fold2_recformer_zero_shot | complete | — | — | 2026-10-18T00:52:32+03:00 |
 | hm_medium_cv_v2_fold2_recformer_finetuned | complete | — | — | 2026-10-18T00:52:32+03:00 |
 | hm_medium_cv_v2_fold2_recformer_inference | verified | — | — | 2026-10-18T00:20:36+03:00 |
+| hm_medium_followup_api_budget_v1 | complete | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_followup_f0_h008_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_followup_context_f0_probe_gnn | preparing | — | — | 2026-10-18T10:50:32+03:00 |
+| hm_followup_context_0_probe_v1 | diagnostic_complete | — | — | 2026-10-18T10:51:17+03:00 |
+| hm_medium_followup_f0_gnn_timefix_existing_gnn | preparing | — | — | 2026-10-18T11:00:58+03:00 |
+| hm_medium_gnn_timefix_v1 | evaluated_pending_report | — | — | 2026-10-18T11:33:35+03:00 |
+| hm_medium_followup_f0_gnn_timefix_existing_idgnn_inference | verified | — | — | 2026-10-18T11:02:00+03:00 |
+| hm_medium_followup_f0_gnn_timefix_existing_contextgnn_inference | verified | — | — | 2026-10-18T11:02:05+03:00 |
+| hm_medium_gnn_timefix_existing_f0_v1 | diagnostic_verified | — | — | 2026-10-18T11:04:01+03:00 |
+| hm_medium_followup_f0_gnn_timefix_refit_gnn | preparing | — | — | 2026-10-18T11:17:32+03:00 |
+| hm_medium_non_gnn_time_audit_v1 | verified | — | — | 2026-10-18T11:03:28+03:00 |
+| hm_medium_followup_f0_gnn_timefix_refit_idgnn | training | 10 | — | 2026-10-18T11:05:05+03:00 |
+| hm_medium_followup_f0_gnn_timefix_refit_contextgnn | training | 10 | — | 2026-10-18T11:06:53+03:00 |
+| hm_medium_followup_f1_gnn_timefix_refit_gnn | preparing | — | — | 2026-10-18T11:19:59+03:00 |
+| hm_medium_followup_f1_gnn_timefix_refit_idgnn | training | 5 | — | 2026-10-18T11:09:30+03:00 |
+| hm_medium_followup_f1_gnn_timefix_refit_contextgnn | training | 5 | — | 2026-10-18T11:10:09+03:00 |
+| hm_medium_followup_f2_gnn_timefix_refit_gnn | failed | — | — | 2026-10-18T11:31:39+03:00 |
+| hm_medium_followup_f2_gnn_timefix_refit_idgnn | training | 10 | — | 2026-10-18T11:12:10+03:00 |
+| hm_medium_followup_recovery_v1 | resuming | — | — | 2026-10-18T11:14:12+03:00 |
+| hm_medium_followup_f2_gnn_timefix_refit_contextgnn | training | 5 | — | 2026-10-18T11:15:50+03:00 |
+| hm_medium_followup_f0_gnn_timefix_refit_idgnn_inference | verified | — | — | 2026-10-18T11:17:46+03:00 |
+| hm_medium_followup_f0_gnn_timefix_refit_contextgnn_inference | verified | — | — | 2026-10-18T11:17:49+03:00 |
+| hm_medium_followup_f1_gnn_timefix_refit_idgnn_inference | verified | — | — | 2026-10-18T11:20:17+03:00 |
+| hm_medium_followup_f1_gnn_timefix_refit_contextgnn_inference | verified | — | — | 2026-10-18T11:20:21+03:00 |
+| hm_medium_followup_f0_h008_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_followup_f2_gnn_timefix_refit_idgnn_inference | verified | — | — | 2026-10-18T11:31:33+03:00 |
+| hm_medium_followup_f2_gnn_timefix_refit_contextgnn_inference | failed | — | — | 2026-10-18T11:31:39+03:00 |
+| hm_medium_gpu_followup_v1 | interrupted | — | — | 2026-10-18T11:23:17+03:00 |
+| hm_medium_recformer_grid_seed42_v1 | closed_available_summary | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_recformer_tune_f0_lr1e6_w100_seed42_v1 | trained_pending_evaluation | 4 | — | 2026-10-18T12:12:40+03:00 |
+| hm_medium_followup_report_gnn_v1 | verified_report | — | — | 2026-10-18T11:34:55+03:00 |
+| hm_medium_followup_f0_h009_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_followup_f0_h009_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_followup_f1_h008_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_recformer_tune_f1_lr1e6_w100_seed42_v1 | trained_pending_evaluation | 4 | — | 2026-10-18T12:50:23+03:00 |
+| hm_medium_followup_f1_h008_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_recformer_kaggle_split_v1 | prepared_verified | — | — | 2026-10-18T12:39:04+03:00 |
+| hm_medium_followup_f1_h009_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_recformer_distributed_v1 | closed_available_summary | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_recformer_tune_f2_lr1e6_w100_seed42_v1 | trained_pending_evaluation | 4 | — | 2026-10-18T13:22:41+03:00 |
+| hm_medium_followup_f1_h009_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_recformer_tune_f0_lr3e6_w300_seed42_v1 | evaluated_verified | 4 | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_recformer_tune_f1_lr3e6_w300_seed42_v1 | evaluated_verified | 4 | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_followup_f2_h008_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_recformer_tune_f2_lr3e6_w300_seed42_v1 | evaluated_verified | 4 | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_followup_f2_h008_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_followup_f2_h009_budget30_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_followup_f2_h009_budget40_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_recformer_import_lr1e5_w300_v1 | trained_pending_selection | — | — | 2026-10-18T16:22:26+03:00 |
+| hm_medium_followup_available_summary_v1 | complete_available_summary | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_recformer_tune_f0_lr3e6_w300_seed42_v1_zero_shot | measured_pending_verification | — | — | 2026-10-18T16:44:48+03:00 |
+| hm_medium_recformer_tune_f0_lr3e6_w300_seed42_v1_finetuned | measured_pending_verification | — | — | 2026-10-18T16:45:28+03:00 |
+| hm_medium_recformer_tune_f0_lr3e6_w300_seed42_v1_inference | verified | — | — | 2026-10-18T16:48:16+03:00 |
+| hm_medium_recformer_tune_f1_lr3e6_w300_seed42_v1_zero_shot | measured_pending_verification | — | — | 2026-10-18T16:50:36+03:00 |
+| hm_medium_recformer_tune_f1_lr3e6_w300_seed42_v1_finetuned | measured_pending_verification | — | — | 2026-10-18T16:51:20+03:00 |
+| hm_medium_recformer_tune_f1_lr3e6_w300_seed42_v1_inference | verified | — | — | 2026-10-18T16:54:29+03:00 |
+| hm_medium_recformer_tune_f2_lr3e6_w300_seed42_v1_zero_shot | measured_pending_verification | — | — | 2026-10-18T16:56:49+03:00 |
+| hm_medium_recformer_tune_f2_lr3e6_w300_seed42_v1_finetuned | measured_pending_verification | — | — | 2026-10-18T16:57:29+03:00 |
+| hm_medium_recformer_tune_f2_lr3e6_w300_seed42_v1_inference | verified | — | — | 2026-10-18T17:00:42+03:00 |
+| hm_medium_followup_report_all_v1 | report_generated_pending_visual_review | — | — | 2026-10-18T17:01:31+03:00 |
+| hm_medium_followup_f0_h008_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_followup_f0_h009_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:11+03:00 |
+| hm_medium_followup_f1_h008_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_followup_f1_h009_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
+| hm_medium_followup_f2_h008_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_followup_f2_h009_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

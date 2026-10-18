@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "fold": 0,
+      "label": "lr3e6_w100",
+      "training_AST_matches": true,
+      "portable_sha256": "2584503746069a5fa6a6afb09ffe810889ee81504280c52d68acd8f186e34433",
+      "source_sha256": "479d4c3cf9520d265bf113c4b5df17e0a5c2e3058b971a78a6a41a2464dabc29"
+    },
+    {
+      "fold": 0,
+      "label": "lr1e5_w300",
+      "training_AST_matches": true,
+      "portable_sha256": "8bec1627bd22b0e18bbf35642ef11e5698f27906919000f5e5f8861100fefc2f",
+      "source_sha256": "95536b7117ab67380546ad86039c952d50fba6aa63afa90daf19d424f5be64a4"
+    },
+    {
+      "fold": 1,
+      "label": "lr3e6_w100",
+      "training_AST_matches": true,
+      "portable_sha256": "20bc7efb3278ae0f70be8456fd760aa9cb126784281dcca3d7d9bdca6c7932b3",
+      "source_sha256": "7208eadffef96bc3fc1a155c7d76901e8e87e7b3391825983918f08b4b2a9abd"
+    },
+    {
+      "fold": 1,
+      "label": "lr1e5_w300",
+      "training_AST_matches": true,
+      "portable_sha256": "a0e555b039c6d357cfea27d70b9bd97ae4bb97777994ed89f3c4ddbdd12fe43e",
+      "source_sha256": "12b354b88c44ee85b77aea7748cc3c070908d979d83d3b87e8deea995468c8a1"
+    },
+    {
+      "fold": 2,
+      "label": "lr3e6_w100",
+      "training_AST_matches": true,
+      "portable_sha256": "76b980c4ec1dd58171e74424204c78d1c8b72702333bbf7cca772a4f9ced7ae8",
+      "source_sha256": "e291e4a0d12583a198a41dd4d8eb0a3f3c28402db55fe954bd8c8c62a8435657"
+    },
+    {
+      "fold": 2,
+      "label": "lr1e5_w300",
+      "training_AST_matches": true,
+      "portable_sha256": "9096560885b76ac9e8eb7e0ac0409a747710bd96ee3ea18dbbe4e7260e16179a",
+      "source_sha256": "1c40c9229660ea016e07904310a62dbe66e33261f2a212d70c733b1f514ab06d"
+    }
+  ],
+  "notebooks": "code parsed; cells have unique IDs and no outputs",
+  "scope": "CPU/data/static checks only; actual T4 execution has not been run locally"
+}

@@ -1,3 +1,109 @@
+## Сводка доступных результатов завершена (2026-10-18)
+
+Актуальный отчёт: reports/medium_followup_v1/final_comparison/summary_ru.md,
+comparison.json, available_summary.json,5PNG/SVG и CSV парных разниц.
+Все5PNG визуально проверены; source checkpoint hashes совпали после оценки.
+Три фолда,5519user-times, seed42;5000paired customer bootstrap.
+ContextGNN pooled MAP=1.2791%;
+IDGNN=1.1613%;
+Recformer tuned(lr3e6_w300)=0.5620%;
+Recformer zero=0.6286%.
+H008 budget20/30/40=0.4627/0.4377/0.4377%;
+H009=0.4514/0.4249/0.4616%.
+API:240принятыхAST-программ,18выборов/оценок прошли replay/independentAP.
+Выявлен shortlist bottleneck: прежний confirmation winner может выпасть
+из top3search при расширении бюджета. Наfold0H008call8 при20 имел confirm0.7180%,
+при30/40 исключён; выбранcall14confirm0.6966%. Не переотбирали задним числом.
+Следующее сохранение incumbent — отдельная гипотеза/новый эксперимент.
+Recformer:3из4новыхнастроек+baseline; lr3e6_w100 не запустилась в Kaggle,
+исключена по доступности. Девять новыхfit готовы; исходная полная сетка
+НЕзавершена. Выбранная настройка зафиксирована только по inner validation,
+test/replay проведены без нового обучения. Ожидающие контроллеры остановлены.
+Не запускать старый recformer_lane/distributed для этой сводки. Если четвёртая
+настройка появится позже, создавать новый протокол/отчёт, не заменять этот.
+Одинseed/тринедели/ранее просмотренныеtest: не делать сильных claims о
+других временныхрежимах. Численное replay ограничениеGNNfold2 описано.
+
+## Сводка доступных результатов без второго Kaggle запуска (2026-10-18)
+
+Пользователь сообщил, что Kaggle lr3e6_w100 не запускается, и запросил сводку
+из доступных результатов. Ожидающие distributed/report_watch контроллеры
+остановлены; не возобновлять ожидание отсутствующей настройки автоматически.
+CVFollowup/available_summary.py выбирает среди baseline и трёх завершённых
+настроек только по среднему inner validation. Выбран lr3e6_w300:
+0.715112% против baseline0.545510%. Веса зафиксированы до test/replay в
+reports/medium_followup_v1/recformer_pretest_freeze.json. Новых fit нет.
+LR3e6/w100 исключена по доступности, не объявлять плохой по качеству.
+API: все6поисков по40программ и все18оценок бюджетов20/30/40 завершены,
+replay/independentAP прошли. Генерируется сводка
+reports/medium_followup_v1/final_comparison/ с APIbudgetcurves, validationgrid,
+общим сравнением, гистограммами и paired5000customerbootstrap интервалами.
+Не называть сводку законченной до окончания selectedRecformer test/replay
+и визуальной проверки итоговых графиков. Оригинальная сетка и старые результаты сохранены.
+
+## Recformer распределён между локальным GPU и Kaggle (2026-10-18)
+
+Пользователь запускает два Kaggle Notebook параллельно через Save Version.
+CVFollowup/kaggle/: два ipynb и общий recformer_medium_cv_inputs_v1.zip (~762МБ).
+README.md содержит инструкции. Назначения:
+локально lr1e6_w100 + lr3e6_w300; Kaggle1 lr3e6_w100; Kaggle2 lr1e5_w300.
+Каждая настройка проходит все3 исходных фолда, batch4/accum4/FP16/2+2 эпохи.
+Прежний recformer_lane scheduler остановлен БЕЗ остановки дочернего обучения.
+Новый CVFollowup/recformer_distributed.py ждёт текущий fit и выполняет только
+локальные назначения, затем ждёт external_import.json для6Kaggle fits.
+НЕзапускать recformer_lane.py вручную, пока распределённый контроллер жив!
+PID: reports/medium_followup_v1/recformer_distributed.pid. Старый recformer_lane.pid устарел.
+Импорт: nativeWSL python CVFollowup/import_kaggle.py ARCHIVE.zip. Всефолды/параметры/
+исходныевеса/данные/runtime проверяются до копирования. Готовыеfitнеперезаписываются.
+Checkpointepoch0 при импорте берётся из старого локального frozenbaseline для
+совместимости evaluator; T4trained checkpoint сохраняется неизменным.
+Только после12fitконтроллер передаст отбор исходному recformer_lane.py:
+среднееinner-valтрёхфолдов включаяbaseline; freeze, outer/replay, общийreport.
+KaggleиспользуетотдельныйPython3.11, torch2.2.2+cu118, transformers4.46.3;
+различияGPU/AMPобязательноказывать. Локально GPU/T4неэмулировался: проверены
+всеSHA/таблицы и ASTидентичность6runtime. SaveVersionнужно запустить пользователю.
+recover_wsl.py обновлён: восстановление черезdistributedcontroller, прерванные
+Recformerfitсохраняются отдельно перед полным повтором; optimizerresumeнет.
+
+## Актуально: исправленные GNN завершены, 2026-10-18
+
+Все6 GNN обучены и оценены. Pooled MAP: ContextGNN1.2791%, IDGNN1.1613%.
+Новый отчёт и3визуально проверенныхPNG: reports/medium_followup_v1/gnn_corrected/.
+Fold2 ContextGNN strict replay остановился: скоры отличаются максимум2.72e-5.
+Дополнительный replay: test top12 точные; validation near-tie перестановки,
+AP каждого пользователя совпадает. Исходный failure сохранён; применена
+явная bounded-FP32/tie-aware проверка, см.CVFollowup/NUMERIC_REPLAY_AMENDMENT.md.
+Не заявлять побитовую детерминированность. GPU-controller gnn_lane умер на
+первой строгой проверке; НЕперезапускать его одновременно с Recformer!
+Recformer продолжен отдельно через recformer_lane.py (PIDфайл актуально проверять).
+API H008fold0 достиг39/40, были transport timeouts; retries ограничены.
+H009 и остальные фолды продолжаются той же API-очередью послеfold0H008.
+Reportwatch живёт отдельно и ожидает концаAPI+Recformer для финального отчёта.
+
+### Дополнительная проверка 2026-10-18
+
+Те же веса fold0 после исправления cutoff: ContextGNN test MAP0.0309% →1.4616%,
+ID-GNN0% →1.0529%. Полный replay прошёл. Это причинная диагностика,
+не итоговые результаты переобучения. См. same_weights_timefix_diagnostic.json.
+Проверены actual SQL-фильтры manual/raw/API и функции истории Recformer/TDM:
+все6 validation/test прошли, ms/ns-ошибка их не затронула. См. other_models_time_audit.json.
+Живые очереди проверять: api_lane.pid, gpu_followup.pid, report_watch.pid
+в reports/medium_followup_v1. GPU: исправленные6GNN, затем12Recformer fits.
+API: наследованные20 →30 →40 в каждом из6 потоков; outer-оценка после freeze.
+Новые отчёты создаются автоматически; PNG требуют визуальной проверки Codex.
+
+## Исправление GNN и новые проверки (2026-10-18)
+
+Выявлена ошибка загрузчика: medium validation/test в datetime64[ms] ошибочно
+считались ns. Входной cutoff становился около 1597 секунд вместо 1.597e9,
+и ContextGNN/ID-GNN не получали историю. Их прежние medium-метрики и выбор
+checkpoint невалидны; предыдущие цифры ниже сохранены как история ошибки.
+Проверки и исправленные запуски: CVFollowup/GNN_TIMEFIX_PROTOCOL.md,
+reports/medium_followup_v1/graph_time_audit.json, graph_time_fix_verification.json.
+Отдельные новые веса: CVFollowup/results/v1/fold_*/gnn_timefix_refit/.
+API H008/H009 продолжаются с прежних20 к30/40; Recformer — сетка четырёх
+LR/warmup настроек на трёх фолдах, выбор только по inner validation.
+
 # Контекст для продолжения проекта
 
 ## Medium CV v2: завершено и проверено (2026-10-18)

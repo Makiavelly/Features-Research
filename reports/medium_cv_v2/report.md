@@ -1,3 +1,5 @@
+> Исправление 2026-10-18: результаты ContextGNN и ID-GNN в этом историческом отчёте невалидны из-за ошибки единиц timestamp при validation/test. См. ../../CVFollowup/GNN_TIMEFIX_PROTOCOL.md. Остальные цифры этим аудитом не опровергнуты.
+
 # Nine methods on larger H&M: temporal cross-validation
 
 20000 customers,10000 eligible items,5519 outer user-times across3 weeks; one model seed42.

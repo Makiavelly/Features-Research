@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "reviewed_by": "Codex visually inspected all five PNGs; labels/scales/readability checked",
+  "plots": {
+    "comparison.png": "24d09887747b8d5cfb7720937493bf15534c55b22546720705c2124687c8bc15",
+    "fold_comparison.png": "85f5c23d64175b63357ff7dac9bfe580918a2d794e2d760af64e32b115465675",
+    "ap_histograms.png": "595fe6c842601ef88e848b45af92cea35e5974d2dea3e72ea419263348d0b2df",
+    "api_budget_curves.png": "517595666bde04569bf477482958f2267e3d9894c5874d08ba2553b248762644",
+    "recformer_validation_grid.png": "3aac0a2629872f97e9746eb3115e7bd2067a8f0b24087a1eaea56dc62a040acc"
+  },
+  "scope": "available_three_of_four_new_settings",
+  "recformer_checkpoint_sha256_verified_after_test": true
+}

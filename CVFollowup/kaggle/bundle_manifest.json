@@ -1,0 +1,10 @@
+{
+  "zip": "recformer_medium_cv_inputs_v1.zip",
+  "bytes": 762257251,
+  "sha256": "84e33338f233f55f8c9cbafce2ffafb6614cf2c1c6ea877c31b3b3f462b2a27c",
+  "input_manifest_sha256": "cb091bd3e4ab465e99344aca23e35ded3e38a8d946c2d16f376ecb0b1e99cce8",
+  "notebooks": {
+    "recformer_medium_lr3e6_w100_kaggle_t4.ipynb": "8c159431cf6aebc53100bf9e5fd512b67a2b18ac698bc0abf785ad096fdbf7a6",
+    "recformer_medium_lr1e5_w300_kaggle_t4.ipynb": "ea701c30685c23fcd67c5651e5b67b72fdcc0dfe6d566f03054ef93180954c1f"
+  }
+}

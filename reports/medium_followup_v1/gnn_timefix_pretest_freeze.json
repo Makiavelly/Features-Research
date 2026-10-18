@@ -1,0 +1,12 @@
+{
+  "checkpoints": {
+    "CVFollowup/results/v1/fold_0/gnn_timefix_refit/contextgnn/best.pt": "140c11fd51580fa603dcb04a7f57fde40fdb192c432fdd90751243961d484c11",
+    "CVFollowup/results/v1/fold_0/gnn_timefix_refit/idgnn/best.pt": "deb69bf07a79c3b2877b0933db6f9b907ca7a9fa78c79bf19ad561d7939dcef2",
+    "CVFollowup/results/v1/fold_1/gnn_timefix_refit/contextgnn/best.pt": "2e717efe0c4b52c6f003b5121b929552c6a5877ea7cef4ba24984bff09e818ca",
+    "CVFollowup/results/v1/fold_1/gnn_timefix_refit/idgnn/best.pt": "01fcf8148651304ab406502e0f4a2bf869f84dea64acf85e6733acb8b0acdf1a",
+    "CVFollowup/results/v1/fold_2/gnn_timefix_refit/contextgnn/best.pt": "4d369558bcd2cef4c732022eebbda5306fc8e345b23860da34647cbfc2dc120e",
+    "CVFollowup/results/v1/fold_2/gnn_timefix_refit/idgnn/best.pt": "6131f2f82bca0ee1c2bf51d84a15dfe43eb58c5248cf020f0370be4f18cf459b"
+  },
+  "selection": "unchanged inner validation rule, corrected timestamp units",
+  "test_used_for_selection": false
+}

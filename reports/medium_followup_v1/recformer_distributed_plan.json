@@ -1,0 +1,23 @@
+{
+  "assignments": {
+    "local": [
+      "lr1e6_w100",
+      "lr3e6_w300"
+    ],
+    "kaggle_1": [
+      "lr3e6_w100"
+    ],
+    "kaggle_2": [
+      "lr1e5_w300"
+    ]
+  },
+  "existing_training_to_wait_for": [
+    {
+      "pid": 5768,
+      "command": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python\u0000-u\u0000/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVFollowup/recformer_grid.py\u00001\u0000lr1e6_w100\u0000train\u0000"
+    }
+  ],
+  "same_hyperparameters": true,
+  "cross_gpu_numeric_differences_expected": true,
+  "global_selection": "unchanged: baseline + four settings, equal-fold mean inner validation; no test until all complete"
+}

@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "fold": 0,
+      "split": "val",
+      "cutoff": "2020-08-10 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 244200,
+      "manual_history_count": 5284,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    },
+    {
+      "fold": 0,
+      "split": "test",
+      "cutoff": "2020-08-17 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 247910,
+      "manual_history_count": 40755,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    },
+    {
+      "fold": 1,
+      "split": "val",
+      "cutoff": "2020-08-24 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 251051,
+      "manual_history_count": 5546,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    },
+    {
+      "fold": 1,
+      "split": "test",
+      "cutoff": "2020-08-31 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 253854,
+      "manual_history_count": 45532,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    },
+    {
+      "fold": 2,
+      "split": "val",
+      "cutoff": "2020-09-07 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 256416,
+      "manual_history_count": 6004,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    },
+    {
+      "fold": 2,
+      "split": "test",
+      "cutoff": "2020-09-14 00:00:00",
+      "loaded_dtype": "datetime64[ms]",
+      "raw_and_API_history_count": 258604,
+      "manual_history_count": 40107,
+      "recformer_and_tdm_users_checked": 100,
+      "datetime_resolutions_checked": [
+        "ns",
+        "us",
+        "ms",
+        "s"
+      ],
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "CVBenchmark/results/medium_v2/fold_0/runtime/recformer.py": "c56a2ae95cecd0ce6ce5016c4629004ce3293158261cca41df94800b9dd14f57",
+    "CVBenchmark/results/medium_v2/fold_0/runtime/tdm_common.py": "947f5f5cbe0dc1a483f1683c596e1964d186bce7c169dd50cd49489a2bb42dd2",
+    "CVBenchmark/results/medium_v2/fold_0/runtime/api/base_features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "baseline/manual_features.py": "34c781b8df1173221d78ed1184bbca92a48c72df52947a87bad5457a0a913efd",
+    "CVBenchmark/results/medium_v2/fold_1/runtime/recformer.py": "9ef731d89c6fbb594a667a538209d1e783a4c4c1dbc91bc20b04a5ee88cfbf5e",
+    "CVBenchmark/results/medium_v2/fold_1/runtime/tdm_common.py": "1d3d9dd94278b691eb1c40bb3285c4ae186ad26f57f8784d49b4007a0ad0142b",
+    "CVBenchmark/results/medium_v2/fold_1/runtime/api/base_features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1",
+    "CVBenchmark/results/medium_v2/fold_2/runtime/recformer.py": "8d7e4d998da1c5e35544772225f94492aadfcc0e933b09ff5d12e6a8c0a15e61",
+    "CVBenchmark/results/medium_v2/fold_2/runtime/tdm_common.py": "4c3071ba5194bf48f0dc8333d1145c30e9cef285c2f8bcd1806527ff9e9877e9",
+    "CVBenchmark/results/medium_v2/fold_2/runtime/api/base_features.py": "d4625f7cfe65395925a54984835a5b9536dbde586be7916deaaacbe50069efe1"
+  },
+  "scope": "Actual manual/raw/API host SQL filters and Recformer/TDM history functions; not a general proof that all model code is bug-free."
+}

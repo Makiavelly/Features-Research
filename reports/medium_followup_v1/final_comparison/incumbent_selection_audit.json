@@ -1,0 +1,51 @@
+{
+  "dropped_previous_confirmation_winners": [
+    {
+      "fold": 0,
+      "mode": "h008",
+      "previous_budget": 20,
+      "budget": 30,
+      "previous_selected_call": 8,
+      "eligible_calls": [
+        null,
+        26,
+        36,
+        14
+      ],
+      "previous_confirmation_map": 0.007180277081592872,
+      "new_confirmation_map": 0.006966041998936736
+    },
+    {
+      "fold": 2,
+      "mode": "h009",
+      "previous_budget": 20,
+      "budget": 30,
+      "previous_selected_call": 8,
+      "eligible_calls": [
+        null,
+        31,
+        26,
+        17
+      ],
+      "previous_confirmation_map": 0.005606976647552563,
+      "new_confirmation_map": 0.006358838950461987
+    },
+    {
+      "fold": 2,
+      "mode": "h009",
+      "previous_budget": 30,
+      "budget": 40,
+      "previous_selected_call": 26,
+      "eligible_calls": [
+        null,
+        35,
+        41,
+        31
+      ],
+      "previous_confirmation_map": 0.006358838950461987,
+      "new_confirmation_map": 0.0032818891566710065
+    }
+  ],
+  "reason": "Top3 search shortlist is rebuilt at each budget; previous confirmation winner is not automatically retained",
+  "no_reselection_performed": true
+}
