@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "figures": ["comparison.png"],
+  "checks": [
+    "PNG opened and visually inspected",
+    "All five metric labels, percentage axis and both series readable",
+    "Legend identifies lambda0 control and lambda1 auxiliary CE",
+    "Title states validation only and seed42",
+    "Bars agree with report table; paired intervals and replay qualification provided in report"
+  ]
+}

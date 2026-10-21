@@ -1,0 +1,362 @@
+{
+  "run_id": "hm_medium_context_combined_seed42_v1",
+  "validation_only": true,
+  "observations": 768,
+  "customers": 753,
+  "metrics": {
+    "original": {
+      "fold_map": [
+        0.016300772794913418,
+        0.004531151357323232,
+        0.013721994874338624
+      ],
+      "pooled_map": 0.011517973008858423
+    },
+    "fanout64": {
+      "fold_map": [
+        0.019316561259920637,
+        0.004918929811507937,
+        0.017321325231481482
+      ],
+      "pooled_map": 0.013852272100970018
+    },
+    "categorical": {
+      "fold_map": [
+        0.017940809461805554,
+        0.004271298363095238,
+        0.0177734375
+      ],
+      "pooled_map": 0.013328515108300264
+    },
+    "combined": {
+      "fold_map": [
+        0.018084232390873017,
+        0.0067809089781746025,
+        0.018716517857142855
+      ],
+      "pooled_map": 0.014527219742063493
+    }
+  },
+  "differences": {
+    "original": {
+      "delta": 0.0030092467332050667,
+      "ci95": [
+        0.00012578742068213906,
+        0.006519526179389565
+      ],
+      "fold_delta": [
+        0.0017834595959595966,
+        0.002249757620851371,
+        0.004994522982804233
+      ]
+    },
+    "fanout64": {
+      "delta": 0.0006749476410934744,
+      "ci95": [
+        -0.002527711017515727,
+        0.0036059607574170805
+      ],
+      "fold_delta": [
+        -0.001232328869047619,
+        0.0018619791666666665,
+        0.001395192625661376
+      ]
+    },
+    "categorical": {
+      "delta": 0.0011987046337632275,
+      "ci95": [
+        -0.0006581292109670829,
+        0.0033703677473428686
+      ],
+      "fold_delta": [
+        0.00014342292906746032,
+        0.002509610615079365,
+        0.0009430803571428574
+      ]
+    },
+    "interaction": {
+      "delta": -0.0011355944583483649,
+      "ci95": [
+        -0.004796357786270049,
+        0.0020231574688920383
+      ],
+      "fold_delta": [
+        -0.0028723655359397552,
+        0.00212183216089466,
+        -0.0026562499999999998
+      ]
+    }
+  },
+  "fits": [
+    {
+      "fold": 0,
+      "arm": "combined",
+      "seed": 42,
+      "fanout": [
+        64,
+        32
+      ],
+      "changed_columns": [
+        "colour_group_code",
+        "department_no",
+        "graphical_appearance_no",
+        "perceived_colour_master_id",
+        "perceived_colour_value_id",
+        "product_type_no",
+        "section_no",
+        "product_code"
+      ],
+      "val_map": 0.018084232390873017,
+      "best_epoch": 6,
+      "epochs": 9,
+      "seconds": 98.63226298600057,
+      "checkpoint_sha256": "4fc4df82ee468e33cddffa58482117a4d7e877aaaf260af762f6662d3026a5b5",
+      "source_sha256": "8ceb8fc645962520eab7e4685e29b50f8e122b11bcb6f15195385e9145e95f40",
+      "validation_only": true,
+      "verification": "reload: bounded FP32 scores and exact per-user AP; independent MAP",
+      "peak_cuda_bytes": 1209757696,
+      "materialized_schema": {
+        "transactions": {
+          "timestamp": [
+            "t_dat"
+          ],
+          "numerical": [
+            "price"
+          ],
+          "categorical": [
+            "sales_channel_id"
+          ]
+        },
+        "article": {
+          "categorical": [
+            "colour_group_code",
+            "department_no",
+            "garment_group_name",
+            "garment_group_no",
+            "graphical_appearance_no",
+            "index_group_name",
+            "index_group_no",
+            "perceived_colour_master_id",
+            "perceived_colour_value_id",
+            "product_code",
+            "product_group_name",
+            "product_type_no",
+            "section_no"
+          ],
+          "embedding": [
+            "colour_group_name",
+            "department_name",
+            "detail_desc",
+            "graphical_appearance_name",
+            "index_code",
+            "index_name",
+            "perceived_colour_master_name",
+            "perceived_colour_value_name",
+            "prod_name",
+            "product_type_name",
+            "section_name"
+          ]
+        },
+        "customer": {
+          "categorical": [
+            "Active",
+            "FN",
+            "club_member_status",
+            "fashion_news_frequency"
+          ],
+          "numerical": [
+            "age"
+          ],
+          "embedding": [
+            "postal_code"
+          ]
+        }
+      },
+      "protocol_sha256": "82868aba908434975a916204f197ed7d6b64a87f4f044338c5d7e61315d39bc2",
+      "executed_refit_sha256": "5dc6dbb4dfd86625524c62705f58ae823919ff3bb73e368f17906da088a6431c",
+      "wrapper_sha256": "c92afb5a43fe2213370b28c555789ce3ec6ac441f9d5675d8cd9b33e8d6f09f0"
+    },
+    {
+      "fold": 1,
+      "arm": "combined",
+      "seed": 42,
+      "fanout": [
+        64,
+        32
+      ],
+      "changed_columns": [
+        "colour_group_code",
+        "department_no",
+        "graphical_appearance_no",
+        "perceived_colour_master_id",
+        "perceived_colour_value_id",
+        "product_type_no",
+        "section_no",
+        "product_code"
+      ],
+      "val_map": 0.0067809089781746025,
+      "best_epoch": 9,
+      "epochs": 10,
+      "seconds": 80.74123054099982,
+      "checkpoint_sha256": "4f6bb033ae95ae8dfe13629cc00d9589aebcd441636e5b05efcae3584d454c6c",
+      "source_sha256": "8ceb8fc645962520eab7e4685e29b50f8e122b11bcb6f15195385e9145e95f40",
+      "validation_only": true,
+      "verification": "reload: bounded FP32 scores and exact per-user AP; independent MAP",
+      "peak_cuda_bytes": 1238473728,
+      "materialized_schema": {
+        "transactions": {
+          "timestamp": [
+            "t_dat"
+          ],
+          "numerical": [
+            "price"
+          ],
+          "categorical": [
+            "sales_channel_id"
+          ]
+        },
+        "article": {
+          "categorical": [
+            "colour_group_code",
+            "department_no",
+            "graphical_appearance_no",
+            "index_group_name",
+            "index_group_no",
+            "perceived_colour_master_id",
+            "perceived_colour_master_name",
+            "perceived_colour_value_id",
+            "perceived_colour_value_name",
+            "product_code",
+            "product_type_no",
+            "section_no"
+          ],
+          "numerical": [
+            "garment_group_no"
+          ],
+          "embedding": [
+            "colour_group_name",
+            "department_name",
+            "detail_desc",
+            "garment_group_name",
+            "graphical_appearance_name",
+            "index_code",
+            "index_name",
+            "prod_name",
+            "product_group_name",
+            "product_type_name",
+            "section_name"
+          ]
+        },
+        "customer": {
+          "categorical": [
+            "Active",
+            "FN",
+            "club_member_status",
+            "fashion_news_frequency"
+          ],
+          "numerical": [
+            "age"
+          ],
+          "embedding": [
+            "postal_code"
+          ]
+        }
+      },
+      "protocol_sha256": "82868aba908434975a916204f197ed7d6b64a87f4f044338c5d7e61315d39bc2",
+      "executed_refit_sha256": "5dc6dbb4dfd86625524c62705f58ae823919ff3bb73e368f17906da088a6431c",
+      "wrapper_sha256": "c92afb5a43fe2213370b28c555789ce3ec6ac441f9d5675d8cd9b33e8d6f09f0"
+    },
+    {
+      "fold": 2,
+      "arm": "combined",
+      "seed": 42,
+      "fanout": [
+        64,
+        32
+      ],
+      "changed_columns": [
+        "colour_group_code",
+        "department_no",
+        "graphical_appearance_no",
+        "perceived_colour_master_id",
+        "perceived_colour_value_id",
+        "product_type_no",
+        "section_no",
+        "product_code"
+      ],
+      "val_map": 0.018716517857142855,
+      "best_epoch": 9,
+      "epochs": 10,
+      "seconds": 73.37562946000253,
+      "checkpoint_sha256": "6dfb96826f0f6a8985945ecc2f6f6cc94232df802fc394c35f8a4f6633347f51",
+      "source_sha256": "8ceb8fc645962520eab7e4685e29b50f8e122b11bcb6f15195385e9145e95f40",
+      "validation_only": true,
+      "verification": "reload: bounded FP32 scores and exact per-user AP; independent MAP",
+      "peak_cuda_bytes": 1247203840,
+      "materialized_schema": {
+        "transactions": {
+          "timestamp": [
+            "t_dat"
+          ],
+          "numerical": [
+            "price"
+          ],
+          "categorical": [
+            "sales_channel_id"
+          ]
+        },
+        "article": {
+          "categorical": [
+            "colour_group_code",
+            "department_no",
+            "graphical_appearance_no",
+            "index_group_name",
+            "index_group_no",
+            "perceived_colour_master_id",
+            "perceived_colour_value_id",
+            "perceived_colour_value_name",
+            "product_code",
+            "product_group_name",
+            "product_type_no",
+            "section_no"
+          ],
+          "numerical": [
+            "garment_group_no"
+          ],
+          "embedding": [
+            "colour_group_name",
+            "department_name",
+            "detail_desc",
+            "garment_group_name",
+            "graphical_appearance_name",
+            "index_code",
+            "index_name",
+            "perceived_colour_master_name",
+            "prod_name",
+            "product_type_name",
+            "section_name"
+          ]
+        },
+        "customer": {
+          "categorical": [
+            "Active",
+            "FN",
+            "club_member_status",
+            "fashion_news_frequency"
+          ],
+          "numerical": [
+            "age"
+          ],
+          "embedding": [
+            "postal_code"
+          ]
+        }
+      },
+      "protocol_sha256": "82868aba908434975a916204f197ed7d6b64a87f4f044338c5d7e61315d39bc2",
+      "executed_refit_sha256": "5dc6dbb4dfd86625524c62705f58ae823919ff3bb73e368f17906da088a6431c",
+      "wrapper_sha256": "c92afb5a43fe2213370b28c555789ce3ec6ac441f9d5675d8cd9b33e8d6f09f0"
+    }
+  ],
+  "reference_hashes_unchanged": true,
+  "note": "5000 paired customer bootstrap; exploratory selection validation, one seed; no test evaluation."
+}

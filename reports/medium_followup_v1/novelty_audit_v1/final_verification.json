@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "verified_model_folds": 45,
+  "original_maps_reproduced": true,
+  "reference_hashes_unchanged": true,
+  "frozen_analysis_sources_unchanged": true,
+  "metric_tests": {
+    "passed": true,
+    "checks": [
+      "AP decomposition",
+      "unavailable targets penalize full denominator",
+      "conditional unavailable is NA, never perfect score",
+      "new-only denominator",
+      "group exclusivity"
+    ]
+  },
+  "visual_review": {
+    "passed": true,
+    "figures": [
+      "ap_contributions.png",
+      "new_item_recall.png"
+    ],
+    "checks": [
+      "Both PNGs opened and visually inspected",
+      "All 15 method labels, titles, axes and legend readable",
+      "Novel-item panels share the same percentage scale and method order",
+      "Stacked AP contributions match ordinary full-target MAP; unavailable-target policy explicit",
+      "TDM beam and ID-GNN zero-score tie limitations visible on novelty figure"
+    ]
+  }
+}

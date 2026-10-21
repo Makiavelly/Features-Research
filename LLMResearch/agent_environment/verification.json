@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "os_isolation_verified": true,
+  "no_host_project": true,
+  "network_disabled_in_terminal": true,
+  "train_database_read_only": true,
+  "MCP_initialize_list_call": true,
+  "real_model_calls": 0,
+  "feature_evaluations": 0,
+  "terminal_check": {
+    "exit_code": 0,
+    "timed_out": false,
+    "output": "train_pairs 190260\ndatabase read-only OK\nnetwork isolated OK\npandas 2.2.3 numpy 1.26.4\n",
+    "truncated": false,
+    "seconds": 3.121431150997523,
+    "filesystem": "/work writable; /data/research.duckdb and runtime read-only; host project absent; network isolated"
+  }
+}

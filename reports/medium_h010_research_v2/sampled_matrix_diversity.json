@@ -1,0 +1,329 @@
+[
+  {
+    "fold": 0,
+    "programs": [
+      {
+        "call": 1,
+        "features": 20,
+        "sample_matrix_sha256": "0ce4e58866750137cf2edb9b57f595ce126c396c41559d811d8e9b4d51e4799c"
+      },
+      {
+        "call": 3,
+        "features": 16,
+        "sample_matrix_sha256": "62ad12f7e1aa138ac8a1674b17cba80f6ea046bbedfa2db7810340e6c42520a2"
+      },
+      {
+        "call": 4,
+        "features": 15,
+        "sample_matrix_sha256": "eb3c6244a1a1f88af7bac43340ef2f81543c5f6bcd97ff6b00c01a15165d6e95"
+      },
+      {
+        "call": 5,
+        "features": 23,
+        "sample_matrix_sha256": "697f249236919c0647e4f4eac56325fff0228bf5759260669ac526afc275aa13"
+      },
+      {
+        "call": 7,
+        "features": 22,
+        "sample_matrix_sha256": "236eea96253849d7eab64b645227f800c2d5948fb119d245a367a9b632546db9"
+      },
+      {
+        "call": 9,
+        "features": 17,
+        "sample_matrix_sha256": "30858b51c3d104a33b1bd120805a45c27525e6a66d96ec14e26e756127b63110"
+      },
+      {
+        "call": 10,
+        "features": 32,
+        "sample_matrix_sha256": "a6ef30dd7c195929c0aa8fbf2228d1b5bb322d0af0672f3fc65936724d967fe0"
+      },
+      {
+        "call": 11,
+        "features": 32,
+        "sample_matrix_sha256": "ccb376400d7170b1e1ded752b3bcdd06e48e5a825e5499c86d46657009ffb9d8"
+      },
+      {
+        "call": 12,
+        "features": 20,
+        "sample_matrix_sha256": "1bd37a6cb8e0f58550bf8968532b061ff1ff6ecdd9b76dc40bc77101dcb3f59e"
+      },
+      {
+        "call": 13,
+        "features": 35,
+        "sample_matrix_sha256": "0b32183fd69a5f7a38f0f1ea9126a482a172b85011f830cbf16a3792f4170474"
+      },
+      {
+        "call": 14,
+        "features": 23,
+        "sample_matrix_sha256": "009b47cb9216507e513339aed3897aabee8b294cc17f5240c53fc009d8fbba18"
+      },
+      {
+        "call": 15,
+        "features": 18,
+        "sample_matrix_sha256": "7063e28fc4e4b59a4b4d2df501a1a083c218ab7368ba58ee178807f7fe371736"
+      },
+      {
+        "call": 16,
+        "features": 35,
+        "sample_matrix_sha256": "1eb2f76fa235052114de8f13b03ffe50e1e707dbad7882dbb6494ed33441d04b"
+      },
+      {
+        "call": 17,
+        "features": 28,
+        "sample_matrix_sha256": "ff50b28b94102b7e535b20385e8c02c70d2c739e9748f476a36ded3f5fcd132c"
+      },
+      {
+        "call": 18,
+        "features": 20,
+        "sample_matrix_sha256": "5c20e88bb1b89513eec5f5ec2489509964e7b5f46a25cc3b0fb3d8c5e89c4228"
+      },
+      {
+        "call": 19,
+        "features": 36,
+        "sample_matrix_sha256": "a8f55dd8f013c5798de9bdc5fccf70c8ac0a8bbddc2d9ed8ced49af8a0de89a1"
+      },
+      {
+        "call": 20,
+        "features": 32,
+        "sample_matrix_sha256": "d7d22d86ecc62095f4dc0f9e16aa188b975a481136b4e64994264e66ae4d5b28"
+      },
+      {
+        "call": 21,
+        "features": 24,
+        "sample_matrix_sha256": "e35b0a16d694862e3aae3a86f6a720c8c4eb3693ada1199a0f3000fb40d55e5e"
+      },
+      {
+        "call": 22,
+        "features": 36,
+        "sample_matrix_sha256": "7300f49e834c2014d3c3c4357e89514432df5832473bb9f28d26397d66963358"
+      },
+      {
+        "call": 23,
+        "features": 28,
+        "sample_matrix_sha256": "ff50b28b94102b7e535b20385e8c02c70d2c739e9748f476a36ded3f5fcd132c"
+      }
+    ],
+    "sample_rows": 64,
+    "cutoff": "2020-08-03 00:00:00",
+    "distinct_sample_matrices": 19,
+    "note": "Equality on a64-row train sample is a diagnostic, not proof of full-matrix equality; column names/order ignored."
+  },
+  {
+    "fold": 1,
+    "programs": [
+      {
+        "call": 2,
+        "features": 14,
+        "sample_matrix_sha256": "76453964f841d1fcf0861cb9744e02aea147ce2bb5311f94f9b6de9e27fd8d6c"
+      },
+      {
+        "call": 3,
+        "features": 27,
+        "sample_matrix_sha256": "f3ab0292f827b961d043eed83d7ee3fbb8c2060390d685ce96df2d743d7f634e"
+      },
+      {
+        "call": 4,
+        "features": 36,
+        "sample_matrix_sha256": "7b739d00424b47a47b282fe237640289c03649fc75438c5ca0c82ce3853f0a60"
+      },
+      {
+        "call": 5,
+        "features": 19,
+        "sample_matrix_sha256": "4e2bfd264f2ec9115134cccacf085d8e1bbea2e5b3d21d8dffaa4d2344884809"
+      },
+      {
+        "call": 8,
+        "features": 32,
+        "sample_matrix_sha256": "927ae6181779220d63dea6aafafdca2dc9e7ec9865328b1f0b2660647983007b"
+      },
+      {
+        "call": 9,
+        "features": 35,
+        "sample_matrix_sha256": "3d11471dcd62784da206476eec4e4eb6946005b312e589ffb7f46ba4956370fd"
+      },
+      {
+        "call": 10,
+        "features": 24,
+        "sample_matrix_sha256": "5412b5a308e306be2d048f18c515d154a0e048732bf587690e89a9f97212ce5d"
+      },
+      {
+        "call": 11,
+        "features": 23,
+        "sample_matrix_sha256": "684ece0f15121e971c793394e8d2190431476f7dc64143788158da41b9b463c6"
+      },
+      {
+        "call": 12,
+        "features": 26,
+        "sample_matrix_sha256": "0a6750f638d80aca5ff728513071ab2f6392eaadf1331de10ac5c62cbe46fb42"
+      },
+      {
+        "call": 13,
+        "features": 14,
+        "sample_matrix_sha256": "76453964f841d1fcf0861cb9744e02aea147ce2bb5311f94f9b6de9e27fd8d6c"
+      },
+      {
+        "call": 14,
+        "features": 34,
+        "sample_matrix_sha256": "baf8423e3f3cc14c1be2e752b31cb2e97c1ea7d23f784cc7b06d886e37b61828"
+      },
+      {
+        "call": 15,
+        "features": 36,
+        "sample_matrix_sha256": "3973bc16814c7e4f4d782242de171f6dea1708cff0965e8712bb193613397060"
+      },
+      {
+        "call": 16,
+        "features": 24,
+        "sample_matrix_sha256": "486320ffd36b4a3d6dc2c8ba808d0890d07f5871f5e07c1aa233d7bd53dd78ac"
+      },
+      {
+        "call": 17,
+        "features": 35,
+        "sample_matrix_sha256": "e9ca56c0ba4190d5b6984ca6632291ad8150e6e63b22e9ba93cb7d641d937b98"
+      },
+      {
+        "call": 18,
+        "features": 35,
+        "sample_matrix_sha256": "2a8ab878d57170e39aa620f4bfd59909255782f9b5f447ddd7cafb592ec5eaab"
+      },
+      {
+        "call": 19,
+        "features": 14,
+        "sample_matrix_sha256": "76453964f841d1fcf0861cb9744e02aea147ce2bb5311f94f9b6de9e27fd8d6c"
+      },
+      {
+        "call": 21,
+        "features": 36,
+        "sample_matrix_sha256": "0e0caa823c022fc9a1bd5d1de5c21f4c4c79cc99bbc10f70d45e7cd44c995137"
+      },
+      {
+        "call": 22,
+        "features": 35,
+        "sample_matrix_sha256": "ee832e1c8839a244f1d547bac090c9aeffa81e63ab921af223986fc35fe0409a"
+      },
+      {
+        "call": 23,
+        "features": 14,
+        "sample_matrix_sha256": "76453964f841d1fcf0861cb9744e02aea147ce2bb5311f94f9b6de9e27fd8d6c"
+      },
+      {
+        "call": 24,
+        "features": 32,
+        "sample_matrix_sha256": "927ae6181779220d63dea6aafafdca2dc9e7ec9865328b1f0b2660647983007b"
+      }
+    ],
+    "sample_rows": 64,
+    "cutoff": "2020-08-17 00:00:00",
+    "distinct_sample_matrices": 16,
+    "note": "Equality on a64-row train sample is a diagnostic, not proof of full-matrix equality; column names/order ignored."
+  },
+  {
+    "fold": 2,
+    "programs": [
+      {
+        "call": 1,
+        "features": 13,
+        "sample_matrix_sha256": "32712aacc8ce9bffe78a12af5ae95103692de449db4968908728495df6079697"
+      },
+      {
+        "call": 3,
+        "features": 31,
+        "sample_matrix_sha256": "c61ad13ed2a5dc5fd66bda6ebd749e1ecd0e3ad07b0aa912b8953403f063150b"
+      },
+      {
+        "call": 4,
+        "features": 26,
+        "sample_matrix_sha256": "045092ce203b678ecfe7e4a4db9271846deffe78e283b75bd1ae6ea68acc60d1"
+      },
+      {
+        "call": 5,
+        "features": 22,
+        "sample_matrix_sha256": "b9a1098860f547ea70a3d94d439a480dad5b656f76924fb8bfe6e3ab9810cb3c"
+      },
+      {
+        "call": 6,
+        "features": 36,
+        "sample_matrix_sha256": "df20f2e2095d076a0202334a205dc2de7c3ea567c77976ce827ab857083bfc98"
+      },
+      {
+        "call": 7,
+        "features": 36,
+        "sample_matrix_sha256": "d468bd6347c51ed964d7a0528cf3ef2c7ef05e5e4bdef295696ab4395c512887"
+      },
+      {
+        "call": 8,
+        "features": 15,
+        "sample_matrix_sha256": "0d059cd5cfd5dc34b3cae8d8e9318427c37dbdc20b8c1a5728f1830f15f2aed1"
+      },
+      {
+        "call": 9,
+        "features": 31,
+        "sample_matrix_sha256": "a355eea2f26526c23b607d782ce683a53852f0b05a1f9684253e439cb4054b7a"
+      },
+      {
+        "call": 10,
+        "features": 36,
+        "sample_matrix_sha256": "4c830ea15844746053925612c09a5aa6248d2ee8486d6e32fa9b5840f4ec5ed8"
+      },
+      {
+        "call": 11,
+        "features": 13,
+        "sample_matrix_sha256": "32712aacc8ce9bffe78a12af5ae95103692de449db4968908728495df6079697"
+      },
+      {
+        "call": 12,
+        "features": 31,
+        "sample_matrix_sha256": "90127ea4e0371b5090d9ac3a08a3dec3237121cf6ad84117f03da93cf45f6135"
+      },
+      {
+        "call": 13,
+        "features": 36,
+        "sample_matrix_sha256": "a01952d554aefa6de7f26c29a3ca4257b13a90f73711c81329b3dfbc5c6320d0"
+      },
+      {
+        "call": 14,
+        "features": 15,
+        "sample_matrix_sha256": "16b2601ae8725f4e0fb0594f86bb288df5f3daa631e0d5c8899fd64e638969f8"
+      },
+      {
+        "call": 15,
+        "features": 33,
+        "sample_matrix_sha256": "fd217f1f6b8faf847026dcafd254f3af7650cace7cf8d2492f65b9f0a24c0bfc"
+      },
+      {
+        "call": 16,
+        "features": 36,
+        "sample_matrix_sha256": "4c830ea15844746053925612c09a5aa6248d2ee8486d6e32fa9b5840f4ec5ed8"
+      },
+      {
+        "call": 17,
+        "features": 13,
+        "sample_matrix_sha256": "32712aacc8ce9bffe78a12af5ae95103692de449db4968908728495df6079697"
+      },
+      {
+        "call": 18,
+        "features": 31,
+        "sample_matrix_sha256": "90127ea4e0371b5090d9ac3a08a3dec3237121cf6ad84117f03da93cf45f6135"
+      },
+      {
+        "call": 19,
+        "features": 36,
+        "sample_matrix_sha256": "4c830ea15844746053925612c09a5aa6248d2ee8486d6e32fa9b5840f4ec5ed8"
+      },
+      {
+        "call": 21,
+        "features": 15,
+        "sample_matrix_sha256": "2db9ceb0a52495595a1684b17d76c962a4d444b87edc6fe0aac42cacee7a7440"
+      },
+      {
+        "call": 22,
+        "features": 31,
+        "sample_matrix_sha256": "90127ea4e0371b5090d9ac3a08a3dec3237121cf6ad84117f03da93cf45f6135"
+      }
+    ],
+    "sample_rows": 64,
+    "cutoff": "2020-08-31 00:00:00",
+    "distinct_sample_matrices": 14,
+    "note": "Equality on a64-row train sample is a diagnostic, not proof of full-matrix equality; column names/order ignored."
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "run_id": "hm_medium_h011_codex_seed42_budget300_v2",
+  "research_caps": [
+    100,
+    100,
+    100
+  ],
+  "research_total": 300,
+  "supersedes": "hm_medium_h011_codex_seed42_v1",
+  "inherited": {
+    "accepted": 14,
+    "next_turn": 14,
+    "research_spent": [
+      9,
+      7,
+      6
+    ],
+    "actual_POST": 99,
+    "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+  },
+  "change": "User explicitly increased research budget40 to300 per fold during search; retain all prior work and counts."
+}

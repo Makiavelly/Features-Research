@@ -1,0 +1,206 @@
+fold,call,island,hypothesis,code_sha256,status,program_key,search_map,error
+0,1,0,"Recent global item demand plus customer activity, repeat-pair recency, 30-day customer category exposure, and selected static attributes improve ranking under cutoff-safe history.",7d341f78771f411a350b6a295870c223bc6f43ab6ef38ae04182aae687a66eb0,accepted,87637b48328c77a2f55aa38772b05a7f08dd447a0803cc819ebd981636a7f7da,0.002376302083333333,
+0,2,1,"Cutoff-safe exact-item recency/count plus customer activity, item popularity, and customer affinity recency/count for product type, department, section and index group improve ranking while avoiding an overconfident repeat-item binary signal.",df5100b2e89193ce7b81f2535f70936445bd1b20037d24f4fd789644a06d26d7,accepted,d705ba52b22cddae4e6968f87fb64f689f065ff103bfc6e73940fe00070fa225,0.0012622974537037036,
+0,3,2,Recent and overall item popularity plus customer purchase activity should provide the primary ranking signal; recent customer product-type and department affinity adds a personalized signal.,10c608eb66c1ca9731887ead1f7acc13c02f238ed9877730aa288486abae4431,accepted,0b921bbe7cf3c9ccfbb14e4ad4bbc19a02f783680db0787a85e7050619535880,0.0042774987599206345,
+0,4,0,"Thirty-day customer-item price compatibility and target section, colour, and graphical-appearance recency/count affinities, with category popularity, improve ranking using only cutoff-safe purchase history.",6fae71ce2dcde907ef976e2503694f2421f2f7c9f81d8c89fcd26553eaf9b266,accepted,2d50ba2b0e162eda22b5b2cb11e7ea7e547391d0b570a42746889b8cbf2922de,0.0010742187499999999,
+0,5,1,"Recent article demand is markedly higher for positives; combine 7/30/90-day item demand with cutoff-safe customer affinity recency/intensity for product code, colour, garment and appearance, plus explicit candidate descriptors and activity.",39df68e38987ecf35e8e776c486e72350059dbceab88305170937387e74e2f9f,accepted,dba6c77cad73688b5dedfe6e3fdbbb9af0a06de027f33f81c84aac1c56535761,0.0011881510416666668,
+0,6,2,"Candidate items with very recent, accelerating purchase demand should rank highly; normalized customer type and section preferences personalize that demand signal.",4baed9a931f2655ad7fe098388c77e502dd39cdb3354d0a562027bc44056f8c9,accepted,2159834643ccde1dbb590268882d85933cb099d0d43045fcf1d352c7bb86578f,0.004587324838789683,
+0,7,0,"Short and medium item demand, demand acceleration, age-segmented item popularity, and broad category/customer activity provide a strong cutoff-safe candidate-generation signal.",3eac84e2b10af220168ed5b91804befcddd12aa884e91551ff1a658443fe4f4e,accepted,c9605876b3e2212571a8d8b76f468a0f869c1362017fa189253ac8ad4f32c67a,0.00429888308306277,
+0,8,1,"An article's recent demand share within its product type, demand acceleration, and cutoff-safe colour/style affinity provide ranking signal beyond absolute popularity, with match frequency treated as confounded by negative sampling.",1a71c76d3b420caa0b4154d4979db176af809cf91c16a289edb800d538fd3931,accepted,186bdd087ac6709608403ca7ff1f99d400a3ecfcaeea98ca27074a4b794c0bf1,0.0036749329229797977,
+0,9,2,"Relative item demand, item/customer price compatibility, customer channel preference, and recent product/colour affinity complement demand-based next-week ranking.",032d8c097defab415134f74f89561124280db84bb7abc3dc12d2e65fdaeb804a,accepted,42f0662096fd0fa6d421b517ac42eda3c6a88bb86e7f02f9269465183062c485,0.0028789569805194805,
+0,10,0,"Fine-grained demand horizons, article demand normalized within product hierarchies, and recent customer product-code affinity identify current dominant variants using only cutoff-safe history.",f722d7e1fa09754134de06f1f40284c885baf6fabce3a6e6237f925b6e2bb505,accepted,e987dbc325d13c760cce827fb18bb11f0d51349a005e661648f8a34feef2ddbe,0.002057756696428571,
+0,11,1,Article lifecycle age and disjoint 0–7/8–30/31–90/91–180-day sales and buyer counts capture the observed strong new-item signal; recent customer department/type activity supplies personalization.,34f8b6592f7933bfc0ef7003942fce566771e1ce0e67182adfc228abd183f406,accepted,c437614c34d2ef897067cec536f0cd47d030bd8352c3005d8704c21c08f85a1e,0.0017865316107503607,
+0,12,2,Multiple nested recent-demand windows and surge ratios capture the strong short-lived popularity signal more completely than two-window demand features; customer activity and affinities contextualize it.,fb37a1ec863881ea743857d895ec23b39098e93bffaf91943dd03e09d9f97972,accepted,fc6a7036aef708727682d13cb5c2e9cf406afeac8e8e9257632206060f2188a9,0.00840957003066378,
+0,13,0,Distinct recent-buyer reach and growth separate broad current item demand from repeat concentration; customer purchase diversity and pair recency supply personalized context.,a0fbb1c35214b16fa63c5750deb0dbfebb5368d2b38eb7f32fa12feec28e115b,accepted,6d06682ecbd8ddcef69e728f43c989d9ffa6c44e9c3ea7895e3192fbec5ec406,0.0024329511634199135,
+0,14,1,A stable new-item effect across all six training cutoffs combines with article demand normalized within product type; customer colour/style affinity and cadence provide cutoff-safe personalization.,f9f35bbf418ae27f34676f7a0711e474f2d4c0b1c91037abb21fb90d8b400b50,accepted,c4e6b0636c38aec7d3cd0e7e33fc2f48a442a953072aed4b57771ba9191424c8,0.0020978009259259257,
+0,15,2,"Unique-buyer breadth, repeat intensity, and customer basket breadth add independent popularity and engagement information to the strong multi-horizon demand/momentum features.",3287169a7442ddde2fd3f75fae661781d633fc8d98cb29bcd78b8624f2d73d11,accepted,206efdf2d155785c007580f562c33c6ddec97416131d02b28c9db8c86ee8aad9,0.0026697237844001236,
+0,16,0,Channel-specific item and category demand plus the gap between item and customer recent channel profiles captures availability and customer purchase habit beyond aggregate demand.,ae2836b951c5781bf9c8b942a77ff7db02e4bb4ba875f38768ce7933d775ad93,accepted,82c3c77c429f1b7b0afe610d4d36618dc0ba2ca1e625349a90a9fc2013c585af,0.001150173611111111,
+0,17,1,"Recent item demand normalized within garment group and section, together with customer detailed-category affinity at lifetime and 30-day horizons, captures demand and personalization beyond broad product type.",407e123e73d4d7dfd7bb690aee4e24f6c3f964bf3c1d1741446035b62b5aa585,accepted,39aa786ca8cf185875bedc6b2defbe017eab253d5550773839d32fa07808a0d4,0.0014586433531746032,
+0,18,2,The strongest multihorizon item-demand momentum features combine with recent exact-category demand and customer/catalog attributes to rank likely purchases.,d6c4f278bf0e9e3e98404699ca6ebecd5005239e01dc4561b0602467fb803741,accepted,143415b10f5128d79183f0998f465fdc64d93ac4273087fffbea8d281fe8e60e,0.003391570090788841,
+0,19,0,"The best demand, trend, and age-segmented item signals improve when combined with all fixed customer and clothing attributes, enabling attribute-specific ranking without IDs or future data.",19adc0a412aad83108fc31ab6e7b45ec67ad8c846b7f69df39e8c1f417e45761,accepted,d39d6a9c3d592d28a18bdb1c28b68c24fca8077e5a755bf221751bc8a348a6a9,0.002676246279761905,
+0,20,1,"Extend product-type-normalized recent article demand with cutoff-safe article lifecycle and historical price/channel profile, retaining customer style affinity and cadence for personalization.",2c00bf26b09ab5774b7d3e4e18f59d1a579c19fe98806ba3d878e87457efe85f,accepted,5b348e93b686cd3619c213fe63378e6f38b0e62ca8706f5474be0ffc2c1f9d1e,0.002001048900462963,
+1,1,0,"Customer category recency and short-window demand, alongside pair timing, rank next-week purchases better than item popularity alone.",6d471b1249883d69b9d242d10454805336870fe6df62310d0e31c10c351a9a5b,accepted,1c595227ff0075746005287ef18900d7ee2082cc49ccdc91233d529b64276f77,0.002485466645622896,
+1,2,1,"Повторные покупки, недавняя активность клиента и товара, а также совпадение категориальных предпочтений клиента с атрибутами кандидата повышают MAP@12; оконные счётчики и recency дают устойчивый сигнал по шести cutoff.",1fdaa0620f7c6adfd23e2a1642bdbc0792c944d5b7ee5fbf48114686bdf342bc,rejected,,,"y(deep=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<llm-features>"", line 30, in modify_features
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/series.py"", line 4700, in map
+    new_values = self._map_values(arg, na_action=na_action)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/base.py"", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/algorithms.py"", line 1722, in map_array
+    mapper = Series(mapper, dtype=np.float64)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/series.py"", line 584, in __init__
+    data = sanitize_array(data, index, dtype, copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/construction.py"", line 633, in sanitize_array
+    return sanitize_array(
+           ^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/construction.py"", line 659, in sanitize_array
+    subarr = _sanitize_ndim(subarr, data, dtype, index, allow_2d=allow_2d)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/construction.py"", line 718, in _sanitize_ndim
+    raise ValueError(
+ValueError: Data must be 1-dimensional, got ndarray of shape (0, 16) instead
+"
+1,3,1,Repair: use tuple dictionaries for pair and customer-category counts to avoid MultiIndex mapping failure while preserving repeat-purchase and recency signals.,fe97b3fc836880fada14164089c25d4c18bfb4a39e1c0db41b01bd4cbbf752eb,accepted,3fd5048436c4fcd726c027ae424906c78132f267660b2e0c5c5e7b34a2375ff8,0.002707248263888889,
+1,4,2,"Recent exact article repeats, customer-category affinities, and multi-horizon item/customer activity will rank next-week purchases; strong repeat and product-code signals should improve MAP@12.",c4582bf6c7b3ef5abcf022a4e4e1ce610e2ffe526a69e94678fe91fbf90eaa62,accepted,c030c13fefb0657874d64a8b9b03d137ae37bba0526ad0f7f124254cb69d8ead,0.003592002615440115,
+1,5,0,"Customer affinity to product-code, garment, section, colour, and graphic categories plus emerging item demand ranks substitutes and new purchases.",6424849152e1c9e7bda661d8422d5896ba555f7bc90a906f713b6dc9908463d0,accepted,f257e7fdb4bb50687f52ae603ad89f6804e032c3c93ada6f08e82b6c0be999ad,0.0008761935763888888,
+1,6,1,"Экспоненциально затухающая активность лучше фиксированных окон для временной близости; 90-дневная клиентская affinity по типу, цвету, index и section дополнена breadth/repeat-rate товара и профилем канала клиента.",a1216d0569928a992a3a45a3bfbdabf3aa8088806ac2ac9624d5aea1bb6616f5,accepted,439b35262a76fcc8e9c951bb996aa0d3c2dfc28ebd55ae05d5e279e87db0b7f6,0.0030233393270502644,
+1,7,2,30-day category coverage is 0.917 for product type and 0.909 for department among positives. Recency-weighted repeat/category affinity plus customer breadth and article momentum should improve MAP beyond broad count features.,7eb5e07b636c91de34cc1ad6ba7a570f6fc54503f3a84d9053a38c1bcc14bbcc,accepted,8f704a07911b6eef085a3ead2677c0eacdcb7aae6deae1fc2d9da95b7ad2e596,0.003519429788961039,
+1,8,0,"Non-overlapping item-demand windows, customer breadth, and purchase cadence identify newly popular articles and active customer contexts.",06bfee65442af3fc1306cd3e741d1b13d1813cf583e316eae1a8cca513d1a07d,accepted,5b69274d9a5ff96f405a409f9866edc9e266c1bf6d69b8081702d8b73feea7e2,0.0017144097222222222,
+1,9,1,Положительные пары связаны с более активными клиентами и популярными товарами; нормированные item repeat/popularity и обычная+затухающая customer taxonomy affinity должны усилить ранжирование.,4522987e6872a41ff5327aa909b1b79078eade2f78578ce81e5b796217f56780,accepted,c412c9d566586cd87b3a6c460dd8e9d4f5cabdf67e83d1b0383852cfe743ea73,0.0006199018959435626,
+1,10,2,"Positive pairs show 88.8% customer/product activity within 14 days and meaningful channel-2 co-occurrence (52.4%). Short-window article/product momentum, channel preference, price-position proxies, and color affinities should complement repeat features.",d7cd4c30b282132e44301319cee508b627ee2ba0d0c582ca1d0e7dfe1dae7718,accepted,9e9faf30f6676c073e5b314a3b365e1a5fd580c7bdf596d7f475462632dc5759,0.0011325588474025974,
+1,11,0,Item popularity relative to its product-type/department and joint customer-category affinity identify relevant articles beyond global demand.,6bcd2c135d03a3f6e4a308048370fdc2f47020fb55b331896f18ff149ff7ecaa,accepted,226aee2b244169f20791c9ea63ceaeb01c61ebb16edb2abdd189568d012eec43,0.003462921626984127,
+1,12,1,"Клиентско-товарная ценовая близость и совпадение предпочитаемого канала дополняют многомасштабную recency, exact pair и повтор product_code.",c6d97132928c5d10dd27e93617af2d4682e698c9ace4157b8cdef5881e0092b5,accepted,19ec7286ffb105552d43da18fd7dd73821481a0aff578bd0e9ced1927f1d974e,0.0023266989087301587,
+1,13,2,"Historical 31-180 day category continuity covers 55.9% of positives and exact 7-day article activity 88.5%. Multi-scale last-seen recency, customer diversity/cadence, item breadth, and price dispersion should capture durable preference and novelty.",40744e9e8e4fe3727bb8d40d492ffd24678789b72eab657e2cf336d5fea99c38,accepted,21c7ff8b03364a88a18a43d550b9cae2d880983f7500e4519158e3a309e5c0d3,0.003906766699735449,
+1,14,0,Item and customer-category price and channel alignment distinguish plausible novel alternatives from irrelevant candidates.,1dc5650396e51757511cc73f7da4b1e1eeb15e6790f5b06fea122774fbc721eb,accepted,17a25e8eff74022b4d7d59c566668206ad30f00b324b6550fe3f647392c79fc3,0.003539463646885522,
+1,15,1,"Компактное сочетание коротких окон и экспоненциальной recency, плюс affinity по product/department/section и exact pair, устойчивее шумных ценовых признаков.",457ac8e3a625b7d600c6c872f57dd2f23cd078a472eae6b7d0332fed61017b2f,accepted,14f4f6ed562602530e980b621a213149dbbeabe676b27160e25f3d38ac0960cb,0.002085916832010582,
+1,16,2,"History median age is 85 days. Recent/all ratios for exact article and category affinities, plus multi-scale recency and customer breadth, should distinguish current intent from long-term popularity.",3dba3409730910d669a2dbc696031129c9c809e8a46c38f08c37450ba1ba4fe1,accepted,59672846a86f3d900de39a4183435350833a458688082745c882e5b186064af1,0.0010416666666666664,
+1,17,0,"Combined relative category demand, customer category affinity, price/channel alignment, and item lifecycle breadth improve next-week ranking.",81faa3d191b656546a5c91f2067809ac26fb01cf311986559b848256244d97b6,accepted,8a5640ad4299a20b6d5a4f978af2e247a7cca6f56b49bd231ded05808d848b66,0.004470486111111111,
+1,18,1,"Короткие exact repeats переобучаются (30-дневная доля выше у отрицательных), поэтому фокус на долгих окнах активности, долгосрочной affinity и item breadth/repeat intensity.",4d9fea6448aadca18cbcf155746ab509d5f5090d98869f678cc1ce94f1f81097,rejected,,,"Traceback (most recent call last):
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/worker.py"", line 177, in <module>
+    main()
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/worker.py"", line 159, in main
+    checks = preflight(engine, pd.read_parquet(root / 'train_pairs.parquet'), program)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/worker.py"", line 55, in preflight
+    whole = timed_frame(engine, sample)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/worker.py"", line 45, in timed_frame
+    return engine.matrix(pairs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/base_features.py"", line 184, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/python_features.py"", line 177, in frame
+    out = construct(self.function, X, self.history, expected=self.names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/python_features.py"", line 141, in construct
+    raise ValueError('Return 1..36 unique numeric f_lowercase features, no raw fields or IDs')
+ValueError: Return 1..36 unique numeric f_lowercase features, no raw fields or IDs
+"
+1,19,1,"Исправление контракта имён: долгие окна активности, affinity и item breadth/repeat intensity без короткого exact-repeat сигнала.",4d33751612a9cff0cfda5b9141abc09d80859b64a5c95edf212c4610fc22434f,accepted,deeaaf4ac51a5f579b27b52798156aff80a1443e9e8cc94f017e50353027cb2b,0.004326991213151927,
+1,20,2,"Positive customers are universally active (mean raw_u_active=1.0). Decayed exact repeats, category last-seen recency, customer recent breadth, item momentum, and active-repeat interaction should rank current intent.",2143cb653ddadcb3430885c14d418241ae50fed570eaed67e142021c034c52d8,rejected,,,"l/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/worker.py"", line 45, in timed_frame
+    return engine.matrix(pairs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/base_features.py"", line 184, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/python_features.py"", line 177, in frame
+    out = construct(self.function, X, self.history, expected=self.names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_1/runtime/api/python_features.py"", line 132, in construct
+    result = function(X.copy(deep=True), history.copy(deep=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<llm-features>"", line 17, in modify_features
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/series.py"", line 4700, in map
+    new_values = self._map_values(arg, na_action=na_action)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/base.py"", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/algorithms.py"", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""lib.pyx"", line 2972, in pandas._libs.lib.map_infer
+TypeError: GroupBy.size() takes 1 positional argument but 2 were given
+"
+1,21,2,"Repair: fix grouped transaction count computation while retaining decayed repeat, category recency, recent breadth, momentum, and active-repeat interaction.",c2811405f001e51c6c5e5af64dcce3c7cb9fb86aaa0282006d1265625a308d90,accepted,9637ffcb6e0595d64a0237b3424b936fc9b58742812d1240ac8ae2c359b85f70,0.0021080644615800864,
+1,22,0,"Adding exact item and product-code repeat timing to relative demand, category affinity, and price/channel alignment separates repeat opportunities from stale negatives.",803702afec17963f18c6bebdd4ce535d0264c7a29275aa7a72e400582f2fb414,rejected,,,"Define exactly one def modify_features(X, history)
+line 1: no executable module-level expressions"
+1,23,0,"Adding exact item and product-code repeat timing to relative demand, category affinity, and price/channel alignment separates repeat opportunities from stale negatives.",a196902985262a36801aa8f0aa73d0fe6c8301a1bc50dcebe1911639b6f05088,accepted,46b6a1239df62c3a65e17b82e507eb7c2e3d2bf82dcae6246a0571ac4dd221da,0.004647887919372294,
+1,24,1,"Сильное ядро v6 с дополнительными decay-признаками (tau 20/80) лучше моделирует плавное затухание активности, сохраняя долгие окна и affinity.",513113ce1cd7840b21ab08e52541df862b0f452db14fd32fac780c0d7afb093a,accepted,6476971e7a722a5357de7568f74d32ddcc869dbb08c14e1ab68ebf3566faecda,0.0031607368326118327,
+2,1,0,"Recent customer/item activity plus pair repetition and customer-category affinity (with popularity, recency, channel and price baselines) should improve next-7-day recommendation ranking.",d9d36405d6929f9880b888d7e9e3e5b8715ab6f6795e6e58440f1df8886c7649,accepted,1bf48c75e82a67bae5001e152e99a9fe5cfe7581920c995af3eb08c18d312047,0.004531503652597402,
+2,2,1,"Repeat purchases and recent customer taxonomy affinity are strong next-week signals; combine exact pair recency/count, multi-window item and user activity, customer-category affinities, item recency/popularity, and price tendencies.",cccf3498bd0985213afef6d96085f168f1866affc9cf60d17f38433faa824bf9,accepted,9fbc6cc3a130a65cde6a5b945a106cc7a533f763405e5debb21381d853778700,0.0023684593194916856,
+2,3,2,"Recent demand plus customer activity and recent customer-category affinity (product type, department, section, colour) should improve next-7-day ranking; multi-horizon popularity and article recency capture momentum and novelty.",976115a810e085f1e70d7dccdd84279c7969bd886504d919ed5c1203a9d27642,accepted,483282040813508a2fac10ac7dc215df7311d5d19acc24cf4cc33dcc3d2cd9ae,0.001138720100308642,
+2,4,0,"Recency-weighted customer and item demand plus customer affinity to candidate colour, department, section, product and garment attributes should improve next-week ranking, with weighted pair repetition and popularity controls.",2b45885ed7a497e454f291b534c3c3a5bd1a779dc5f1be1ab5d62905cd1aeeff,accepted,a7cebf0a4fc48679f1f5125e1008c9ae3ee0be16ae08e3229300ae8840e9fea1,0.0033939422123015874,
+2,5,1,"Use exponential 30-day decay for item/user/pair activity, normalized customer taxonomy affinities, exact repeat recency, and recent item burst to emphasize near-term purchase intent.",ae7c01370e021af30b2e1620bf54d76d76f800615ae5184655a20152266e6e36,accepted,dc0dcd776bea1d0fc55f5ac13fab0171e610b694fc1e416c45392962ae60709e,0.0016994724025974025,
+2,6,2,"Exact customer-item and customer-product-code repeats capture strong personalization; channel mix, customer activity, age compatibility, and recency add orthogonal purchase propensity.",50099161c4105e5372c3d42f3441a372294badc0d6d4ab51499e242b80854ad2,accepted,db4bc1c41a8318f9120e50c37f701c710248bcf41bc521e6d090d34df4512c0f,0.002117047991071429,
+2,7,0,"Most-recent purchase attribute matches, customer category concentration and diversity, recent activity fractions, and price behavior capture transitions that improve next-week recommendations.",b163589dba1a4e109a3091f116f4e65cff71d31f090264f60b15afdb08c96d77,accepted,015421051303c0ec99a91d78615c55c72a567537da6b1055af4dded8a8c5ac00,0.0006584398674242425,
+2,8,1,"Recent 7/21/60/180-day article and taxonomy demand, customer-category overlap, price compatibility, and static customer activity/club attributes capture temporal intent and segment differences.",bbdde62642e070e7a2ca025f816dc16634e3d2b807f093a8f6dfe5a28dc99af6,accepted,09f8588104ad70f8d263b10d7673e97668873de3867e5fd1288440eaf5cd8c56,0.006731040072278911,
+2,9,2,Exponentially decayed item and customer activity capture momentum and burstiness; decayed category popularity and customer-category affinity provide smooth temporal personalization beyond hard windows.,853ed93f44b260ad2e6f4c1705164c2bd3a66f6d1c606c00ba420ccb891ac4d2,accepted,eeed7b8ce9707b4543880740d9c0364aaaf485da77aa3ffee24ab407449c1ead,0.0030201099537037037,
+2,10,0,"Multi-window customer product-family interaction counts together with customer/item lifecycle, demand, popularity, and item price/channel signals capture repeat-purchase saturation and current assortment relevance.",56ad6d8d0b386dc8b0472deba292d17a3ed1f2dfe2bedce92b62e64488f5fdfd,accepted,86edc409887069d2bc22a6f8b1555a39b339b4e5970765c19bed55af82399f88,0.003230096726190476,
+2,11,1,"Item recency strongly separates positives, so combine v3-style multi-window item/product/section demand with exact customer-item repeat recency, customer taxonomy affinity, user recency and price compatibility.",6fb36c1d7b9feea470ac966dabed316e08d2f75e98db555c0f45e6817b2cf086,rejected,,,"/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/base_features.py"", line 184, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 177, in frame
+    out = construct(self.function, X, self.history, expected=self.names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 132, in construct
+    result = function(X.copy(deep=True), history.copy(deep=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<llm-features>"", line 18, in modify_features
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/indexes/base.py"", line 6491, in map
+    new_values = self._map_values(mapper, na_action=na_action)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/base.py"", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/algorithms.py"", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""lib.pyx"", line 2972, in pandas._libs.lib.map_infer
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/lib/python3.12/site-packages/pandas/core/generic.py"", line 9938, in last
+    raise TypeError(""'last' only supports a DatetimeIndex index"")
+TypeError: 'last' only supports a DatetimeIndex index
+"
+2,12,1,"Repair: use explicit grouped columns for item recency and exact repeat signals; combine strong multi-window demand, taxonomy affinities, user recency, and price gap.",a3bf2817a4a740f1b7a72da8c7948ed4819cc734b189b9197071d5300b9c4a34,accepted,6877b087278fc5299b706038a6135d4a65d4aa080a0c57f6c4088a16df8da310,0.004739639700577201,
+2,13,2,Historical item and product price distributions plus customer spending levels provide latent segment and price-affinity signals; absolute and ratio gaps rank items matching each customer's typical spend.,e91a97fa15f51a83cb6e20197404fbd588705265db65f379af7266df4798330e,accepted,19a7d1bc15bead544a88bf94c1a40c5c4b9f42915413a27a177ce5a84427addc,0.001392505787037037,
+2,14,0,"Raw pair and product-family recency with lifetime counts, customer purchase cadence, item/category freshness, and recent category seen flags capture nonlinear repeat timing and novelty.",5621f7429ce50b2ef19ac399bb7d4fcaba325dc6b0ffc8410bbfdb5ebce9b55e,accepted,0f9d7ea814e60d1b26c8addb1b18c3e7f552b34ddc75dd6148f33dae28b1b761,0.004229938897907648,
+2,15,1,"Add item popularity relative to product/section demand, 14/45/120-day freshness, customer purchase breadth/diversity, normalized category matches, and recency/static activity.",7753c1aa3359a50d4499ce5309db7b1f1c75fe9a5e136f7e721f71943343fe1e,accepted,b13a27453e562e43a208bce4c92eb95160fd603e03cb15b6c3d7e83a46304896,0.001417248658459596,
+2,16,2,"Age-bucket conditioned product type, department, section, garment and item frequencies model demographic preferences; normalized within-age shares and age consistency complement global popularity.",657f36ccca01296b436d17b51a93110348f84c933f020362332121be80dfa9d4,rejected,,,"Traceback (most recent call last):
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 177, in <module>
+    main()
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 159, in main
+    checks = preflight(engine, pd.read_parquet(root / 'train_pairs.parquet'), program)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 55, in preflight
+    whole = timed_frame(engine, sample)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 45, in timed_frame
+    return engine.matrix(pairs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/base_features.py"", line 184, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 177, in frame
+    out = construct(self.function, X, self.history, expected=self.names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 132, in construct
+    result = function(X.copy(deep=True), history.copy(deep=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<llm-features>"", line 19, in modify_features
+AttributeError: 'numpy.ndarray' object has no attribute 'to_numpy'
+"
+2,17,2,Age-conditioned category and item frequencies model demographic preferences with normalized shares and customer age consistency.,793678f03916fb78848544b5452b965b80f71b9dbe9ffe28c2fa5c2106235652,accepted,f6816835016e1137a48e4dae103c2d35313f503100a4b0091d7e6e68f235d6f4,0.003185453869047619,
+2,18,0,"Channel-specific customer and item activity, channel recency and mixture, plus item demand and price variation capture distinct web/store purchase propensities.",70c09185375e36174d46f5e8748d97efb9e2699edf0aacdc7f55eb81c61c9065,accepted,0181c362d03f1029b6f63569ad5ddb372cb5a9642639f353663e995a9b716121,0.002437272652116402,
+2,19,1,"Recency-weighted 21-day customer/item/category activity, multi-window counts, exact repeats, and static customer activity capture short-horizon intent; 30-day user history averages 13.7 purchases.",9c04f228fc0416bcaa979d62c50f37929c3011ca43d85fa5600beea5d96b2c9d,accepted,fbdd8af0081a7d79917ce5af8f86eab6a84958fa82770ac47e5a2c61ca08534c,0.004011546024659864,
+2,20,2,"Combining decayed item/customer momentum, exact repeat and customer category affinity with age-conditioned category popularity should retain complementary ranking signals across cutoffs.",4dad505f311473cdcbbeb1c714ab373fce16d85d19554fd2c896931beffbfc88,accepted,2edce50bb7a8794ffef14edcb16bdc99f123266b3cf7d5792c4db0a1366c86b6,0.002464657738095238,
+2,21,1,"Seven-day customer activity averages 4.29 purchases; emphasize 7/30/90-day item/user/department demand, 7-day taxonomy matches, exact repeat recency, and user/item recency.",e2e2950a0cc9d700b42fd458142f0b539e8ed92d82260f5e1bbd1a3099f0e7da,rejected,,,"Traceback (most recent call last):
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 177, in <module>
+    main()
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 163, in main
+    metric = predict(engine, root, directory, stage, program, config, output_stage=args.stage)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 128, in predict
+    scores = model.predict(timed_frame(engine, pairs), num_threads=config['cpu_threads']).reshape(len(users), len(catalog))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/worker.py"", line 45, in timed_frame
+    return engine.matrix(pairs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/base_features.py"", line 184, in matrix
+    values = self.frame(pairs).to_numpy(dtype=np.float32)
+             ^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 177, in frame
+    out = construct(self.function, X, self.history, expected=self.names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/results/medium_v2/fold_2/runtime/api/python_features.py"", line 143, in construct
+    if set(columns) != set(expected): raise ValueError('Feature schema differs across cutoffs/batches')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Feature schema differs across cutoffs/batches
+"
+2,22,1,Repair schema issue using stable v6 features and add fashion-news frequency as a fixed static customer segmentation feature alongside recency-weighted activity and affinity.,bccb6796b57199b6f6179dda7c722138b59b5fa3ae1b0de8642c0ac27337ed88,accepted,3474fec574e4fcd71774e2a116a288cd02ce4a4331b39f30817181d90e7cc8bf,0.002626784023268398,
+2,23,2,Explicit customer engagement and membership attributes combined with age-conditioned item popularity and article category codes may capture static propensity interactions missed by aggregate-only programs.,d4374f6e4d76ade2067a0f45d5969639579b007833fc600e137361121f4069da,accepted,08b586211c395d74f265ca2d6bb0245fc7076269b38e7ce879bbaa794b745f8b,0.0010416666666666667,

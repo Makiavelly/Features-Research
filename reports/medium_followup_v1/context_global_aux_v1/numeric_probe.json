@@ -1,0 +1,18 @@
+{
+  "dual_vs_native": {
+    "max_difference": 1.621246337890625e-05,
+    "fp32_bound": 6.336217484204099e-05,
+    "top12_equal": true
+  },
+  "native_vs_native": {
+    "max_difference": 1.52587890625e-05,
+    "fp32_bound": 6.33621821179986e-05,
+    "top12_equal": true
+  },
+  "training_losses": {
+    "native": 21.877735137939453,
+    "dual": 21.877735137939453
+  },
+  "max_parameter_gradient_difference": 3.814697265625e-06,
+  "max_native_gradient": 7.519241809844971
+}

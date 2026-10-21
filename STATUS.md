@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-18T17:03:19+03:00 (Москва).
+Обновлено: 2026-10-21T11:09:31+03:00 (Москва).
 
-Последнее событие: **All six API streams and18 frozen20/30/40 budget evaluations/replays complete; comparisons, usage and incumbent-selection audit published.**
+Последнее событие: **User requested excluding unnecessary Git artifacts. Added scoped ignores for archived H011 agent session internals, report SQLite/WAL/SHM, locks, resource snapshots, pipeline/progress state and detailed per-user/target-inventory Parquet. Removed self-ignore for .gitignore. Verified code, protocols, summary metrics, verification reports, figures and archive manifests remain visible. New-file candidates reduced from1089 to341; local artifacts preserved.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
@@ -228,5 +228,108 @@
 | hm_medium_followup_f1_h009_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:15+03:00 |
 | hm_medium_followup_f2_h008_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
 | hm_medium_followup_f2_h009_budget20_seed42_v1 | evaluated_verified | — | — | 2026-10-18T17:03:19+03:00 |
+| hm_medium_h010_research_seed42_v1 | stopped_incomplete | — | — | 2026-10-18T18:21:27+03:00 |
+| hm_medium_h010_research_seed42_v1_fold0 | searching | — | — | 2026-10-18T18:19:12+03:00 |
+| hm_medium_h010_research_seed42_v2 | complete | — | — | 2026-10-18T20:59:54+03:00 |
+| hm_medium_h010_research_seed42_v2_fold0 | evaluated_verified | — | — | 2026-10-18T20:38:26+03:00 |
+| hm_gpt61sol_agent_environment_probe_v1 | probe_recorded | — | — | 2026-10-18T18:31:09+03:00 |
+| hm_gpt61sol_codex_environment_v1 | complete | — | — | 2026-10-18T18:41:06+03:00 |
+| hm_medium_context_first3_seed42_v1 | complete_validation_diagnostics | — | — | 2026-10-18T19:10:31+03:00 |
+| hm_medium_context_first3_seed42_v1_fold0_diagnostic | diagnostic_complete | — | — | 2026-10-18T18:50:01+03:00 |
+| hm_medium_context_first3_seed42_v1_fold1_diagnostic | diagnostic_complete | — | — | 2026-10-18T18:50:31+03:00 |
+| hm_medium_context_first3_seed42_v1_fold2_diagnostic | diagnostic_complete | — | — | 2026-10-18T18:50:51+03:00 |
+| hm_medium_context_first3_seed42_v1_fold0_categorical | validation_verified | 9 | — | 2026-10-18T18:54:55+03:00 |
+| hm_medium_context_first3_seed42_v1_fold1_categorical | validation_verified | 4 | — | 2026-10-18T18:55:46+03:00 |
+| hm_medium_context_first3_seed42_v1_fold2_categorical | validation_verified | 10 | — | 2026-10-18T18:57:15+03:00 |
+| hm_medium_context_first3_seed42_v1_fold0_fanout64 | validation_verified | 10 | — | 2026-10-18T19:01:04+03:00 |
+| hm_medium_context_first3_seed42_v1_fold1_fanout64 | validation_verified | 5 | — | 2026-10-18T19:01:54+03:00 |
+| hm_medium_h011_codex_seed42_v1 | superseded_budget_change | — | — | 2026-10-18T22:17:05+03:00 |
+| hm_medium_context_first3_seed42_v1_fold2_fanout64 | validation_verified | 7 | — | 2026-10-18T19:02:59+03:00 |
+| hm_medium_context_first3_seed42_v1_fold0_gate | validation_verified | 5 | — | 2026-10-18T19:05:52+03:00 |
+| hm_medium_context_first3_seed42_v1_fold1_gate | validation_verified | 6 | — | 2026-10-18T19:06:56+03:00 |
+| hm_medium_context_first3_seed42_v1_fold2_gate | validation_verified | 10 | — | 2026-10-18T19:08:28+03:00 |
+| hm_medium_h010_research_seed42_v2_fold1 | evaluated_verified | — | — | 2026-10-18T20:46:47+03:00 |
+| hm_medium_context_combined_seed42_v1 | complete_validation_comparison | — | — | 2026-10-18T19:26:56+03:00 |
+| hm_medium_context_combined_seed42_v1_fold0_combined | validation_verified | 9 | — | 2026-10-18T19:22:35+03:00 |
+| hm_medium_context_combined_seed42_v1_fold1_combined | validation_verified | 10 | — | 2026-10-18T19:24:10+03:00 |
+| hm_medium_context_combined_seed42_v1_fold2_combined | validation_verified | 10 | — | 2026-10-18T19:25:37+03:00 |
+| hm_medium_context_combined_test_seed42_v1 | complete_verified_plot | — | — | 2026-10-18T19:36:44+03:00 |
+| hm_medium_context_combined_test_seed42_v1_fold0 | test_verified | — | — | 2026-10-18T19:34:46+03:00 |
+| hm_medium_context_combined_test_seed42_v1_fold1 | test_verified | — | — | 2026-10-18T19:35:01+03:00 |
+| hm_medium_context_combined_test_seed42_v1_fold2 | test_verified | — | — | 2026-10-18T19:35:16+03:00 |
+| hm_medium_h010_research_seed42_v2_fold2 | evaluated_verified | — | — | 2026-10-18T20:54:29+03:00 |
+| hm_medium_novelty_audit_seed42_v1 | complete_verified_diagnostics | — | — | 2026-10-18T20:41:25+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_raw15 | verified | — | — | 2026-10-18T20:12:28+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_manual | verified | — | — | 2026-10-18T20:15:43+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_tdm | verified | — | — | 2026-10-18T20:16:04+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f1_tdm | verified | — | — | 2026-10-18T20:17:33+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_h008_20 | verified | — | — | 2026-10-18T20:18:47+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_tdm | verified | — | — | 2026-10-18T20:19:21+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_raw15 | verified | — | — | 2026-10-18T20:22:33+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f1_raw15 | verified | — | — | 2026-10-18T20:23:16+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_h008_30 | verified | — | — | 2026-10-18T20:23:48+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f0_h009_20 | verified | — | — | 2026-10-18T20:27:24+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_manual | verified | — | — | 2026-10-18T20:27:35+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f1_manual | verified | — | — | 2026-10-18T20:28:55+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_h008_20 | verified | — | — | 2026-10-18T20:31:16+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f1_h008_20 | verified | — | — | 2026-10-18T20:31:21+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_h009_20 | verified | — | — | 2026-10-18T20:33:45+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f1_h009_20 | verified | — | — | 2026-10-18T20:34:00+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_h009_30 | verified | — | — | 2026-10-18T20:36:40+03:00 |
+| hm_medium_novelty_audit_seed42_v1_f2_h009_40 | verified | — | — | 2026-10-18T20:38:22+03:00 |
+| codex_agent_h011_codex_seed42_v1_fold0 | searching | — | — | 2026-10-18T22:12:23+03:00 |
+| hm_medium_h011_codex_seed42_budget300_v2 | complete | — | — | 2026-10-19T00:30:56+03:00 |
+| hm_medium_h011_codex_seed42_budget300_v2_fold0 | evaluated_verified | — | — | 2026-10-19T00:03:04+03:00 |
+| hm_medium_h011_codex_seed42_budget300_v2_fold1 | evaluated_verified | — | — | 2026-10-19T00:11:41+03:00 |
+| hm_medium_h011_codex_seed42_budget300_v2_fold2 | evaluated_verified | — | — | 2026-10-19T00:29:33+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v1 | stopped_verification_issue | — | — | 2026-10-19T10:44:59+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v1_f0_control | training | 10 | — | 2026-10-18T23:17:30+03:00 |
+| hm_medium_h011_codex_seed42_budget300_v2_search_budget_diagnostic | verified | — | — | 2026-10-19T00:19:47+03:00 |
+| hm_medium_all_methods_h011_plot_v1 | complete | — | — | 2026-10-19T00:34:07+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v2 | stopped_dispatch_issue | — | — | 2026-10-19T10:50:33+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v2_f0_control | validation_verified | 10 | — | 2026-10-19T10:48:29+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3 | complete_validation_with_replay_qualification | — | — | 2026-10-19T11:06:19+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3_f0_global_ce | validation_verified | 6 | — | 2026-10-19T10:52:43+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3_f1_control | validation_verified | 8 | — | 2026-10-19T10:54:56+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3_f1_global_ce | validation_verified | 7 | — | 2026-10-19T10:56:52+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3_f2_control | validation_verified | 10 | — | 2026-10-19T10:59:16+03:00 |
+| hm_medium_context_global_aux_lambda1_seed42_v3_f2_global_ce | validation_verified_qualified | 5 | — | 2026-10-19T11:16:04+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1 | complete | — | — | 2026-10-19T11:19:44+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold0 | verified | — | — | 2026-10-19T11:10:33+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold0 | verified | — | — | 2026-10-19T11:11:00+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold1 | verified | — | — | 2026-10-19T11:13:23+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold1 | verified | — | — | 2026-10-19T11:14:01+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold2 | verified | — | — | 2026-10-19T11:15:46+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1 | complete_verified_validation | — | — | 2026-10-19T11:31:06+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f0_feature | validation_verified | 5 | — | 2026-10-19T11:18:49+03:00 |
+| hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold2 | verified | — | — | 2026-10-19T11:18:44+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f1_feature | validation_verified | 8 | — | 2026-10-19T11:20:51+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f2_feature | validation_verified | 9 | — | 2026-10-19T11:22:55+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f0_similarity_graph | validation_verified | 8 | — | 2026-10-19T11:25:37+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f1_similarity_graph | validation_verified | 8 | — | 2026-10-19T11:27:34+03:00 |
+| hm_medium_item_encoder_feature_semgraph_seed42_v1_f2_similarity_graph | validation_verified | 10 | — | 2026-10-19T11:29:42+03:00 |
+| hm_medium_feature_test_all_methods_seed42_v1 | complete_verified_plot | — | — | 2026-10-19T11:40:27+03:00 |
+| hm_medium_feature_test_all_methods_seed42_v1_f0 | test_verified | — | — | 2026-10-19T11:37:54+03:00 |
+| hm_medium_feature_test_all_methods_seed42_v1_f1 | test_verified | — | — | 2026-10-19T11:38:52+03:00 |
+| hm_medium_feature_test_all_methods_seed42_v1_f2 | test_verified | — | — | 2026-10-19T11:39:48+03:00 |
+| hm_medium_feature_novelty_plot_seed42_v1 | complete_verified_plot | — | — | 2026-10-19T11:44:06+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v1 | stopped_before_training | — | — | 2026-10-19T11:51:47+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2 | complete_validation_with_replay_qualification | — | — | 2026-10-19T12:10:22+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f0_interest1 | validation_verified | 10 | — | 2026-10-19T11:55:13+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f1_interest1 | validation_verified | 5 | — | 2026-10-19T11:57:23+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f2_interest1 | validation_verified | 10 | — | 2026-10-19T12:00:05+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f0_interest4 | validation_verified | 8 | — | 2026-10-19T12:02:42+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f1_interest4 | validation_verified | 10 | — | 2026-10-19T12:05:35+03:00 |
+| hm_medium_context_multi_interest_k1_k4_seed42_v2_f2_interest4 | validation_verified | 10 | — | 2026-10-19T12:08:27+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1 | complete_test_with_replay_qualification | — | — | 2026-10-19T12:23:07+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f0_control | test_verified | — | — | 2026-10-19T12:12:50+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f0_interest1 | test_verified | — | — | 2026-10-19T12:14:08+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f0_interest4 | test_verified | — | — | 2026-10-19T12:15:00+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f1_control | test_verified | — | — | 2026-10-19T12:16:01+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f1_interest1 | test_verified | — | — | 2026-10-19T12:17:01+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f1_interest4 | test_verified | — | — | 2026-10-19T12:18:04+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f2_control | test_verified | — | — | 2026-10-19T12:18:57+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f2_interest1 | test_verified | — | — | 2026-10-19T12:19:55+03:00 |
+| hm_medium_multi_interest_test_all_methods_seed42_v1_f2_interest4 | test_verified | — | — | 2026-10-19T12:20:47+03:00 |
 
 Подробности: [контекст](CONTEXT.md), [результаты](EXPERIMENTS.md), [журнал](WORK_LOG.md).

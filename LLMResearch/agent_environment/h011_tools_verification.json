@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "other_population_files_denied",
+    "budget_outside_writable_workspace",
+    "no_other_population_search_feedback",
+    "four_submissions_per_turn_cap",
+    "one_success_per_turn_cap",
+    "shared20_accepted_cap",
+    "14_13_13_research_cap",
+    "actual_isolated_terminal_CPU_affinity2",
+    "all_three_original_H009_evaluator_hashes",
+    "same_training_pairs_and_LightGBM",
+    "zero_actual_H011_API_or_checks"
+  ],
+  "real_API_requests": 0,
+  "feature_trainings": 0
+}

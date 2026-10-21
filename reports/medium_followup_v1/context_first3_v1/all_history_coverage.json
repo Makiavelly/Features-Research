@@ -1,0 +1,50 @@
+{
+  "0": {
+    "train": {
+      "users": 10923,
+      "positives": 29469,
+      "in_catalog": 29469,
+      "covered_by_all_own_history": 1541,
+      "fraction_in_catalog": 0.05229223930231769
+    },
+    "val": {
+      "users": 256,
+      "positives": 834,
+      "in_catalog": 448,
+      "covered_by_all_own_history": 21,
+      "fraction_in_catalog": 0.046875
+    }
+  },
+  "1": {
+    "train": {
+      "users": 9583,
+      "positives": 24095,
+      "in_catalog": 24095,
+      "covered_by_all_own_history": 1239,
+      "fraction_in_catalog": 0.051421456733762194
+    },
+    "val": {
+      "users": 256,
+      "positives": 765,
+      "in_catalog": 309,
+      "covered_by_all_own_history": 11,
+      "fraction_in_catalog": 0.03559870550161812
+    }
+  },
+  "2": {
+    "train": {
+      "users": 8548,
+      "positives": 19881,
+      "in_catalog": 19881,
+      "covered_by_all_own_history": 1032,
+      "fraction_in_catalog": 0.051908857703334844
+    },
+    "val": {
+      "users": 256,
+      "positives": 878,
+      "in_catalog": 281,
+      "covered_by_all_own_history": 23,
+      "fraction_in_catalog": 0.08185053380782918
+    }
+  }
+}

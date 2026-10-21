@@ -1,0 +1,326 @@
+{
+  "status": "complete_test_with_replay_qualification",
+  "passed": true,
+  "checkpoints_verified": 9,
+  "original18_methods_and_files_unchanged": true,
+  "reference_hashes_unchanged": true,
+  "no_training": true,
+  "no_reselection": true,
+  "no_api": true,
+  "independent_AP_verified": true,
+  "seen_items_masked_before_full_catalog_top12": true,
+  "new_only_equals_masked_global": true,
+  "canonical_first_scores_retained": true,
+  "replay_changed_rows": 9,
+  "max_per_user_ap_replay_sensitivity": 0.0,
+  "total_observations": 5519,
+  "customers": 4548,
+  "available_new_observations": 3178,
+  "bootstrap_replicates": 5000,
+  "visual_review_passed": true,
+  "fold_checks": [
+    {
+      "passed": true,
+      "fold": 0,
+      "arm": "control",
+      "rows": 1839,
+      "checkpoint_sha256": "cfa8a9d8dcd7fc79d6f5ca3717a7100b7f58e585f8ef8c7f74bac0f91957f60f",
+      "independent_AP": true,
+      "canonical_test_map": 0.012746539229002523,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.430511474609375e-05,
+          "bound": 6.820054113632068e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.012746539229002523,
+          "replay_map": 0.012746539229002523,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.430511474609375e-05,
+          "bound": 6.820054113632068e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.0019658606050666954,
+          "replay_map": 0.0019658606050666954,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 0,
+      "arm": "interest1",
+      "rows": 1839,
+      "checkpoint_sha256": "7d44b8a51741673e04d81600c2386e440eba1e218a53f0182db17652c64fdaaa",
+      "independent_AP": true,
+      "canonical_test_map": 0.012542828070968364,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.9550323486328125e-05,
+          "bound": 7.944831304484978e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.012542828070968364,
+          "replay_map": 0.012542828070968364,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.9550323486328125e-05,
+          "bound": 7.944831304484978e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.0022473429889144953,
+          "replay_map": 0.0022473429889144953,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 0,
+      "arm": "interest4",
+      "rows": 1839,
+      "checkpoint_sha256": "67eef402d1cf65a4f548c4e7b993a7abf9f4c849c0b975f079bddd86ff61cd88",
+      "independent_AP": true,
+      "canonical_test_map": 0.010690473705699371,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 2.09808349609375e-05,
+          "bound": 8.550198981538415e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.010690473705699371,
+          "replay_map": 0.010690473705699371,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 2.09808349609375e-05,
+          "bound": 8.550198981538415e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.0016620475428477967,
+          "replay_map": 0.0016620475428477967,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 1,
+      "arm": "control",
+      "rows": 1982,
+      "checkpoint_sha256": "e4ca6d6b6b43c9696f9ef770abeb72610a67f5cdd13b18be020ff4fac0888dae",
+      "independent_AP": true,
+      "canonical_test_map": 0.010948334934609128,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.3828277587890625e-05,
+          "bound": 4.821872789761983e-05,
+          "changed_rows": [
+            562
+          ],
+          "changed_positions": 2,
+          "canonical_map": 0.010948334934609128,
+          "replay_map": 0.010948334934609128,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.3828277587890625e-05,
+          "bound": 3.773572825593874e-05,
+          "changed_rows": [
+            562
+          ],
+          "changed_positions": 2,
+          "canonical_map": 0.001936328774749562,
+          "replay_map": 0.001936328774749562,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 1,
+      "arm": "interest1",
+      "rows": 1982,
+      "checkpoint_sha256": "6ff30621ace1c47b13970472e7e8d9d10e705d19bf15fc8532ab8667742f9cbc",
+      "independent_AP": true,
+      "canonical_test_map": 0.007559915138118972,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 2.0503997802734375e-05,
+          "bound": 8.167439955286682e-05,
+          "changed_rows": [
+            1641
+          ],
+          "changed_positions": 2,
+          "canonical_map": 0.007559915138118972,
+          "replay_map": 0.007559915138118972,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 2.0503997802734375e-05,
+          "bound": 8.167439955286682e-05,
+          "changed_rows": [
+            1171,
+            1875
+          ],
+          "changed_positions": 4,
+          "canonical_map": 0.0004113009145804302,
+          "replay_map": 0.0004113009145804302,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 1,
+      "arm": "interest4",
+      "rows": 1982,
+      "checkpoint_sha256": "5754079880c16cd1f1f0708a6624ae005889ab2eb8a059eec067211e877b7829",
+      "independent_AP": true,
+      "canonical_test_map": 0.008984226906539626,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.6689300537109375e-05,
+          "bound": 5.7075812947005033e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.008984226906539626,
+          "replay_map": 0.008984226906539626,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.6689300537109375e-05,
+          "bound": 5.7075812947005033e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.0031080822248954485,
+          "replay_map": 0.0031080822248954485,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 2,
+      "arm": "control",
+      "rows": 1698,
+      "checkpoint_sha256": "f94aed9c556f89195d1f1d485d413dc230a919634ba4cf20e428268015b30ed2",
+      "independent_AP": true,
+      "canonical_test_map": 0.011104146093839851,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.621246337890625e-05,
+          "bound": 5.659208545694128e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.011104146093839851,
+          "replay_map": 0.011104146093839851,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.621246337890625e-05,
+          "bound": 5.659208545694128e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.005050767079624558,
+          "replay_map": 0.005050767079624558,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 2,
+      "arm": "interest1",
+      "rows": 1698,
+      "checkpoint_sha256": "a607d253b7e905a73bc903415caca5794493b91ae6116def4fb666377bf86191",
+      "independent_AP": true,
+      "canonical_test_map": 0.009043542515106655,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 2.1219253540039062e-05,
+          "bound": 4.4669937778962776e-05,
+          "changed_rows": [
+            576,
+            1493
+          ],
+          "changed_positions": 4,
+          "canonical_map": 0.009043542515106655,
+          "replay_map": 0.009043542515106655,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 2.1219253540039062e-05,
+          "bound": 4.4669937778962776e-05,
+          "changed_rows": [
+            576,
+            1493
+          ],
+          "changed_positions": 4,
+          "canonical_map": 0.0040407168658319744,
+          "replay_map": 0.0040407168658319744,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed": true,
+      "fold": 2,
+      "arm": "interest4",
+      "rows": 1698,
+      "checkpoint_sha256": "e4723f270e8f064e1d74df9d88dbaf6137790b5b534fcb6050779a037a050523",
+      "independent_AP": true,
+      "canonical_test_map": 0.010280839017197747,
+      "reload": {
+        "hybrid": {
+          "max_score_difference": 1.8596649169921875e-05,
+          "bound": 5.226550638326444e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.010280839017197747,
+          "replay_map": 0.010280839017197747,
+          "max_per_user_ap_difference": 0.0
+        },
+        "global": {
+          "max_score_difference": 1.8596649169921875e-05,
+          "bound": 5.226550638326444e-05,
+          "changed_rows": [],
+          "changed_positions": 0,
+          "canonical_map": 0.003964482326258212,
+          "replay_map": 0.003964482326258212,
+          "max_per_user_ap_difference": 0.0
+        }
+      },
+      "new_only_equals_masked_global": true,
+      "canonical_scores_retained": true,
+      "no_training": true
+    }
+  ]
+}

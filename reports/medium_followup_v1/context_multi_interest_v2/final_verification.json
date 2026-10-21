@@ -1,0 +1,94 @@
+{
+  "status": "complete_validation_with_replay_qualification",
+  "passed": true,
+  "new_fits": 6,
+  "reused_controls": 3,
+  "shared_initial_weights_and_head0_matched": true,
+  "common_epoch_training_graphs_matched": true,
+  "local_formula_probe_passed": true,
+  "new_only_equals_masked_global": true,
+  "independent_AP_verified": true,
+  "references_and_sources_unchanged": true,
+  "replay_changed_rows_in_checks": 1,
+  "max_per_user_ap_replay_sensitivity": 0.0,
+  "head_diagnostics": [
+    {
+      "fold": 0,
+      "arm": "interest1",
+      "best_epoch": 8,
+      "epochs": 10,
+      "head_winner_fractions": [
+        1.0
+      ],
+      "mean_query_pair_cosine": null,
+      "mean_attention_pair_cosine": null
+    },
+    {
+      "fold": 0,
+      "arm": "interest4",
+      "best_epoch": 5,
+      "epochs": 8,
+      "head_winner_fractions": [
+        0.1465328125,
+        0.07551484375,
+        0.6572140625,
+        0.12073828125
+      ],
+      "mean_query_pair_cosine": 0.9997419335413724,
+      "mean_attention_pair_cosine": 0.9985829523965424
+    },
+    {
+      "fold": 1,
+      "arm": "interest1",
+      "best_epoch": 2,
+      "epochs": 5,
+      "head_winner_fractions": [
+        1.0
+      ],
+      "mean_query_pair_cosine": null,
+      "mean_attention_pair_cosine": null
+    },
+    {
+      "fold": 1,
+      "arm": "interest4",
+      "best_epoch": 9,
+      "epochs": 10,
+      "head_winner_fractions": [
+        0.102315625,
+        0.061233203125,
+        0.0499109375,
+        0.786540234375
+      ],
+      "mean_query_pair_cosine": 0.9998070388101041,
+      "mean_attention_pair_cosine": 0.9952420491798252
+    },
+    {
+      "fold": 2,
+      "arm": "interest1",
+      "best_epoch": 9,
+      "epochs": 10,
+      "head_winner_fractions": [
+        1.0
+      ],
+      "mean_query_pair_cosine": null,
+      "mean_attention_pair_cosine": null
+    },
+    {
+      "fold": 2,
+      "arm": "interest4",
+      "best_epoch": 10,
+      "epochs": 10,
+      "head_winner_fractions": [
+        0.862933203125,
+        0.036993359375,
+        0.056846484375,
+        0.043226953125
+      ],
+      "mean_query_pair_cosine": 0.9991455837152898,
+      "mean_attention_pair_cosine": 0.9884579698555171
+    }
+  ],
+  "no_test": true,
+  "no_api": true,
+  "visual_review_passed": true
+}

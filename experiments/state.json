@@ -8275,16 +8275,1395 @@
       "artifacts": "CVFollowup/results/v1/fold_2/h009/budgets/20",
       "updated_at": "2026-10-18T17:03:19+03:00",
       "last_message": "Fold2 h009 budget20: frozen selection test/replay and independent AP verified."
+    },
+    "hm_medium_h010_research_seed42_v1": {
+      "status": "stopped_incomplete",
+      "updated_at": "2026-10-18T18:21:27+03:00",
+      "last_message": "Optional-tool v1 stopped at saved-response evaluator boundary after5 POSTs,4 completed proposals,2 accepted programs,0 research queries. All five paid responses retained; no outer evaluation. Initial task wording allowed direct Python, so this pilot did not exercise research. Preserve as incomplete, do not reuse its candidates. New v2 requires a successful initial research query per population before any feature scoring; unchanged H009 model/evaluator and new run ID.",
+      "artifacts": "reports/medium_h010_research_v1"
+    },
+    "hm_medium_h010_research_seed42_v1_fold0": {
+      "status": "searching",
+      "accepted": 2,
+      "actual_POST": 4,
+      "research_queries": 0,
+      "artifacts": "LLMResearch/results/v1/fold_0",
+      "updated_at": "2026-10-18T18:19:12+03:00",
+      "last_message": "H010 fold0: 2/20 accepted; 4 POST; 0/40 research queries."
+    },
+    "hm_medium_h010_research_seed42_v2": {
+      "status": "complete",
+      "updated_at": "2026-10-18T20:59:54+03:00",
+      "last_message": "H010 completed: all60 accepted programs, frozen selections, full replays, independent AP and exact dialog audits passed. Comparison/search figures visually reviewed. Pooled test MAP H0100.4291% vs H0090.4514%; difference -0.0224pp, paired95%CI[-0.1327,+0.0880]pp; no demonstrated improvement. H011 remains deferred by user.",
+      "artifacts": "reports/medium_h010_research_v2",
+      "test_metrics": {
+        "map": 0.004290506512472013
+      },
+      "comparison": {
+        "protocol": "hm_medium_h010_research_seed42_v2",
+        "folds": [
+          {
+            "fold": 0,
+            "users": 1839,
+            "h010_test_map": 0.0042068997805811284,
+            "h009_20_test_map": 0.004640644383711269,
+            "difference_pp": -0.04337446031301389,
+            "selected_call": 7,
+            "confirmation_map": 0.004269883990278727,
+            "queries": 9,
+            "actual_POST": 38,
+            "distinct_sample_matrices": 19
+          },
+          {
+            "fold": 1,
+            "users": 1982,
+            "h010_test_map": 0.0033241874112346346,
+            "h009_20_test_map": 0.003866700796550504,
+            "difference_pp": -0.05425133853158694,
+            "selected_call": 11,
+            "confirmation_map": 0.006364001408644265,
+            "queries": 6,
+            "actual_POST": 30,
+            "distinct_sample_matrices": 16
+          },
+          {
+            "fold": 2,
+            "users": 1698,
+            "h010_test_map": 0.005508997230139751,
+            "h009_20_test_map": 0.005133956131698573,
+            "difference_pp": 0.0375041098441177,
+            "selected_call": 12,
+            "confirmation_map": 0.003264645960981039,
+            "queries": 4,
+            "actual_POST": 30,
+            "distinct_sample_matrices": 14
+          }
+        ],
+        "users_times": 5519,
+        "unique_customers": 4548,
+        "bootstrap_replicates": 5000,
+        "bootstrap_unit": "customer retaining all fold observations",
+        "methods": {
+          "h010": {
+            "pooled_map": 0.004290506512472013,
+            "equal_fold_mean_map": 0.0043466948073185045,
+            "ci95": [
+              0.0033015247823990766,
+              0.005386121403463427
+            ]
+          },
+          "h009_20": {
+            "pooled_map": 0.004514477896726273,
+            "equal_fold_mean_map": 0.004547100437320116,
+            "ci95": [
+              0.0035259584333190053,
+              0.005663097934478306
+            ]
+          }
+        },
+        "difference_pp": -0.022397138425425994,
+        "difference_ci95_pp": [
+          -0.13273026272556104,
+          0.08803878300280304
+        ],
+        "test_previously_inspected": true,
+        "new_outer_labels_used_for_selection": false,
+        "research_queries": 19,
+        "actual_POST": 98,
+        "prompt_tokens": 1409848,
+        "completion_tokens": 82813,
+        "attempts_with_unknown_token_usage": 5
+      },
+      "visual_review_passed": true
+    },
+    "hm_medium_h010_research_seed42_v2_fold0": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "actual_POST": 38,
+      "research_queries": 9,
+      "artifacts": "LLMResearch/results/v2/fold_0",
+      "updated_at": "2026-10-18T20:38:26+03:00",
+      "last_message": "H010 fold0: full frozen replays and independent AP passed.",
+      "failed_attempt": 29,
+      "next_attempt": 30,
+      "failure": {
+        "api_attempt": 29,
+        "error": "<urlopen error [Errno 110] Connection timed out>",
+        "seconds": 132.18704820499988
+      },
+      "audit": {
+        "accepted": 20,
+        "research_queries": 9,
+        "successful_research_queries": 7,
+        "API_attempts": 38
+      },
+      "val_metrics": {
+        "map": 0.00442759204128815,
+        "users": 1902,
+        "pairs": 19020000,
+        "full_catalog": 10000,
+        "predictions_sha256": "b6332906bac068847ef1bc5836a318c34c75cd5df7724c1b7b475eabfcc1eb8a",
+        "program_sha256": "57869dc4cec902645610e19a8a182d7d7bb7af52b883eee530e5f4fabb36df68",
+        "model_sha256": "39a1c106e30e02cec22b01c48502f00d9e94c464fbbd918b8a150ac38cbba510",
+        "seconds": 112.25114675399527
+      },
+      "test_metrics": {
+        "map": 0.0042068997805811284,
+        "users": 1839,
+        "pairs": 18390000,
+        "full_catalog": 10000,
+        "predictions_sha256": "5ae48dff9b29b4a7c55e4df211b9f94f3da83f0ddc2c0739db58fa34f1171416",
+        "program_sha256": "57869dc4cec902645610e19a8a182d7d7bb7af52b883eee530e5f4fabb36df68",
+        "model_sha256": "39a1c106e30e02cec22b01c48502f00d9e94c464fbbd918b8a150ac38cbba510",
+        "seconds": 99.75903352099704
+      }
+    },
+    "hm_gpt61sol_agent_environment_probe_v1": {
+      "status": "probe_recorded",
+      "result": {
+        "supported_response_schema": true,
+        "function_call_returned": true,
+        "provider_model": "gpt-6.1-sol",
+        "usage": {
+          "input_tokens": 77,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 33,
+          "output_tokens_details": {
+            "reasoning_tokens": 9
+          },
+          "total_tokens": 110,
+          "attribution": {
+            "items": {
+              "fc_0c01bef3e599871e016ad4e63cff2c81918d6250e969b5bd81": {
+                "input_tokens": 0,
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "output_tokens": 24
+              },
+              "msg_0c01bef3e599871e016ad4e63c876881919cbe2ca009c05c60": {
+                "input_tokens": 19,
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "output_tokens": 0,
+                "content": [
+                  {
+                    "input_tokens": 19,
+                    "cached_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "output_tokens": 0
+                  }
+                ]
+              },
+              "rs_0c01bef3e599871e016ad4e63cee208191bdee8f45f7e28d34": {
+                "input_tokens": 2,
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "output_tokens": 9
+              }
+            },
+            "request_fields": {
+              "instructions": {
+                "input_tokens": 17,
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "output_tokens": 0
+              },
+              "tools": {
+                "input_tokens": 39,
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "output_tokens": 0
+              }
+            }
+          }
+        },
+        "seconds": 1.6630861570010893,
+        "dataset_sent": false,
+        "executed_tools": 0
+      },
+      "updated_at": "2026-10-18T18:31:09+03:00",
+      "last_message": "Separate Responses API/function-call compatibility probe for requested agent environment. No fold data sent and no tools executed."
+    },
+    "hm_gpt61sol_codex_environment_v1": {
+      "status": "complete",
+      "verification": {
+        "passed": true,
+        "actual_codex_cli_agent": true,
+        "model_id_requested": "gpt-6.1-sol",
+        "provider_identity_independently_attested": false,
+        "separate_codex_home": true,
+        "connected_train_folds": [
+          0,
+          1,
+          2
+        ],
+        "native_agent_tools_verified_on_fold": 0,
+        "successful_tools": [
+          "fold.status",
+          "fold.terminal"
+        ],
+        "train_pairs": 190260,
+        "feature_evaluations": 0,
+        "remaining_per_fold": 20,
+        "usage_successful_smoke": {
+          "input_tokens": 47384,
+          "cached_input_tokens": 20992,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 446,
+          "reasoning_output_tokens": 15
+        },
+        "initial_smoke_profile": "standalone_v1: tool approval configuration failed; preserved separately",
+        "full_feature_experiment_started": false
+      },
+      "artifacts": "LLMResearch/agent_environment/README.md",
+      "updated_at": "2026-10-18T18:41:06+03:00",
+      "last_message": "Separate Codex CLI with configured gpt-6.1-sol provider actually called local train-fold MCP tools. OS-isolated terminal read190260 fold0 train pairs, imported pandas/NumPy/DuckDB, confirmed host project absent. Three fold profiles prepared;0 feature checks used. Original normal Codex/unsloth environments unchanged. Standalone agent smoke, not a completed feature experiment. Initial MCP approval-profile smoke failed and is retained separately."
+    },
+    "hm_medium_context_first3_seed42_v1": {
+      "status": "complete_validation_diagnostics",
+      "artifacts": "reports/medium_followup_v1/context_first3_v1/report_ru.md",
+      "updated_at": "2026-10-18T19:10:31+03:00",
+      "last_message": "Validation-only first-three-check results appended to CONTEXT.md and the Russian GNN handoff. All nine fits and final report verified; diagnostic processes exited. Parallel H010 remains active and was not modified."
+    },
+    "hm_medium_context_first3_seed42_v1_fold0_diagnostic": {
+      "status": "diagnostic_complete",
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_0/diagnostic",
+      "updated_at": "2026-10-18T18:50:01+03:00",
+      "last_message": "Fold0: train/validation coverage, schemas, frozen-weight fanout and branch probes complete; no test evaluation."
+    },
+    "hm_medium_context_first3_seed42_v1_fold1_diagnostic": {
+      "status": "diagnostic_complete",
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_1/diagnostic",
+      "updated_at": "2026-10-18T18:50:31+03:00",
+      "last_message": "Fold1: train/validation coverage, schemas, frozen-weight fanout and branch probes complete; no test evaluation."
+    },
+    "hm_medium_context_first3_seed42_v1_fold2_diagnostic": {
+      "status": "diagnostic_complete",
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_2/diagnostic",
+      "updated_at": "2026-10-18T18:50:51+03:00",
+      "last_message": "Fold2: train/validation coverage, schemas, frozen-weight fanout and branch probes complete; no test evaluation."
+    },
+    "hm_medium_context_first3_seed42_v1_fold0_categorical": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T18:54:55+03:00",
+      "last_message": "Fold0 categorical: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 9,
+      "val_metrics": {
+        "map": 0.017940809461805554
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_0/categorical"
+    },
+    "hm_medium_context_first3_seed42_v1_fold1_categorical": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T18:55:46+03:00",
+      "last_message": "Fold1 categorical: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 4,
+      "val_metrics": {
+        "map": 0.004271298363095238
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_1/categorical"
+    },
+    "hm_medium_context_first3_seed42_v1_fold2_categorical": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T18:57:15+03:00",
+      "last_message": "Fold2 categorical: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.0177734375
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_2/categorical"
+    },
+    "hm_medium_context_first3_seed42_v1_fold0_fanout64": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:01:04+03:00",
+      "last_message": "Fold0 fanout64: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.019316561259920637
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_0/fanout64"
+    },
+    "hm_medium_context_first3_seed42_v1_fold1_fanout64": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:01:54+03:00",
+      "last_message": "Fold1 fanout64: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 5,
+      "val_metrics": {
+        "map": 0.004918929811507937
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_1/fanout64"
+    },
+    "hm_medium_h011_codex_seed42_v1": {
+      "status": "superseded_budget_change",
+      "artifacts": "reports/medium_h011_codex_v1/before_budget300",
+      "checks": [
+        "other_population_files_denied",
+        "budget_outside_writable_workspace",
+        "no_other_population_search_feedback",
+        "four_submissions_per_turn_cap",
+        "one_success_per_turn_cap",
+        "shared20_accepted_cap",
+        "14_13_13_research_cap",
+        "actual_isolated_terminal_CPU_affinity2",
+        "all_three_original_H009_evaluator_hashes",
+        "same_training_pairs_and_LightGBM",
+        "zero_actual_H011_API_or_checks"
+      ],
+      "real_API_requests": 0,
+      "feature_trainings": 0,
+      "updated_at": "2026-10-18T22:17:05+03:00",
+      "last_message": "User increased research budget40 to300/fold. Controller stopped at a completed-turn boundary using its existing profile-integrity guard; original sources/state preserved in before_budget300. No paid response or candidate discarded. Continue under a new run ID; original run is incomplete, not a final result.",
+      "timeout_policy": "3 retries before response headers only,5/15/30 seconds; each POST consumes300-fold cap; partial streams stop",
+      "fold": 0,
+      "island": 0,
+      "startup_verified": true,
+      "initial_successful_research_requests": 1,
+      "inherited": {
+        "accepted": 14,
+        "next_turn": 14,
+        "research_spent": [
+          9,
+          7,
+          6
+        ],
+        "actual_POST": 99,
+        "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+      }
+    },
+    "hm_medium_context_first3_seed42_v1_fold2_fanout64": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:02:59+03:00",
+      "last_message": "Fold2 fanout64: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 7,
+      "val_metrics": {
+        "map": 0.017321325231481482
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_2/fanout64"
+    },
+    "hm_medium_context_first3_seed42_v1_fold0_gate": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:05:52+03:00",
+      "last_message": "Fold0 gate: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 5,
+      "val_metrics": {
+        "map": 0.01591827876984127
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_0/gate"
+    },
+    "hm_medium_context_first3_seed42_v1_fold1_gate": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:06:56+03:00",
+      "last_message": "Fold1 gate: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 6,
+      "val_metrics": {
+        "map": 0.007411024305555555
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_1/gate"
+    },
+    "hm_medium_context_first3_seed42_v1_fold2_gate": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:08:28+03:00",
+      "last_message": "Fold2 gate: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.018198751841329967
+      },
+      "artifacts": "CVFollowup/results/v1/context_first3_v1/fold_2/gate"
+    },
+    "hm_medium_h010_research_seed42_v2_fold1": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "actual_POST": 30,
+      "research_queries": 6,
+      "artifacts": "LLMResearch/results/v2/fold_1",
+      "updated_at": "2026-10-18T20:46:47+03:00",
+      "last_message": "H010 fold1: full frozen replays and independent AP passed.",
+      "val_metrics": {
+        "map": 0.003746496573141265,
+        "users": 2102,
+        "pairs": 21020000,
+        "full_catalog": 10000,
+        "predictions_sha256": "45d02a5b32a7a5299a2bebe3a1874ac78395d72a3b62711c173bb7824a6c4f69",
+        "program_sha256": "a3c6a14b847094b15fdbd1c34898c9e3103b12440e9698bfd44dd040a1027687",
+        "model_sha256": "c4e6f74e06efd3e0699598cca00e4b944618c0ccfc3f9931ca9ba225a3d0affa",
+        "seconds": 112.28550790299778
+      },
+      "test_metrics": {
+        "map": 0.0033241874112346346,
+        "users": 1982,
+        "pairs": 19820000,
+        "full_catalog": 10000,
+        "predictions_sha256": "adc136fba0aed5cacdd0e1dd79ed062d928841c843b03df74d4637c603a18274",
+        "program_sha256": "a3c6a14b847094b15fdbd1c34898c9e3103b12440e9698bfd44dd040a1027687",
+        "model_sha256": "c4e6f74e06efd3e0699598cca00e4b944618c0ccfc3f9931ca9ba225a3d0affa",
+        "seconds": 93.90086174899625
+      }
+    },
+    "hm_medium_context_combined_seed42_v1": {
+      "status": "complete_validation_comparison",
+      "artifacts": "reports/medium_followup_v1/context_combined_v1/report_ru.md",
+      "updated_at": "2026-10-18T19:26:56+03:00",
+      "last_message": "Combined experiment finished: validation MAP1.4527%, original1.1518%, fanout-only1.3852%, categorical-only1.3329%. Context and handoff appended; effective model configurations saved. Increment over fanout-only is uncertain; no test evaluation. All three fits and report verified.",
+      "pooled_validation": {
+        "original": {
+          "fold_map": [
+            0.016300772794913418,
+            0.004531151357323232,
+            0.013721994874338624
+          ],
+          "pooled_map": 0.011517973008858423
+        },
+        "fanout64": {
+          "fold_map": [
+            0.019316561259920637,
+            0.004918929811507937,
+            0.017321325231481482
+          ],
+          "pooled_map": 0.013852272100970018
+        },
+        "categorical": {
+          "fold_map": [
+            0.017940809461805554,
+            0.004271298363095238,
+            0.0177734375
+          ],
+          "pooled_map": 0.013328515108300264
+        },
+        "combined": {
+          "fold_map": [
+            0.018084232390873017,
+            0.0067809089781746025,
+            0.018716517857142855
+          ],
+          "pooled_map": 0.014527219742063493
+        }
+      },
+      "differences": {
+        "original": {
+          "delta": 0.0030092467332050667,
+          "ci95": [
+            0.00012578742068213906,
+            0.006519526179389565
+          ],
+          "fold_delta": [
+            0.0017834595959595966,
+            0.002249757620851371,
+            0.004994522982804233
+          ]
+        },
+        "fanout64": {
+          "delta": 0.0006749476410934744,
+          "ci95": [
+            -0.002527711017515727,
+            0.0036059607574170805
+          ],
+          "fold_delta": [
+            -0.001232328869047619,
+            0.0018619791666666665,
+            0.001395192625661376
+          ]
+        },
+        "categorical": {
+          "delta": 0.0011987046337632275,
+          "ci95": [
+            -0.0006581292109670829,
+            0.0033703677473428686
+          ],
+          "fold_delta": [
+            0.00014342292906746032,
+            0.002509610615079365,
+            0.0009430803571428574
+          ]
+        },
+        "interaction": {
+          "delta": -0.0011355944583483649,
+          "ci95": [
+            -0.004796357786270049,
+            0.0020231574688920383
+          ],
+          "fold_delta": [
+            -0.0028723655359397552,
+            0.00212183216089466,
+            -0.0026562499999999998
+          ]
+        }
+      }
+    },
+    "hm_medium_context_combined_seed42_v1_fold0_combined": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:22:35+03:00",
+      "last_message": "Fold0 combined: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 9,
+      "val_metrics": {
+        "map": 0.018084232390873017
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_v1/fold_0/combined"
+    },
+    "hm_medium_context_combined_seed42_v1_fold1_combined": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:24:10+03:00",
+      "last_message": "Fold1 combined: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.0067809089781746025
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_v1/fold_1/combined"
+    },
+    "hm_medium_context_combined_seed42_v1_fold2_combined": {
+      "status": "validation_verified",
+      "updated_at": "2026-10-18T19:25:37+03:00",
+      "last_message": "Fold2 combined: validation-only ablation complete; weights reloaded, independent AP verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.018716517857142855
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_v1/fold_2/combined"
+    },
+    "hm_medium_context_combined_test_seed42_v1": {
+      "status": "complete_verified_plot",
+      "artifacts": "reports/medium_followup_v1/context_combined_test_v1/comparison.png",
+      "updated_at": "2026-10-18T19:36:44+03:00",
+      "last_message": "Requested comparison PNG/SVG complete and visually reviewed. Frozen combined ContextGNN test MAP1.1766% versus previous corrected1.2791%; validation gain did not repeat on these test weeks. All three reload replays and independent AP passed; all other plot metrics/intervals identical; original figure preserved. Context and handoff updated.",
+      "test_metrics": {
+        "map": 0.011765992328054985
+      }
+    },
+    "hm_medium_context_combined_test_seed42_v1_fold0": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.011942278874261835
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_test_v1/fold_0/combined",
+      "updated_at": "2026-10-18T19:34:46+03:00",
+      "last_message": "Fold0: frozen combined ContextGNN test inference/reload replay and independent AP passed."
+    },
+    "hm_medium_context_combined_test_seed42_v1_fold1": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.010575668935280438
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_test_v1/fold_1/combined",
+      "updated_at": "2026-10-18T19:35:01+03:00",
+      "last_message": "Fold1: frozen combined ContextGNN test inference/reload replay and independent AP passed."
+    },
+    "hm_medium_context_combined_test_seed42_v1_fold2": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.012964478786243887
+      },
+      "artifacts": "CVFollowup/results/v1/context_combined_test_v1/fold_2/combined",
+      "updated_at": "2026-10-18T19:35:16+03:00",
+      "last_message": "Fold2: frozen combined ContextGNN test inference/reload replay and independent AP passed."
+    },
+    "hm_medium_h010_research_seed42_v2_fold2": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "actual_POST": 30,
+      "research_queries": 4,
+      "artifacts": "LLMResearch/results/v2/fold_2",
+      "updated_at": "2026-10-18T20:54:29+03:00",
+      "last_message": "H010 fold2: full frozen replays and independent AP passed.",
+      "failed_attempt": 19,
+      "next_attempt": 20,
+      "failure": {
+        "api_attempt": 19,
+        "error": "<urlopen error [Errno 110] Connection timed out>",
+        "seconds": 130.51801749099832
+      },
+      "val_metrics": {
+        "map": 0.005634859216079582,
+        "users": 1911,
+        "pairs": 19110000,
+        "full_catalog": 10000,
+        "predictions_sha256": "159b34c235c36e5ddc18206a165d45ff9b24a8133fa2fb04f70042069b5ce744",
+        "program_sha256": "4bb1ff912f07ad43f179ba7865a8e8879987f587b2353ee543389f75313a96fb",
+        "model_sha256": "6fd04e451295461625f75d7d272fd48695a81edab2f0cec51405989f46098c7e",
+        "seconds": 96.1675328909987
+      },
+      "test_metrics": {
+        "map": 0.005508997230139751,
+        "users": 1698,
+        "pairs": 16980000,
+        "full_catalog": 10000,
+        "predictions_sha256": "377b52bbcf88e988d10baaa2d838a7a0e37f9849135e63d4db739316f44615a4",
+        "program_sha256": "4bb1ff912f07ad43f179ba7865a8e8879987f587b2353ee543389f75313a96fb",
+        "model_sha256": "6fd04e451295461625f75d7d272fd48695a81edab2f0cec51405989f46098c7e",
+        "seconds": 84.38415847999568
+      }
+    },
+    "hm_medium_novelty_audit_seed42_v1": {
+      "status": "complete_verified_diagnostics",
+      "artifacts": "reports/medium_followup_v1/novelty_audit_v1",
+      "updated_at": "2026-10-18T20:41:25+03:00",
+      "last_message": "All 45 frozen-model/fold rankings verified; original MAPs exactly reproduced, unavailable targets retained; tables, paired customer intervals and both figures verified. No training/API in this audit.",
+      "data_audit": [
+        {
+          "fold": 0,
+          "users": 1839,
+          "all_targets": 6157,
+          "available_targets": 2861,
+          "source_history_min": "2019-09-07 00:00:00",
+          "cutoff": "2020-08-17 00:00:00"
+        },
+        {
+          "fold": 1,
+          "users": 1982,
+          "all_targets": 6618,
+          "available_targets": 2327,
+          "source_history_min": "2019-09-07 00:00:00",
+          "cutoff": "2020-08-31 00:00:00"
+        },
+        {
+          "fold": 2,
+          "users": 1698,
+          "all_targets": 5418,
+          "available_targets": 1545,
+          "source_history_min": "2019-09-07 00:00:00",
+          "cutoff": "2020-09-14 00:00:00"
+        }
+      ],
+      "verified_model_folds": 45
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_raw15": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/raw15",
+      "updated_at": "2026-10-18T20:12:28+03:00",
+      "last_message": "Fold0 raw15: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_manual": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/manual",
+      "updated_at": "2026-10-18T20:15:43+03:00",
+      "last_message": "Fold0 manual: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_tdm": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/tdm",
+      "updated_at": "2026-10-18T20:16:04+03:00",
+      "last_message": "Fold0: TDM beam64 original top12 reproduced exactly; seen products excluded before final leaf top12."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f1_tdm": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_1/tdm",
+      "updated_at": "2026-10-18T20:17:33+03:00",
+      "last_message": "Fold1: TDM beam64 original top12 reproduced exactly; seen products excluded before final leaf top12."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_h008_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/h008_20",
+      "updated_at": "2026-10-18T20:18:47+03:00",
+      "last_message": "Fold0 h008_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_tdm": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/tdm",
+      "updated_at": "2026-10-18T20:19:21+03:00",
+      "last_message": "Fold2: TDM beam64 original top12 reproduced exactly; seen products excluded before final leaf top12."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_raw15": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/raw15",
+      "updated_at": "2026-10-18T20:22:33+03:00",
+      "last_message": "Fold2 raw15: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f1_raw15": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_1/raw15",
+      "updated_at": "2026-10-18T20:23:16+03:00",
+      "last_message": "Fold1 raw15: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_h008_30": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/h008_30",
+      "updated_at": "2026-10-18T20:23:48+03:00",
+      "last_message": "Fold0 h008_30: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f0_h009_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_0/h009_20",
+      "updated_at": "2026-10-18T20:27:24+03:00",
+      "last_message": "Fold0 h009_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_manual": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/manual",
+      "updated_at": "2026-10-18T20:27:35+03:00",
+      "last_message": "Fold2 manual: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f1_manual": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_1/manual",
+      "updated_at": "2026-10-18T20:28:55+03:00",
+      "last_message": "Fold1 manual: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_h008_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/h008_20",
+      "updated_at": "2026-10-18T20:31:16+03:00",
+      "last_message": "Fold2 h008_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f1_h008_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_1/h008_20",
+      "updated_at": "2026-10-18T20:31:21+03:00",
+      "last_message": "Fold1 h008_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_h009_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/h009_20",
+      "updated_at": "2026-10-18T20:33:45+03:00",
+      "last_message": "Fold2 h009_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f1_h009_20": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_1/h009_20",
+      "updated_at": "2026-10-18T20:34:00+03:00",
+      "last_message": "Fold1 h009_20: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_h009_30": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/h009_30",
+      "updated_at": "2026-10-18T20:36:40+03:00",
+      "last_message": "Fold2 h009_30: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "hm_medium_novelty_audit_seed42_v1_f2_h009_40": {
+      "status": "verified",
+      "artifacts": "CVFollowup/results/v1/novelty_audit_v1/fold_2/h009_40",
+      "updated_at": "2026-10-18T20:38:22+03:00",
+      "last_message": "Fold2 h009_40: full-catalog original top12 reproduced exactly; unseen-only reranking saved, no fitting/API."
+    },
+    "codex_agent_h011_codex_seed42_v1_fold0": {
+      "status": "searching",
+      "accepted": 14,
+      "submissions": 14,
+      "hypothesis": "A stable new-item effect across all six training cutoffs combines with article demand normalized within product type; customer colour/style affinity and cadence provide cutoff-safe personalization.",
+      "artifacts": "LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0/island_1",
+      "updated_at": "2026-10-18T22:12:23+03:00",
+      "last_message": "Codex agent h011_codex_seed42_v1 fold0: accepted; 14/20 accepted checks."
+    },
+    "hm_medium_h011_codex_seed42_budget300_v2": {
+      "status": "complete",
+      "inherited": {
+        "accepted": 14,
+        "next_turn": 14,
+        "research_spent": [
+          9,
+          7,
+          6
+        ],
+        "actual_POST": 99,
+        "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+      },
+      "research_budget": 300,
+      "artifacts": "reports/medium_h011_codex_budget300_v2",
+      "updated_at": "2026-10-19T00:30:56+03:00",
+      "last_message": "H011 autonomous Codex completed:60 accepted programs, all selections frozen before outer scoring, full replays and independent AP verified; comparison figure visually reviewed. Pooled test MAP0.4307% vs H0090.4514%; difference-0.0207pp, paired95%CI[-0.1445,+0.1073]pp. Folds0.1952%,0.6795%,0.3955%.84 research calls,445 API POST. No demonstrated improvement; budget40-to300 revision/inherited state retained in provenance.",
+      "test_metrics": {
+        "map": 0.004307496880522356
+      },
+      "comparison": {
+        "protocol": "hm_medium_h011_codex_seed42_budget300_v2",
+        "research_budget_revision": {
+          "run_id": "hm_medium_h011_codex_seed42_budget300_v2",
+          "research_caps": [
+            100,
+            100,
+            100
+          ],
+          "research_total": 300,
+          "supersedes": "hm_medium_h011_codex_seed42_v1",
+          "inherited": {
+            "accepted": 14,
+            "next_turn": 14,
+            "research_spent": [
+              9,
+              7,
+              6
+            ],
+            "actual_POST": 99,
+            "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+          },
+          "change": "User explicitly increased research budget40 to300 per fold during search; retain all prior work and counts."
+        },
+        "users_times": 5519,
+        "unique_customers": 4548,
+        "h011_pooled_map": 0.004307496880522356,
+        "h009_20_pooled_map": 0.004514477896726273,
+        "ci95_h011": [
+          0.00322815277186919,
+          0.005521292239155766
+        ],
+        "ci95_h009_20": [
+          0.0035259584333190066,
+          0.00566309793447831
+        ],
+        "difference_pp": -0.020698101620391724,
+        "difference_ci95_pp": [
+          -0.14450707041516056,
+          0.10734192348469138
+        ],
+        "folds": [
+          {
+            "fold": 0,
+            "users": 1839,
+            "h011_map": 0.0019520198462028792,
+            "h009_20_map": 0.004640644383711269,
+            "difference_pp": -0.2688624537508389,
+            "selected_call": 7,
+            "confirmation_map": 0.0018426432242221716,
+            "research_requests": 30,
+            "actual_POST": 134
+          },
+          {
+            "fold": 1,
+            "users": 1982,
+            "h011_map": 0.006794913086222369,
+            "h009_20_map": 0.003866700796550504,
+            "difference_pp": 0.29282122896718654,
+            "selected_call": 23,
+            "confirmation_map": 0.007154057582629011,
+            "research_requests": 29,
+            "actual_POST": 138
+          },
+          {
+            "fold": 2,
+            "users": 1698,
+            "h011_map": 0.003955119581591902,
+            "h009_20_map": 0.005133956131698573,
+            "difference_pp": -0.11788365501066715,
+            "selected_call": 1,
+            "confirmation_map": 0.003606401839386133,
+            "research_requests": 25,
+            "actual_POST": 173
+          }
+        ],
+        "bootstrap_replicates": 5000,
+        "bootstrap_unit": "customer retaining all folds",
+        "known_input_tokens": 10931402,
+        "known_output_tokens": 124566,
+        "unknown_usage_attempts": 3,
+        "test_previously_inspected": true
+      },
+      "visual_review_passed": true
+    },
+    "hm_medium_h011_codex_seed42_budget300_v2_fold0": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "submissions": 20,
+      "hypothesis": "Extend product-type-normalized recent article demand with cutoff-safe article lifecycle and historical price/channel profile, retaining customer style affinity and cadence for personalization.",
+      "artifacts": "LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0",
+      "updated_at": "2026-10-19T00:03:04+03:00",
+      "last_message": "Autonomous Codex fold0: full replays and independent AP passed.",
+      "test_metrics": {
+        "map": 0.0019520198462028792,
+        "users": 1839,
+        "pairs": 18390000,
+        "full_catalog": 10000,
+        "predictions_sha256": "9c54ff3259e7df5b14f6c54733bd5c8ee1b55769c665e45b734009a29460229f",
+        "program_sha256": "29a4e1d69bc710704cde34fda7f1c0616bef1d29fa7753d02daed7ad5e20edc2",
+        "model_sha256": "0bfcb0de7ce02d637c7e2b228b3d9c90c18f000aca5c4789f69ee82668aa4ddb",
+        "seconds": 47.20271320699976
+      },
+      "val_metrics": {
+        "map": 0.0018907798251909713,
+        "users": 1902,
+        "pairs": 19020000,
+        "full_catalog": 10000,
+        "predictions_sha256": "d5b4733e9718b558dbfe109f669b672dbfebb07505b6006e341fc0b6ed53ec1c",
+        "program_sha256": "29a4e1d69bc710704cde34fda7f1c0616bef1d29fa7753d02daed7ad5e20edc2",
+        "model_sha256": "0bfcb0de7ce02d637c7e2b228b3d9c90c18f000aca5c4789f69ee82668aa4ddb",
+        "seconds": 49.657008804002544
+      }
+    },
+    "hm_medium_h011_codex_seed42_budget300_v2_fold1": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "submissions": 24,
+      "hypothesis": "Сильное ядро v6 с дополнительными decay-признаками (tau 20/80) лучше моделирует плавное затухание активности, сохраняя долгие окна и affinity.",
+      "artifacts": "LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_1",
+      "updated_at": "2026-10-19T00:11:41+03:00",
+      "last_message": "Autonomous Codex fold1: full replays and independent AP passed.",
+      "test_metrics": {
+        "map": 0.006794913086222369,
+        "users": 1982,
+        "pairs": 19820000,
+        "full_catalog": 10000,
+        "predictions_sha256": "91c4628a89923ffff506c4d79681a90dc09c414821c962e220022fb8c7547308",
+        "program_sha256": "eb295ee19c68842addf086948e60ed1bd74769cd0ac39f2a7061dee6d6060c3e",
+        "model_sha256": "cc5621c8c170914ec0ec061795455abb907df7df4a03c9bc873a23bd7cad9d18",
+        "seconds": 103.29937203699956
+      },
+      "val_metrics": {
+        "map": 0.006254325873519715,
+        "users": 2102,
+        "pairs": 21020000,
+        "full_catalog": 10000,
+        "predictions_sha256": "20977d6678ae99a785f8face0e89f2eaccaf496f7ecefe5eceef64768f53dc63",
+        "program_sha256": "eb295ee19c68842addf086948e60ed1bd74769cd0ac39f2a7061dee6d6060c3e",
+        "model_sha256": "cc5621c8c170914ec0ec061795455abb907df7df4a03c9bc873a23bd7cad9d18",
+        "seconds": 109.81421393299388
+      }
+    },
+    "hm_medium_h011_codex_seed42_budget300_v2_fold2": {
+      "status": "evaluated_verified",
+      "accepted": 20,
+      "submissions": 23,
+      "hypothesis": "Explicit customer engagement and membership attributes combined with age-conditioned item popularity and article category codes may capture static propensity interactions missed by aggregate-only programs.",
+      "artifacts": "LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_2",
+      "updated_at": "2026-10-19T00:29:33+03:00",
+      "last_message": "Autonomous Codex fold2: full replays and independent AP passed.",
+      "test_metrics": {
+        "map": 0.003955119581591902,
+        "users": 1698,
+        "pairs": 16980000,
+        "full_catalog": 10000,
+        "predictions_sha256": "35ea0bf6322d88f597eab4c557e3898414d8a54f39f93d189833c19c2cb1919d",
+        "program_sha256": "2018f18148501814a79bcedebcc5bee54f4c7f9e4425bdf5b66c13c879c6e217",
+        "model_sha256": "03994e29725780ceca03f88af60e3afa46c38632f13c773168bf571291bc05d7",
+        "seconds": 219.44276963699667
+      },
+      "val_metrics": {
+        "map": 0.004953524996042003,
+        "users": 1911,
+        "pairs": 19110000,
+        "full_catalog": 10000,
+        "predictions_sha256": "ec75f448d958ed7a0d26c34fe49a6d1d1a05c03c0ccc3fce125d12eb220aa581",
+        "program_sha256": "2018f18148501814a79bcedebcc5bee54f4c7f9e4425bdf5b66c13c879c6e217",
+        "model_sha256": "03994e29725780ceca03f88af60e3afa46c38632f13c773168bf571291bc05d7",
+        "seconds": 244.5056492490039
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v1": {
+      "status": "stopped_verification_issue",
+      "artifacts": "reports/medium_followup_v1/context_global_aux_v1",
+      "updated_at": "2026-10-19T10:44:59+03:00",
+      "last_message": "V1 stopped after first control: strict torch.equal rejected ordinary FP32 GPU variation. Probe: dual/native maxdiff 1.621e-5, native/native 1.526e-5, bound 6.336e-5, same top12; train losses equal and gradient maxdiff 3.815e-6 versus maxgrad 7.519. V1 weights/history preserved, no auxiliary fit performed. V2 uses documented FP32 bounds and fresh matched controls with explicit initial-state and training-graph hashes; historical training reproduction is measured rather than assumed."
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v1_f0_control": {
+      "status": "training",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v1/fold_0/control",
+      "updated_at": "2026-10-18T23:17:30+03:00",
+      "last_message": "Fold0 control epoch10: hybrid MAP 1.60255%, global MAP 0.14369%.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.016025545634920636
+      }
+    },
+    "hm_medium_h011_codex_seed42_budget300_v2_search_budget_diagnostic": {
+      "status": "verified",
+      "artifacts": "reports/medium_h011_codex_budget300_v2/search_budget_diagnostic.json",
+      "updated_at": "2026-10-19T00:19:47+03:00",
+      "last_message": "Read-only audit of research denials, provider token usage, search and confirmation selection requested after low fold0 test. No fitting, reselection or budget changes."
+    },
+    "hm_medium_all_methods_h011_plot_v1": {
+      "status": "complete",
+      "artifacts": "reports/medium_all_methods_h011_v1",
+      "updated_at": "2026-10-19T00:34:07+03:00",
+      "last_message": "Comparison of16 existing verified methods with H010/H011 completed. Overall and budget20 PNG/SVG plots visually reviewed; weighted fold aggregation checked for every method; source hashes and CSV retained. No training/API or selection changes."
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v2": {
+      "status": "stopped_dispatch_issue",
+      "artifacts": "reports/medium_followup_v1/context_global_aux_v2",
+      "updated_at": "2026-10-19T10:50:33+03:00",
+      "last_message": "V2 fold0 lambda0 completed and verified (MAP1.8548228753%). Dispatcher then mistook its own residual CUDA context (1099MiB, no other project Python processes) for external load and waited. Stopped only own waiting PID after checking command. V3 uses one subprocess per fit to release CUDA contexts; reuses verified control unchanged by hashes. Auxiliary arm directory renamed global_ce because AUX is reserved on Windows. No model, lambda or data change."
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v2_f0_control": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v2/fold_0/control",
+      "updated_at": "2026-10-19T10:48:29+03:00",
+      "last_message": "Fold0 control: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.01854822875330688
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3": {
+      "status": "complete_validation_with_replay_qualification",
+      "artifacts": "reports/medium_followup_v1/context_global_aux_v3",
+      "updated_at": "2026-10-19T11:06:19+03:00",
+      "last_message": "Six matched validation fits completed (one verified v2 control reused): paired initial weights/training graphs matched. Five fits passed exact-top12 replay; last-fit near-tie ranking variation is explicitly quantified, scores within original FP32 bound, canonical scores/weights unchanged. Do not claim all six exact-top12 replays passed. Metrics, bootstrap and plot reviewed with qualification; no test/API.",
+      "model_folds": 6
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3_f0_global_ce": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v3/fold_0/global_ce",
+      "updated_at": "2026-10-19T10:52:43+03:00",
+      "last_message": "Fold0 global_ce: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 6,
+      "val_metrics": {
+        "map": 0.019541067294973548
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3_f1_control": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v3/fold_1/control",
+      "updated_at": "2026-10-19T10:54:56+03:00",
+      "last_message": "Fold1 control: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.005885615965136055
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3_f1_global_ce": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v3/fold_1/global_ce",
+      "updated_at": "2026-10-19T10:56:52+03:00",
+      "last_message": "Fold1 global_ce: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 7,
+      "val_metrics": {
+        "map": 0.0067099332236050975
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3_f2_control": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v3/fold_2/control",
+      "updated_at": "2026-10-19T10:59:16+03:00",
+      "last_message": "Fold2 control: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.019826684816919193
+      }
+    },
+    "hm_medium_context_global_aux_lambda1_seed42_v3_f2_global_ce": {
+      "status": "validation_verified_qualified",
+      "artifacts": "CVFollowup/results/v1/context_global_aux_v3/fold_2/global_ce",
+      "updated_at": "2026-10-19T11:16:04+03:00",
+      "last_message": "Recovered fold2 lambda1 replay completed: original FP32 bound passed, two positions permuted for one hybrid user, all measured per-user MAP/recall unchanged. Main run already complete with explicit qualification; correct stale child training status.",
+      "epoch": 5,
+      "val_metrics": {
+        "map": 0.009903196304563492
+      }
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1": {
+      "status": "complete",
+      "artifacts": "reports/medium_h010_h011_novelty_v1",
+      "updated_at": "2026-10-19T11:19:44+03:00",
+      "last_message": "H010/H011 recall on ordinary and unseen-only recommendations verified; six exact full-catalog replays, independent AP, unchanged original references and17-method figure visually reviewed. No training/API."
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold0": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_0/h011_20",
+      "updated_at": "2026-10-19T11:10:33+03:00",
+      "last_message": "h011_20 fold0: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold0": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_0/h010_20",
+      "updated_at": "2026-10-19T11:11:00+03:00",
+      "last_message": "h010_20 fold0: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold1": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_1/h010_20",
+      "updated_at": "2026-10-19T11:13:23+03:00",
+      "last_message": "h010_20 fold1: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold1": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_1/h011_20",
+      "updated_at": "2026-10-19T11:14:01+03:00",
+      "last_message": "h011_20 fold1: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h010_20_fold2": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_2/h010_20",
+      "updated_at": "2026-10-19T11:15:46+03:00",
+      "last_message": "h010_20 fold2: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1": {
+      "status": "complete_verified_validation",
+      "artifacts": "reports/medium_followup_v1/item_encoder_followup_v1",
+      "updated_at": "2026-10-19T11:31:06+03:00",
+      "last_message": "FEATURE/FUSION comparison and subsequent FUSION+semantic-graph experiment completed: six new fits plus three unchanged verified controls, same common initial states/train graphs, original CE only. Graph provenance/normalization/gradients/cache and replay sensitivity checked; figures reviewed. No test/API.",
+      "new_fits": 6,
+      "reused_controls": 3,
+      "replay_rows_changed_in_checks": 0,
+      "max_per_user_ap_replay_sensitivity": 0.0
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f0_feature": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_0/feature",
+      "updated_at": "2026-10-19T11:18:49+03:00",
+      "last_message": "Fold0 feature: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 5,
+      "val_metrics": {
+        "map": 0.016001519097222222
+      }
+    },
+    "hm_medium_h010_h011_novelty_seed42_v1_h011_20_fold2": {
+      "status": "verified",
+      "artifacts": "LLMResearch/results/novelty_v1/fold_2/h011_20",
+      "updated_at": "2026-10-19T11:18:44+03:00",
+      "last_message": "h011_20 fold2: exact original top12 replay passed; unseen-only full-catalog ranking saved."
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f1_feature": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_1/feature",
+      "updated_at": "2026-10-19T11:20:51+03:00",
+      "last_message": "Fold1 feature: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.007019624255952381
+      }
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f2_feature": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_2/feature",
+      "updated_at": "2026-10-19T11:22:55+03:00",
+      "last_message": "Fold2 feature: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 9,
+      "val_metrics": {
+        "map": 0.019231376262626262
+      }
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f0_similarity_graph": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_0/similarity_graph",
+      "updated_at": "2026-10-19T11:25:37+03:00",
+      "last_message": "Fold0 similarity_graph: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.01808552414021164
+      }
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f1_similarity_graph": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_1/similarity_graph",
+      "updated_at": "2026-10-19T11:27:34+03:00",
+      "last_message": "Fold1 similarity_graph: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.006833447946729196
+      }
+    },
+    "hm_medium_item_encoder_feature_semgraph_seed42_v1_f2_similarity_graph": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/item_encoder_followup_v1/fold_2/similarity_graph",
+      "updated_at": "2026-10-19T11:29:42+03:00",
+      "last_message": "Fold2 similarity_graph: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.01826326884920635
+      }
+    },
+    "hm_medium_feature_test_all_methods_seed42_v1": {
+      "status": "complete_verified_plot",
+      "artifacts": "reports/medium_all_methods_h011_feature_v1",
+      "updated_at": "2026-10-19T11:40:27+03:00",
+      "last_message": "Frozen FEATURE test MAP@12=1.3111% (95% CI 1.0913..1.5411%). Chart visually verified with 17 methods, all original 16 rows/files unchanged. No fitting/reselection/API. Reload changed 0 top12 rows, max per-user AP sensitivity 0.",
+      "test_metrics": {
+        "map": 0.013110657084655997
+      },
+      "replay_changed_rows": 0,
+      "max_per_user_ap_replay_sensitivity": 0.0
+    },
+    "hm_medium_feature_test_all_methods_seed42_v1_f0": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.013933473631679178
+      },
+      "artifacts": "CVFollowup/results/v1/feature_test_comparison_v1/fold_0/feature",
+      "updated_at": "2026-10-19T11:37:54+03:00",
+      "last_message": "Fold0: frozen FEATURE test/reload checked, original full-target MAP=1.39335%; rank/AP sensitivity recorded."
+    },
+    "hm_medium_feature_test_all_methods_seed42_v1_f1": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.011090708936950107
+      },
+      "artifacts": "CVFollowup/results/v1/feature_test_comparison_v1/fold_1/feature",
+      "updated_at": "2026-10-19T11:38:52+03:00",
+      "last_message": "Fold1: frozen FEATURE test/reload checked, original full-target MAP=1.10907%; rank/AP sensitivity recorded."
+    },
+    "hm_medium_feature_test_all_methods_seed42_v1_f2": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.01457731055861209
+      },
+      "artifacts": "CVFollowup/results/v1/feature_test_comparison_v1/fold_2/feature",
+      "updated_at": "2026-10-19T11:39:48+03:00",
+      "last_message": "Fold2: frozen FEATURE test/reload checked, original full-target MAP=1.45773%; rank/AP sensitivity recorded."
+    },
+    "hm_medium_feature_novelty_plot_seed42_v1": {
+      "status": "complete_verified_plot",
+      "artifacts": "reports/medium_h010_h011_feature_novelty_v1",
+      "updated_at": "2026-10-19T11:44:06+03:00",
+      "last_message": "normal: available recall 1.0061%, full recall 0.3976%; new_only: available recall 1.6605%, full recall 0.6102%;18-method two-panel chart visually verified. Original17 methods/files unchanged, masks before full-catalog top12, unavailable targets retained in full metrics. No inference/fitting/API."
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v1": {
+      "status": "stopped_before_training",
+      "updated_at": "2026-10-19T11:51:47+03:00",
+      "last_message": "v1 stopped before any fit: strict equality between two native GPU forwards failed at max local score difference 3.8147e-6, within existing FP32 policy. Preserve v1 source/logs; v2 applies existing bounded numerical comparison and still quantifies rank/AP replay."
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2": {
+      "status": "complete_validation_with_replay_qualification",
+      "artifacts": "reports/medium_followup_v1/context_multi_interest_v2",
+      "updated_at": "2026-10-19T12:10:22+03:00",
+      "last_message": "FUSION / attentionK1 / attentionK4: hybrid/map: 1.4754% / 1.3197% / 1.4528%; global/map: 0.5316% / 0.2902% / 0.4715%; hybrid/available_recall: 2.0810% / 1.0142% / 2.0368%; new_only/available_recall: 2.3346% / 1.4334% / 2.5845%; six new fits verified, three controls unchanged. Matched common initialization and training graphs, independent AP, replay ranks/AP measured (1 changed checks, max AP 0), graph visually reviewed. No test/API.",
+      "new_fits": 6,
+      "reused_controls": 3,
+      "replay_changed_rows_in_checks": 1,
+      "max_per_user_ap_replay_sensitivity": 0.0
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f0_interest1": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_0/interest1",
+      "updated_at": "2026-10-19T11:55:13+03:00",
+      "last_message": "Fold0 interest1: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.015353500124007938
+      }
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f1_interest1": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_1/interest1",
+      "updated_at": "2026-10-19T11:57:23+03:00",
+      "last_message": "Fold1 interest1: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 5,
+      "val_metrics": {
+        "map": 0.004030257936507936
+      }
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f2_interest1": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_2/interest1",
+      "updated_at": "2026-10-19T12:00:05+03:00",
+      "last_message": "Fold2 interest1: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.020208145107001134
+      }
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f0_interest4": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_0/interest4",
+      "updated_at": "2026-10-19T12:02:42+03:00",
+      "last_message": "Fold0 interest4: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 8,
+      "val_metrics": {
+        "map": 0.01440483940972222
+      }
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f1_interest4": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_1/interest4",
+      "updated_at": "2026-10-19T12:05:35+03:00",
+      "last_message": "Fold1 interest4: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.007715308779761904
+      }
+    },
+    "hm_medium_context_multi_interest_k1_k4_seed42_v2_f2_interest4": {
+      "status": "validation_verified",
+      "artifacts": "CVFollowup/results/v1/context_multi_interest_v2/fold_2/interest4",
+      "updated_at": "2026-10-19T12:08:27+03:00",
+      "last_message": "Fold2 interest4: checkpoint and both ranking branches reloaded and verified.",
+      "epoch": 10,
+      "val_metrics": {
+        "map": 0.021462673611111115
+      }
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1": {
+      "status": "complete_test_with_replay_qualification",
+      "artifacts": "reports/medium_multi_interest_test_v1",
+      "updated_at": "2026-10-19T12:23:07+03:00",
+      "last_message": "Do not promote current multi-interest adaptation over matched FUSION: K4 improves new recall vs K1, but test hybrid MAP delta vs FUSION -0.1644pp (paired95CI -0.2974..-0.0348), new recall differences vs FUSION include0, global-only MAP nearly unchanged. Validation heads highly similar. Interpretation recorded; experiment complete, no additional fits authorized by this result.",
+      "checkpoints_verified": 9,
+      "replay_changed_rows": 9,
+      "max_per_user_ap_replay_sensitivity": 0.0
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f0_control": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.012746539229002523
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_0/control",
+      "updated_at": "2026-10-19T12:12:50+03:00",
+      "last_message": "Fold0 control: frozen checkpoint testMAP=1.2747%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f0_interest1": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.012542828070968364
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_0/interest1",
+      "updated_at": "2026-10-19T12:14:08+03:00",
+      "last_message": "Fold0 interest1: frozen checkpoint testMAP=1.2543%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f0_interest4": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.010690473705699371
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_0/interest4",
+      "updated_at": "2026-10-19T12:15:00+03:00",
+      "last_message": "Fold0 interest4: frozen checkpoint testMAP=1.0690%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f1_control": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.010948334934609128
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_1/control",
+      "updated_at": "2026-10-19T12:16:01+03:00",
+      "last_message": "Fold1 control: frozen checkpoint testMAP=1.0948%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f1_interest1": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.007559915138118972
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_1/interest1",
+      "updated_at": "2026-10-19T12:17:01+03:00",
+      "last_message": "Fold1 interest1: frozen checkpoint testMAP=0.7560%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f1_interest4": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.008984226906539626
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_1/interest4",
+      "updated_at": "2026-10-19T12:18:04+03:00",
+      "last_message": "Fold1 interest4: frozen checkpoint testMAP=0.8984%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f2_control": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.011104146093839851
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_2/control",
+      "updated_at": "2026-10-19T12:18:57+03:00",
+      "last_message": "Fold2 control: frozen checkpoint testMAP=1.1104%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f2_interest1": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.009043542515106655
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_2/interest1",
+      "updated_at": "2026-10-19T12:19:55+03:00",
+      "last_message": "Fold2 interest1: frozen checkpoint testMAP=0.9044%, both branch reloads and full-catalog novelty mask verified."
+    },
+    "hm_medium_multi_interest_test_all_methods_seed42_v1_f2_interest4": {
+      "status": "test_verified",
+      "test_metrics": {
+        "map": 0.010280839017197747
+      },
+      "artifacts": "CVFollowup/results/v1/multi_interest_test_v1/fold_2/interest4",
+      "updated_at": "2026-10-19T12:20:47+03:00",
+      "last_message": "Fold2 interest4: frozen checkpoint testMAP=1.0281%, both branch reloads and full-catalog novelty mask verified."
     }
   },
   "latest_event": {
-    "time": "2026-10-18T17:03:19+03:00",
-    "kind": "api_budget_report_complete",
-    "message": "All six API streams and18 frozen20/30/40 budget evaluations/replays complete; comparisons, usage and incumbent-selection audit published.",
-    "run_id": "hm_medium_followup_api_budget_v1",
-    "data": {
-      "status": "complete",
-      "artifacts": "reports/medium_followup_v1/final_comparison/api_budget_curves.png"
-    }
+    "time": "2026-10-21T11:09:31+03:00",
+    "kind": "gitignore_updated",
+    "message": "User requested excluding unnecessary Git artifacts. Added scoped ignores for archived H011 agent session internals, report SQLite/WAL/SHM, locks, resource snapshots, pipeline/progress state and detailed per-user/target-inventory Parquet. Removed self-ignore for .gitignore. Verified code, protocols, summary metrics, verification reports, figures and archive manifests remain visible. New-file candidates reduced from1089 to341; local artifacts preserved.",
+    "run_id": null,
+    "data": {}
   }
 }

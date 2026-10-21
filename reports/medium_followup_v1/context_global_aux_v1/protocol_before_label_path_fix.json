@@ -1,0 +1,69 @@
+{
+  "run_id": "hm_medium_context_global_aux_lambda1_seed42_v1",
+  "arms": {
+    "control": 0.0,
+    "aux": 1.0
+  },
+  "seed": 42,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "objective": "Original full-catalog sparse CE(hybrid) + lambda * same CE(global scores before local overwrite); same batch/positives/normalization",
+  "baseline": "Combined fanout64/32 and eight categorical article codes, FUSION",
+  "fanout": [
+    64,
+    32
+  ],
+  "optimizer": "Adam lr=.001",
+  "batch_size": 128,
+  "max_epochs": 10,
+  "patience": 3,
+  "selection": "Same 256 validation rows per fold; early stopping on ordinary hybrid full-target MAP; no lambda search",
+  "diagnostics": "hybrid/global-only/new-only top12; novelty groups from source past history; unavailable targets retained, conditional metrics separate",
+  "no_test_evaluation": true,
+  "no_api": true,
+  "training_from_scratch": true,
+  "reference_hashes": {
+    "CVFollowup/results/v1/context_combined_v1/fold_0/combined/best.pt": "4fc4df82ee468e33cddffa58482117a4d7e877aaaf260af762f6662d3026a5b5",
+    "CVFollowup/results/v1/context_combined_v1/fold_0/combined/result.json": "1f2a3447d92f9593a9bf9db0161db38aab67f3ea5d83bf1a1fd38bd8c2cc2924",
+    "CVFollowup/results/v1/context_combined_v1/fold_0/combined/val_scores.npy": "dcc9da3a095d92a5f809ee059f21d37ecc4d62575aac86e4259c220c7f232fba",
+    "CVFollowup/results/v1/context_combined_v1/fold_0/combined/val_ap.npy": "ae874df2c41e71445dd6f334feb1219bcdc028486ff4fe4dd5489ea2a8b16349",
+    "CVFollowup/results/v1/context_combined_v1/fold_0/combined/val_predictions.npy": "aecbd17adb8a08d9182f038c04af26943f48356a2962942733f409afc1e5d5e5",
+    "data/hm-cv-medium-v2/fold_0/article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+    "data/hm-cv-medium-v2/fold_0/customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+    "data/hm-cv-medium-v2/fold_0/bundle/val_targets.parquet": "76dadcd9076d37f9546e7002ebf382ba600008fd44ce6670b6cbceb2b73a7880",
+    "data/hm-cv-medium-v2/fold_0/subset_manifest.json": "79901c7e20e26891a7bbfe4ab1870414eb2959045746b06129ae6d20e8f70014",
+    "CVFollowup/results/v1/fold_0/runtime/gnn_timefix_refit/gnn.py": "1960210d695ce9c399c7c10463247158dbdf3df432240753069791deb134c9aa",
+    "CVFollowup/results/v1/context_combined_v1/fold_1/combined/best.pt": "4f6bb033ae95ae8dfe13629cc00d9589aebcd441636e5b05efcae3584d454c6c",
+    "CVFollowup/results/v1/context_combined_v1/fold_1/combined/result.json": "c44b454fc950576a12a4d40381a5da6b9d917b40ecb5cd7a1aaa46c381d780a4",
+    "CVFollowup/results/v1/context_combined_v1/fold_1/combined/val_scores.npy": "06696d99f997ecd973ecd34b3a77c11df5b1a2d8123b10c26adec5b62926a53e",
+    "CVFollowup/results/v1/context_combined_v1/fold_1/combined/val_ap.npy": "93d1016e5040c6ec9f02d36af5bd6ced87fe1796dcabdd805ab4c196fa7e9c28",
+    "CVFollowup/results/v1/context_combined_v1/fold_1/combined/val_predictions.npy": "d2603bbe2e5b89638e053bb46c3cb1e08a6920746284ebd2e8e2d94419491e5d",
+    "data/hm-cv-medium-v2/fold_1/article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+    "data/hm-cv-medium-v2/fold_1/customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+    "data/hm-cv-medium-v2/fold_1/bundle/val_targets.parquet": "5a18107f3e4d7bcbc4adb0fe63a1816be92ef16cbbf97dd6e6d631f4fabb24e1",
+    "data/hm-cv-medium-v2/fold_1/subset_manifest.json": "7ae21022d095be49b701cb85748b4f475349ec8306b8ba55eb6fe2da58372f66",
+    "CVFollowup/results/v1/fold_1/runtime/gnn_timefix_refit/gnn.py": "b1e3c68ba18d5ee8db3461af8de3ddd860e8937ec8246a957eb1bcf0a814bac0",
+    "CVFollowup/results/v1/context_combined_v1/fold_2/combined/best.pt": "6dfb96826f0f6a8985945ecc2f6f6cc94232df802fc394c35f8a4f6633347f51",
+    "CVFollowup/results/v1/context_combined_v1/fold_2/combined/result.json": "a853c2f8f23add420caaac100f132d8d95f1ef2bf561fa2b6ad096e67b2fe16f",
+    "CVFollowup/results/v1/context_combined_v1/fold_2/combined/val_scores.npy": "5a48b48d6a3d36adb91ba6f1c1a2f6620f69ec61b7115c80b0da00f1f34c166d",
+    "CVFollowup/results/v1/context_combined_v1/fold_2/combined/val_ap.npy": "57d16b0abb8c41a133d5a5c4f230458ef2dca64813707f4c3afe4250bcc5a0a4",
+    "CVFollowup/results/v1/context_combined_v1/fold_2/combined/val_predictions.npy": "ff5cc6f58eb3d0b10fd2a04cdb96c8f86fa786c8e73bf7461cb1f58931eda06d",
+    "data/hm-cv-medium-v2/fold_2/article_id_map.csv": "1bd670ffb49641faf3381c3de3af962e652c167366dcab36b7271474c629d5a1",
+    "data/hm-cv-medium-v2/fold_2/customer_id_map.csv": "1d64bdeafa0c5ab8c0d6187943b5d1d5edbfb35d7bb3f87816f076811f24d1c9",
+    "data/hm-cv-medium-v2/fold_2/bundle/val_targets.parquet": "5ba80ef398346aacc2ac4f32079efa336ab5bfcfda3f4f5881b95ca9d39924a1",
+    "data/hm-cv-medium-v2/fold_2/subset_manifest.json": "1f83dbb1e24d59b9737ece7746464478697969a5a24ff01a7e7d2926f39d5a87",
+    "CVFollowup/results/v1/fold_2/runtime/gnn_timefix_refit/gnn.py": "02e4f7f95ef009193576fb87d7c1b614870a4a8a63f50d98a4b823d3e19bbcb4"
+  },
+  "sources": {
+    "CVFollowup/context_global_aux.py": "cb8b852e02d7e97d89bc5db32621d857be6302f4f79db767cdd652e754296eeb",
+    "CVFollowup/context_first3.py": "8ceb8fc645962520eab7e4685e29b50f8e122b11bcb6f15195385e9145e95f40",
+    "CVFollowup/novelty_audit.py": "581787f5e9476b1d439dcc6d7d7bbb9f498b1bf8ac1adeab07a8780a0cf0d319",
+    "ContextGNN/upstream/contextgnn/nn/models/contextgnn.py": "4d62ef823234b9ceae642ec9bcdbd30012e7d9a72128fbab76fcefa9177086be",
+    "ContextGNN/upstream/contextgnn/nn/rhs_embedding.py": "d924cb729a0c11a2fe62f521fcc93c995d9c9edc8248b4f169e588726f475374"
+  },
+  "resource_policy": "sequential fits; two CPU threads; nice+5; require GPU memory<512MiB and available RAM>5GB before each fit",
+  "limitation": "Exploratory repeatedly inspected validation, one seed; no independent confirmation"
+}

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "six_full_catalog_replays": true,
+  "independent_AP": true,
+  "original_references_unchanged": true,
+  "no_training": true,
+  "no_api": true,
+  "methods_on_plot": 17
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "fold": 0,
+    "accepted": 20,
+    "research_calls": [
+      11,
+      10,
+      9
+    ],
+    "research_denials": 0,
+    "API_attempts": 134,
+    "known_input_tokens": 3448880,
+    "known_output_tokens": 52875,
+    "known_cached_input_tokens": 2921856,
+    "attempts_without_completed_usage": 2,
+    "selected_call": 7,
+    "confirmation": [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0/raw_control",
+        "call": null,
+        "confirmation_map": 0.0015390749601275917
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0/evaluations/candidate_012",
+        "call": 12,
+        "confirmation_map": 0.0013821010860484545
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0/evaluations/candidate_006",
+        "call": 6,
+        "confirmation_map": 0.001361598440545809
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_0/evaluations/candidate_007",
+        "call": 7,
+        "confirmation_map": 0.0018426432242221716
+      }
+    ],
+    "top3_search": [
+      {
+        "call": 12,
+        "search_map": 0.00840957003066378
+      },
+      {
+        "call": 6,
+        "search_map": 0.004587324838789683
+      },
+      {
+        "call": 7,
+        "search_map": 0.00429888308306277
+      }
+    ],
+    "heldout_val_map": 0.0010296061477163838,
+    "val_map": 0.0018907798251909713,
+    "test_map": 0.0019520198462028792
+  },
+  {
+    "fold": 1,
+    "accepted": 20,
+    "research_calls": [
+      13,
+      8,
+      8
+    ],
+    "research_denials": 0,
+    "API_attempts": 138,
+    "known_input_tokens": 3382297,
+    "known_output_tokens": 38632,
+    "known_cached_input_tokens": 3198080,
+    "attempts_without_completed_usage": 1,
+    "selected_call": 23,
+    "confirmation": [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_1/raw_control",
+        "call": null,
+        "confirmation_map": 0.00015943877551020407
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_1/evaluations/candidate_023",
+        "call": 23,
+        "confirmation_map": 0.007154057582629011
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_1/evaluations/candidate_017",
+        "call": 17,
+        "confirmation_map": 0.0013602326171770617
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_1/evaluations/candidate_019",
+        "call": 19,
+        "confirmation_map": 0.004028354487538161
+      }
+    ],
+    "top3_search": [
+      {
+        "call": 23,
+        "search_map": 0.004647887919372294
+      },
+      {
+        "call": 17,
+        "search_map": 0.004470486111111111
+      },
+      {
+        "call": 19,
+        "search_map": 0.004326991213151927
+      }
+    ],
+    "heldout_val_map": 0.002434293734768794,
+    "val_map": 0.006254325873519715,
+    "test_map": 0.006794913086222369
+  },
+  {
+    "fold": 2,
+    "accepted": 20,
+    "research_calls": [
+      6,
+      8,
+      11
+    ],
+    "research_denials": 0,
+    "API_attempts": 173,
+    "known_input_tokens": 4100225,
+    "known_output_tokens": 33059,
+    "known_cached_input_tokens": 3596416,
+    "attempts_without_completed_usage": 0,
+    "selected_call": 1,
+    "confirmation": [
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_2/raw_control",
+        "call": null,
+        "confirmation_map": 7.271669575334496e-05
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_2/evaluations/candidate_008",
+        "call": 8,
+        "confirmation_map": 0.0016594201803625886
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_2/evaluations/candidate_012",
+        "call": 12,
+        "confirmation_map": 0.002937693911188675
+      },
+      {
+        "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/agent_environment/sessions/h011_codex_seed42_v1/fold_2/evaluations/candidate_001",
+        "call": 1,
+        "confirmation_map": 0.003606401839386133
+      }
+    ],
+    "top3_search": [
+      {
+        "call": 8,
+        "search_map": 0.006731040072278911
+      },
+      {
+        "call": 12,
+        "search_map": 0.004739639700577201
+      },
+      {
+        "call": 1,
+        "search_map": 0.004531503652597402
+      }
+    ],
+    "heldout_val_map": 0.006680004069038012
+  }
+]

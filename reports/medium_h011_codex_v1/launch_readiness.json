@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "status": "authorized_ready_to_start",
+  "real_API_requests": 0,
+  "feature_trainings": 0,
+  "checks": [
+    "mocked_SSE_forwarding",
+    "upstream_parameters_clamped",
+    "no_credential_in_saved_payload",
+    "gateway_origin_per_population",
+    "gateway_authentication",
+    "hard300_POST_cap",
+    "nine_separate_Codex_profiles",
+    "timeout_retry_separately_counted_and_recovered",
+    "persistent_timeout_four_attempt_bound"
+  ],
+  "sources_sha256": {
+    "H011_PROTOCOL.md": "fe35beb8cc561d810e1557751b40bce129b6a1f9eb10e61a94f18669775d552c",
+    "check_h011.py": "0d11bb004cd5be9b4cd454ac28c39b732afc8f5e902819b41546df4baa24e2ff",
+    "check_h011_tools.py": "f49d32926f522b8166dad836e0738fd9f0dc63c0b797caf43075e979ccad69a7",
+    "gateway.py": "b4240c026d02c5e0189e639a9efabccb577c4a6466a7f9f67a3feda85fd7e43c",
+    "h011_stage.py": "3f2ed8cf12d367f48ee472a0474ef5d99a8c0b941b88b3453bfa7640b5cca8bb",
+    "launch_h011_windows.py": "f53d868c23d6f96eb30a3ff45f1ce3b9c2a1158cd1c42b18e6071db0c209854a",
+    "mcp_server.py": "5f2ab94154cad4054c806dd584b34e9cfdbe5fc59e8a22efa57a0ea89eb62fe3",
+    "pipeline_windows.py": "cf0cd5648baadb6976cfdd4fae9148b650292211a834097b979a2fbc7f5379b7",
+    "record_h011_authorized.py": "ad3e206d6c961cb576e20c7f3bb14162d1c44b3795fb7c09ac7ba2bbb4be17b8",
+    "report_h011.py": "af13d26b49a2185b23f10db0763bbc17b122b4835e10652ce1539825174499e1",
+    "setup_windows.py": "10133727359fc38e3a4015074bd4ca13796a930b5ceb57385c9c2cfb8211137b",
+    "toolbox.py": "f82a1abedb26b2207d1ee1dde327f87030a3fb0e399dd73d1eec50124c28a7c4"
+  },
+  "os_isolation_verification": "verification.json",
+  "native_agent_smoke_verification": "native_agent_verification.json",
+  "profile_sha256": {
+    "fold_0/island_0/codex_home/config.toml": "8c094d7eea3e1fe5f7a2b276692fedfc24cfa80d0719d15fec6334a3fb486a87",
+    "fold_0/island_1/codex_home/config.toml": "0b6635e8a1551a8acb35de44fc7ff442124583c95e81c4617ac16f3a65942d42",
+    "fold_0/island_2/codex_home/config.toml": "5b01e4d747b56d4eec8a657baa67c294ccafeffd2f1a4ad9cfe97fa3d3243491",
+    "fold_1/island_0/codex_home/config.toml": "1e00cd959963f854e179da977a666989dae0455741461463789804d6a83a3947",
+    "fold_1/island_1/codex_home/config.toml": "ee387acdea104555ea940fb903a8e6acea4a92a0e1b34f908a4690e498cddc32",
+    "fold_1/island_2/codex_home/config.toml": "6ef514eb781e62446d330ed4a902f57f3da530789a9b25bf7e3eb121be2163d9",
+    "fold_2/island_0/codex_home/config.toml": "36577b686c904673ea59d553e21f8ef13c8ba01c7b502a1a90128db34ae08643",
+    "fold_2/island_1/codex_home/config.toml": "99f24df90ba8ed319ae7e0d46ce581201e8c927c67e9fce7c457cdaa2755a51a",
+    "fold_2/island_2/codex_home/config.toml": "a0b9559373694bc09b453977f2bd0e3295f66fd09cd1dba33149263233748f63"
+  },
+  "user_authorized_launch": true,
+  "timeout_policy": "3 retries before response headers only,5/15/30 seconds; each POST consumes300-fold cap; partial streams stop"
+}

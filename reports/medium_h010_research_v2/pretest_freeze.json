@@ -1,0 +1,29 @@
+{
+  "protocol": "hm_medium_h010_research_seed42_v2",
+  "folds": {
+    "0": {
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/results/v2/fold_0/gpt61sol_generated_only/candidates/candidate_007",
+      "call": 7,
+      "program_sha256": "57869dc4cec902645610e19a8a182d7d7bb7af52b883eee530e5f4fabb36df68",
+      "model_sha256": "39a1c106e30e02cec22b01c48502f00d9e94c464fbbd918b8a150ac38cbba510",
+      "confirmation_map": 0.004269883990278727
+    },
+    "1": {
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/results/v2/fold_1/gpt61sol_generated_only/candidates/candidate_011",
+      "call": 11,
+      "program_sha256": "a3c6a14b847094b15fdbd1c34898c9e3103b12440e9698bfd44dd040a1027687",
+      "model_sha256": "c4e6f74e06efd3e0699598cca00e4b944618c0ccfc3f9931ca9ba225a3d0affa",
+      "confirmation_map": 0.006364001408644265
+    },
+    "2": {
+      "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/results/v2/fold_2/gpt61sol_generated_only/candidates/candidate_012",
+      "call": 12,
+      "program_sha256": "4bb1ff912f07ad43f179ba7865a8e8879987f587b2353ee543389f75313a96fb",
+      "model_sha256": "6fd04e451295461625f75d7d272fd48695a81edab2f0cec51405989f46098c7e",
+      "confirmation_map": 0.003264645960981039
+    }
+  },
+  "selection_uses_outer_test": false,
+  "test_previously_inspected": true,
+  "protocol_sha256": "6822f486a68c4999b64112913eec0a5f4c57fa1b29b89eae15f9f97c66b08817"
+}

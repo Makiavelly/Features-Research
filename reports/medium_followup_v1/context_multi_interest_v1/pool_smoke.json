@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Shared K1/K4 init",
+    "Segment normalization",
+    "No cross-root mixing",
+    "Empty-history zero residual",
+    "Hand calculation",
+    "Attention/history gradients"
+  ]
+}

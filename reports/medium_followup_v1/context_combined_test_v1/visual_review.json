@@ -1,0 +1,8 @@
+{
+    "passed":  true,
+    "review":  "PNG visually inspected: labels and values legible, no clipping; source chart styling retained",
+    "png_sha256":  "33ef9826af6e39d6b82749d812867f5210175b3b6a0a148289ee5aa3fc57c1af",
+    "svg_sha256":  "f001914a3251d9fe7050c88c17177eb13311798f18163a1b6aca5f8204b4e5a5",
+    "original_unchanged":  true,
+    "other_methods_identical":  true
+}

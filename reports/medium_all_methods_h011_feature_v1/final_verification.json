@@ -1,0 +1,71 @@
+{
+  "status": "complete_verified_plot",
+  "references_and_sources_unchanged": true,
+  "original_16_rows_unchanged": true,
+  "checkpoint_files_unchanged": true,
+  "test_rows": 5519,
+  "customers": 4548,
+  "no_training": true,
+  "no_reselection": true,
+  "no_api": true,
+  "replay_changed_rows": 0,
+  "max_per_user_ap_replay_sensitivity": 0.0,
+  "folds": [
+    {
+      "passed_scores": true,
+      "fold": 0,
+      "rows": 1839,
+      "checkpoint_sha256": "d790fae95be8205e5d174e16193225136ae112bec4c60bb1d6e444514ba47213",
+      "canonical_map": 0.013933473631679178,
+      "replay_map": 0.013933473631679178,
+      "max_score_difference": 2.47955322265625e-05,
+      "fp32_bound": 0.00010438860772410408,
+      "top12_changed_rows": [],
+      "exact_per_user_ap": true,
+      "max_per_user_ap_difference": 0.0,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed_scores": true,
+      "fold": 1,
+      "rows": 1982,
+      "checkpoint_sha256": "a43af3baf8670efe15b7516bbf5942773e6daf239e3633a17bebb565594c5993",
+      "canonical_map": 0.011090708936950107,
+      "replay_map": 0.011090708936950107,
+      "max_score_difference": 1.4781951904296875e-05,
+      "fp32_bound": 5.027705992688425e-05,
+      "top12_changed_rows": [],
+      "exact_per_user_ap": true,
+      "max_per_user_ap_difference": 0.0,
+      "canonical_scores_retained": true,
+      "no_training": true
+    },
+    {
+      "passed_scores": true,
+      "fold": 2,
+      "rows": 1698,
+      "checkpoint_sha256": "842cf8c3e091c3bbcd689bb163a7a7f1bc93f8d504b8a65ed7b4ec29f0a3d9bb",
+      "canonical_map": 0.01457731055861209,
+      "replay_map": 0.01457731055861209,
+      "max_score_difference": 1.811981201171875e-05,
+      "fp32_bound": 6.299166852841154e-05,
+      "top12_changed_rows": [],
+      "exact_per_user_ap": true,
+      "max_per_user_ap_difference": 0.0,
+      "canonical_scores_retained": true,
+      "no_training": true
+    }
+  ],
+  "visual_review": {
+    "passed": true,
+    "image": "comparison_all.png",
+    "methods": 17,
+    "checks": [
+      "All 17 labels and values fit",
+      "FEATURE highlighted in green",
+      "Confidence intervals visible",
+      "Title, axis and footnotes readable"
+    ]
+  }
+}

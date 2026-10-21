@@ -1,0 +1,19 @@
+{
+  "original_figure_sha256": "24d09887747b8d5cfb7720937493bf15534c55b22546720705c2124687c8bc15",
+  "only_contextgnn_metrics_changed": true,
+  "other_method_values_and_intervals_reproduced": true,
+  "original_reference_hashes_unchanged": true,
+  "new_contextgnn": {
+    "method": "contextgnn",
+    "label": "ContextGNN: fanout64/32 + categorical",
+    "pooled_map": 0.011765992328054985,
+    "equal_fold_map": 0.01182747553192872,
+    "fold_maps": [
+      0.011942278874261835,
+      0.010575668935280438,
+      0.012964478786243887
+    ],
+    "ci95_low": 0.00971565433504145,
+    "ci95_high": 0.013889739411557796
+  }
+}

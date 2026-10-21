@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "hundredth_call_allowed",
+    "hundred_first_denied",
+    "three_populations_total300",
+    "counter_not_reset_by_denial",
+    "remaining_reported_in_status",
+    "other_sessions_unchanged"
+  ],
+  "real_API_requests": 0,
+  "feature_trainings": 0
+}

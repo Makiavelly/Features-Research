@@ -1,0 +1,11 @@
+{
+  "accepted": 14,
+  "next_turn": 14,
+  "research_spent": [
+    9,
+    7,
+    6
+  ],
+  "actual_POST": 99,
+  "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+}

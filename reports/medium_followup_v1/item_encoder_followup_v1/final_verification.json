@@ -1,0 +1,32 @@
+{
+  "passed_with_documented_replay_policy": true,
+  "status": "complete_verified_validation",
+  "verified_fits": 9,
+  "new_fits": 6,
+  "reused_controls": 3,
+  "common_initial_weights_identical": true,
+  "train_graphs_identical_for_shared_epochs": true,
+  "no_auxiliary_loss": true,
+  "references_and_sources_unchanged": true,
+  "new_only_equals_masked_global": true,
+  "graph_no_self_edges": true,
+  "graph_row_normalized": true,
+  "graph_uses_no_transactions_or_targets": true,
+  "nested_cache_invalidation_checked": true,
+  "replay_rows_changed_in_checks": 0,
+  "max_per_user_ap_replay_sensitivity": 0.0,
+  "visual_review": {
+    "passed": true,
+    "figures": [
+      "feature_comparison.png",
+      "final_comparison.png"
+    ],
+    "checks": [
+      "Both PNGs opened and visually inspected",
+      "All metric labels, percentage axes, titles and series legends readable",
+      "Feature stage shows FUSION and FEATURE only; final stage adds the graph arm",
+      "Bars agree with the reported canonical validation metrics",
+      "Titles state validation only and seed42; intervals and limitations provided in reports"
+    ]
+  }
+}

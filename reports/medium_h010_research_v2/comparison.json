@@ -1,0 +1,75 @@
+{
+  "protocol": "hm_medium_h010_research_seed42_v2",
+  "folds": [
+    {
+      "fold": 0,
+      "users": 1839,
+      "h010_test_map": 0.0042068997805811284,
+      "h009_20_test_map": 0.004640644383711269,
+      "difference_pp": -0.04337446031301389,
+      "selected_call": 7,
+      "confirmation_map": 0.004269883990278727,
+      "queries": 9,
+      "actual_POST": 38,
+      "distinct_sample_matrices": 19
+    },
+    {
+      "fold": 1,
+      "users": 1982,
+      "h010_test_map": 0.0033241874112346346,
+      "h009_20_test_map": 0.003866700796550504,
+      "difference_pp": -0.05425133853158694,
+      "selected_call": 11,
+      "confirmation_map": 0.006364001408644265,
+      "queries": 6,
+      "actual_POST": 30,
+      "distinct_sample_matrices": 16
+    },
+    {
+      "fold": 2,
+      "users": 1698,
+      "h010_test_map": 0.005508997230139751,
+      "h009_20_test_map": 0.005133956131698573,
+      "difference_pp": 0.0375041098441177,
+      "selected_call": 12,
+      "confirmation_map": 0.003264645960981039,
+      "queries": 4,
+      "actual_POST": 30,
+      "distinct_sample_matrices": 14
+    }
+  ],
+  "users_times": 5519,
+  "unique_customers": 4548,
+  "bootstrap_replicates": 5000,
+  "bootstrap_unit": "customer retaining all fold observations",
+  "methods": {
+    "h010": {
+      "pooled_map": 0.004290506512472013,
+      "equal_fold_mean_map": 0.0043466948073185045,
+      "ci95": [
+        0.0033015247823990766,
+        0.005386121403463427
+      ]
+    },
+    "h009_20": {
+      "pooled_map": 0.004514477896726273,
+      "equal_fold_mean_map": 0.004547100437320116,
+      "ci95": [
+        0.0035259584333190053,
+        0.005663097934478306
+      ]
+    }
+  },
+  "difference_pp": -0.022397138425425994,
+  "difference_ci95_pp": [
+    -0.13273026272556104,
+    0.08803878300280304
+  ],
+  "test_previously_inspected": true,
+  "new_outer_labels_used_for_selection": false,
+  "research_queries": 19,
+  "actual_POST": 98,
+  "prompt_tokens": 1409848,
+  "completion_tokens": 82813,
+  "attempts_with_unknown_token_usage": 5
+}

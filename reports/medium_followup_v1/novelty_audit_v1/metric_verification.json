@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "AP decomposition",
+    "unavailable targets penalize full denominator",
+    "conditional unavailable is NA, never perfect score",
+    "new-only denominator",
+    "group exclusivity"
+  ]
+}

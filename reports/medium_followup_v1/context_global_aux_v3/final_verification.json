@@ -1,0 +1,170 @@
+{
+  "passed_with_replay_qualification": true,
+  "model_folds": 6,
+  "exact_replay_top12_requirement_met_for_all_fits": false,
+  "last_fit_replay_diagnostics": {
+    "passed_scores": true,
+    "canonical_scores_unchanged": true,
+    "checkpoint_unchanged": true,
+    "native_differences": [
+      {
+        "max_difference": 1.621246337890625e-05,
+        "bound": 4.85832970298361e-05
+      },
+      {
+        "max_difference": 1.5735626220703125e-05,
+        "bound": 4.8170459194807336e-05
+      }
+    ],
+    "branches": {
+      "hybrid": {
+        "max_score_difference": 1.71661376953125e-05,
+        "bound": 4.85832970298361e-05,
+        "changed_rows": [
+          33
+        ],
+        "changed_positions": 2,
+        "canonical_map": 0.016330295138888888,
+        "replay_map": 0.016330295138888888
+      },
+      "global": {
+        "max_score_difference": 1.71661376953125e-05,
+        "bound": 4.85832970298361e-05,
+        "changed_rows": [],
+        "changed_positions": 0,
+        "canonical_map": 0.0007523148148148148,
+        "replay_map": 0.0007523148148148148
+      }
+    },
+    "metric_comparisons": [
+      {
+        "mode": "hybrid",
+        "group": "all",
+        "metric": "map",
+        "canonical": 0.016330295138888888,
+        "replay": 0.016330295138888888,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "hybrid",
+        "group": "all",
+        "metric": "available_recall",
+        "canonical": 0.05482456140350876,
+        "replay": 0.05482456140350876,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "hybrid",
+        "group": "new",
+        "metric": "map",
+        "canonical": 0.0,
+        "replay": 0.0,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "hybrid",
+        "group": "new",
+        "metric": "available_recall",
+        "canonical": 0.0,
+        "replay": 0.0,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "new_only",
+        "group": "all",
+        "metric": "map",
+        "canonical": 0.0004267939814814815,
+        "replay": 0.0004267939814814815,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "new_only",
+        "group": "all",
+        "metric": "available_recall",
+        "canonical": 0.008223684210526315,
+        "replay": 0.008223684210526315,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "new_only",
+        "group": "new",
+        "metric": "map",
+        "canonical": 0.00044056152927120674,
+        "replay": 0.00044056152927120674,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "new_only",
+        "group": "new",
+        "metric": "available_recall",
+        "canonical": 0.008561643835616438,
+        "replay": 0.008561643835616438,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "global",
+        "group": "all",
+        "metric": "map",
+        "canonical": 0.0007523148148148148,
+        "replay": 0.0007523148148148148,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "global",
+        "group": "all",
+        "metric": "available_recall",
+        "canonical": 0.011513157894736841,
+        "replay": 0.011513157894736841,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "global",
+        "group": "new",
+        "metric": "map",
+        "canonical": 0.00044056152927120674,
+        "replay": 0.00044056152927120674,
+        "max_per_user_difference": 0.0
+      },
+      {
+        "mode": "global",
+        "group": "new",
+        "metric": "available_recall",
+        "canonical": 0.008561643835616438,
+        "replay": 0.008561643835616438,
+        "max_per_user_difference": 0.0
+      }
+    ],
+    "all_compared_metrics_identical": true
+  },
+  "initial_states_identical_within_pairs": true,
+  "training_graphs_identical_for_shared_epochs": true,
+  "new_only_hybrid_equals_masked_global_for_all_six_fits": true,
+  "reference_hashes_unchanged": true,
+  "frozen_sources_unchanged": true,
+  "gradient_test": {
+    "passed": true,
+    "checks": [
+      "overwritten positive global logit has zero direct gradient at lambda0",
+      "auxiliary CE restores positive supervision",
+      "local gradient preserved"
+    ]
+  },
+  "visual_review": {
+    "passed": true,
+    "figures": [
+      "comparison.png"
+    ],
+    "checks": [
+      "PNG opened and visually inspected",
+      "All five metric labels, percentage axis and both series readable",
+      "Legend identifies lambda0 control and lambda1 auxiliary CE",
+      "Title states validation only and seed42",
+      "Bars agree with report table; paired intervals and replay qualification provided in report"
+    ]
+  },
+  "reused_control": {
+    "source": "CVFollowup/results/v1/context_global_aux_v2/fold_0/control",
+    "original_protocol_sha256": "b9bb50b5c7155b61030b799d18781ba7a4e7f3b44bd8753515f39ba283797228",
+    "reason": "Verified completed control reused unchanged after subprocess/resource-only revision; model/data/lambda unchanged"
+  }
+}

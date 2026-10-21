@@ -1,0 +1,46 @@
+{
+  "status": "searching",
+  "accepted": 20,
+  "responses": 23,
+  "actual_POST": 38,
+  "queries": 9,
+  "last_trial": {
+    "call": 23,
+    "proposal": 19,
+    "island": 1,
+    "repair": 0,
+    "parent_call": null,
+    "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMResearch/results/v2/fold_0/gpt61sol_generated_only/candidates/candidate_023",
+    "response_signature": "e9d8f45ffbb2e747fb45f12651acb183fa3bc87bb39008a7262d439192ff99c4",
+    "unchanged_repair": false,
+    "seed": 64,
+    "prompt_tokens": 36605,
+    "generated_tokens": 1183,
+    "seconds": 16.50559343200075,
+    "truncated": false,
+    "finish_reason": "stop",
+    "api_attempt": 38,
+    "provider_model": "gpt-6.1-sol",
+    "provider_response_id": "resp_043e1c8757fab309016ad4f09ee7948191b10b4fa897acff79",
+    "request_id": "76b826bd82a4d5c5e95ba237cd406edb",
+    "usage": {
+      "prompt_tokens": 36605,
+      "completion_tokens": 1183,
+      "total_tokens": 37788,
+      "prompt_tokens_details": {
+        "cached_tokens": 32256
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 96
+      }
+    },
+    "research_queries_this_generation": 0,
+    "generation_api_attempts": [
+      38
+    ],
+    "program_key": "e9d8f45ffbb2e747fb45f12651acb183fa3bc87bb39008a7262d439192ff99c4",
+    "status": "valid",
+    "score": 0.0028380202696608944,
+    "elapsed_seconds": 47.6212419409967
+  }
+}

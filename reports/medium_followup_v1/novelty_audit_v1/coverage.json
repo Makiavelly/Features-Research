@@ -1,0 +1,79 @@
+[
+  {
+    "group": "all",
+    "targets": 18193,
+    "available": 6733,
+    "unavailable": 11460,
+    "coverage": 0.37008739625130543,
+    "users_with_targets": 5519,
+    "users_with_available_targets": 3340,
+    "users_only_unavailable": 2179,
+    "oracle_map": 0.37872763171277396
+  },
+  {
+    "group": "repeat",
+    "targets": 737,
+    "available": 435,
+    "unavailable": 302,
+    "coverage": 0.5902306648575305,
+    "users_with_targets": 597,
+    "users_with_available_targets": 384,
+    "users_only_unavailable": 213,
+    "oracle_map": 0.6020499322006859
+  },
+  {
+    "group": "new_variant",
+    "targets": 900,
+    "available": 464,
+    "unavailable": 436,
+    "coverage": 0.5155555555555555,
+    "users_with_targets": 695,
+    "users_with_available_targets": 393,
+    "users_only_unavailable": 302,
+    "oracle_map": 0.5205275779376498
+  },
+  {
+    "group": "new_product_known_type",
+    "targets": 10157,
+    "available": 3389,
+    "unavailable": 6768,
+    "coverage": 0.3336615142266417,
+    "users_with_targets": 3833,
+    "users_with_available_targets": 1976,
+    "users_only_unavailable": 1857,
+    "oracle_map": 0.3434991712059283
+  },
+  {
+    "group": "new_type",
+    "targets": 6399,
+    "available": 2445,
+    "unavailable": 3954,
+    "coverage": 0.3820909517112049,
+    "users_with_targets": 3164,
+    "users_with_available_targets": 1583,
+    "users_only_unavailable": 1581,
+    "oracle_map": 0.372261957209808
+  },
+  {
+    "group": "unknown_metadata",
+    "targets": 0,
+    "available": 0,
+    "unavailable": 0,
+    "coverage": null,
+    "users_with_targets": 0,
+    "users_with_available_targets": 0,
+    "users_only_unavailable": 0,
+    "oracle_map": null
+  },
+  {
+    "group": "new",
+    "targets": 17456,
+    "available": 6298,
+    "unavailable": 11158,
+    "coverage": 0.3607928505957837,
+    "users_with_targets": 5358,
+    "users_with_available_targets": 3178,
+    "users_only_unavailable": 2180,
+    "oracle_map": 0.36927463996332976
+  }
+]

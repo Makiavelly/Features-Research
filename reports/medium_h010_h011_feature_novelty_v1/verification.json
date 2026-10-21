@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "status": "complete_verified_plot",
+  "methods_on_plot": 18,
+  "original_17_methods_unchanged": true,
+  "reference_files_unchanged": true,
+  "canonical_full_scores_top12_identical": true,
+  "independent_original_AP": true,
+  "seen_mask_applied_before_top12": true,
+  "new_only_has_no_seen_candidates": true,
+  "total_observations": 5519,
+  "new_target_observations": 5358,
+  "available_new_observations": 3178,
+  "new_targets": 17456,
+  "available_new_targets": 6298,
+  "unavailable_new_targets": 11158,
+  "no_training": true,
+  "no_inference": true,
+  "no_api": true,
+  "visual_review_passed": true
+}

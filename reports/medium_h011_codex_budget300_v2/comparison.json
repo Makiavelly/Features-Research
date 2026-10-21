@@ -1,0 +1,83 @@
+{
+  "protocol": "hm_medium_h011_codex_seed42_budget300_v2",
+  "research_budget_revision": {
+    "run_id": "hm_medium_h011_codex_seed42_budget300_v2",
+    "research_caps": [
+      100,
+      100,
+      100
+    ],
+    "research_total": 300,
+    "supersedes": "hm_medium_h011_codex_seed42_v1",
+    "inherited": {
+      "accepted": 14,
+      "next_turn": 14,
+      "research_spent": [
+        9,
+        7,
+        6
+      ],
+      "actual_POST": 99,
+      "reason": "User increased research budget40 to300/fold; stopped after completed native turn, no results discarded"
+    },
+    "change": "User explicitly increased research budget40 to300 per fold during search; retain all prior work and counts."
+  },
+  "users_times": 5519,
+  "unique_customers": 4548,
+  "h011_pooled_map": 0.004307496880522356,
+  "h009_20_pooled_map": 0.004514477896726273,
+  "ci95_h011": [
+    0.00322815277186919,
+    0.005521292239155766
+  ],
+  "ci95_h009_20": [
+    0.0035259584333190066,
+    0.00566309793447831
+  ],
+  "difference_pp": -0.020698101620391724,
+  "difference_ci95_pp": [
+    -0.14450707041516056,
+    0.10734192348469138
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "users": 1839,
+      "h011_map": 0.0019520198462028792,
+      "h009_20_map": 0.004640644383711269,
+      "difference_pp": -0.2688624537508389,
+      "selected_call": 7,
+      "confirmation_map": 0.0018426432242221716,
+      "research_requests": 30,
+      "actual_POST": 134
+    },
+    {
+      "fold": 1,
+      "users": 1982,
+      "h011_map": 0.006794913086222369,
+      "h009_20_map": 0.003866700796550504,
+      "difference_pp": 0.29282122896718654,
+      "selected_call": 23,
+      "confirmation_map": 0.007154057582629011,
+      "research_requests": 29,
+      "actual_POST": 138
+    },
+    {
+      "fold": 2,
+      "users": 1698,
+      "h011_map": 0.003955119581591902,
+      "h009_20_map": 0.005133956131698573,
+      "difference_pp": -0.11788365501066715,
+      "selected_call": 1,
+      "confirmation_map": 0.003606401839386133,
+      "research_requests": 25,
+      "actual_POST": 173
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_unit": "customer retaining all folds",
+  "known_input_tokens": 10931402,
+  "known_output_tokens": 124566,
+  "unknown_usage_attempts": 3,
+  "test_previously_inspected": true
+}

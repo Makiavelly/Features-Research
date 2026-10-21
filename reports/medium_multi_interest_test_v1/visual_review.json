@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "image": "comparison_all.png",
+  "methods": 21,
+  "checks": [
+    "Three panels aligned",
+    "All21 labels readable",
+    "MAP and conditional-new recall explicitly distinguished",
+    "All confidence intervals and numeric labels fit",
+    "Historical methods retained",
+    "Footnotes readable"
+  ]
+}

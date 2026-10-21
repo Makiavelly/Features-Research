@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "actual_codex_cli_agent": true,
+  "model_id_requested": "gpt-6.1-sol",
+  "provider_identity_independently_attested": false,
+  "separate_codex_home": true,
+  "connected_train_folds": [
+    0,
+    1,
+    2
+  ],
+  "native_agent_tools_verified_on_fold": 0,
+  "successful_tools": [
+    "fold.status",
+    "fold.terminal"
+  ],
+  "train_pairs": 190260,
+  "feature_evaluations": 0,
+  "remaining_per_fold": 20,
+  "usage_successful_smoke": {
+    "input_tokens": 47384,
+    "cached_input_tokens": 20992,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 446,
+    "reasoning_output_tokens": 15
+  },
+  "initial_smoke_profile": "standalone_v1: tool approval configuration failed; preserved separately",
+  "full_feature_experiment_started": false
+}
