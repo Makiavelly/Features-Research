@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-21T11:09:31+03:00 (Москва).
+Обновлено: 2026-10-21T11:59:48+03:00 (Москва).
 
-Последнее событие: **User requested excluding unnecessary Git artifacts. Added scoped ignores for archived H011 agent session internals, report SQLite/WAL/SHM, locks, resource snapshots, pipeline/progress state and detailed per-user/target-inventory Parquet. Removed self-ignore for .gitignore. Verified code, protocols, summary metrics, verification reports, figures and archive manifests remain visible. New-file candidates reduced from1089 to341; local artifacts preserved.**
+Последнее событие: **Studied seven user-supplied recommender resources: GitHub infrastructure primer; foundation-model, sequential, graph-transformer, graph-foundation and generative surveys; GLASS v2. ScienceDirect returned403; read author arXiv2510.27157v2 instead, without claiming journal-text equivalence. Recorded source versions, GitHub metric-example errors, GLASS table2 recall inconsistency, project mapping and unexecuted research proposals in reports/literature_review_2026_10_21/review_ru.md. No training, provider API calls, environment changes or new experiment selection.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 

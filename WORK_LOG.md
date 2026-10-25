@@ -65517,3 +65517,11 @@ Do not promote current multi-interest adaptation over matched FUSION: K4 improve
 ## 2026-10-21T11:09:31+03:00 — gitignore_updated
 
 User requested excluding unnecessary Git artifacts. Added scoped ignores for archived H011 agent session internals, report SQLite/WAL/SHM, locks, resource snapshots, pipeline/progress state and detailed per-user/target-inventory Parquet. Removed self-ignore for .gitignore. Verified code, protocols, summary metrics, verification reports, figures and archive manifests remain visible. New-file candidates reduced from1089 to341; local artifacts preserved.
+
+## 2026-10-21T11:41:35+03:00 — project_review
+
+Reviewed project history, core temporal CV preparation/scoring/orchestration, Python feature validator, GNN timestamp fix and latest H010/H011/FEATURE/multi-interest reports. Windows and WSL process inspection found no active project training; GPU idle with 0 MiB used. Historical hypothesis/status prose can be stale; use final verification and report artifacts. No training, API calls, environment or model changes.
+
+## 2026-10-21T11:59:48+03:00 — literature_review
+
+Studied seven user-supplied recommender resources: GitHub infrastructure primer; foundation-model, sequential, graph-transformer, graph-foundation and generative surveys; GLASS v2. ScienceDirect returned403; read author arXiv2510.27157v2 instead, without claiming journal-text equivalence. Recorded source versions, GitHub metric-example errors, GLASS table2 recall inconsistency, project mapping and unexecuted research proposals in reports/literature_review_2026_10_21/review_ru.md. No training, provider API calls, environment changes or new experiment selection.
