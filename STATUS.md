@@ -1,8 +1,8 @@
 # Текущий статус
 
-Обновлено: 2026-10-21T11:59:48+03:00 (Москва).
+Обновлено: 2026-10-25T11:08:16+03:00 (Москва).
 
-Последнее событие: **Studied seven user-supplied recommender resources: GitHub infrastructure primer; foundation-model, sequential, graph-transformer, graph-foundation and generative surveys; GLASS v2. ScienceDirect returned403; read author arXiv2510.27157v2 instead, without claiming journal-text equivalence. Recorded source versions, GitHub metric-example errors, GLASS table2 recall inconsistency, project mapping and unexecuted research proposals in reports/literature_review_2026_10_21/review_ru.md. No training, provider API calls, environment changes or new experiment selection.**
+Последнее событие: **Removed 32 generated model dumps over the GitHub 100 MiB limit from main history; restored local artifacts and added ignore rules. No training, API, data, model, or environment changes.**
 
 Статус в файле отражает последнее записанное событие. Проверяйте процесс и логи после перерыва.
 
