@@ -1,5 +1,0 @@
-{
-  "text": "{\"aggregates\": [{\"name\": \"f_count\", \"keys\": [\"customer_id\"], \"sql\": \"COUNT(*) FILTER (WHERE days_ago <= 7)\"}, {\"name\": \"f_price\", \"keys\": [\"customer_id\", \"product_type_no\"], \"sql\": \"AVG(price)\"}]}",
-  "truncated": false,
-  "synthetic_not_llm": true
-}

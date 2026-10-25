@@ -1,0 +1,4 @@
+arm,calls,valid,rejected,duplicate,repair_calls,unchanged_repairs,generated_tokens,generation_seconds,evaluation_and_generation_seconds,target_reached
+h003a,65,20,36,9,38,9,31808,2902.005655009002,3196.673771894,True
+h003b,78,20,21,37,50,20,35633,3562.275546488997,3836.6775545469964,True
+h003c,51,20,15,16,23,8,26531,2692.7515617409963,2969.223141913005,True

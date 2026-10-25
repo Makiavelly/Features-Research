@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "image": "final_comparison.png",
-  "checks": [
-    "Four metric groups readable",
-    "Three methods correctly labeled",
-    "Axes/title/legend fit"
-  ]
-}

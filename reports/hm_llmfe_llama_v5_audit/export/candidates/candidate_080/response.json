@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Merge customer_id and article_id from X with history\n    merged = history.merge(X[['customer_id', 'article_id']], on='customer_id', validate='many_to_one')\n\n    # Calculate average price within the last 90 days\n    avg_price_90_weighted_last = merged.groupby('article_id')['price'].apply(lambda x: x[x['days_ago'] <= 90].sum() / (x['days_ago'].loc[x['days_ago'] <= 90] + 1)).reset_index()\n\n    # Merge avg_price_90_weighted_last with X on article_id\n    avg_price_90_weighted_last = avg_price_90_weighted_last.merge(X[['article_id']], on='article_id', how='left')\n\n    # Create a new DataFrame with the calculated features\n    F = pd.DataFrame(index=X.index)\n\n    # Assign the calculated features to the new DataFrame\n    F['f_avg_price_90_weighted_last'] = avg_price_90_weighted_last['price'].values\n    F['f_avg_price_last_180'] = merged.groupby('article_id')['price'].apply(lambda x: x[x['days_ago'] <= 180].mean()).reset_index()['price'].values\n    F['f_num_past_purchases_last_180'] = merged[merged['days_ago'] <= 180].groupby('article_id')['days_ago'].count().reset_index()['days_ago'].values\n\n    return F\n```",
-  "seed": 121,
-  "prompt_tokens": 3147,
-  "generated_tokens": 318,
-  "seconds": 44.41796498599979,
-  "truncated": false
-}

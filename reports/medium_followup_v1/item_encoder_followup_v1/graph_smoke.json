@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "checks": [
-    "identity adjacency preserves raw embedding",
-    "one-step propagation equals hand calculation",
-    "neighbor gradients flow",
-    "outer cache invalidation updates nested embedding"
-  ]
-}

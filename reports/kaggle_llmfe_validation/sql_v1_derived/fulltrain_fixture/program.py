@@ -1,1 +1,0 @@
-{"aggregates": [{"name": "f_count", "keys": ["customer_id"], "sql": "COUNT(*)"}, {"name": "f_price", "keys": ["customer_id", "product_type_no"], "sql": "AVG(price)"}], "derived": [{"name": "f_log_count", "sql": "LN(1 + COALESCE(f_count, 0))"}, {"name": "f_interaction", "sql": "f_log_count * raw_u_age"}]}

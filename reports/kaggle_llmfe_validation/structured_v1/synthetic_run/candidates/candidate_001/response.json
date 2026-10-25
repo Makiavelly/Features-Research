@@ -1,5 +1,0 @@
-{
-  "text": "{\"aggregates\":[{\"name\":\"f_bad\",\"keys\":[\"customer_id\"],\"op\":\"avg\",\"column\":\"raw_u_active\"}]}",
-  "synthetic_not_llm": true,
-  "truncated": false
-}

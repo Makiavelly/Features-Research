@@ -1,0 +1,2 @@
+arm,calls,valid,rejected,duplicate,repair_calls,unchanged_repairs,generated_tokens,generation_seconds,evaluation_and_generation_seconds,target_reached
+qwen_full_sql,5,2,1,2,2,1,5,0.0,28.197584761001963,True

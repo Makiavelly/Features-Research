@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Compute average customer age\n    avg_customer_age = history.groupby('customer_id')['customer_age'].mean().to_frame('f_avg_customer_age')\n    \n    # Compute count of purchases in the last 7 days\n    recent_purchases = history[history['days_ago'] <= 7].groupby('customer_id')['article_id'].nunique().to_frame('f_recent_purchases')\n    \n    # Compute count of different product types purchased in the last 7 days\n    recent_product_types = history[history['days_ago'] <= 7].groupby('customer_id')['product_type_no'].nunique().to_frame('f_recent_product_types')\n    \n    # Merge aggregates with X using left join\n    F = pd.merge(X, avg_customer_age, on='customer_id', how='left', suffixes=('', '_avg_customer_age'), validate='many_to_one')\n    F = pd.merge(F, recent_purchases, on='customer_id', how='left', suffixes=('_avg_customer_age', '_recent_purchases'), validate='many_to_one')\n    F = pd.merge(F, recent_product_types, on='customer_id', how='left', suffixes=('_recent_purchases', '_recent_product_types'), validate='many_to_one')\n    \n    # Remove NaN values from aggregated columns\n    F[['f_avg_customer_age', 'f_recent_purchases', 'f_recent_product_types']] = F[['f_avg_customer_age', 'f_recent_purchases', 'f_recent_product_types']].fillna(0)\n    \n    return F\n```",
-  "seed": 91,
-  "prompt_tokens": 2844,
-  "generated_tokens": 332,
-  "seconds": 43.0012070910002,
-  "truncated": false
-}

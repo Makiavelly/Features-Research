@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Filter history for the last 180 days\n    history_last_180_days = history[(history['days_ago'] <= 180)]\n    \n    # Compute the average price for each article within the last 180 days\n    avg_price_article = history_last_180_days.pivot_table(index='article_id', values='price', aggfunc='mean', fill_value=0)\n    \n    # Compute the count of purchases for each article within the last 180 days\n    purchases_article = history_last_180_days.pivot_table(index='article_id', values='customer_id', aggfunc='count')\n    \n    # Compute the average customer age for each article within the last 180 days\n    avg_age_article = history_last_180_days.pivot_table(index='article_id', values='customer_age', aggfunc='mean')\n    \n    # Join candidate keys LEFT to unique aggregates\n    avg_price_article = avg_price_article.reset_index()\n    purchases_article = purchases_article.reset_index()\n    avg_age_article = avg_age_article.reset_index()\n    \n    # Merge the three aggregates on the article_id index\n    F = avg_price_article.merge(purchases_article, on='article_id', how='left', suffixes=('', '_purchases'))\n    F = F.merge(avg_age_article, on='article_id', how='left', suffixes=('', '_age'))\n    \n    # Assign values to F (e.g. to_numpy) positionally, not by an unrelated index\n    F = F[['article_id', 'f_avg_price_article', 'f_count_purchases_article', 'f_avg_age_article']]\n    \n    return F\n```",
-  "seed": 99,
-  "prompt_tokens": 2986,
-  "generated_tokens": 342,
-  "seconds": 45.87329569399935,
-  "truncated": false
-}

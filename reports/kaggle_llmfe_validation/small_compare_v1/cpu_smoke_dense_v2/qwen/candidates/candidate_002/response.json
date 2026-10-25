@@ -1,7 +1,0 @@
-{
-  "text": "{\"aggregates\": [{\"name\": \"f_item_count\", \"keys\": [\"article_id\"], \"sql\": \"count(*) FILTER (WHERE days_ago <= 7)\"}, {\"name\": \"f_customer_last\", \"keys\": [\"customer_id\"], \"sql\": \"min(days_ago)\"}], \"derived\": [{\"name\": \"f_count_log\", \"sql\": \"ln(1 + coalesce(f_item_count,0))\"}]}",
-  "seed": 43,
-  "truncated": false,
-  "generated_tokens": 1,
-  "seconds": 0.0
-}

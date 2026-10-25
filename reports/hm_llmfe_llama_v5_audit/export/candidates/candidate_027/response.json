@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Compute count of transactions for each customer\n    customer_history = history[history['days_ago'] <= 180].groupby('customer_id')['article_id'].nunique().reset_index(name='f_count_transactions')\n    \n    # Compute average price of past 180 days for each customer\n    price_averages = history[history['days_ago'] <= 180].groupby('customer_id')['price'].mean().reset_index(name='f_mean_price_180_days')\n    \n    # Compute count of different product codes in past 180 days for each customer\n    product_code_counts = history[history['days_ago'] <= 180].groupby('customer_id')['product_code'].nunique().reset_index(name='f_count_product_codes')\n    \n    # Compute mean of color group code in past 180 days for each customer\n    color_group_means = history[history['days_ago'] <= 180].groupby('customer_id')['colour_group_code'].mean().reset_index(name='f_mean_color_group')\n    \n    # Merge all aggregates into a new DataFrame F with a left join\n    F = pd.merge(customer_history, price_averages, on='customer_id', validate='many_to_one', how='left')\n    F = pd.merge(F, product_code_counts, on='customer_id', validate='many_to_one', how='left')\n    F = pd.merge(F, color_group_means, on='customer_id', validate='many_to_one', how='left')\n    \n    # Return F with X.index and row order\n    F = F.reindex(columns=F.columns.tolist() + X.columns[X.columns!= 'customer_id'].tolist())\n    F = F.reindex(index=X.index)\n    return F\n```",
-  "seed": 68,
-  "prompt_tokens": 2592,
-  "generated_tokens": 369,
-  "seconds": 44.47440838700004,
-  "truncated": false
-}

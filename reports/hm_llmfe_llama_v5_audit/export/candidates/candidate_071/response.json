@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Aggregate past transactions per customer\n    history_unique = history[[\"customer_id\", \"days_ago\", \"price\"]].groupby('customer_id').apply(\n        lambda x: x[x['days_ago'] < 180].mean()).reset_index()\n\n    # Compute count of article types per customer in time window\n    article_type_count = history[[\"customer_id\", \"product_type_no\"]].groupby('customer_id').apply(\n        lambda x: x[\"product_type_no\"].value_counts().sort_index()).reset_index()\n\n    # Merge the features into F\n    F = pd.DataFrame(index=X.index)\n    F['f_avg_price'] = history_unique['price']\n    F['f_article_type_count'] = article_type_count['product_type_no']\n\n    # Compute average fashion news frequency of customers who purchased\n    hist_cluster = history.groupby('customer_id')['raw_u_fashion_news_frequency'].mean().reset_index()\n    F['f_avg_fashion_news_frequency'] = history_unique['customer_id'].map(hist_cluster['raw_u_fashion_news_frequency'])\n\n    return F\n```",
-  "seed": 112,
-  "prompt_tokens": 2768,
-  "generated_tokens": 237,
-  "seconds": 31.151663233000363,
-  "truncated": false
-}

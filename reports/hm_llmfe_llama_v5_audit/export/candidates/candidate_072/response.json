@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Compute average price of past transactions per customer\n    history_unique = history[[\"customer_id\", \"days_ago\", \"price\"]].groupby('customer_id').apply(\n        lambda x: x[x['days_ago'] < 180].mean()).reset_index()\n\n    # Compute count of article types per customer in time window\n    article_type_count = history[[\"customer_id\", \"product_type_no\"]].groupby('customer_id').apply(\n        lambda x: x[\"product_type_no\"].value_counts().sort_index()).reset_index().rename(columns={\"product_type_no\": \"f_article_type_count\"})\n\n    # Compute average fashion news frequency of customers who purchased\n    hist_cluster = history.groupby('customer_id')['raw_u_fashion_news_frequency'].mean().reset_index().rename(columns={\"raw_u_fashion_news_frequency\": \"f_avg_fashion_news_frequency\"})\n\n    # Merge the features into F\n    F = pd.DataFrame(index=X.index)\n    F['f_avg_price'] = history_unique['price']\n    F['f_article_type_count'] = article_type_count['f_article_type_count']\n    F['f_avg_fashion_news_frequency'] = history_unique['customer_id'].map(hist_cluster['f_avg_fashion_news_frequency'])\n\n    return F\n```",
-  "seed": 113,
-  "prompt_tokens": 2793,
-  "generated_tokens": 274,
-  "seconds": 35.82946099699984,
-  "truncated": false
-}

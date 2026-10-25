@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Generate new features for H&M clothing recommendations.\n\n    Parameters:\n    X (DataFrame): A numeric pandas DataFrame containing customer-article pairs.\n\n    Returns:\n    F (DataFrame): A numeric pandas DataFrame with new features.\n    \"\"\"\n    F = X.copy()\n\n    # Log user purchases\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n\n    # Log article purchases\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n\n    # Calculate user age squared\n    F['f_age_squared'] = X['raw_u_age'] ** 2\n\n    # Calculate user fashion news frequency ratio\n    F['f_fashion_news_frequency_ratio'] = np.log1p(X['raw_u_fashion_news_frequency'] + 1)\n\n    # Calculate article price mean ratio\n    F['f_article_price_mean_ratio'] = np.log1p(X['h_article_price_mean'] + 1)\n\n    # Calculate user recency ratio\n    F['f_user_recency_ratio'] = np.log1p(1 / (X['h_user_recency'].fillna(1) + 1))\n\n    # Calculate user-article affinity ratio\n    F['f_user_article_affinity_ratio'] = np.log1p(X['h_user_article_count'] / (X['h_user_article_count'].max() + 1))\n\n    return F\n```",
-  "seed": 48,
-  "prompt_tokens": 2836,
-  "generated_tokens": 312,
-  "seconds": 41.08730354399995,
-  "truncated": false
-}

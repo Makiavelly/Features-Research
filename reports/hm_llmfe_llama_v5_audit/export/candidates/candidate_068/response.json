@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    # Compute the average price for each article over the last 180 days\n    avg_price = history[history['days_ago'] <= 180].groupby('article_id')['price'].mean().to_frame('f_avg_price')\n    \n    # Compute the number of purchases for each customer over the last 180 days\n    num_purchases = history[history['days_ago'] <= 180].groupby('customer_id')['article_id'].nunique().to_frame('f_num_purchases')\n    \n    # Compute the average age of customers who purchased each article over the last 180 days\n    avg_customer_age = history[history['days_ago'] <= 180].groupby('article_id')['customer_age'].mean().to_frame('f_avg_customer_age')\n    \n    # Merge the results into a single DataFrame\n    F = pd.merge(avg_price, num_purchases, on='article_id', how='left')\n    F = pd.merge(F, avg_customer_age, on='article_id', how='left')\n    \n    # Drop non-key columns and assign the results to the positionally indexed F\n    F = F[['customer_id', 'article_id', 'f_avg_price', 'f_num_purchases', 'f_avg_customer_age']]\n    F = F.reindex(columns=F.columns.tolist() + X.columns.tolist())\n    \n    return F\n```",
-  "seed": 109,
-  "prompt_tokens": 2487,
-  "generated_tokens": 301,
-  "seconds": 35.86649313900034,
-  "truncated": false
-}

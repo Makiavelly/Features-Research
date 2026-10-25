@@ -1,0 +1,63 @@
+def modify_features(X, history):
+    out = pd.DataFrame(index=X.index)
+    n = len(X)
+    h = history
+    names = (
+        "f_item_count_7d", "f_item_count_30d", "f_item_count_90d",
+        "f_item_recency", "f_customer_count_30d", "f_customer_count_all",
+        "f_pair_count", "f_pair_count_7d", "f_pair_recency",
+        "f_user_product_type_count", "f_user_department_count"
+    )
+    if h is None or len(h) == 0:
+        for name in names:
+            out[name] = np.zeros(n, dtype=float)
+        return out
+
+    def lookup(keys, values):
+        left = pd.DataFrame({"_p": np.arange(n)})
+        for i, key in enumerate(keys):
+            left["_k" + str(i)] = X[key].to_numpy()
+        right = values.rename("_v").reset_index()
+        right.columns = ["_k" + str(i) for i in range(len(keys))] + ["_v"]
+        z = left.merge(
+            right, on=["_k" + str(i) for i in range(len(keys))],
+            how="left", sort=False
+        )
+        return z.sort_values("_p")["_v"].to_numpy()
+
+    for days, name in ((7, "f_item_count_7d"),
+                       (30, "f_item_count_30d"),
+                       (90, "f_item_count_90d")):
+        values = h.loc[h["days_ago"] <= days].groupby("article_id").size()
+        out[name] = X["article_id"].map(values).fillna(0).to_numpy()
+
+    out["f_item_recency"] = X["article_id"].map(
+        h.groupby("article_id")["days_ago"].min()).to_numpy()
+
+    h30 = h.loc[h["days_ago"] <= 30]
+    out["f_customer_count_30d"] = X["customer_id"].map(
+        h30.groupby("customer_id").size()).fillna(0).to_numpy()
+    out["f_customer_count_all"] = X["customer_id"].map(
+        h.groupby("customer_id").size()).fillna(0).to_numpy()
+
+    pair = h.groupby(["customer_id", "article_id"])["days_ago"].agg(
+        ["size", "min"])
+    out["f_pair_count"] = lookup(
+        ["customer_id", "article_id"], pair["size"])
+    out["f_pair_recency"] = lookup(
+        ["customer_id", "article_id"], pair["min"])
+    pair7 = h.loc[h["days_ago"] <= 7].groupby(
+        ["customer_id", "article_id"]).size()
+    out["f_pair_count_7d"] = lookup(
+        ["customer_id", "article_id"], pair7)
+
+    for hc, xc, name in (
+        ("product_type_no", "raw_i_product_type_no",
+         "f_user_product_type_count"),
+        ("department_no", "raw_i_department_no",
+         "f_user_department_count")
+    ):
+        values = h.groupby(["customer_id", hc]).size()
+        out[name] = lookup(["customer_id", xc], values)
+
+    return out.astype(float)

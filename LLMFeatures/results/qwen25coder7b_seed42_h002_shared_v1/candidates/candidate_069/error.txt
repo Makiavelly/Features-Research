@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/h002_run.py", line 193, in main
-    engine.prepare(sample.timestamp.iloc[0], sample.customer_id.values, program)
-  File "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/features.py", line 139, in prepare
-    self.con.execute(f"CREATE OR REPLACE TEMP TABLE {table} AS SELECT {columns},{feature_sql} FROM {source} GROUP BY {columns}")
-duckdb.duckdb.BinderException: Binder Error: Referenced column "raw_u_fashion_news_frequency" not found in FROM clause!
-Candidate bindings: "history.sales_channel_id", "history.graphical_appearance_no", "history.price", "history.index_group_no", "history.days_ago"
-LINE 1: ...ND) AS f_recent_transactions_count,AVG(raw_u_fashion_news_frequency) AS f_fash...
-                                                  ^

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "scripted_not_LLM": true,
+  "scope": "original constant control, real fold0 training pairs and search users",
+  "search_map": 0.000759548611111111,
+  "real_api_calls": 0
+}

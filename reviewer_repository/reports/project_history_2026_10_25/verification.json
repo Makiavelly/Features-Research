@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "local_links_checked": 54,
+  "missing_links": [],
+  "registry_rows": 323,
+  "recorded_standard_MAP_fields_checked": 238,
+  "source_files": 70,
+  "historical_sources_preserved": true,
+  "expected_history_updates_after_snapshot": [
+    "CONTEXT.md",
+    "STATUS.md",
+    "WORK_LOG.md",
+    "experiments/events.jsonl",
+    "experiments/state.json"
+  ],
+  "new_training_or_model_execution": false,
+  "scope": "References, registry transcription, completion markers and document-source integrity; not a rerun of historical predictions."
+}

@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n\n    # Calculate the average purchase price of each customer in the last 180 days\n    avg_price = history[(history['days_ago'] <= 180)][['customer_id', 'price']].groupby('customer_id')['price'].mean().to_frame('avg_price')\n    F['f_avg_price'] = avg_price['avg_price'].reindex(X['customer_id']).fillna(0).astype(float)\n\n    # Calculate the count of past purchases for each customer in the last 180 days\n    past_purchases = history[(history['days_ago'] <= 180)][['customer_id']].groupby('customer_id').size().to_frame('past_purchases')\n    F['f_past_purchases'] = past_purchases['past_purchases'].reindex(X['customer_id']).fillna(0).astype(float)\n\n    # Calculate the average age of customers who purchased each article in the last 180 days\n    avg_age = history[(history['days_ago'] <= 180)][['article_id', 'customer_age']].groupby('article_id')['customer_age'].mean().to_frame('avg_age')\n    F['f_avg_age'] = avg_age['avg_age'].reindex(X['article_id']).fillna(0).astype(float)\n\n    # Calculate the count of customers who purchased each article in the last 180 days\n    customer_count = history[(history['days_ago'] <= 180)]['customer_id'].groupby('article_id').nunique().to_frame('customer_count')\n    F['f_customer_count'] = customer_count['customer_count'].reindex(X['article_id']).fillna(0).astype(float)\n\n    return F[['f_avg_price', 'f_past_purchases', 'f_avg_age', 'f_customer_count']]\n```",
-  "seed": 50,
-  "prompt_tokens": 3038,
-  "generated_tokens": 383,
-  "seconds": 51.116281856999876,
-  "truncated": false
-}

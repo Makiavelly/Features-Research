@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    F = X.copy()\n    F['f_log_user_purchases'] = np.log1p(F['h_user_count_180'].fillna(0))\n    F['f_log_article_purchases'] = np.log1p(F['h_article_count_30'].fillna(0))\n    F['f_recent_purchase_ratio'] = F['h_user_article_count'] / F['h_user_count_180'].fillna(0)\n    F['f_recent_purchase_ratio_article'] = F['h_user_article_count'] / F['h_article_count_180'].fillna(0)\n    F['f_user_article_recency_diff'] = F['h_user_article_recency'] - F['h_article_recency']\n    F['f_article_colour_ratio'] = F['h_user_colour_count'] / F['h_user_count_180'].fillna(0)\n    return F\n```",
-  "seed": 54,
-  "prompt_tokens": 2509,
-  "generated_tokens": 187,
-  "seconds": 23.555703767000068,
-  "truncated": false
-}

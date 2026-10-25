@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify features for H&M clothing recommendations.\n\n    Parameters:\n    X (pd.DataFrame): A numeric pandas DataFrame with one row per customer-article pair.\n\n    Returns:\n    pd.DataFrame: A modified numeric pandas DataFrame with additional transformations.\n    \"\"\"\n    F = X.copy()\n    \n    # Calculate log of user purchases\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    \n    # Calculate log of article purchases\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    \n    # Calculate ratio of user purchases to article purchases\n    F['f_user_purchase_ratio'] = np.log1p(X['h_user_count_180'].fillna(0) / X['h_article_count_30'].fillna(0))\n    \n    # Calculate age-band indicator\n    F['f_age_band'] = np.floor(X['raw_u_age'] / 10) * 10\n    \n    # Calculate article recency ratio\n    F['f_article_recency_ratio'] = np.log1p(X['h_article_recency'] / 180)\n    \n    # Calculate user colour purchase ratio\n    F['f_user_colour_purchase_ratio'] = np.log1p(X['h_user_colour_count'] / X['h_article_count_180'].fillna(0))\n    \n    # Calculate log of article price mean\n    F['f_log_article_price_mean'] = np.log1p(X['h_article_price_mean'].fillna(0))\n    \n    return F\n```",
-  "seed": 45,
-  "prompt_tokens": 2509,
-  "generated_tokens": 334,
-  "seconds": 40.064081343,
-  "truncated": false
-}

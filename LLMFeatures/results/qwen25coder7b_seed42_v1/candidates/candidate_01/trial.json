@@ -1,7 +1,0 @@
-{
-  "candidate": 1,
-  "island": 0,
-  "status": "rejected",
-  "error": "Identifiers/statement keywords outside the feature interface",
-  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v1/candidates/candidate_01"
-}

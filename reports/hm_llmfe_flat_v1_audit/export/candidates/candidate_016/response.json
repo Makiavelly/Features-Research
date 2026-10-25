@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Create meaningful interactions, ratios, recency/popularity transforms,\n    and affinities between customer preferences and candidate attributes.\n    \"\"\"\n    import numpy as np\n    import pandas as pd\n    \n    F = X.copy()\n    \n    # Ratio of article purchases in 30 days over 180 days\n    F['f_article_purchase_ratio'] = X['h_article_count_30'].fillna(0) / X['h_article_count_180'].fillna(0)\n    \n    # Log of customer's past purchases of candidate's product type\n    F['f_log_product_type_purchases'] = np.log1p(X['h_user_type_count_180'].fillna(0))\n    \n    # Log of article purchases in 7 days times customer's past purchases of candidate's product type\n    F['f_log_article_purchases_times_product_type'] = np.log1p(X['h_article_count_7'].fillna(0)) * F['f_log_product_type_purchases']\n    \n    # Likelihood of purchase based on customer's past purchases of candidate's colour group\n    F['f_colour_group_likelihood'] = X['h_user_colour_count'].fillna(0) / (X['h_user_count_180'].fillna(0) + 1)\n    \n    return F\n```",
-  "seed": 57,
-  "prompt_tokens": 2509,
-  "generated_tokens": 273,
-  "seconds": 33.25763082100002,
-  "truncated": false
-}

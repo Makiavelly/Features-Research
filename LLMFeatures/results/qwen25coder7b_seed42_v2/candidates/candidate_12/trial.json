@@ -1,7 +1,0 @@
-{
-  "candidate": 12,
-  "island": 2,
-  "status": "rejected",
-  "error": "Forbidden token 'OVER': IDs only in grouping keys/counts; no SQL statements, window functions, or labels",
-  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/LLMFeatures/results/qwen25coder7b_seed42_v2/candidates/candidate_12"
-}

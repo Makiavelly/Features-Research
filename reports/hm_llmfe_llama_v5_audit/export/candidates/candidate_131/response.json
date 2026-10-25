@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Calculate average price per customer\n    avg_price_per_customer = history.groupby('customer_id')['price'].mean().reset_index()\n    F['f_avg_price_per_customer'] = avg_price_per_customer.set_index('customer_id')['price'].reindex(F.index).fillna(0)\n    \n    # Calculate number of purchases per customer\n    num_purchases_per_customer = history.groupby('customer_id')['days_ago'].count().reset_index()\n    F['f_num_purchases_per_customer'] = num_purchases_per_customer.set_index('customer_id')['days_ago'].reindex(F.index).fillna(0)\n    \n    # Calculate average purchase frequency per customer\n    avg_purchase_frequency_per_customer = history[history['days_ago'] > 0].groupby('customer_id')['days_ago'].mean().reset_index()\n    F['f_avg_purchase_frequency_per_customer'] = avg_purchase_frequency_per_customer.set_index('customer_id')['days_ago'].reindex(F.index).fillna(0)\n    \n    # Calculate number of unique product types purchased per customer\n    num_unique_product_types_per_customer = history.groupby('customer_id')['product_type_no'].nunique().reset_index()\n    F['f_num_unique_product_types_per_customer'] = num_unique_product_types_per_customer.set_index('customer_id')['product_type_no'].reindex(F.index).fillna(0)\n    \n    return F\n```",
-  "seed": 172,
-  "prompt_tokens": 2894,
-  "generated_tokens": 305,
-  "seconds": 40.35600700800023,
-  "truncated": false
-}

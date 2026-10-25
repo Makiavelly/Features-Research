@@ -1,7 +1,0 @@
-{
-  "status": "passed",
-  "checks": 6,
-  "new_api_attempts": 0,
-  "max_consecutive_stage_runs": 3,
-  "retry_delay_seconds": 30
-}

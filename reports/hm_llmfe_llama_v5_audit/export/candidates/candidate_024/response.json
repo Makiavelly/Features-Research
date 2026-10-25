@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Calculate moving averages and modes of past purchases\n    avg_price_180 = history[(history['days_ago'] <= 180) & (history['days_ago'] >= 0)].groupby(['customer_id', 'article_id'])['price'].mean().mean().reset_index(name='f_avg_price_180')\n    mode_product_type_180 = history[(history['days_ago'] <= 180) & (history['days_ago'] >= 0)].groupby(['customer_id', 'article_id'])['product_type_no'].apply(lambda x: x.mode().iloc[0]).reset_index(name='f_mode_product_type_180')\n    avg_age_180 = history[(history['days_ago'] <= 180) & (history['days_ago'] >= 0)].groupby('customer_id')['customer_age'].mean().mean().reset_index(name='f_avg_age_180')\n    \n    # Filter and merge history for each candidate pair\n    filtered_history = history[(history['days_ago'] <= 180) & (history['days_ago'] >= 0)]\n    merged_history = filtered_history.merge(avg_price_180, on='customer_id', how='left', validate='many_to_one')\n    merged_history = merged_history.merge(mode_product_type_180, on='customer_id', how='left', validate='many_to_one')\n    merged_history = merged_history.merge(avg_age_180, on='customer_id', how='left', validate='many_to_one')\n    \n    # Select required columns and assign to F\n    F = merged_history[['customer_id', 'article_id', 'f_avg_price_180', 'f_mode_product_type_180', 'f_avg_age_180']].copy()\n    \n    return F\n```",
-  "seed": 65,
-  "prompt_tokens": 2631,
-  "generated_tokens": 376,
-  "seconds": 45.754667877999964,
-  "truncated": false
-}

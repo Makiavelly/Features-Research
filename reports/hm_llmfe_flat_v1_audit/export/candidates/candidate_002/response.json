@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify the provided DataFrame to create new features for ranking customer-article pairs.\n    \n    Parameters:\n    X (numeric pandas DataFrame): Input data with customer-article pairs.\n    \n    Returns:\n    numeric pandas DataFrame: Modified data with new features.\n    \"\"\"\n    F = X.copy()\n    # Logarithmic transformation of user and article purchase counts\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    \n    # Recency transformation for user and article purchases\n    F['f_user_recency_ratio'] = X['h_user_recency'] / X['h_user_count_180'].fillna(0)\n    F['f_article_recency_ratio'] = X['h_article_recency'] / X['h_article_count_30'].fillna(0)\n    \n    # Interaction between user age and article color group\n    F['f_user_age_article_colour_group'] = X['raw_u_age'] * X['raw_i_colour_group_code']\n    \n    # Transformation of user type count and article color group count\n    F['f_user_type_count_article_colour_group_ratio'] = X['h_user_type_count_180'].fillna(0) / (X['h_user_colour_count'] + 1)\n    \n    # Return the modified DataFrame\n    return F\n```",
-  "seed": 43,
-  "prompt_tokens": 2509,
-  "generated_tokens": 308,
-  "seconds": 35.01611186799994,
-  "truncated": false
-}

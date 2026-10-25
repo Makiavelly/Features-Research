@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Compute the number of past purchases of each customer within the last 180 days\n    past_purchases = history.groupby('customer_id')['article_id'].nunique().reset_index()\n    \n    # Compute the average age of customers\n    avg_age = history.groupby('customer_id')['customer_age'].mean().reset_index()\n    \n    # Compute the average price of articles bought by customers within the last 180 days\n    avg_price_last_180_days = history.groupby(['customer_id', 'article_id'])['price'].mean().reset_index()\n    \n    # Merge the dataframes based on the customer id and article id\n    F = pd.merge(past_purchases, avg_age, on='customer_id', validate='many_to_one')\n    F = pd.merge(F, avg_price_last_180_days, on=['customer_id', 'article_id'], validate='many_to_one')\n    \n    # Group by article id and calculate the average values\n    F = F.groupby('article_id')[['past_purchases', 'avg_age', 'avg_price_last_180_days']].mean().reset_index()\n    \n    # Rename the columns\n    F.columns = ['f_past_purchases', 'f_avg_age', 'f_avg_price_last_180_days']\n    \n    return F\n```",
-  "seed": 103,
-  "prompt_tokens": 3464,
-  "generated_tokens": 272,
-  "seconds": 41.31065935800052,
-  "truncated": false
-}

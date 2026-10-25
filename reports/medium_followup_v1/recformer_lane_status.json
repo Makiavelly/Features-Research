@@ -1,8 +1,0 @@
-{
-  "status": "evaluated",
-  "selected_label": "lr3e6_w300",
-  "scope": "available_three_of_four_new_settings",
-  "excluded_unavailable": [
-    "lr3e6_w100"
-  ]
-}

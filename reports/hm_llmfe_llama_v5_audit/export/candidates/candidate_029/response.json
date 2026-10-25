@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    idx = history.set_index(['customer_id', 'article_id']).index\n    F = pd.DataFrame(index=X.index)\n    F['f_customer_age_in_180_days'] = history['customer_age'].loc[idx].fillna(0).rolling(180, min_periods=1).mean().reindex(idx)\n    F['f_customer_avg_price'] = history['price'].loc[idx].fillna(0).groupby(idx).mean().reindex(idx)\n    F['f_days_ago_avg_price'] = history['price'].loc[idx].fillna(0).rolling(7, min_periods=1).mean().reindex(idx)\n    F['f_customer Avg_product_type_no'] = history['product_type_no'].loc[idx].fillna(0).groupby(idx).mean().reindex(idx)\n    F['f_user_club_membership_avg'] = history['customer_age'].loc[idx].fillna(0).groupby(idx).mean().reindex(idx)\n    return F\n```\nThis solution computes the average customer age over 180 days, the average price per customer, the average price over the last 7 days, the average product type no per customer, and the average customer age grouped by user club membership status. These values are then assigned to the `f_*` columns in the returned DataFrame `F`.",
-  "seed": 70,
-  "prompt_tokens": 1947,
-  "generated_tokens": 282,
-  "seconds": 29.569381797000005,
-  "truncated": false
-}

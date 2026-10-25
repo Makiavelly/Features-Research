@@ -1,6 +1,0 @@
-upstream/
-cache/
-results/**/*.pt
-results/**/*.npy
-results/**/model.txt
-__pycache__/

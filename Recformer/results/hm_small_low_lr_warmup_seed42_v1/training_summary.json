@@ -1,8 +1,0 @@
-{
-  "training_and_validation_seconds": 1093.3031492580012,
-  "peak_cuda_bytes": 3424326656,
-  "optimizer_updates": 1201,
-  "amp_skipped_updates": 3,
-  "best_trained_val_map": 0.0355434039644566,
-  "epochs": 4
-}

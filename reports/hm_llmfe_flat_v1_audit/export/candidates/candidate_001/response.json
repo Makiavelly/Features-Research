@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modify the input DataFrame X by creating new numeric features based on existing columns.\n\n    Parameters:\n    X (pd.DataFrame): Input DataFrame.\n\n    Returns:\n    F (pd.DataFrame): Modified DataFrame.\n    \"\"\"\n    F = X.copy()\n    # Calculate log of user purchases in the last 180 days\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n    # Calculate log of article purchases in the last 30 days\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n    # Calculate ratio of user article purchases to user purchases\n    F['f_user_article_ratio'] = X['h_user_article_count'] / X['h_user_count_180'].fillna(0)\n    # Calculate ratio of user colour purchases to user purchases\n    F['f_user_colour_ratio'] = X['h_user_colour_count'] / X['h_user_count_180'].fillna(0)\n    # Calculate product type count ratio in the last 30 days\n    F['f_user_product_type_ratio_30'] = X['h_user_type_count_30'] / X['h_user_count_30'].fillna(0)\n    # Calculate article recency ratio in the last 180 days\n    F['f_article_recency_ratio'] = X['h_article_recency'] / X['h_article_count_180'].fillna(0)\n    # Calculate user recency ratio in the last 180 days\n    F['f_user_recency_ratio'] = X['h_user_recency'] / X['h_user_count_180'].fillna(0)\n    return F\n```",
-  "seed": 42,
-  "prompt_tokens": 2509,
-  "generated_tokens": 362,
-  "seconds": 40.706966299999976,
-  "truncated": false
-}

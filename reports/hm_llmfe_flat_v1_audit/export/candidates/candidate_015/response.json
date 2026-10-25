@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X):\n    \"\"\"\n    Modifies the input DataFrame X to create meaningful interactions, ratios, \n    recency/popularity transforms, and affinities between customer preferences \n    and candidate attributes.\n\n    Parameters:\n    X (pd.DataFrame): Input DataFrame with numeric values\n\n    Returns:\n    F (pd.DataFrame): Modified DataFrame with additional features\n    \"\"\"\n    F = X.copy()\n\n    # Calculate log of user purchases\n    F['f_log_user_purchases'] = np.log1p(X['h_user_count_180'].fillna(0))\n\n    # Calculate log of article purchases\n    F['f_log_article_purchases'] = np.log1p(X['h_article_count_30'].fillna(0))\n\n    # Calculate ratio of article purchases to user purchases\n    F['f_article_purchase_ratio'] = X['h_article_count_30'].fillna(0) / (X['h_user_count_180'].fillna(0) + 1)\n\n    # Calculate age-based discount for article purchases\n    F['f_age_discount'] = np.minimum(F['raw_u_age'], 50) / 100\n\n    # Calculate popularity of article by user\n    F['f_user_article_popularity'] = np.log1p(X['h_user_article_count'].fillna(0)) + np.log1p(X['h_article_count_30'].fillna(0))\n\n    # Calculate similarity between user and article based on color group\n    F['f_color_similarity'] = np.minimum(X['raw_i_colour_group_code'], X['raw_i_perceived_colour_value_id']) / 100\n\n    return F\n```",
-  "seed": 56,
-  "prompt_tokens": 2509,
-  "generated_tokens": 336,
-  "seconds": 39.77059299899997,
-  "truncated": false
-}

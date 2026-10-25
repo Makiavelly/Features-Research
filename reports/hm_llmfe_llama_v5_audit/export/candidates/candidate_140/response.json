@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    # Compute average purchase price for each customer in the last 180 days\n    avg_price_series = history.loc[history['days_ago'] <= 180, 'price'].groupby(history['customer_id']).mean().mean()\n    F = pd.DataFrame(index=X.index)\n    F['f_avg_price'] = avg_price_series.values\n    \n    # Compute number of past purchases for each customer in the last 180 days\n    past_purchases_series = history.loc[history['days_ago'] <= 180, 'customer_id'].value_counts().sort_index().sort_index().reindex(X['customer_id']).fillna(0)\n    F['f_past_purchases'] = past_purchases_series[X.index].values\n    \n    # Compute average age of customers who made purchases in the last 180 days\n    avg_age_series = history.loc[history['days_ago'] <= 180, 'customer_age'].groupby(history['customer_id']).mean().mean()\n    F['f_avg_age'] = avg_age_series.values\n    \n    # Compute average number of past purchases per day for each customer in the last 180 days\n    past_purchases_per_day_series = history.loc[history['days_ago'] <= 180, 'days_ago'].groupby(history['customer_id']).count().mean()\n    F['f_past_purchases_per_day'] = past_purchases_per_day_series.values\n    \n    return F\n```",
-  "seed": 181,
-  "prompt_tokens": 2830,
-  "generated_tokens": 303,
-  "seconds": 39.549355543000274,
-  "truncated": false
-}

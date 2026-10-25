@@ -1,8 +1,0 @@
-{
-  "text": "```python\ndef modify_features(X, history):\n    F = pd.DataFrame(index=X.index)\n    \n    # Calculate past purchases within a 7-day window\n    history_7day = history[history['days_ago'] <= 7]\n    F['f_past_purchases_7day'] = history_7day.groupby('customer_id')['article_id'].count().reindex(F.index) / 7\n    \n    # Calculate the number of articles purchased in total\n    F['f_total_past_purchases'] = history.groupby('customer_id')['article_id'].count().reindex(F.index)\n    \n    # Calculate the average price of past purchases\n    F['f_avg_price'] = history.groupby('customer_id')['price'].mean().reindex(F.index)\n    \n    # Calculate the number of different product codes purchased\n    F['f_unique_product_codes'] = history.groupby('customer_id')['product_code'].nunique().reindex(F.index)\n    \n    # Calculate the number of articles purchased in the same department\n    F['f_same_department_purchases'] = history.groupby('customer_id')['department_no'].apply(lambda x: x.value_counts().max()).reindex(F.index)\n    \n    return F\n```\n\nThis function calculates the following features based on the provided data:\n\n1. `f_past_purchases_7day`: The average number of past purchases per customer within a 7-day window.\n2. `f_total_past_purchases`: The total number of past purchases per customer.\n3. `f_avg_price`: The average price of past purchases per customer.\n4. `f_unique_product_codes`: The number of unique product codes purchased per customer.\n5. `f_same_department_purchases`: The maximum number of articles purchased in the same department per customer.",
-  "seed": 97,
-  "prompt_tokens": 1947,
-  "generated_tokens": 362,
-  "seconds": 37.31175338799949,
-  "truncated": false
-}

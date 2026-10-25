@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "checks": [
-    "overwritten positive global logit has zero direct gradient at lambda0",
-    "auxiliary CE restores positive supervision",
-    "local gradient preserved"
-  ]
-}

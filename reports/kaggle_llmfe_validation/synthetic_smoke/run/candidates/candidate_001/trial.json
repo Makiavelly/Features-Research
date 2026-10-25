@@ -1,9 +1,0 @@
-{
-  "sample": 1,
-  "island": 0,
-  "batch": 0,
-  "directory": "/mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/kaggle_llmfe_validation/synthetic_smoke/run/candidates/candidate_001",
-  "status": "rejected",
-  "error": "invalid syntax (<unknown>, line 1)",
-  "elapsed_seconds": 0.013580654001998482
-}

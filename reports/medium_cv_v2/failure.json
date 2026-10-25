@@ -1,4 +1,0 @@
-{
-  "error": "f2_h008_search failed; inspect /mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/medium_cv_v2/stages/f2_h008_search.log",
-  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVBenchmark/pipeline.py\", line 75, in main\n    if failures:raise RuntimeError('; '.join(failures))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: f2_h008_search failed; inspect /mnt/c/Users/Мишаня/ml/projs/tbank/Features/reports/medium_cv_v2/stages/f2_h008_search.log\n"
-}

@@ -1,3 +1,0 @@
-{
-  "error": "Command '['/mnt/c/Users/Мишаня/ml/projs/tbank/Features/RelBenchGNN/.venv-wsl/bin/python', '-u', '/mnt/c/Users/Мишаня/ml/projs/tbank/Features/CVFollowup/gnn_timefix.py', '2', 'evaluate']' returned non-zero exit status 1."
-}

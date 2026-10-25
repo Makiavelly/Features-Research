@@ -1,0 +1,4 @@
+reportlab==5.1.0
+markdown-it-py==4.2.0
+pymupdf==2.0
+pillow==13.0.0

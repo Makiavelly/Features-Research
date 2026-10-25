@@ -1,9 +1,0 @@
-{
-  "candidate": "candidate_019",
-  "exit_code": 1,
-  "preflight_passed": false,
-  "seconds": 2.623553835997882,
-  "formulas_edited": false,
-  "full_training_performed": false,
-  "log": "reports/kaggle_llama_v3_audit/preflight_replay/candidate_019/preflight.log"
-}
