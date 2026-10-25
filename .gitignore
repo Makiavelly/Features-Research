@@ -1,0 +1,158 @@
+# Local Python environments and caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv-cache/
+.ipynb_checkpoints/
+
+# Downloaded datasets and pretrained embeddings (keep manifests and docs)
+/data/rel-hm/
+/data/models/
+/data/.hf-cache/
+
+# Generated feature caches, runtime logs and process files
+/RelBenchGNN/cache/
+/baseline/cache/
+/RelBenchGNN/logs/
+/RelBenchGNN/tools/uv-x86_64-unknown-linux-gnu/
+/RelBenchGNN/tools/uv.tar.gz
+*.log
+*.pid
+/experiments/.lock
+
+# Large model and prediction artifacts (keep JSON metrics and reports)
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# Local secrets and temporary files
+.env
+.env.*
+!.env.example
+!.env.sample
+*.tmp
+*.partial
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Isolated audit dependencies and downloaded installers
+/reports/hm_small_llms_v1/audit_deps/
+/reports/hm_small_llms_v1/pip.pyz
+/LLMFeatures/kaggle/.check-deps/
+/reports/full_sql_delivery_v1/check_deps/
+/reports/provider_small_v1/example_scratch/
+/reports/gpt61sol_small_v2/independent_replay/**/model.txt
+/reports/gpt61sol_python_v1/independent_replay/**/model.txt
+/reports/gpt61sol_python_v1/validator_review_scratch/
+/reports/gpt61sol_python_v1/numeric_reference_scratch/
+/reports/gpt61sol_python_v1/diversity_scratch/
+/reports/authored20_v1/audit_scratch/
+/reports/authored20_v1/independent_replay/**/model.txt
+/LLMFeatures/results/hm_small_codex_authored20_*/**/model.txt
+/LLMFeatures/results/hm_small_codex_authored20_*/**/scratch/
+/LLMFeatures/results/hm_small_codex_authored20_*/**/matrix_scratch/
+/LLMFeatures/results/hm_small_gpt61sol_python_*/migration_scratch/
+/reports/gpt61sol_python_v1/rejection_replay/**/model.txt
+/reports/provider_python_v1/validator_scratch/
+/reports/provider_generated_only_v1/validator_scratch/
+/reports/provider_generated_only_v1/audit_scratch/
+/reports/provider_history_v1/audit_scratch/
+/reports/provider_history_v1/validator_diagnostic_scratch/
+/reports/provider_generated_only_v1/independent_replay/**/model.txt
+/reports/disk_audit_20261018
+/LLMFeatures/results/hm_small_gpt61sol_python_*/**/model.txt
+/reports/gpt61sol_small_v1/probe_scratch/
+/reports/gpt61sol_small_v1/independent_replay/**/model.txt
+/LLMFeatures/results/hm_small_gpt61sol_*/**/model.txt
+/LLMFeatures/results/hm_small_gpt61sol_*/**/scratch/
+
+# Unpacked Kaggle outputs (original archives are stored outside Git)
+/reports/hm_small_llms_v1/exports/
+/reports/h003_small_v1/exports/
+/reports/h003_small_v1/probe_scratch/
+/reports/h003_small_v1/independent_replay_kaggle_cpu/**/model.txt
+*_results.zip
+
+# Temporary SQL databases and feature evaluation scratch directories
+*.duckdb
+*.duckdb.wal
+/reports/hm_small_llms_v1/probe_scratch/
+/reports/kaggle_llmfe_validation/**/scratch/
+/reports/kaggle_llmfe_validation/**/engine_scratch/
+
+# Raw API experiments stay local; retain compact input/config provenance.
+/data/hm-cv-medium-*/
+/CVBenchmark/cache/
+/CVBenchmark/results/
+/reports/medium_cv_*/runtime/
+/reports/medium_cv_*/scratch/
+# Selected feature programs are also exported to reports/*/selected_program.*.
+/LLMFeatures/results/hm_small_gpt61sol_*/*
+!/LLMFeatures/results/hm_small_gpt61sol_*/run_config.json
+!/LLMFeatures/results/hm_small_gpt61sol_*/input_manifest.json
+!/LLMFeatures/results/hm_small_gpt61sol_*/input_selection.json
+!/LLMFeatures/results/hm_small_gpt61sol_*/validation_selection.json
+/LLMFeatures/results/hm_small_codex_authored20_*/*
+!/LLMFeatures/results/hm_small_codex_authored20_*/run_config.json
+!/LLMFeatures/results/hm_small_codex_authored20_*/input_manifest.json
+!/LLMFeatures/results/hm_small_codex_authored20_*/input_selection.json
+!/LLMFeatures/results/hm_small_codex_authored20_*/validation_selection.json
+
+# Reproducible smoke/replay outputs, local provider probes and run pointers.
+/reports/kaggle_llmfe_validation/**/cpu_smoke/
+/reports/**/independent_replay/
+/reports/**/independent_replay_kaggle_cpu/
+/reports/**/rejection_replay/
+/reports/**/model.txt
+/reports/tokenclub_probe_v1/
+/reports/**/current_run.json
+/reports/provider_small_v1/corrected_run.json
+/.vscode/
+
+/CVFollowup/results/
+/CVFollowup/cache/
+/CVFollowup/kaggle/*.zip
+/reports/medium_followup_*/runtime/
+/reports/medium_followup_*/scratch/
+/reports/medium_followup_*/recovery/
+
+# H010 raw API requests, train-only research databases, model and scratch outputs.
+/LLMResearch/results/
+/reports/medium_h010_research_v1/cpu_smoke/
+/reports/medium_h010_research_v2/cpu_smoke/
+/LLMResearch/agent_environment/sessions/
+/reports/medium_h010_research_v2/responses_compatibility_probe/
+/reports/medium_h011_codex_v1/preflight_scratch/
+/LLMResearch/agent_environment/tool_paths.json
+
+
+# Archived agent session internals (retain snapshot manifests and source code).
+/reports/medium_h011_codex_v1/before_budget300/session/
+/reports/**/*.sqlite
+/reports/**/*.sqlite-wal
+/reports/**/*.sqlite-shm
+
+# Local process coordination and resource snapshots; retain verification reports.
+/reports/**/*.lock
+/reports/**/resources_*.json
+/reports/**/pipeline_status.json
+/reports/**/progress.json
+
+# Recomputable per-user diagnostics; retain aggregate CSV/JSON metrics and plots.
+/reports/**/*per_user*.parquet
+/reports/**/target_inventory.parquet
+
+# Generated tree-model dumps are reproducible and can exceed GitHub's 100 MiB limit.
+/LLMFeatures/results/qwen25coder7b_*/**/model.txt
+/reports/kaggle_llmfe_validation/**/model.json
